@@ -1,0 +1,45 @@
+.category {
+  &__image {
+    @media (min-width: 639px) {
+      height: 220px;
+    }
+
+    @media (min-width: 1200px) {
+      height: 365px;
+    }
+  }
+
+  &__box {
+    @media (min-width: 639px) {
+      height: 220px;
+    }
+
+    @media (min-width: 1200px) {
+      height: 365px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #313237;
+  }
+
+  &__count {
+    margin: 0;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #89939A;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
