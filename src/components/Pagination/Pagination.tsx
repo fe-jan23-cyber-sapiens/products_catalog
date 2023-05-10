@@ -7,10 +7,10 @@ import arrowRight from './common_components/assets/icons/arrowRight.svg';
 import arrowLeft from './common_components/assets/icons/arrowLeft.svg';
 
 interface PaginationProps {
-  total: number
-  perPage: number
-  currentPage: number
-  onPageChange: (currentPage: number) => void
+  total: number;
+  perPage: number;
+  currentPage: number;
+  onPageChange: (currentPage: number) => void;
 }
 
 export const Pagination: FC<PaginationProps> = ({
@@ -38,23 +38,24 @@ export const Pagination: FC<PaginationProps> = ({
 
   return (
     <ul className="pagination pagination--large">
-      <li className={classNames(
-        'pagination__item',
-        'pagination__item--previous',
-        { 'pagination__item--disabled': isFirstPageIndex },
-      )}
+      <li
+        className={classNames(
+          'pagination__item',
+          'pagination__item--previous',
+          { 'pagination__item--disabled': isFirstPageIndex },
+        )}
       >
         <Link
           to="#prev"
           aria-disabled={isFirstPageIndex}
           onClick={handlePreviousPageClick}
-          className="pagination__link"
+          className="pagination__link pagination__link--prev"
         >
           <img src={arrowLeft} alt="Arrow show left direction" />
         </Link>
       </li>
 
-      {paginationRange.map(page => (
+      {paginationRange.map((page) => (
         <li
           key={page}
           className={classNames('pagination__item', {
@@ -64,24 +65,25 @@ export const Pagination: FC<PaginationProps> = ({
           <Link
             to={`#${page}`}
             onClick={() => onPageChange(page)}
-            className="pagination__link"
+            className={classNames('pagination__link', {
+              'pagination__link--active': page === currentPage,
+            })}
           >
             {page}
           </Link>
         </li>
       ))}
 
-      <li className={classNames(
-        'pagination__item',
-        'pagination__item--next',
-        { 'pagination__item--disabled': isLastPageIndex },
-      )}
+      <li
+        className={classNames('pagination__item', {
+          'pagination__item--disabled': isLastPageIndex,
+        })}
       >
         <Link
           to="#next"
           aria-disabled={isLastPageIndex}
           onClick={handleNextPageClick}
-          className="pagination__link"
+          className="pagination__link pagination__link--next"
         >
           <img src={arrowRight} alt="Arrow show right direction" />
         </Link>
