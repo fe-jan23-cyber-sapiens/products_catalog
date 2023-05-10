@@ -1,54 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 
-type SetValue<T> = (value: T | ((val: T) => T)) => void;
-
-type ReturnTuple<T> = [T, SetValue<T>];
+type LocalStorage<T> = [T, (value: T | ((val: T) => T)) => void];
 
 export function useLocalStorage<T>(
   key: string,
-  initialValue: T,
-): ReturnTuple<T> {
-  const [value, setValue] = useState<T>(() => {
-    const savedValue = localStorage.getItem(key);
+  initial?: T,
+): LocalStorage<T> {
+  const [stored, setStored] = useState<T>(() => {
+    const item = window.localStorage.getItem(key);
 
-    if (savedValue !== null) {
-      return JSON.parse(savedValue);
-    }
-
-    return initialValue;
+    return item ? JSON.parse(item) : initial;
   });
 
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+  const setValue = useCallback(
+    (value: T | ((prev: T) => T)) => {
+      setStored((prev) => {
+        const next = value instanceof Function ? value(prev) : value;
 
-  return [value, setValue];
+        window.localStorage.setItem(key, JSON.stringify(next));
+
+        return next;
+      });
+    },
+    [key],
+  );
+
+  return [stored, setValue];
 }
-
-// type LocalStorage<T> = [T, (value: T | ((val: T) => T)) => void]
-//
-// export const useLocalStorage = <T>(
-//   key: string,
-//   initial?: T,
-// ): LocalStorage<T> => {
-//   const [stored, setStored] = useState<T>(() => {
-//     const item = window.localStorage.getItem(key);
-//
-//     return item ? JSON.parse(item) : initial;
-//   });
-//
-//   const setValue = useCallback(
-//     (value: T | ((prev: T) => T)) => {
-//       setStored((prev) => {
-//         const next = value instanceof Function ? value(prev) : value;
-//
-//         window.localStorage.setItem(key, JSON.stringify(next));
-//
-//         return next;
-//       });
-//     },
-//     [key],
-//   );
-//
-//   return [stored, setValue];
-// };
