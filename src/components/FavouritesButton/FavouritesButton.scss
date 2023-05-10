@@ -1,0 +1,24 @@
+@import '../../variables';
+
+.btn__favourites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+
+  background: $white-color;
+  border: none;
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $icons-color;
+  }
+  
+  &--selected {
+    border: 1px solid $elements-color;
+  }
+}

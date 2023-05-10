@@ -6,8 +6,6 @@ import { ProductsPage } from './pages/ProductsPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 
-import './App.scss';
-
 export const App = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />

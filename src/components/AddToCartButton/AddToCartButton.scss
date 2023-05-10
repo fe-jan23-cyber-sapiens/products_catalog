@@ -1,0 +1,53 @@
+@import '../../variables';
+
+.btn__add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: $primary-color;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  color: $white-color;
+  text-decoration: none;
+
+  border: none;
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $hover-color;
+  }
+
+  &--clicked {
+    background: $surface2-color;
+  }
+  
+  &.custom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background 0.3s ease;
+
+    &.add {
+      background-color: $accent-color;
+      color: $white-color;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+
+      &--clicked {
+        background-color: $surface2-color;
+      }
+    }
+  }
+}
