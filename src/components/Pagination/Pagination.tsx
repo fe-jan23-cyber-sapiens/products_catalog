@@ -1,5 +1,8 @@
 import { FC } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { getNumbers } from './utils';
+import './Pagination.scss';
 
 interface PaginationProps {
   total: number
@@ -17,7 +20,7 @@ export const Pagination: FC<PaginationProps> = ({
   const totalPageCount = Math.ceil(total / perPage);
   const isFirstPageIndex = currentPage === 1;
   const isLastPageIndex = currentPage === totalPageCount;
-  // const paginationRange = getNumbers(1, totalPageCount);
+  const paginationRange = getNumbers(1, totalPageCount);
 
   const handlePreviousPageClick = () => {
     if (!isFirstPageIndex) {
@@ -32,56 +35,56 @@ export const Pagination: FC<PaginationProps> = ({
   };
 
   return (
-    <ul className="pagination">
+    <ul className="pagination pagination--large">
       <li className={classNames(
-        'page-item',
-        { disabled: isFirstPageIndex },
+        'pagination__item',
+        'pagination__item--previous',
+        { 'pagination__item--disabled': isFirstPageIndex },
       )}
       >
-        <a
-          data-cy="prevLink"
-          className="page-link"
-          href="#prev"
+        <Link
+          to="#prev"
           aria-disabled={isFirstPageIndex}
           onClick={handlePreviousPageClick}
+          className="pagination__link pagination__link-arrow--rig"
         >
           «
-        </a>
+        </Link>
       </li>
 
-      {/* {paginationRange.map(page => ( */}
-      {/*  <li */}
-      {/*    key={page} */}
-      {/*    className={classNames('page-item', { */}
-      {/*      active: page === currentPage, */}
-      {/*    })} */}
-      {/*  > */}
-      {/*    <a */}
-      {/*      data-cy="pageLink" */}
-      {/*      className="page-link" */}
-      {/*      href={`#${page}`} */}
-      {/*      onClick={() => onPageChange(page)} */}
-      {/*    > */}
-      {/*      {page} */}
-      {/*    </a> */}
-      {/*  </li> */}
-      {/* ))} */}
+      {paginationRange.map(page => (
+        <li
+          key={page}
+          className={classNames('pagination__item', {
+            'pagination__item--active': page === currentPage,
+          })}
+        >
+          <Link
+            to={`#${page}`}
+            onClick={() => onPageChange(page)}
+            className="pagination__link"
+          >
+            {page}
+          </Link>
+        </li>
+      ))}
 
       <li className={classNames(
-        'page-item',
-        { disabled: isLastPageIndex },
+        'pagination__item',
+        'pagination__item--next',
+        { 'pagination__item--disabled': isLastPageIndex },
       )}
       >
-        <a
-          data-cy="nextLink"
-          className="page-link"
-          href="#next"
+        <Link
+          to="#next"
           aria-disabled={isLastPageIndex}
           onClick={handleNextPageClick}
+          className="pagination__link"
         >
           »
-        </a>
+        </Link>
       </li>
     </ul>
+
   );
 };
