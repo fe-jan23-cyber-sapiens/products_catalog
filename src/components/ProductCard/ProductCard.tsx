@@ -6,7 +6,7 @@ export const ProductItem = () => {
     return (
       <div className="product-item">
         <img
-          src=""
+          src="src/assets/cardItemPic/cardItem.jpg"
           alt="Phone"
           className="product-item__image"
         />
