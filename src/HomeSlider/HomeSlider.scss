@@ -1,0 +1,21 @@
+.carousel {
+  max-width: 1040px;
+  margin: 40px auto;
+
+  &__image-box {
+    height: 400px;
+  }
+
+  @media (max-width: 639px) {
+    width: 100%;
+    height: 320px;
+
+    &__image {
+      height: 320px;
+      width: 100%;
+
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+}
