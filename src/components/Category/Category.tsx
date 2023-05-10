@@ -3,10 +3,10 @@ import './Category.scss';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  products: number,
-  title: string,
-  image: string,
-  link: string,
+  products: number;
+  title: string;
+  image: string;
+  link: string;
 }
 
 export const Category: FC<Props> = (props) => {
