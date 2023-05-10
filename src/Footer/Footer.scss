@@ -9,49 +9,49 @@
 
   border-top: 1px solid #e2e6e9;
 
-  @media (min-width: 320px) and (max-width: 639px)  {
+  @media (min-width: 320px) and (max-width: 639px) {
     flex-direction: column;
     align-items: flex-start;
     height: 257px;
     padding: 16px;
   }
 
-  @media (min-width: 640px) and (max-width: 1200px)  {
+  @media (min-width: 640px) and (max-width: 1200px) {
     justify-content: space-between;
     padding: 32px;
   }
 
-    &--back {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: fit-content;
+  &--back {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: fit-content;
 
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15px;
-      text-align: right;
-      color: #89939a;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    color: #89939a;
 
-      @media (min-width: 320px) and (max-width: 639px)  {
-        margin: 0 auto;
-      }
-
-        &__link {
-          width: 32px;
-          height: 32px;
-          margin: 16px;
-          background-image: url('../arrow/arrow.svg');
-          background-color: #fff;
-          background-repeat: no-repeat;
-          background-position: center;
-          border: 1px solid #b4bdc3;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
+    @media (min-width: 320px) and (max-width: 639px) {
+      margin: 0 auto;
     }
+
+    &__link {
+      width: 32px;
+      height: 32px;
+      margin: 16px;
+      background-image: url('../arrow/arrow.svg');
+      background-color: #fff;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid #b4bdc3;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 
   &-nav {
     width: 25%;
@@ -60,12 +60,12 @@
 
     list-style: none;
 
-    @media (min-width: 320px) and (max-width: 639px)  {
+    @media (min-width: 320px) and (max-width: 639px) {
       flex-direction: column;
       align-items: flex-start;
     }
 
-    @media (min-width: 640px) and (max-width: 1200px)  {
+    @media (min-width: 640px) and (max-width: 1200px) {
       min-width: 35%;
     }
 
@@ -84,7 +84,7 @@
     }
 
     &__item {
-      @media (min-width: 320px) and (max-width: 639px)  {
+      @media (min-width: 320px) and (max-width: 639px) {
         margin-top: 16px;
       }
     }
