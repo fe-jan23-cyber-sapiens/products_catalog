@@ -8,9 +8,6 @@ import accessories from '../../assets/categories/accessories.png';
 export const Categories = () => {
   return (
     <section className="categories">
-      {/* <div className="categories__container"> */}
-      {/* <h1 className="categories__title">Shop by category</h1> */}
-
       <Category
         products={0}
         title="Mobile Phones"
@@ -31,7 +28,6 @@ export const Categories = () => {
         image={accessories}
         link="/accessories"
       />
-      {/* </div> */}
     </section>
   );
 };
