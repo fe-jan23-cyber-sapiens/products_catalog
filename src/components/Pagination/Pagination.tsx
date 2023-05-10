@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { getNumbers } from './utils';
 import './Pagination.scss';
+import arrowRight from './common_components/assets/icons/arrowRight.svg';
+import arrowLeft from './common_components/assets/icons/arrowLeft.svg';
 
 interface PaginationProps {
   total: number
@@ -46,9 +48,9 @@ export const Pagination: FC<PaginationProps> = ({
           to="#prev"
           aria-disabled={isFirstPageIndex}
           onClick={handlePreviousPageClick}
-          className="pagination__link pagination__link-arrow--rig"
+          className="pagination__link"
         >
-          «
+          <img src={arrowLeft} alt="Arrow show left direction" />
         </Link>
       </li>
 
@@ -81,10 +83,9 @@ export const Pagination: FC<PaginationProps> = ({
           onClick={handleNextPageClick}
           className="pagination__link"
         >
-          »
+          <img src={arrowRight} alt="Arrow show right direction" />
         </Link>
       </li>
     </ul>
-
   );
 };
