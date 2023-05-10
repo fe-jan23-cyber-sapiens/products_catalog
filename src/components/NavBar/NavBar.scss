@@ -1,0 +1,45 @@
+@import '../../styles_utils/colors';
+@import '../../styles_utils/vars';
+@import '../../styles_utils/mixins';
+
+.navbar {
+  display: flex;
+  gap: 32px;
+
+  @include onLaptop {
+    gap: 64px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $header-height-s;
+
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--secondary-light);
+
+    &--is-active {
+      position: relative;
+      color: var(--primary-light);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary-light);
+      }
+    }
+
+    @include onLaptop {
+      height: $header-height-l;
+    }
+  }
+}

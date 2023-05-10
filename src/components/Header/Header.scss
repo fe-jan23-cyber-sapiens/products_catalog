@@ -1,0 +1,79 @@
+@import '../../styles_utils/mixins';
+@import '../../styles_utils//vars';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 0px var(--elements-light);
+
+  &__left-side {
+    display: flex;
+    align-items: center;
+
+    & > :last-child {
+      display: none;
+
+      @include onTablet {
+        margin-left: 32px;
+        display: flex;
+      }
+
+      @include onLaptop {
+        margin-left: 48px;
+      }
+    }
+  }
+
+  &__right-side {
+    display: flex;
+
+    & > :not(:last-child) {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    & > :last-child {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $logo-wrapper-width-s;
+    height: $header-height-s;
+
+    box-shadow: -1px 0px 0px var(--elements-light);
+
+    @include onLaptop {
+      width: $logo-wrapper-width-l;
+      height: $header-height-l;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--main-logo {
+      width: 64px;
+      height: 22px;
+      margin-left: 16px;
+
+      @include onLaptop {
+        width: 80px;
+        height: 26.5px;
+        margin-left: 24px;
+      }
+    }
+  }
+}
