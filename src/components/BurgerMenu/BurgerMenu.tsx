@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '../logo/Logo.svg';
+import logo from '../../assets/logos/Logo.svg';
 import './BurgerMenu.scss';
 
 export const BurgerMenu: React.FC = () => {

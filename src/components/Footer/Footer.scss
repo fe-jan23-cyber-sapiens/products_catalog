@@ -1,5 +1,3 @@
-@import url('../_normalize.scss');
-
 .footer {
   display: flex;
   justify-content: space-around;
@@ -41,7 +39,7 @@
       width: 32px;
       height: 32px;
       margin: 16px;
-      background-image: url('../arrow/arrow.svg');
+      background-image: url('../../assets/arrow/arrow.svg');
       background-color: #fff;
       background-repeat: no-repeat;
       background-position: center;

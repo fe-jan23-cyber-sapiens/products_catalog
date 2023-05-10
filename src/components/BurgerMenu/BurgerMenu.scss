@@ -1,5 +1,3 @@
-@import url('../_normalize.scss');
-
 .top-actions {
   display: flex;
   align-items: center;
@@ -16,7 +14,7 @@
     width: 48px;
 
     background-color: #fff;
-    background-image: url('./Cross.svg');
+    background-image: url('../../assets/logos/Cross.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: none;
@@ -69,14 +67,14 @@
       background-color: #fff;
 
       &--heart {
-        background-image: url('./Heart.svg');
+        background-image: url('../../assets/logos/Heart.svg');
         background-position: center;
         background-repeat: no-repeat;
         border-right: 1px solid #e2e6e9;
       }
 
       &--card {
-        background-image: url('./ShoppingBag.svg');
+        background-image: url('../../assets/logos/ShoppingBag.svg');
         background-position: center;
         background-repeat: no-repeat;
       }
