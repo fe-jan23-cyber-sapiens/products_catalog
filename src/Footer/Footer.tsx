@@ -30,11 +30,7 @@ export const Footer: React.FC = () => {
 
       <div className="footer-back">
         <span>Back to top</span>
-        <button
-          className="footer-back_link"
-          type="button"
-          aria-label="back"
-        />
+        <button className="footer-back_link" type="button" aria-label="back" />
       </div>
     </footer>
   );

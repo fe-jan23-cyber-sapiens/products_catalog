@@ -4,7 +4,7 @@ import logo from '../logo/Logo.svg';
 import './BurgerMenu.scss';
 
 export const BurgerMenu: React.FC = () => {
-//   const { Cross, Heart, ShoppingBag } = images;
+  //   const { Cross, Heart, ShoppingBag } = images;
 
   return (
     <nav className="menu">
@@ -51,12 +51,12 @@ export const BurgerMenu: React.FC = () => {
 
         <div className="menu__footer">
           <button
-            aria-label="like"
+            aria-label="favorites"
             type="button"
             className="menu__footer--button menu__footer--button--heart"
           />
           <button
-            aria-label="like"
+            aria-label="shopping_card"
             type="button"
             className="menu__footer--button menu__footer--button--card"
           />
