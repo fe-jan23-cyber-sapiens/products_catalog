@@ -1,36 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../logo/Logo.svg';
-// import arrow from '../arrow/arrow.svg';
 import './Footer.scss';
 
 export const Footer: React.FC = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="footer">
-      <a href="/">
+      <Link to="/">
         <img src={logo} alt="a" />
-      </a>
+      </Link>
 
       <ul className="footer-nav">
-        <li>
-          <a className="footer-nav_link" href="/">
+        <li className="footer-nav__item">
+          <a className="footer-nav__link" href="/">
             Github
           </a>
         </li>
-        <li>
-          <a className="footer-nav_link" href="/">
+        <li className="footer-nav__item">
+          <a className="footer-nav__link" href="/">
             Contacts
           </a>
         </li>
-        <li>
-          <a className="footer-nav_link" href="/">
+        <li className="footer-nav__item">
+          <a className="footer-nav__link" href="/">
             Rights
           </a>
         </li>
       </ul>
 
-      <div className="footer-back">
+      <div className="footer--back">
         <span>Back to top</span>
-        <button className="footer-back_link" type="button" aria-label="back" />
+        <button
+          className="footer--back__link"
+          type="button"
+          aria-label="back"
+          onClick={handleScrollToTop}
+        />
       </div>
     </footer>
   );

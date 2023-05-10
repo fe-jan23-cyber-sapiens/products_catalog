@@ -1,8 +1,11 @@
+@import url('../_normalize.scss');
+
 .top-actions {
-  border-bottom: 1px solid #e2e6e9;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  border-bottom: 1px solid #e2e6e9;
 
   &__logo {
     margin-left: 16px;
@@ -11,6 +14,7 @@
   &__cross {
     height: 48px;
     width: 48px;
+
     background-color: #fff;
     background-image: url('./Cross.svg');
     background-repeat: no-repeat;
@@ -26,6 +30,8 @@
 
 .menu {
   &__list {
+    margin-top: 24px;
+
     text-align: center;
     list-style: none;
   }
@@ -35,6 +41,8 @@
   }
 
   &__link {
+    padding-bottom: 2px;
+
     font-style: normal;
     font-weight: 800;
     text-decoration: none;
@@ -42,10 +50,6 @@
     font-size: 12px;
     letter-spacing: 0.04em;
     color: #89939a;
-
-    &:hover {
-      color: #313237;
-    }
   }
 
   &__footer {
@@ -59,22 +63,28 @@
     bottom: 0;
 
     &--button {
+      width: 50%;
+  
       border: none;
       background-color: #fff;
-      width: 50%;
 
       &--heart {
-        border-right: 1px solid #e2e6e9;
         background-image: url('./Heart.svg');
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
+        border-right: 1px solid #e2e6e9;
       }
 
       &--card {
         background-image: url('./ShoppingBag.svg');
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
       }
     }
   }
+}
+
+.isActive {
+  color: #313237;
+  border-bottom: 2px solid #313237
 }

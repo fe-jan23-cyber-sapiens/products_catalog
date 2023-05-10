@@ -1,19 +1,17 @@
-// import * as images from './Images';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import logo from '../logo/Logo.svg';
-// import cross from './Cross.svg';
 import './BurgerMenu.scss';
 
 export const BurgerMenu: React.FC = () => {
-  //   const { Cross, Heart, ShoppingBag } = images;
-
   return (
     <nav className="menu">
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
-            <a href="/">
+            <NavLink to="/">
               <img src={logo} alt="logo" />
-            </a>
+            </NavLink>
           </div>
 
           <button
@@ -25,40 +23,70 @@ export const BurgerMenu: React.FC = () => {
 
         <ul className="menu__list">
           <li className="menu__item">
-            <a href="#home" className="menu__link">
+            <NavLink
+              to="/home"
+              className={({ isActive }) => classNames('menu__link', {
+                isActive,
+              })}
+            >
               home
-            </a>
+            </NavLink>
           </li>
 
           <li className="menu__item">
-            <a href="#phones" className="menu__link">
+            <NavLink
+              to="/home"
+              className={({ isActive }) => classNames('menu__link', {
+                isActive,
+              })}
+            >
               phones
-            </a>
+            </NavLink>
           </li>
 
           <li className="menu__item">
-            <a href="#tablets" className="menu__link">
+            <NavLink
+              to="/home"
+              className={({ isActive }) => classNames('menu__link', {
+                isActive,
+              })}
+            >
               tablets
-            </a>
+            </NavLink>
           </li>
 
           <li className="menu__item">
-            <a href="#accessories" className="menu__link">
+            <NavLink
+              to="/home"
+              className={({ isActive }) => classNames('menu__link', {
+                isActive,
+              })}
+            >
               accessories
-            </a>
+            </NavLink>
           </li>
         </ul>
 
         <div className="menu__footer">
-          <button
+          <NavLink
+            to="/favorites"
             aria-label="favorites"
             type="button"
-            className="menu__footer--button menu__footer--button--heart"
+            className={({ isActive }) => classNames(
+              'menu__footer--button menu__footer--button--heart', {
+                isActive,
+              },
+            )}
           />
-          <button
+          <NavLink
+            to="/shopping_card"
             aria-label="shopping_card"
             type="button"
-            className="menu__footer--button menu__footer--button--card"
+            className={({ isActive }) => classNames(
+              'menu__footer--button menu__footer--button--card', {
+                isActive,
+              },
+            )}
           />
         </div>
       </div>

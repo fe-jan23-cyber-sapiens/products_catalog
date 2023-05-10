@@ -7,9 +7,6 @@ import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 
 import './App.scss';
-import { BurgerMenu } from './BurgerMenu/BurgerMenu';
-// import { Footer } from './Footer/Footer';
-
 
 export const App = () => (
   <Routes>
@@ -27,4 +24,3 @@ export const App = () => (
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
 );
-
