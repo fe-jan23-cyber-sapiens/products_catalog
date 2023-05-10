@@ -1,0 +1,20 @@
+.path {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 8px;
+
+  &__link {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #313237;
+    text-transform: capitalize;
+    text-decoration: none;
+
+    &--disabled {
+      color: #89939A;
+    }
+  }
+}
