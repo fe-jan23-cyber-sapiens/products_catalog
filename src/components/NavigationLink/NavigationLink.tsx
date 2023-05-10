@@ -14,6 +14,7 @@ export const NavigationLink: React.FC<Props> = ({ to, title }) => (
   <NavLink
     to={to}
     className={({ isActive }) => classNames(
+      //
       'navbar__item',
       { 'navbar__item--is-active': isActive },
     )}

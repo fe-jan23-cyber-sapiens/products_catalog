@@ -40,13 +40,9 @@ export const Header = () => {
         </div>
 
         <div className="header__logo-box">
-          <img
-            src={images.burger_menu_icon}
-            alt="Burger menu icon"
-          />
+          <img src={images.burger_menu_icon} alt="Burger menu icon" />
         </div>
       </div>
-
     </div>
   );
 };
