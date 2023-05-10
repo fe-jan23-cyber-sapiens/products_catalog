@@ -3,9 +3,9 @@ import { SliderItem } from '../SliderItem/SliderItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HomeSlider.scss';
 
-import banner from '../sliderImages/Banner.png';
-import banner2 from '../sliderImages/Banner2.png';
-import banner3 from '../sliderImages/Banner3.png';
+import banner from '../../assets/sliderImages/Banner.png';
+import banner2 from '../../assets/sliderImages/Banner2.png';
+import banner3 from '../../assets/sliderImages/Banner3.png';
 
 export const HomeSlider = () => {
   return (
