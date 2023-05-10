@@ -1,80 +1,79 @@
 * {
-    box-sizing: border-box;
-  }
- 
-  body,
-  h2,
-  p {
-    margin: 0;
-  }
+  box-sizing: border-box;
+}
 
+body,
+h2,
+p {
+  margin: 0;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1201px;
+  padding: 0 32px;
+  gap: 16px;
+}
+
+.card {
+  flex-basis: 25%;
+  width: 270px;
+  height: 350px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background-color: #060b35;
+}
+
+@media only screen and (min-width: 1199px) and (max-width: 1200px) {
   .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 1201px;
-    padding: 0 32px;
-    gap: 16px;
+    max-width: 1200px;
+    margin: 0 32px;
+    padding: 0;
   }
-
   .card {
     flex-basis: 25%;
-    width: 270px;
-    height: 350px;
-    border: 1px solid #e5e5e5;
-    border-radius: 5px;
-    background-color: #060b35;
-  
   }
-    
-  @media only screen and (min-width: 1199px) and (max-width: 1200px) {
-    .cards-container {
-      max-width: 1200px;
-      margin: 0 32px;
-      padding: 0;
-    }
-    .card {
-      flex-basis: 25%;
-    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1198px) {
+  .cards-container {
+    max-width: 700px;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 0;
   }
-  
-  @media only screen and (min-width: 768px) and (max-width: 1198px) {
-    .cards-container {
-      max-width: 700px;
-      gap: 16px;
-      margin: 0 auto;
-      padding: 0;
-    }
-    .card {
-      width: 220px;
-      padding: 0 24px;
-      flex-basis: 33.3%;
-    }
+  .card {
+    width: 220px;
+    padding: 0 24px;
+    flex-basis: 33.3%;
   }
-  
-  @media only screen and (min-width: 640px) and (max-width: 767px) {
-    .cards-container {
-      max-width: 650px;
-      margin: 0 22px;
-      gap: 16px;
-    }
-    .card {
-      width: 265px;
-      flex-basis: 50%;
-    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 767px) {
+  .cards-container {
+    max-width: 650px;
+    margin: 0 22px;
+    gap: 16px;
   }
-  
-  @media only screen and (max-width: 639.5px) {
-    .cards-container {
-      max-width: 360px;
-      margin: 0 16px;
-      align-items: center;
-      gap: 16px;
-    }
-    .card {
-      flex-basis: 100%;
-    }
+  .card {
+    width: 265px;
+    flex-basis: 50%;
   }
+}
+
+@media only screen and (max-width: 639.5px) {
+  .cards-container {
+    max-width: 360px;
+    margin: 0 16px;
+    align-items: center;
+    gap: 16px;
+  }
+  .card {
+    flex-basis: 100%;
+  }
+}

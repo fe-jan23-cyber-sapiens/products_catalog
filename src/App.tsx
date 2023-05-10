@@ -1,5 +1,9 @@
 import './App.scss';
 
+// App.tsx
+
 export const App = () => {
-  return <div className="App">Hello</div>;
+  return (
+    <div>Hello</div>
+  );
 };
