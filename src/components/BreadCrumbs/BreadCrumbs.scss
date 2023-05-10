@@ -9,12 +9,12 @@
     font-size: 12px;
     line-height: 15px;
 
-    color: #313237;
+    color: var(--primary-light);
     text-transform: capitalize;
     text-decoration: none;
 
     &--disabled {
-      color: #89939A;
+      color: var(--secondary-light);
     }
   }
 }

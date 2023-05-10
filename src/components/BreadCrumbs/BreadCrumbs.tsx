@@ -3,14 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import './BreadCrumbs.scss';
 
 import home from '../../assets/Home.png';
-import arrow from '../../assets/Chevron (Arrow Right).png';
+import arrowRight from '../../assets/arrow/Arrow Right.png';
 
 export const BreadCrumbs = () => {
   const { pathname } = useLocation();
-  const paths = pathname.split('/')
+  const crumbs = pathname.split('/')
     .filter((el) => el !== '');
 
-  const current = paths[paths.length - 1];
+  const current = crumbs[crumbs.length - 1];
 
   let link = '';
 
@@ -20,21 +20,21 @@ export const BreadCrumbs = () => {
         <img src={home} alt="home icon" />
       </Link>
 
-      {paths.map(path => {
-        const text = path.split('-').join(' ');
+      {crumbs.map(crumb => {
+        const path = crumb.split('-').join(' ');
 
-        link += `/${text.toLowerCase()}`;
+        link += `/${crumb.toLowerCase()}`;
 
         return (
           <>
-            <img src={arrow} alt="arrow right" />
+            <img src={arrowRight} alt="arrow right" />
 
             <Link
               to={`${link}`}
               className={classNames('path__link', {
-                'path__link--disabled': path === current,
+                'path__link--disabled': crumb === current,
               })}
-              key={path}
+              key={crumb}
             >
               {path}
             </Link>
