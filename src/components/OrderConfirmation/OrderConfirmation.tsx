@@ -10,20 +10,22 @@ export function OrderConfirmation() {
 
   return (
     <>
-      {showConfirmation && (
-        <div className="confirmation-card">
-          <button
-            className="close-button"
-            onClick={handleClose}
-            type="button"
-          >
-            X
-          </button>
-          <h2>Thank you for your order!</h2>
+      <div className="order-confirmation">
+        {showConfirmation && (
+          <div className="confirmation-card">
+            <button
+              className="close-button"
+              onClick={handleClose}
+              type="button"
+            >
+              X
+            </button>
+            <h2>Thank you for your order!</h2>
+          </div>
+        )}
+        <div className="links">
+          <a href="/">Home</a>
         </div>
-      )}
-      <div className="links">
-        <a href="/">Home</a>
       </div>
     </>
   );

@@ -1,0 +1,32 @@
+@import 'scss_utils/colors';
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0;
+}
+
+
+.light, .dark {
+  color: var(--primary);
+  background-color: var(--bg);
+}
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
