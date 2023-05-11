@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage';
@@ -7,10 +8,21 @@ import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 
 import './App.scss';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { ThemeContext } from './context/ThemeContext';
 
 export const App = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const handleThemeChange = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
-    <>
+    <div className={theme}>
+      <Header onThemeChange={handleThemeChange} />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
@@ -25,6 +37,8 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+
+      <Footer />
+    </div>
   );
 };
