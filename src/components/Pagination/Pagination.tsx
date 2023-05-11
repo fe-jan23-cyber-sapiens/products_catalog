@@ -46,7 +46,7 @@ export const Pagination: FC<PaginationProps> = ({
         )}
       >
         <Link
-          to="#prev"
+          to="/prev"
           aria-disabled={isFirstPageIndex}
           onClick={handlePreviousPageClick}
           className="pagination__link pagination__link--prev"
@@ -63,7 +63,7 @@ export const Pagination: FC<PaginationProps> = ({
           })}
         >
           <Link
-            to={`#${page}`}
+            to={`/${page}`}
             onClick={() => onPageChange(page)}
             className={classNames('pagination__link', {
               'pagination__link--active': page === currentPage,
@@ -80,7 +80,7 @@ export const Pagination: FC<PaginationProps> = ({
         })}
       >
         <Link
-          to="#next"
+          to="/next"
           aria-disabled={isLastPageIndex}
           onClick={handleNextPageClick}
           className="pagination__link pagination__link--next"
