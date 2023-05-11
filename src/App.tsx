@@ -20,7 +20,7 @@ export const App = () => {
   };
 
   return (
-    <div className={theme}>
+    <div className={`app ${theme}`}>
       <Header onThemeChange={handleThemeChange} />
 
       <Routes>

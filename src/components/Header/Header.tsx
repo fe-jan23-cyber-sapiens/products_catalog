@@ -6,6 +6,7 @@ import { NavBar } from '../NavBar';
 import './Header.scss';
 
 import * as images from '../../assets';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 
 interface HeaderProps {
   onThemeChange: () => void;
@@ -24,8 +25,12 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
 
         <NavBar />
       </div>
-      <button type="button" onClick={onThemeChange}> theme </button>
+
       <div className="header__right-side">
+        <div className="header__logo-box">
+          <ThemeSwitcher onThemeChange={onThemeChange} />
+        </div>
+
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path="/favourites"
