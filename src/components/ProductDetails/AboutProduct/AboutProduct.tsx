@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './AboutProduct.scss';
-import { DescriptionItem } from '../../../typedefs';
+import { DescriptionItem } from '../../../utils/typedefs';
 
 interface Props {
   point: DescriptionItem;
@@ -12,13 +12,9 @@ export const AboutProduct: FC<Props> = (props) => {
 
   return (
     <div className="about__info-box">
-      <h3 className="about__info-title">
-        {title}
-      </h3>
+      <h3 className="about__info-title">{title}</h3>
 
-      <p className="about__info-text">
-        {text}
-      </p>
+      <p className="about__info-text">{text}</p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './ProductInfo.scss';
-import { ProductDetails } from '../../../typedefs';
+import { ProductDetails } from '../../../utils/typedefs';
 import { AboutProduct } from '../AboutProduct/AboutProduct';
 import { TechSpecs } from '../TechSpecs/TechSpecs';
 
@@ -15,9 +15,7 @@ export const ProductInfo: FC<Props> = (props) => {
   return (
     <div className="productInfo">
       <div className="productInfo__description">
-        <h2 className="productInfo__subtitle">
-          About
-        </h2>
+        <h2 className="productInfo__subtitle">About</h2>
 
         <div className="productInfo__info">
           {description.map((point) => (
@@ -27,9 +25,7 @@ export const ProductInfo: FC<Props> = (props) => {
       </div>
 
       <div className="productInfo__tech-specs">
-        <h2 className="productInfo__subtitle ">
-          Tech specs
-        </h2>
+        <h2 className="productInfo__subtitle ">Tech specs</h2>
 
         <div className="productInfo__characteristic">
           <TechSpecs product={product} key={id} />

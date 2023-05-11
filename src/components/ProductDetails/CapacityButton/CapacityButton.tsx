@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import './CapacityButton.scss';
-import { ProductDetails } from '../../../typedefs';
+import { ProductDetails } from '../../../utils/typedefs';
 
 interface Props {
   capacity: string;
