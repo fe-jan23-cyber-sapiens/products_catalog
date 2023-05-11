@@ -1,0 +1,19 @@
+@import '../../styles/scss_utils/mixins';
+
+.about__info {
+  &-title {
+    padding-bottom: 16px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: var(--primary-light);
+
+    @include onTablet {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 26px
+    }
+  }
+}

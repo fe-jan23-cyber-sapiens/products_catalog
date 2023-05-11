@@ -1,0 +1,101 @@
+@import '../../styles/mixins';
+
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  @include onTablet {
+    max-width: 237px;
+  }
+
+  @include onLaptop {
+    max-width: 320px;
+  }
+
+  &__small {
+    margin-bottom: 8px;
+  
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+  
+    color: var(--secondary-light);
+  }
+  
+  &__colors {
+    margin-bottom: 48px;
+  }
+  
+  &__buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  &__cart-button {
+    height: 48px;
+    width: 100%;
+    background-color: var(--primary-light);
+    color: #fff;
+  
+    @include onTablet {
+      width: 180px;
+    }
+  
+    @include onLaptop {
+      width: 263px;
+    }
+  }
+  
+  &__select {
+    border-bottom: 1px solid;
+    border-width: 100%;
+    padding-bottom: 20px;
+  
+    &:first-child {
+      margin-bottom: 24px;
+    }
+  
+    margin-bottom: 32px;
+  }
+  
+  &__prices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  &__full {
+    font-weight: 500;
+    font-size: 22px;
+  
+    line-height: 28px;
+    text-decoration-line: line-through;
+  
+    color: var(--secondary-light);
+  }
+  
+  &__discount {
+    margin-right: 8px;
+    font-weight: 800;
+    font-size: 32px;
+  
+    line-height: 41px;
+    letter-spacing: -0.01em;
+  
+    color: var(--primary-light);
+  }
+  
+  &__button {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__characteristic {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,12 @@
+.color__button {
+  height: 30px;
+  width: 30px;
+
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-light);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
