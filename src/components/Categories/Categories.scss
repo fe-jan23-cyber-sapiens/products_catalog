@@ -1,0 +1,27 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @media (min-width: 639px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+
+    line-height: 140%;
+    color: #313237;
+
+    @media (min-width: 639px) {
+      font-size: 32px;
+
+      line-height: 41px;
+      letter-spacing: -0.01em;
+    }
+  }
+}
