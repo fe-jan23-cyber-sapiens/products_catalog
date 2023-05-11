@@ -1,6 +1,5 @@
 import { Product, ProductDetails } from '../utils/typedefs';
-
-const BASE_URL = 'https://products-catalog-api.onrender.com';
+import { BASE_URL } from '../utils/constants';
 
 function request<T>(url: string): Promise<T> {
   const fullUrl = BASE_URL + url;
