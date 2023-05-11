@@ -7,3 +7,6 @@ export const itemsPerPageOptions = ['16', '32', '64'];
 
 export const items = getNumbers(1, itemsTotal)
   .map(n => `Item ${n}`);
+
+export const THEME_LIGHT = 'light';
+export const THEME_DARK = 'dark';
