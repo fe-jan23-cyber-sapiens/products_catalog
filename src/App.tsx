@@ -26,20 +26,22 @@ export const App = () => {
     <div className={`app ${theme}`}>
       <Header onThemeChange={handleThemeChange} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<Navigate to="/" replace />} />
+      <div className="page">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
 
-        <Route path="/phones" element={<ProductsPage />} />
-        <Route path="/tablets" element={<ProductsPage />} />
-        <Route path="/accessories" element={<ProductsPage />} />
+          <Route path="/phones" element={<ProductsPage />} />
+          <Route path="/tablets" element={<ProductsPage />} />
+          <Route path="/accessories" element={<ProductsPage />} />
 
-        <Route path="/favourites" element={<FavouritesPage />} />
+          <Route path="/favourites" element={<FavouritesPage />} />
 
-        <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
 
       <Footer />
     </div>
