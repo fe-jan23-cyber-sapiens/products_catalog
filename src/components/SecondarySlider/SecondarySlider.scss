@@ -1,0 +1,127 @@
+@import '../../styles/scss_utils/colors';
+@import '../../styles/mixins';
+
+.secondary-slider {
+  padding-left: 16px;
+
+  @include onTablet {
+    padding-left: 24px;
+  }
+
+  @include onLaptop {
+    padding-left: 0;
+
+    &__swiper-container {
+      max-width: 1136px;
+      margin: auto;
+      overflow: hidden;
+    }
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-right: 16px;
+
+    @include onTablet {
+      padding-right: 24px;
+    }
+
+    @include onLaptop {
+      max-width: 1136px;
+      margin: 0 auto 24px;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    color: var(--primary-light);
+
+    width: 136px;
+
+    @include onTablet {
+      width: 100%;
+      font-size: 32px;
+      line-height: 41px;
+    }
+  }
+
+  &__arrow-container {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid var(--icons-light);
+
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+
+    &--right {
+      background-image: url('../../assets/arrow/arrow_right.svg');
+
+      &--disabled {
+        background-image: url('../../assets/arrow/arrow_right_light.svg');
+        border-color: var(--elements-light);
+        cursor: auto;
+      }
+
+      &--hover:hover {
+        border-color: var(--primary-light);
+      }
+    }
+    
+    &--left {
+      background-image: url('../../assets/arrow/arrow_left.svg');
+
+      &--disabled {
+        background-image: url('../../assets/arrow/arrow_left_light.svg');
+        border-color: var(--elements-light);
+        cursor: auto;
+      }
+
+      &--hover:hover {
+        border-color: var(--primary-light);
+      }
+    }
+  }
+
+  &__card-container {
+    display: flex;
+    gap: 16px;
+    padding-left: 16px;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 212px;
+    max-width: 212px;
+    height: 439px;
+
+    border: 1px solid red;
+
+    transition: transform 0.3s linear;
+
+    @include onTablet {
+      max-width: 237px;
+    }
+
+    @include onLaptop {
+      max-width: 272px;
+    }
+  }
+}
