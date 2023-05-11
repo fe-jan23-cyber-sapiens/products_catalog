@@ -1,0 +1,88 @@
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e2e6e9;
+
+  &__logo {
+    margin-left: 16px;
+  }
+
+  &__cross {
+    height: 48px;
+    width: 48px;
+
+    background-color: #fff;
+    background-image: url('../../assets/logos/Cross.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-left: 1px solid #e2e6e9;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.menu {
+  &__list {
+    margin-top: 24px;
+
+    text-align: center;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 16px;
+  }
+
+  &__link {
+    padding-bottom: 2px;
+
+    font-style: normal;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #89939a;
+  }
+
+  &__footer {
+    border-top: 1px solid #e2e6e9;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    position: fixed;
+    bottom: 0;
+
+    &--button {
+      width: 50%;
+
+      border: none;
+      background-color: #fff;
+
+      &--heart {
+        background-image: url('../../assets/logos/Heart.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        border-right: 1px solid #e2e6e9;
+      }
+
+      &--card {
+        background-image: url('../../assets/logos/ShoppingBag.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+.isActive {
+  color: #313237;
+  border-bottom: 2px solid #313237;
+}

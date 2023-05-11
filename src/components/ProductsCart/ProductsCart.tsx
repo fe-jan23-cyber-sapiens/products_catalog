@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { IconButton } from '@material-ui/core';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Delete } from '@material-ui/icons';
+
+import './ProductsCart.scss';
 
 type CounterProps = {
   initialCount?: number;
@@ -13,13 +11,13 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
-    setCount(count + 1);
-    setQuantity(count + 1);
+    setCount(prev => prev + 1);
+    setQuantity(prev => prev + 1);
   };
 
   const decrement = () => {
-    setCount(count - 1);
-    setQuantity(count - 1);
+    setCount(prev => prev - 1);
+    setQuantity(prev => prev - 1);
   };
 
   const isDisabled = count === 1;
@@ -32,9 +30,7 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
   return (
     <div className="cart">
       <div className="icon">
-        <IconButton onClick={() => {}}>
-          <Delete />
-        </IconButton>
+        <img src="../assets/logos/Cross.svg" alt="logo delete" />
       </div>
 
       <div className="phone-card">

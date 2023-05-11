@@ -1,0 +1,23 @@
+.back {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  &__text {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: var(--secondary-light);
+
+    &:hover {
+      color: var(--primary-light);
+    }
+  }
+}

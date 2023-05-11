@@ -1,18 +1,14 @@
-h1,
-h2,
-p {
-  margin: 0;
-}
-
 .checkout {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   text-align: center;
+
   padding: 24px;
-  border: 1px black solid;
   width: 368px;
   height: 185px;
+
+  border: 1px black solid;
 }
 
 .total {
@@ -23,37 +19,47 @@ p {
 
 .totalItems {
   position: relative;
+
+  text-align: center;
+
   font-size: 14px;
   line-height: 21px;
-  text-align: center;
+
   color: #89939a;
 }
 
 .totalItems::after {
   content: '';
   position: absolute;
-  height: 0px;
-  border: 1px solid #e2e6e9;
   left: 24px;
   bottom: 0px;
   right: 24px;
   top: 78px;
+
+  height: 0px;
+
+  border: 1px solid #e2e6e9;
+
 }
 
 .buy {
   display: flex;
   justify-content: center;
   align-items: center;
+
   height: 40px;
+  padding: 0;
+
   font-size: 14px;
   line-height: 16;
   font-weight: 700;
-  background: rgb(85, 130, 115);
   color: white;
+
+  background: rgb(85, 130, 115);
   border: 1px solid rgb(85, 130, 115);
   border-radius: 5px;
+
   text-transform: uppercase;
-  padding: 0;
 
   &:hover {
     color: rgb(85, 130, 115);

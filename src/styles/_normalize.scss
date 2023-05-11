@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Mont';
+  src: url(../fonts/Mont-Regular.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../fonts/Mont-SemiBold.otf);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../fonts/Mont-Bold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Mont', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #89939a;
+
+  scroll-behavior: smooth;
+}
