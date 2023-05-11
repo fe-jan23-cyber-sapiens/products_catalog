@@ -1,6 +1,6 @@
-import { Product } from '../productsCart/productsCart';
-import { Checkout } from '../cartsCheckout/checkout';
-// import '../../App.scss';
+import { Product } from '../ProductsCart/ProductsCart';
+import { Checkout } from '../CartsCheckout/Checkout';
+import './Card.scss';
 
 export const Card = () => (
   <div className="cart-container">

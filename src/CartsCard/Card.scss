@@ -1,0 +1,14 @@
+.cart-container {
+  display: flex;
+  flex-direction: row;
+
+  padding: 152px;
+  gap: 16px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}

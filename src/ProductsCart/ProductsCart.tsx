@@ -38,14 +38,8 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
       </div>
 
       <div className="phone-card">
-        <img
-          src="https://"
-          alt="Iphone 11 PRO"
-          className="phone-card__image"
-        />
-        <p className="phone-card__description">
-          Iphone 11 PRO with 8GB of RAM
-        </p>
+        <img src="https://" alt="Iphone 11 PRO" className="phone-card__image" />
+        <p className="phone-card__description">Iphone 11 PRO with 8GB of RAM</p>
       </div>
 
       <div className="price_container">

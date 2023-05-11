@@ -1,9 +1,5 @@
 import './App.scss';
 
-// App.tsx
-
 export const App = () => {
-  return (
-    <div>Hello</div>
-  );
+  return <h1>Home page</h1>;
 };
