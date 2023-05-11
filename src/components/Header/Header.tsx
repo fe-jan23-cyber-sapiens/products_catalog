@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
@@ -6,7 +7,11 @@ import './Header.scss';
 
 import * as images from '../../assets';
 
-export const Header = () => {
+interface HeaderProps {
+  onThemeChange: () => void;
+}
+
+export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   return (
     <div className="header">
       <div className="header__left-side">
@@ -19,7 +24,7 @@ export const Header = () => {
 
         <NavBar />
       </div>
-
+      <button type="button" onClick={onThemeChange}> theme </button>
       <div className="header__right-side">
         <div className="header__logo-box">
           <HeaderLinkWithIcon
