@@ -9,7 +9,7 @@ import { CartPage } from './pages/CartPage';
 
 import './App.scss';
 import { Header } from './components/Header';
-import { Footer } from './components/Footer/Footer';
+import { Footer } from './components/Footer';
 import { ThemeContext } from './context/ThemeContext';
 
 export const App = () => {
