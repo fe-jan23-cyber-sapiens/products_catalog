@@ -1,0 +1,39 @@
+@import '../../styles/scss_utils/vars';
+
+.btn__add-to-cart {
+    display: flex;
+  
+    border-radius: 0;
+    border: none;
+    background-color: $primary-light;
+    color: $white;
+    &--clicked {
+      background: $bg-light;
+    }
+
+    &:hover {
+      background-color: $white;
+      color: $green;
+      transition: background 0.3s ease;
+    }
+  
+    &.custom-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.3s ease;
+  
+      &.add {
+        background-color: $secondary-light;
+        color: $white;
+  
+        &--clicked {
+          background-color: $bg-light;
+        }
+      }
+    }
+}
