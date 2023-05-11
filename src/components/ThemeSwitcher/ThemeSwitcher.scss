@@ -1,3 +1,27 @@
+@keyframes anima {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes anima1 {
+  0% {
+    transform: translateX(20px);
+  }
+  80% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
 .switch {
   position: relative;
   display: inline-block;
