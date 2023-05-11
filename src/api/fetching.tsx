@@ -38,7 +38,5 @@ export default {
   getProductDetails: (phoneId: string) => request(`/details/${phoneId}`, 'productDetails'),
   getNewProducts: () => request('/products/new', 'newProducts'),
   getDiscountProducts: () => request('/products/discount', 'discountProducts'),
-  getRecommendedProducts: () => request(
-    '/products/recommended', 'recommended',
-  ),
+  getRecommendedProducts: () => request('/products/recommended', 'recommended'),
 };

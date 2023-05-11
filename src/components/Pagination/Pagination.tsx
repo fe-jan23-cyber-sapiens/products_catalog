@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { getNumbers } from './utils';
+import { getNumbers } from '../../utils/utils';
 import './Pagination.scss';
-import arrowRight from './common_components/assets/icons/arrowRight.svg';
-import arrowLeft from './common_components/assets/icons/arrowLeft.svg';
+import arrowRight from '../../assets/arrow/arrowRight.svg';
+import arrowLeft from '../../assets/arrow/arrowLeft.svg';
 
 interface PaginationProps {
   total: number;

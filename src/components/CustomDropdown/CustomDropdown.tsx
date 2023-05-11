@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import './CustomDropdown.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import arrowDown from './assets/icons/arrowDown.svg';
+import arrowDown from '../../assets/arrow/arrowDown.svg';
 
 interface Dropdown {
   title?: string;
