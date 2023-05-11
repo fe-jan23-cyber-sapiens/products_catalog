@@ -45,6 +45,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__link"
           />
         </div>
+
         <div className="header__logo-box">
           <ThemeSwitcher onThemeChange={onThemeChange} />
         </div>
