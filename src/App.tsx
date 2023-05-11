@@ -22,6 +22,7 @@ export const App = () => {
   return (
     <div className={theme}>
       <Header onThemeChange={handleThemeChange} />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
@@ -36,6 +37,7 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
       <Footer />
     </div>
   );

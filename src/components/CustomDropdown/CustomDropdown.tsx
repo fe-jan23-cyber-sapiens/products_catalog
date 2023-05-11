@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import './CustomDropdown.scss';
-import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import arrowDown from '../../assets/arrow/arrowDown.svg';
 
 interface Dropdown {
@@ -16,7 +16,7 @@ export const CustomDropdown: FC<Dropdown> = ({
   title,
   options,
   defaultValue,
-  size = 'medium',
+  size,
   handleItemsPerPageChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,20 +37,23 @@ export const CustomDropdown: FC<Dropdown> = ({
 
   return (
     <div className={`dropdown dropdown--${size}`}>
-      {title && <p className={`dropdown__title dropdown__title--${size}`}>{title}</p>}
+      {title && (
+        <p className={`dropdown__title dropdown__title--${size}`}>
+          {title}
+        </p>
+      )}
 
       <button
         type="button"
         className={`dropdown__trigger dropdown__trigger--${size}`}
         onClick={toggleDropdown}
-        // onBlur={() => setIsOpen(false)}
       >
         <p className="dropdown__trigger-text">
           {selectedOption}
         </p>
 
         <img
-          className={cn('dropdown__trigger-icon', {
+          className={classNames('dropdown__trigger-icon', {
             'dropdown__trigger-icon--up': isOpen,
           })}
           src={arrowDown}
@@ -59,7 +62,7 @@ export const CustomDropdown: FC<Dropdown> = ({
       </button>
 
       <div
-        className={cn('dropdown__list', {
+        className={classNames('dropdown__list', {
           'dropdown__list--hidden': !isOpen,
           [`dropdown__list--${size}`]: !!size,
         })}

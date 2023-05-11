@@ -2,30 +2,29 @@
   width: max-content;
 
   &__title {
+    margin-bottom: 4px;
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
     color: #89939A;
-    margin-bottom: 4px;
   }
 
   &__trigger {
-    box-sizing: border-box;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    padding: 10px 12px 9px;
-    background: #FFFFFF;
-    border: 1px solid #B4BDC4;
+    width: 176px;
     margin-bottom: 4px;
+    padding: 10px 12px 9px;
     font-family: 'Mont', sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
     color: #313237;
-    width: 176px;
-    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #B4BDC4;
+    cursor: pointer;
 
     &-text {
       font-size: 14px;
@@ -58,14 +57,14 @@
   }
 
   &__list {
+    position: absolute;
     display: flex;
     flex-direction: column;
+    width: 176px;
     padding-top: 8px;
     background: #FFFFFF;
-    border: 1px solid #E2E6E9;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    width: 176px;
-    position: absolute;
+    border: 1px solid #E2E6E9;
 
     &--small {
       width: 128px;
@@ -82,8 +81,8 @@
     font-size: 14px;
     line-height: 21px;
     color: #89939A;
-    cursor: pointer;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
       color: #313237;
