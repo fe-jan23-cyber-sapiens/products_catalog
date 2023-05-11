@@ -1,6 +1,6 @@
 import React from 'react';
 import { CustomButton } from '../Button/Button';
-import './add_to_cart_button.scss';
+import './AddToCartButton.scss';
 
 interface Props {
   height: string,
@@ -11,7 +11,7 @@ export const AddToCart: React.FC<Props> = ({ height }) => {
     <CustomButton
       btnWidth="100%"
       btnHeight={`${height}`}
-      btnType='button'
+      btnType="button"
     >
       Add to cart
     </CustomButton>

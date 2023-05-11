@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../variablesCardItem';
 
 .btn__add-to-cart {
   display: flex;
@@ -22,7 +22,7 @@
   }
 
   &--clicked {
-    background: $surface2-color;
+    background: $bg-color;
   }
   
   &.custom-button {
@@ -38,15 +38,15 @@
     transition: background 0.3s ease;
 
     &.add {
-      background-color: $accent-color;
+      background-color: $secondary-color;
       color: $white-color;
 
       &:hover {
-        background-color: $hover-color;
+        background-color: $bg-color;
       }
 
       &--clicked {
-        background-color: $surface2-color;
+        background-color: $bg-color;
       }
     }
   }

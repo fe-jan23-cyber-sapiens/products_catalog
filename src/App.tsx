@@ -5,6 +5,9 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
+import { ProductItem } from './components/ProductCard';
+
+import './App.scss';
 
 export const App = () => (
   <Routes>
@@ -14,6 +17,7 @@ export const App = () => (
     <Route path="/phones" element={<ProductsPage />} />
     <Route path="/tablets" element={<ProductsPage />} />
     <Route path="/accessories" element={<ProductsPage />} />
+    <Route path="/card" element={<ProductItem />} />
 
     <Route path="/favourites" element={<FavouritesPage />} />
 
