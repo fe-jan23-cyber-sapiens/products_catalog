@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../../assets/logos/Logo.svg';
 import './Footer.scss';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 export const Footer: React.FC = () => {
   const handleScrollToTop = () => {
@@ -10,9 +10,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="footer">
-      <Link to="/">
-        <img src={logo} alt="a" />
-      </Link>
+      <HeaderLinkWithIcon path="/" imageSrc={logo} alt="logo" />
 
       <ul className="footer-nav">
         <li className="footer-nav__item">

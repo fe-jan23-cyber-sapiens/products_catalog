@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import logo from '../../assets/logos/Logo.svg';
 import './BurgerMenu.scss';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 export const BurgerMenu: React.FC = () => {
   return (
@@ -9,9 +10,7 @@ export const BurgerMenu: React.FC = () => {
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
-            <NavLink to="/">
-              <img src={logo} alt="logo" />
-            </NavLink>
+            <HeaderLinkWithIcon path="/" imageSrc={logo} alt="logo" />
           </div>
 
           <button
