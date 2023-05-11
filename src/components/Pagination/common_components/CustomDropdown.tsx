@@ -9,6 +9,7 @@ interface Dropdown {
   options: string[];
   defaultValue?: string;
   size?: 'small';
+  handleItemsPerPageChange: (newItemsPerPage: number) => void;
 }
 
 export const CustomDropdown: FC<Dropdown> = ({
@@ -16,6 +17,7 @@ export const CustomDropdown: FC<Dropdown> = ({
   options,
   defaultValue,
   size = 'medium',
+  handleItemsPerPageChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [
@@ -28,6 +30,7 @@ export const CustomDropdown: FC<Dropdown> = ({
   };
 
   const handleOptionClick = (option: string) => {
+    handleItemsPerPageChange(+option);
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -40,7 +43,7 @@ export const CustomDropdown: FC<Dropdown> = ({
         type="button"
         className={`dropdown__trigger dropdown__trigger--${size}`}
         onClick={toggleDropdown}
-        onBlur={() => setIsOpen(false)}
+        // onBlur={() => setIsOpen(false)}
       >
         <p className="dropdown__trigger-text">
           {selectedOption}

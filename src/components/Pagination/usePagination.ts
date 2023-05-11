@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 interface UsePaginationProps<T> {
   defaultCurrentPage: number;
@@ -21,8 +21,8 @@ export const usePagination = <T>({
     : elements.length;
   const selectedItems = elements.slice(firstItemIndex, lastItemIndex);
 
-  const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setItemsPerPage(+event.currentTarget.value);
+  const handleItemsPerPageChange = (newItemsPerPage: number) => {
+    setItemsPerPage(newItemsPerPage);
     setCurrentPage(defaultCurrentPage);
   };
 
@@ -35,9 +35,7 @@ export const usePagination = <T>({
     itemsPerPage,
     selectedItems,
     onPageChange,
-    onSelectChange,
-    firstItemIndex,
-    lastItemIndex,
     elements,
+    handleItemsPerPageChange,
   };
 };
