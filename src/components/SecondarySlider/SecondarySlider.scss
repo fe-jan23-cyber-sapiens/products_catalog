@@ -1,5 +1,5 @@
 @import '../../styles/scss_utils/colors';
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 
 .secondary-slider {
   padding-left: 16px;
@@ -41,7 +41,7 @@
     font-size: 22px;
     line-height: 140%;
     letter-spacing: -0.01em;
-    color: var(--primary-light);
+    color: $primary-light;
 
     width: 136px;
 
@@ -61,7 +61,7 @@
     width: 32px;
     height: 32px;
 
-    border: 1px solid var(--icons-light);
+    border: 1px solid $icons-light;
 
     background-color: white;
     background-position: center;
@@ -74,12 +74,12 @@
 
       &--disabled {
         background-image: url('../../assets/arrow/arrow_right_light.svg');
-        border-color: var(--elements-light);
+        border-color: $elements-light;
         cursor: auto;
       }
 
       &--hover:hover {
-        border-color: var(--primary-light);
+        border-color: $primary-light;
       }
     }
     
@@ -88,12 +88,12 @@
 
       &--disabled {
         background-image: url('../../assets/arrow/arrow_left_light.svg');
-        border-color: var(--elements-light);
+        border-color: $elements-light;
         cursor: auto;
       }
 
       &--hover:hover {
-        border-color: var(--primary-light);
+        border-color: $primary-light;
       }
     }
   }
@@ -111,6 +111,7 @@
     min-width: 212px;
     max-width: 212px;
     height: 439px;
+    color: black;
 
     border: 1px solid red;
 
