@@ -1,11 +1,11 @@
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 1px 0px var(--elements-light);
+  box-shadow: 0 1px 0 var(--elements-light);
 
   &__left-side {
     display: flex;
