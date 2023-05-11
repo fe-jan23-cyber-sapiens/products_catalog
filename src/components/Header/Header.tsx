@@ -6,7 +6,7 @@ import { NavBar } from '../NavBar';
 import './Header.scss';
 
 import * as images from '../../assets';
-import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 
 interface HeaderProps {
   onThemeChange: () => void;
