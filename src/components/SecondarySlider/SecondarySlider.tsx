@@ -1,8 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { FC, useState } from 'react';
 import classnames from 'classnames';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Swiper, SwiperSlide } from 'swiper/react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import SwiperCore, { Navigation } from 'swiper';
 
 import 'swiper/css';

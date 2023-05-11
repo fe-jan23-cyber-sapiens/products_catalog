@@ -2,7 +2,7 @@ import './ProductPage.scss';
 import { useEffect, useState } from 'react';
 import { Back } from '../../components/Back/Back';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
-import { ProductDetails } from '../../typedefs';
+import { ProductDetails } from '../../utils/typedefs';
 import {
   CardImages,
   ProductActions,
@@ -14,7 +14,9 @@ export const ProductPage = () => {
 
   const getProduct = async () => {
     // eslint-disable-next-line max-len
-    const response = await fetch('https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold');
+    const response = await fetch(
+      'https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold',
+    );
 
     const details = await response.json();
 
@@ -33,9 +35,7 @@ export const ProductPage = () => {
 
           <Back />
 
-          <div className="details__title">
-            {product.name}
-          </div>
+          <div className="details__title">{product.name}</div>
 
           <div>
             <div className="details__top">
