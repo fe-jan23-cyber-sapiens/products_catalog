@@ -6,6 +6,7 @@ import { ProductsPage } from './pages/ProductsPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { ProductItem } from './components/ProductCard';
+import { OrderConfirmation } from './components/OrderConfirmation';
 
 import './App.scss';
 
@@ -18,7 +19,7 @@ export const App = () => (
     <Route path="/tablets" element={<ProductsPage />} />
     <Route path="/accessories" element={<ProductsPage />} />
     <Route path="/card" element={<ProductItem />} />
-
+    <Route path="/orderconfirmation" element={<OrderConfirmation />} />
     <Route path="/favourites" element={<FavouritesPage />} />
 
     <Route path="/cart" element={<CartPage />} />
