@@ -1,9 +1,9 @@
 .switch {
-  font-size: 17px;
   position: relative;
   display: inline-block;
   width: 38px;
   height: 20px;
+  font-size: 17px;
 
   input {
     opacity: 0;
@@ -27,23 +27,23 @@
 
 .slider {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: var(--theme-switch);
-  transition: .4s;
+  cursor: pointer;
   border-radius: 30px;
+  transition: .4s;
 
   &:before {
     position: absolute;
+    left: 4px;
+    bottom: 4px;
     content: "";
     height: 12px;
     width: 12px;
     border-radius: 20px;
-    left: 4px;
-    bottom: 4px;
     background-color: var(--theme-switch);
     box-shadow: inset 2px -2px 0 1.8px #fff;
     transition: .4s;
