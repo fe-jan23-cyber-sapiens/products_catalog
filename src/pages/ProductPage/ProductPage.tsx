@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { Back } from '../../components/Back/Back';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { ProductDetails } from '../../typedefs';
-import { CardImages } from '../../components/CardImages/CardImages';
-import { ProductInfo } from '../../components/ProductInfo/ProductInfo';
-import { ProductActions } from '../../components/ProductActions/ProductActions';
+import {
+  CardImages,
+  ProductActions,
+  ProductInfo,
+} from '../../components/ProductDetails';
 
 export const ProductPage = () => {
   const [product, setProduct] = useState<ProductDetails | null>(null);
@@ -41,16 +43,10 @@ export const ProductPage = () => {
                 <CardImages images={product.images} />
               </div>
 
-              <ProductActions
-                product={product}
-                key={product.id}
-              />
+              <ProductActions product={product} key={product.id} />
             </div>
 
-            <ProductInfo
-              product={product}
-              key={product.id}
-            />
+            <ProductInfo product={product} key={product.id} />
           </div>
         </div>
       )}

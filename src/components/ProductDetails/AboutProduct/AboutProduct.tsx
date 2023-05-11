@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './AboutProduct.scss';
-import { DescriptionItem } from '../../typedefs';
+import { DescriptionItem } from '../../../typedefs';
 
 interface Props {
   point: DescriptionItem;

@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { ProductDetails } from '../../typedefs';
+import { ProductDetails } from '../../../typedefs';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 
 interface Props {
-  product: ProductDetails
+  product: ProductDetails;
 }
 
 export const TechSpecs: FC<Props> = (props) => {

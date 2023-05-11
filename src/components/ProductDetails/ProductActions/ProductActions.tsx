@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { ProductDetails } from '../../typedefs';
+import { ProductDetails } from '../../../typedefs';
 import { ColorButton } from '../ColorButton/ColorButton';
 import { CapacityButton } from '../CapacityButton/CapacityButton';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 import './ProductActions.scss';
 
 interface Props {
-  product: ProductDetails
+  product: ProductDetails;
 }
 
 export const ProductActions: FC<Props> = (props) => {
@@ -30,7 +30,7 @@ export const ProductActions: FC<Props> = (props) => {
         </p>
 
         <div className="actions__buttons">
-          {colorsAvailable.map(color => (
+          {colorsAvailable.map((color) => (
             <ColorButton color={color} key={color} />
           ))}
         </div>
@@ -42,7 +42,7 @@ export const ProductActions: FC<Props> = (props) => {
         </p>
 
         <div className="actions__buttons">
-          {capacityAvailable.map(capacity => (
+          {capacityAvailable.map((capacity) => (
             <CapacityButton
               capacity={capacity}
               product={product}
@@ -72,25 +72,13 @@ export const ProductActions: FC<Props> = (props) => {
       </div>
 
       <div className="actions__characteristic">
-        <TechSpecsItem
-          title="Screen"
-          option={screen}
-        />
+        <TechSpecsItem title="Screen" option={screen} />
 
-        <TechSpecsItem
-          title="Resolution"
-          option={resolution}
-        />
+        <TechSpecsItem title="Resolution" option={resolution} />
 
-        <TechSpecsItem
-          title="Processor"
-          option={processor}
-        />
+        <TechSpecsItem title="Processor" option={processor} />
 
-        <TechSpecsItem
-          title="RAM"
-          option={ram}
-        />
+        <TechSpecsItem title="RAM" option={ram} />
       </div>
     </div>
   );

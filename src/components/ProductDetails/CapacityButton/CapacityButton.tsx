@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import './CapacityButton.scss';
-import { ProductDetails } from '../../typedefs';
+import { ProductDetails } from '../../../typedefs';
 
 interface Props {
-  capacity: string,
-  product: ProductDetails,
+  capacity: string;
+  product: ProductDetails;
 }
 
 export const CapacityButton: FC<Props> = ({ capacity, product }) => {

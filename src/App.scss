@@ -5,6 +5,7 @@
 }
 
 .page {
+  height: max-content;
   padding: 25px 22px;
 
   @include onTablet {
