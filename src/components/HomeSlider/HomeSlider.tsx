@@ -1,26 +1,36 @@
 import Carousel from 'react-bootstrap/Carousel';
-import { SliderItem } from '../SliderItem/SliderItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HomeSlider.scss';
 
-import banner from '../../assets/sliderImages/Banner.png';
-import banner2 from '../../assets/sliderImages/Banner2.png';
-import banner3 from '../../assets/sliderImages/Banner3.png';
-
 export const HomeSlider = () => {
   return (
-    <div className="carousel">
+    <div className="main-carousel">
       <Carousel interval={5000}>
         <Carousel.Item>
-          <SliderItem image={banner} />
+          <div
+            className="
+              main-carousel__image
+              main-carousel__image--main
+            "
+          />
         </Carousel.Item>
 
         <Carousel.Item>
-          <SliderItem image={banner2} />
+          <div
+            className="
+              main-carousel__image
+              main-carousel__image--second
+            "
+          />
         </Carousel.Item>
 
         <Carousel.Item>
-          <SliderItem image={banner3} />
+          <div
+            className="
+              main-carousel__image
+              main-carousel__image--third
+            "
+          />
         </Carousel.Item>
       </Carousel>
     </div>
