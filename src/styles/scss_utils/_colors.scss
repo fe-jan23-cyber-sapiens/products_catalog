@@ -25,11 +25,13 @@
   --bg: var(--bg-light);
   --primary: var(--primary-light);
   --secondary: var(--secondary-light);
+  --theme-switch: var(--icons-light);
 }
 
 .dark {
   --bg: var(--bg-dark);
   --primary: var(--white-dark);
   --secondary: var(--secondary-dark);
+  --theme-switch: var(--surface2-dark);
 }
 
