@@ -2,9 +2,10 @@
 @import '../../styles/scss_utils/vars';
 @import '../../styles/scss_utils/mixins';
 
-.navbar {
+.navigation-bar {
   display: flex;
   gap: 32px;
+  padding: 0;
 
   @include onLaptop {
     gap: 64px;
@@ -24,10 +25,16 @@
     text-transform: uppercase;
     color: var(--secondary-light);
 
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: var(--primary-light);
+    }
+
     &--is-active {
       position: relative;
       color: var(--primary-light);
-
+      
       &::after {
         content: '';
         position: absolute;
@@ -35,6 +42,10 @@
         height: 3px;
         width: 100%;
         background-color: var(--primary-light);
+      }
+
+      &:hover {
+        color: var(--primary-light);
       }
     }
 

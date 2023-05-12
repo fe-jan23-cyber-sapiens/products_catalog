@@ -77,10 +77,10 @@
     cursor: pointer;
 
     &--right {
-      background-image: url('../../assets/arrow/arrow_right.svg');
+      background-image: url('../../assets/arrows/arrow_right.svg');
 
       &--disabled {
-        background-image: url('../../assets/arrow/arrow_right_light.svg');
+        background-image: url('../../assets/arrows/arrow_right_light.svg');
         border-color: $elements-light;
         cursor: auto;
       }
@@ -91,10 +91,10 @@
     }
     
     &--left {
-      background-image: url('../../assets/arrow/arrow_left.svg');
+      background-image: url('../../assets/arrows/arrow_left.svg');
 
       &--disabled {
-        background-image: url('../../assets/arrow/arrow_left_light.svg');
+        background-image: url('../../assets/arrows/arrow_left_light.svg');
         border-color: $elements-light;
         cursor: auto;
       }
@@ -103,20 +103,16 @@
         border-color: $primary-light;
       }
     }
+
+  }
+
+  &__card-wrapper {
+    padding: 5px;
+    max-width: 272px;
   }
 
   &__card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 212px;
     max-width: 212px;
-    height: 439px;
-    color: black;
-
-    border: 1px solid red;
-
-    transition: transform 0.3s linear;
 
     @include onTablet {
       max-width: 237px;

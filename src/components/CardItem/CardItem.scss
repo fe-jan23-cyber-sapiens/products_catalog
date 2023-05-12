@@ -1,65 +1,35 @@
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
-$card-width: 272px;
 
 .product {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: $card-width;
+  width: $card-width-s;
   padding: 32px;
+
   background-color: $white;
-  position: relative;
-  overflow: hidden;
-  border: 1px $primary-light;
+  border: 1px solid $elements-light;
+
+  &:hover {
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+  }
 
   @include onTablet {
-    width: $card-width;
+    width: $card-width-m;
   }
 
   @include onLaptop {
-    width: 288px;
-  }
-
-  &::before,
-  &::after {
-    content: '';
-    width: 1%;
-    height: 1px;
-    position: absolute;
-    left: 45%;
-    bottom: 0;
-    background-color: transparent;
-    transition: transform 0.8s;
-  }
-
-  &::after {
-    top: 0;
-  }
-
-  &:hover::before,
-  &:hover::after {
-    transform: scaleX(140);
-    background-color: $white;
-  }
-
-  &__img {
-    display: block;
-    height: 196px;
-    margin-bottom: 24px;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
+    width: $card-width-l;
+    max-height: 506px;
   }
 
   &__title {
-    @extend %buttons_desktop-tablet;
-
-    height: 42px;
+    @extend %card-text;
     color: $primary-light;
+
+    margin-bottom: 8px;
 
     &-link {
       color: inherit;
@@ -67,47 +37,69 @@ $card-width: 272px;
     }
   }
 
+  &__img {
+    display: block;
+    height: 129px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      height: 181px;
+    }
+
+    @include onLaptop {
+      height: 196px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__price {
     position: relative;
-    color: $primary-light;
     display: flex;
     align-items: center;
 
     margin-bottom: 16px;
-    padding-bottom: 8px;
 
     @extend %h3_desktop-tablet;
-
+    color: $primary-light;
 
     &::after {
       content: '';
-
       position: absolute;
-      bottom: 0;
-
-      display: block;
-      width: 100%;
+      bottom: -4px;
       height: 1px;
-
+      width: 100%;
       background-color: $elements-light;
     }
 
     &-item {
+      margin: 0;
+
       &:first-child {
+        font-weight: 800;
         margin-right: 8px;
       }
       
       &::before {
         content: '$';
+        font-family: "Mont", Helvetica, sans-serif;
+        color: $primary-light;
       }
   
       &--crossed {
         font-size: 22px;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 28px;
         text-decoration: line-through;
   
         color: $secondary-light;
+
+        &::before {
+          color: $secondary-light;
+        }
       }
     }
   }
@@ -126,12 +118,14 @@ $card-width: 272px;
 
     &-title {
       @extend %smallText_desktop-tablet;
+      margin: 0;
 
       color: $secondary-light;
     }
 
     &-value {
       @extend %smallText_desktop-tablet;
+      margin: 0;
 
       color: $primary-light;
     }
@@ -139,13 +133,6 @@ $card-width: 272px;
 }
 
 .product-item__buttons {
-    display: flex;
-    gap: 8px;
-    color: $primary-light;
-
-  &:hover {
-    background-color: $white;
-    color: $green;
-  }
+  display: flex;
+  gap: 8px;
 }
-  
