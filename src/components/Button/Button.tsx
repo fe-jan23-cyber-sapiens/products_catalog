@@ -1,7 +1,4 @@
 import React from 'react';
-/* eslint-disable */
-
-// type ButtonType = 'button';
 
 interface ButtonProps {
   btnWidth: string,
@@ -18,7 +15,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      // eslint-disable-next-line react/button-has-type
+      type="button"
       className={`custom-button ${btnType}`}
       style={{ width: `${btnWidth}`, height: `${btnHeight}` }}
     >
