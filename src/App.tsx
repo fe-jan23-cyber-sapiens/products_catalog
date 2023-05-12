@@ -19,7 +19,9 @@ export const App = () => {
   return (
     <div className={`app ${theme}`}>
       <Header onThemeChange={handleThemeChange} />
+
       <MainRoutes />
+
       <Footer />
     </div>
   );
