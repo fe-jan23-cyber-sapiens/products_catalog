@@ -7,7 +7,7 @@
   width: 100%;
   height: 96px;
 
-  border-top: 1px solid #e2e6e9;
+  border-top: 1px solid var(--elements);
 
   @media (min-width: 320px) and (max-width: 639px) {
     flex-direction: column;
@@ -31,7 +31,8 @@
     font-size: 12px;
     line-height: 15px;
     text-align: right;
-    color: #89939a;
+    color: var(--secondary);
+    cursor: default;
 
     @media (min-width: 320px) and (max-width: 639px) {
       margin: 0 auto;
@@ -42,14 +43,14 @@
       height: 32px;
       margin: 16px;
       background-image: url('../../assets/arrow/arrow.svg');
-      background-color: #fff;
+      background-color: var(--item-bg);
       background-repeat: no-repeat;
       background-position: center;
-      border: 1px solid #b4bdc3;
+      border: 1px solid var(--border-2);
       cursor: pointer;
 
       &:hover {
-        border: 1px solid #313237;
+        border: 1px solid var(--item-hover);
       }
     }
   }
@@ -71,7 +72,7 @@
     }
 
     &__link {
-      color: #89939a;
+      color: var(--link);
       font-weight: 800;
       font-size: 12px;
       line-height: 11px;
@@ -80,7 +81,7 @@
       text-decoration: none;
 
       &:hover {
-        color: #313237;
+        color: var(--hover);
       }
     }
 

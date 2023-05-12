@@ -6,7 +6,7 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
-    color: #89939A;
+    color: var(--secondary);
   }
 
   &__trigger {
@@ -18,27 +18,27 @@
     margin-bottom: 4px;
     padding: 10px 12px 9px;
     font-family: 'Mont', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     line-height: 21px;
-    color: #313237;
-    background: #FFFFFF;
-    border: 1px solid #B4BDC4;
+    color: var(--primary);
+    background: var(--item-bg);
+    border: 1px solid var(--border-2);
     cursor: pointer;
 
     &-text {
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
-      color: #313237;
+      color: var(--primary);
     }
 
     &:hover {
-      border: 1px solid #89939A;
+      border: 1px solid var(--item-hover);
     }
 
     &:focus {
-      border: 1px solid #313237;
+      border: 1px solid var(--focus);
     }
 
     &--small {
@@ -62,9 +62,9 @@
     flex-direction: column;
     width: 176px;
     padding-top: 8px;
-    background: #FFFFFF;
+    background: var(--extra-bg);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid #E2E6E9;
+    border: 1px solid var(--border-3);
 
     &--small {
       width: 128px;
@@ -80,13 +80,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: #89939A;
+    color: var(--secondary);
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
-      color: #313237;
-      background-color: #FAFBFC;
+      color: var(--primary);
+      background-color: var(--item-hover2);
     }
   }
 }
