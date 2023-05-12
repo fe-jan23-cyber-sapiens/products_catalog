@@ -29,26 +29,43 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
 
   return (
     <div className="cart">
-      <div className="icon">
-        <img src="../assets/logos/Cross.svg" alt="logo delete" />
+      <div className="wrapper">
+        <img
+          className="delete"
+          src="./card.jpg"
+          alt="del"
+        />
+
+        <img
+          src="../assets/categories/phones.png"
+          alt="Iphone 11 PRO"
+          className="phone-card__image"
+        />
+        <p className="phone-card__description">Iphone 11 with 8GB of RAM</p>
       </div>
 
-      <div className="phone-card">
-        <img src="https://" alt="Iphone 11 PRO" className="phone-card__image" />
-        <p className="phone-card__description">Iphone 11 PRO with 8GB of RAM</p>
-      </div>
-
-      <div className="price_container">
-        <div className="counter">
-          <button type="button" onClick={decrement} disabled={isDisabled}>
-            -
-          </button>
-          <span>{count}</span>
-          <button type="button" onClick={increment}>
-            +
-          </button>
+      <div className="wrapper">
+        <div className="price_container">
+          <div className="counter">
+            <button
+              type="button"
+              className="count"
+              onClick={decrement}
+              disabled={isDisabled}
+            >
+              -
+            </button>
+            <span>{count}</span>
+            <button
+              type="button"
+              className="count"
+              onClick={increment}
+            >
+              +
+            </button>
+          </div>
+          <h2>{`$${getTotalPrice()}`}</h2>
         </div>
-        <h2>{`$${getTotalPrice()}`}</h2>
       </div>
     </div>
   );

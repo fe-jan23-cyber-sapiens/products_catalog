@@ -1,4 +1,5 @@
-const BASE_URL = 'https://products-catalog-api.onrender.com';
+import { Product, ProductDetails } from '../utils/typedefs';
+import { BASE_URL } from '../utils/constants';
 
 function request<T>(url: string): Promise<T> {
   const fullUrl = BASE_URL + url;
@@ -13,10 +14,10 @@ function request<T>(url: string): Promise<T> {
 }
 
 export default {
-  getAll: request('/products'),
-  getByCategory: (category: string) => request(`/products?category=${category}`),
-  getProductDetails: (phoneId: string) => request(`/details/${phoneId}`),
-  getNewProducts: () => request('/products/new'),
-  getDiscountProducts: () => request('/products/discount'),
-  getRecommendedProducts: () => request('/products/recommended'),
+  getAll: () => request<Product[]>('/products'),
+  getByCategory: (category: string) => request<Product[]>(`/products?category=${category}`),
+  getProductDetails: (phoneId: string) => request<ProductDetails>(`/details/${phoneId}`),
+  getNewProducts: () => request<Product[]>('/products/new'),
+  getDiscountProducts: () => request<Product[]>('/products/discount'),
+  getRecommendedProducts: () => request<Product[]>('/products/recommended'),
 };

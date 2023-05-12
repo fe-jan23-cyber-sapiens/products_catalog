@@ -1,26 +1,26 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-
-import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { ProductsPage } from './pages/ProductsPage';
-import { FavouritesPage } from './pages/FavouritesPage';
-import { CartPage } from './pages/CartPage';
+import { useContext } from 'react';
 
 import './App.scss';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { ThemeContext } from './context/ThemeContext';
+import { THEME_DARK, THEME_LIGHT } from './utils/constants';
+import { MainRoutes } from './routes/MainRoutes';
 
-export const App = () => (
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/home" element={<Navigate to="/" replace />} />
+export const App = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
 
-    <Route path="/phones" element={<ProductsPage />} />
-    <Route path="/tablets" element={<ProductsPage />} />
-    <Route path="/accessories" element={<ProductsPage />} />
+  const handleThemeChange = () => {
+    setTheme(theme === THEME_LIGHT
+      ? THEME_DARK
+      : THEME_LIGHT);
+  };
 
-    <Route path="/favourites" element={<FavouritesPage />} />
-
-    <Route path="/cart" element={<CartPage />} />
-
-    <Route path="*" element={<NotFoundPage />} />
-  </Routes>
-);
+  return (
+    <div className={`app ${theme}`}>
+      <Header onThemeChange={handleThemeChange} />
+      <MainRoutes />
+      <Footer />
+    </div>
+  );
+};

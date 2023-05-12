@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
@@ -5,8 +6,13 @@ import { NavBar } from '../NavBar';
 import './Header.scss';
 
 import * as images from '../../assets';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 
-export const Header = () => {
+interface HeaderProps {
+  onThemeChange: () => void;
+}
+
+export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   return (
     <div className="header">
       <div className="header__left-side">
@@ -21,6 +27,7 @@ export const Header = () => {
       </div>
 
       <div className="header__right-side">
+
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path="/favourites"
@@ -37,6 +44,10 @@ export const Header = () => {
             alt="Cart icon"
             className="header__link"
           />
+        </div>
+
+        <div className="header__logo-box">
+          <ThemeSwitcher onThemeChange={onThemeChange} />
         </div>
 
         <div className="header__logo-box">

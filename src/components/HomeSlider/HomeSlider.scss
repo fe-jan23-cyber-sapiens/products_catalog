@@ -1,35 +1,50 @@
-.carousel {
-  width: 100%;
-  height: 320px;
-  margin: 40px auto;
+@import '../../styles/scss_utils/mixins';
+
+.main-carousel {
+  @include onTablet {
+    margin: 0 24px;
+  }
 
   &__image {
-    height: 320px;
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
 
-    object-fit: cover;
-    object-position: right;
-  }
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-  @media (min-width: 640px) {
-    max-width: 630px;
-    height: 189px;
-
-    &__image {
-      height: 189px;
-      width: 650px;
-
-      object-position: top;
+    &--main {
+      background-image: url('../../assets/sliderImages/main_banner_sm.png');
     }
-  }
 
-  @media (min-width: 1200px) {
-    max-width: 1124px;
-    height: 400px;
+    &--second {
+      background-image: url('../../assets/sliderImages/second_banner.png');
+    }
 
-    &__image {
-      height: 400px;
+    &--third {
+      background-image: url('../../assets/sliderImages/third_banner.png');
+    }
+
+    @include onTablet {
       width: 100%;
+      max-width: 1040px;
+      height: auto;
+      margin: 0 auto;
+      aspect-ratio: 2.6 / 1;
+
+      &--main {
+        background-image: url('../../assets/sliderImages/main_banner_l.png');
+      }
+    }
+
+    @include onLaptop {
+      max-height: 400px;
     }
   }
+}
+
+.carousel {
+  max-width: 1040px;
+  margin: 0 auto;
 }

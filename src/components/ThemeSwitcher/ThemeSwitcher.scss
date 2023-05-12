@@ -1,0 +1,76 @@
+@keyframes anima {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes anima1 {
+  0% {
+    transform: translateX(20px);
+  }
+  80% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  font-size: 17px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked {
+      + {
+        .slider {
+          &:before {
+            background-color: yellow;
+            box-shadow: none;
+            transform: translateX(18px);
+            animation: anima 0.3s linear;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--theme-switch);
+  cursor: pointer;
+  border-radius: 30px;
+  transition: .4s;
+
+  &:before {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 20px;
+    background-color: var(--theme-switch);
+    box-shadow: inset 2px -2px 0 1.8px #fff;
+    transition: .4s;
+    animation: anima1 0.3s linear;
+  }
+}

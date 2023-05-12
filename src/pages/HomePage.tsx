@@ -1,3 +1,5 @@
+import { CardItem } from '../components/CardItem/CardItem';
+
 export const HomePage = () => {
-  return <h1>Home page</h1>;
+  return <CardItem />;
 };

@@ -4,12 +4,6 @@
   }
 }
 
-@mixin onBigTablet {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-
 @mixin onLaptop {
   @media (min-width: 1200px) {
     @content;

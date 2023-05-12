@@ -1,3 +1,7 @@
+@import '../../styles/scss_utils/vars';
+@import '../../styles/_reset';
+@import '../../styles/mixins';
+
 .checkout {
   display: flex;
   justify-content: space-between;
@@ -5,8 +9,9 @@
   text-align: center;
 
   padding: 24px;
-  width: 368px;
+  width: 288px;
   height: 185px;
+  margin: 0 auto;
 
   border: 1px black solid;
 }
@@ -18,28 +23,14 @@
 }
 
 .totalItems {
-  position: relative;
-
   text-align: center;
 
   font-size: 14px;
   line-height: 21px;
+  padding-bottom: 15px;
 
   color: #89939a;
-}
-
-.totalItems::after {
-  content: '';
-  position: absolute;
-  left: 24px;
-  bottom: 0px;
-  right: 24px;
-  top: 78px;
-
-  height: 0px;
-
-  border: 1px solid #e2e6e9;
-
+  border-bottom: 1px solid #e2e6e9;
 }
 
 .buy {
@@ -55,14 +46,27 @@
   font-weight: 700;
   color: white;
 
-  background: rgb(85, 130, 115);
-  border: 1px solid rgb(85, 130, 115);
-  border-radius: 5px;
+  background: $primary-light;
+  border: 1px solid $primary-light;
+
+  overflow: hidden;
 
   text-transform: uppercase;
 
   &:hover {
     color: rgb(85, 130, 115);
     background: white;
+  }
+}
+
+@include onTablet {
+  .checkout {
+    width: 100%;
+  }
+}
+
+@include onLaptop {
+  .checkout {
+    width: 360px;
   }
 }
