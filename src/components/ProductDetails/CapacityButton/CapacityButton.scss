@@ -1,0 +1,22 @@
+.capacity__button {
+  padding: 3px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: center;
+
+  color: var(--primary-light);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &--active {
+    color: #fff;
+    background-color: var(--primary-light);
+  }
+}

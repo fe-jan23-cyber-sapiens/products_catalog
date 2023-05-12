@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import './BreadCrumbs.scss';
@@ -26,7 +27,7 @@ export const BreadCrumbs = () => {
         link += `/${crumb.toLowerCase()}`;
 
         return (
-          <>
+          <Fragment key={crumb}>
             <img src={arrowRight} alt="arrow right" />
 
             <Link
@@ -38,7 +39,7 @@ export const BreadCrumbs = () => {
             >
               {path}
             </Link>
-          </>
+          </Fragment>
         );
       })}
     </div>

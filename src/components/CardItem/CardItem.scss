@@ -12,6 +12,7 @@ $card-width: 272px;
   background-color: $white;
   position: relative;
   overflow: hidden;
+  border: 1px $primary-light;
 
   @include onTablet {
     width: $card-width;

@@ -1,0 +1,15 @@
+.techSpecs__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  &-text {
+    font-weight: 500;
+    font-size: 14px;
+
+    line-height: 21px;
+    text-align: right;
+
+    color: var(--primary-light);
+  }
+}

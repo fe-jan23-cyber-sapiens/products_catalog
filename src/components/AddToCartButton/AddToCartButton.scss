@@ -15,6 +15,7 @@
       background-color: $white;
       color: $green;
       transition: background 0.3s ease;
+      border: 1px $green;
     }
   
     &.custom-button {

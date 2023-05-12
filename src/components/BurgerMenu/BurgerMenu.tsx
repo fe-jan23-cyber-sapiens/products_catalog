@@ -1,15 +1,17 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import logo from '../../assets/logos/Logo.svg';
 import './BurgerMenu.scss';
+import { PATH } from '../../routes/types/Path';
 
-export const BurgerMenu: React.FC = () => {
+export const BurgerMenu: FC = () => {
   return (
     <nav className="menu">
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
-            <NavLink to="/">
+            <NavLink to={PATH.Main}>
               <img src={logo} alt="logo" />
             </NavLink>
           </div>
@@ -24,7 +26,7 @@ export const BurgerMenu: React.FC = () => {
         <ul className="menu__list">
           <li className="menu__item">
             <NavLink
-              to="/home"
+              to={PATH.Home}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -35,7 +37,7 @@ export const BurgerMenu: React.FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to="/home"
+              to={PATH.Home}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -46,7 +48,7 @@ export const BurgerMenu: React.FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to="/home"
+              to={PATH.Home}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -57,7 +59,7 @@ export const BurgerMenu: React.FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to="/home"
+              to={PATH.Home}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -69,7 +71,7 @@ export const BurgerMenu: React.FC = () => {
 
         <div className="menu__footer">
           <NavLink
-            to="/favorites"
+            to={PATH.Favourites}
             aria-label="favorites"
             type="button"
             className={({ isActive }) => classNames(
@@ -79,7 +81,7 @@ export const BurgerMenu: React.FC = () => {
             )}
           />
           <NavLink
-            to="/shopping_card"
+            to={PATH.Cart}
             aria-label="shopping_card"
             type="button"
             className={({ isActive }) => classNames(

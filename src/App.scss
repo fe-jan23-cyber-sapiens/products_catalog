@@ -1,3 +1,18 @@
-.App {
+@import './styles/scss_utils/mixins';
+
+.app {
   height: 100vh;
+}
+
+.page {
+  height: max-content;
+  padding: 25px 22px;
+
+  @include onTablet {
+    padding: 25px 25px;
+  }
+
+  @include onLaptop {
+    padding: 25px 153px;
+  }
 }
