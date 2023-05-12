@@ -10,8 +10,16 @@ interface Props {
 
 export const TechSpecs: FC<Props> = (props) => {
   const { product } = props;
-  // eslint-disable-next-line object-curly-newline
-  const { screen, resolution, processor, capacity, camera, zoom, ram, cell } = product;
+  const {
+    screen,
+    resolution,
+    processor,
+    capacity,
+    camera,
+    zoom,
+    ram,
+    cell,
+  } = product;
 
   return (
     <>

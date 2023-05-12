@@ -9,3 +9,21 @@
     @content;
   }
 }
+
+%h3_desktop-tablet {
+  font-family: "Mont-Bold";
+  font-size: 22px;
+  line-height: 140%;
+}
+
+%smallText_desktop-tablet {
+  font-family: "Mont-SemiBold";
+  font-size: 12px;
+  line-height: 15px;
+}
+
+%buttons_desktop-tablet {
+  font-family: "Mont-SemiBold";
+  font-size: 14px;
+  line-height: 21px;
+}

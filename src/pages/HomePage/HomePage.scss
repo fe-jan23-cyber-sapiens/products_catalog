@@ -1,0 +1,16 @@
+@import '../../styles/scss_utils/vars';
+@import '../../styles/scss_utils/mixins';
+
+.homePage {
+  &__slider {
+    margin-bottom: 57px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+  }
+}

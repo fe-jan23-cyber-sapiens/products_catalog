@@ -27,7 +27,6 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       </div>
 
       <div className="header__right-side">
-
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path="/favourites"

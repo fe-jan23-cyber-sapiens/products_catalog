@@ -14,9 +14,8 @@ export const ProductPage = () => {
   const [product, setProduct] = useState<ProductDetails | null>(null);
 
   const getProduct = async () => {
-    const response = await fetch(
-      'https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold',
-    );
+    // eslint-disable-next-line max-len
+    const response = await fetch('https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold');
 
     const details = await response.json();
 
