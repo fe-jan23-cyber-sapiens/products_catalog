@@ -1,4 +1,4 @@
-import arrowLeft from '../../assets/arrow/Arrow Left.png';
+import arrowLeft from '../../assets/arrows/Arrow Left.png';
 import './Back.scss';
 
 export const Back = () => {

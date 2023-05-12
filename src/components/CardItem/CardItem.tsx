@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { AddToCart } from '../AddToCartButton/AddToCartButton';
 import { AddToFavourites } from '../FavouritesButton/FavouritesButton';
 import './CardItem.scss';
@@ -21,6 +22,7 @@ export const CardItem: FC<Props> = ({
     image,
     price,
     fullPrice,
+    phoneId,
     screen,
     capacity,
     ram,
@@ -28,7 +30,11 @@ export const CardItem: FC<Props> = ({
   } = product;
 
   return (
-    <>
+    <Link
+      to={`/phones/${phoneId}`}
+      className="link-to-product"
+      onClick={() => window.scrollTo(0, 0)}
+    >
       <article
         className="product"
       >
@@ -75,6 +81,6 @@ export const CardItem: FC<Props> = ({
           </div>
         </div>
       </article>
-    </>
+    </Link>
   );
 };

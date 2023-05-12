@@ -1,12 +1,21 @@
+@import '../../../styles/scss_utils/colors';
+
 .color__button {
   height: 30px;
   width: 30px;
 
+  border: 2px solid $elements-light;
+  border-radius: 36px;
+  outline: 1px solid $elements-light;
+
   cursor: pointer;
-  border-radius: 50%;
-  border: 2px solid var(--secondary-light);
 
   &:hover {
     transform: scale(1.1);
+    outline-color: $icons-light;
+  }
+
+  &--active {
+    outline-color: $primary-light;
   }
 }
