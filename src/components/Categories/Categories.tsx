@@ -8,26 +8,32 @@ import accessories from '../../assets/categories/accessories.png';
 export const Categories = () => {
   return (
     <section className="categories">
-      <Category
-        products={0}
-        title="Mobile Phones"
-        image={phones}
-        link="/phones"
-      />
+      <h1 className="categories__title">
+        Shop by category
+      </h1>
 
-      <Category
-        products={0}
-        title="Tablets"
-        image={tablets}
-        link="/tablets"
-      />
+      <div className="categories__items">
+        <Category
+          products={72}
+          title="Mobile Phones"
+          image={phones}
+          link="/phones"
+        />
 
-      <Category
-        products={0}
-        title="Accessories"
-        image={accessories}
-        link="/accessories"
-      />
+        <Category
+          products={0}
+          title="Tablets"
+          image={tablets}
+          link="/tablets"
+        />
+
+        <Category
+          products={0}
+          title="Accessories"
+          image={accessories}
+          link="/accessories"
+        />
+      </div>
     </section>
   );
 };

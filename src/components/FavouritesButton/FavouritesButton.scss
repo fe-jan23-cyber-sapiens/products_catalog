@@ -1,0 +1,23 @@
+@import '../..//styles/scss_utils/vars';
+
+.favourite-btn {
+  min-width: 40px;
+  min-height: 40px;
+
+  background-image: url('../../assets/logos/heart_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 1px solid $elements-light;
+  cursor: pointer;
+
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: $primary-light;
+  }
+
+  &--selected {
+    background-image: url('../../assets/logos/filled_heart_icon.svg');
+  }
+}

@@ -1,8 +1,33 @@
 @import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
 
+.productPage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  &__slider {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 81px;
+    }
+  }
+
+}
+
 .details {
   margin-bottom: 60px;
+  padding: 16px;
+
+  @include onTablet {
+    padding: 24px;
+  }
 
   @include onLaptop {
     margin-bottom: 80px;

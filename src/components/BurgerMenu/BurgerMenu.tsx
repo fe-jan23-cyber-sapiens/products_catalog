@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '../../assets/logos/Logo.svg';
+import * as images from '../../assets';
 import './BurgerMenu.scss';
 import { RoutePath } from '../../routes/RoutePath';
 
@@ -12,7 +12,7 @@ export const BurgerMenu: FC = () => {
         <div className="top-actions">
           <div className="top-actions__logo">
             <NavLink to={RoutePath.main}>
-              <img src={logo} alt="logo" />
+              <img src={images.main_logo} alt="logo" />
             </NavLink>
           </div>
 

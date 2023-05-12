@@ -36,7 +36,7 @@ export const Category: FC<Props> = (props) => {
         </h2>
 
         <p className="category__count">
-          {`${products} items`}
+          {`${products} models`}
         </p>
       </div>
     </Link>

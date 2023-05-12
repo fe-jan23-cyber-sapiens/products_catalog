@@ -5,13 +5,14 @@ import {
   RouteProps,
   Routes,
 } from 'react-router-dom';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from '../pages/HomePage/HomePage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { FavouritesPage } from '../pages/FavouritesPage';
 import { CartPage } from '../pages/CartPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RoutePath } from './RoutePath';
 import { PATH } from './types/Path';
+import { ProductPage } from '../pages/ProductPage/ProductPage';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
@@ -27,6 +28,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Phones]: {
     path: RoutePath.phones,
     element: <ProductsPage />,
+  },
+
+  [PATH.Phone]: {
+    path: RoutePath.phoneId,
+    element: <ProductPage />,
   },
 
   [PATH.Tablets]: {

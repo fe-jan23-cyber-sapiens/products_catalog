@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__left-side">
         <HeaderLinkWithIcon
           path="/"
@@ -27,7 +27,6 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       </div>
 
       <div className="header__right-side">
-
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path="/favourites"
@@ -54,6 +53,6 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
           <img src={images.burger_menu_icon} alt="Burger menu icon" />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
