@@ -8,6 +8,7 @@ import {
   ProductActions,
   ProductInfo,
 } from '../../components/ProductDetails';
+import { SecondarySlider } from '../../components/SecondarySlider';
 
 export const ProductPage = () => {
   const [product, setProduct] = useState<ProductDetails | null>(null);
@@ -26,7 +27,7 @@ export const ProductPage = () => {
   }, []);
 
   return (
-    <>
+    <main className="productPage">
       {product && (
         <div className="details">
           <BreadCrumbs />
@@ -48,6 +49,13 @@ export const ProductPage = () => {
           </div>
         </div>
       )}
-    </>
+
+      <div className="productPage__slider">
+        <SecondarySlider
+          endpoint="recommended"
+          title="You may also like"
+        />
+      </div>
+    </main>
   );
 };
