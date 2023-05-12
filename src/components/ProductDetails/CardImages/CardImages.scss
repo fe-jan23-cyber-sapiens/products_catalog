@@ -8,6 +8,7 @@
 
   @include onTablet {
     flex-direction: row;
+    gap: 30px;
   }
 
   &-list {
@@ -48,6 +49,7 @@
   &-icon {
     margin: 0 auto;
     max-height: 90%;
+    max-width: 90%;
   }
 
   &-big {
@@ -62,7 +64,7 @@
 
     @include onLaptop {
       height: 440px;
-      width: 400px;
+      width: 440px;
     }
   }
 }

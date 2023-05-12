@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './CardImages.scss';
 
 type Props = {
@@ -7,8 +7,12 @@ type Props = {
 };
 
 export const CardImages: FC<Props> = ({ images }) => {
-  const [bigImage, setBigImage] = useState<string>(images[0]);
+  const [bigImage, setBigImage] = useState<string>('');
   const IMG_URL = 'https://products-catalog-api.onrender.com/';
+
+  useEffect(() => {
+    setBigImage(images[0]);
+  }, [images]);
 
   return (
     <div className="card__images">

@@ -17,6 +17,7 @@ export default {
   getAll: () => request<Product[]>('/products'),
   getByCategory: (category: string) => request<Product[]>(`/products?category=${category}`),
   getProductDetails: (phoneId: string) => request<ProductDetails>(`/details/${phoneId}`),
+  getSameModels: (nameId: string) => request<ProductDetails[]>(`/details?namespaceId=${nameId}`),
   getNewProducts: () => request<Product[]>('/products/new'),
   getDiscountProducts: () => request<Product[]>('/products/discount'),
   getRecommendedProducts: () => request<Product[]>('/products/recommended'),

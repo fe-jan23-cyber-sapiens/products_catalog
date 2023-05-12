@@ -14,6 +14,7 @@ import { RoutePath } from './RoutePath';
 import { PATH } from './types/Path';
 import { Contacts } from '../pages/Contacts';
 import { Rights } from '../pages/Rights';
+import { ProductPage } from '../pages/ProductPage/ProductPage';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
@@ -29,6 +30,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Phones]: {
     path: RoutePath.phones,
     element: <ProductsPage />,
+  },
+
+  [PATH.Phone]: {
+    path: RoutePath.phoneId,
+    element: <ProductPage />,
   },
 
   [PATH.Tablets]: {
@@ -69,15 +75,8 @@ export const routeConfig: Record<PATH, RouteProps> = {
 
 export const MainRoutes: FC = () => (
   <Routes>
-    {Object.values(routeConfig).map(({
-      path,
-      element,
-    }) => (
-      <Route
-        path={path}
-        key={path}
-        element={element}
-      />
+    {Object.values(routeConfig).map(({ path, element }) => (
+      <Route path={path} key={path} element={element} />
     ))}
   </Routes>
 );

@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './BreadCrumbs.scss';
 
 import home from '../../assets/Home.png';
-import arrowRight from '../../assets/arrow/Arrow Right.png';
+import arrowRight from '../../assets/arrows/Arrow Right.png';
 
 export const BreadCrumbs = () => {
   const { pathname } = useLocation();

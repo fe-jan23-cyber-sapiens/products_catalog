@@ -6,11 +6,18 @@ import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 import './ProductActions.scss';
 
 interface Props {
-  product: ProductDetails;
+  product: ProductDetails,
+  onColorSelect: (color: string) => void,
+  onCapacitySelect: (capacity: string) => void,
 }
 
 export const ProductActions: FC<Props> = (props) => {
-  const { product } = props;
+  const {
+    product,
+    onColorSelect,
+    onCapacitySelect,
+  } = props;
+
   const {
     ram,
     screen,
@@ -25,17 +32,26 @@ export const ProductActions: FC<Props> = (props) => {
   return (
     <div className="actions">
       <div className="actions__select">
-        <p className="actions__small">Available colors</p>
+        <p className="actions__small">
+          Available colors
+        </p>
 
         <div className="actions__buttons">
           {colorsAvailable.map((color) => (
-            <ColorButton color={color} key={color} />
+            <ColorButton
+              productColor={product.color}
+              color={color}
+              key={color}
+              onClick={onColorSelect}
+            />
           ))}
         </div>
       </div>
 
       <div className="actions__select">
-        <p className="actions__small">Select capacity</p>
+        <p className="actions__small">
+          Select capacity
+        </p>
 
         <div className="actions__buttons">
           {capacityAvailable.map((capacity) => (
@@ -43,15 +59,20 @@ export const ProductActions: FC<Props> = (props) => {
               capacity={capacity}
               product={product}
               key={capacity}
+              onClick={onCapacitySelect}
             />
           ))}
         </div>
       </div>
 
       <div className="actions__prices">
-        <span className="actions__discount">{`$${priceDiscount}`}</span>
+        <span className="actions__discount">
+          {`$${priceDiscount}`}
+        </span>
 
-        <span className="actions__full">{`$${priceRegular}`}</span>
+        <span className="actions__full">
+          {`$${priceRegular}`}
+        </span>
       </div>
 
       <div className="actions__button">

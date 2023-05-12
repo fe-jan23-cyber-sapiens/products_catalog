@@ -3,12 +3,10 @@
 .productInfo {
   display: flex;
   flex-direction: column;
-  margin-bottom: 56px;
   gap: 16px;
 
   @include onTablet {
     gap: 80px;
-    margin-bottom: 80px;
   }
 
   @include onLaptop {
