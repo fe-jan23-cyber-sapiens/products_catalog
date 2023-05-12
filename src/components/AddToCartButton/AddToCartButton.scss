@@ -1,21 +1,23 @@
 @import '../../styles/scss_utils/vars';
 
-.btn__add-to-cart {
+.add-to-cart-btn {
     display: flex;
+    justify-content: center;
+    align-items: center;
   
-    border-radius: 0;
     border: none;
     background-color: $primary-light;
     color: $white;
-    &--clicked {
-      background: $bg-light;
-    }
 
     &:hover {
-      background-color: $white;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &--is-selected {
       color: $green;
-      transition: background 0.3s ease;
-      border: 1px $green;
+      background-color: transparent;
+      border: 1px solid $elements-light;
     }
   
     &.custom-button {
