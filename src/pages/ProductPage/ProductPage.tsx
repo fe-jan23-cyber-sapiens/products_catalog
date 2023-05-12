@@ -1,5 +1,6 @@
 import './ProductPage.scss';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Back } from '../../components/Back/Back';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { ProductDetails } from '../../utils/typedefs';
@@ -12,12 +13,12 @@ import { SecondarySlider } from '../../components/SecondarySlider';
 import client from '../../api/fetching';
 
 export const ProductPage = () => {
-  const id = 'apple-iphone-11-64gb-black';
+  const { phoneId = '' } = useParams();
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [sameModels, setSameModels] = useState<ProductDetails[]>([]);
 
   const getProduct = async () => {
-    const productDetails = await client.getProductDetails(id);
+    const productDetails = await client.getProductDetails(phoneId);
 
     setProduct(productDetails);
   };
@@ -48,7 +49,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [phoneId]);
 
   useEffect(() => {
     getSameModels();
