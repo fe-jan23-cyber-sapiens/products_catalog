@@ -24,7 +24,6 @@
   --bg: var(--bg-light);
   --primary: var(--primary-light);
   --secondary: var(--secondary-light);
-  --theme-switch: var(--icons-light);
   --border: var(--elements-light);
   --border-2: var(--icons-light);
   --border-3: var(--elements-light);
@@ -32,19 +31,21 @@
   --font: var(--black);
   --item-bg: var(--white);
   --item-hover: var(--secondary-light);
-  --focus: var(--primary-light);
   --extra-bg: var(--white);
   --item-hover2: var(--bg-light);
   --primary-bg: var(--bg-light);
   --elements: var(--elements-light);
   --link: var(--secondary-light);
+  --selected: var(--green);
+  --favorites-hover: var(--bg-light);
+  --hover-lighter: var(--primary-light);
+  --color-btn: var(--icons-light);
 }
 
 .dark {
   --bg: var(--bg-dark);
   --primary: var(--white-dark);
   --secondary: var(--secondary-dark);
-  --theme-switch: var(--surface2-dark);
   --border: var(--surface1-dark);
   --border-2: var(--surface2-dark);
   --border-3: var(--surface2-dark);
@@ -52,11 +53,14 @@
   --font: var(--white);
   --item-bg: var(--surface2-dark);
   --item-hover: var(--icons-dark);
-  --focus: var(--accent-dark);
   --extra-bg: var(--bg-dark);
   --item-hover2: var(--surface2-dark);
   --primary-bg: var(--surface1-dark);
   --elements: var(--elements-dark);
   --link: var(--white-dark);
+  --selected: var(--white-dark);
+  --favorites-hover: var(--icons-dark);
+  --hover-lighter: var(--icons-dark);
+  --color-btn: var(--secondary-dark);
 }
 

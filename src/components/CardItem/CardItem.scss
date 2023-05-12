@@ -9,13 +9,13 @@
   width: $card-width-s;
   padding: 32px;
 
-  background-color: $white;
-  border: 1px solid $elements-light;
+  background-color: var(--bg);
+  border: 1px solid var(--border-3);
 
   transition: all 0.3s linear;
 
   &:hover {
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   @include onTablet {
@@ -29,7 +29,7 @@
 
   &__title {
     @extend %card-text;
-    color: $primary-light;
+    color: var(--primary);
 
     margin-bottom: 8px;
 
@@ -66,7 +66,7 @@
     margin-bottom: 16px;
 
     @extend %h3_desktop-tablet;
-    color: $primary-light;
+    color: var(--primary);
 
     &::after {
       content: '';
@@ -74,7 +74,7 @@
       bottom: -4px;
       height: 1px;
       width: 100%;
-      background-color: $elements-light;
+      background-color: var(--elements);
     }
 
     &-item {
@@ -84,23 +84,23 @@
         font-weight: 800;
         margin-right: 8px;
       }
-      
+
       &::before {
         content: '$';
         font-family: "Mont", Helvetica, sans-serif;
-        color: $primary-light;
+        color: var(--secondary);
       }
-  
+
       &--crossed {
         font-size: 22px;
         font-weight: 500;
         line-height: 28px;
         text-decoration: line-through;
-  
-        color: $secondary-light;
+
+        color: var(--secondary);
 
         &::before {
-          color: $secondary-light;
+          color: var(--secondary);
         }
       }
     }
@@ -122,14 +122,14 @@
       @extend %smallText_desktop-tablet;
       margin: 0;
 
-      color: $secondary-light;
+      color: var(--secondary);;
     }
 
     &-value {
       @extend %smallText_desktop-tablet;
       margin: 0;
 
-      color: $primary-light;
+      color: var(--primary);
     }
   }
 }

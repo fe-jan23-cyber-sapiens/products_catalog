@@ -4,18 +4,18 @@
   height: 30px;
   width: 30px;
 
-  border: 2px solid $elements-light;
+  border: 2px solid var(--elements);
   border-radius: 36px;
-  outline: 1px solid $elements-light;
+  outline: 1px solid var(--elements);
 
   cursor: pointer;
 
   &:hover {
     transform: scale(1.1);
-    outline-color: $icons-light;
+    outline-color: var(--color-btn);
   }
 
   &--active {
-    outline-color: $primary-light;
+    outline-color: var(--primary);
   }
 }

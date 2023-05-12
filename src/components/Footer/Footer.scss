@@ -7,7 +7,7 @@
   height: 96px;
 
   border-top: 1px solid var(--elements);
-  background-color: #fafbfc;
+  background-color: var(--bg);
 
   @media (min-width: 320px) and (max-width: 639px) {
     flex-direction: column;

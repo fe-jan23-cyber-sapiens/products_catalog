@@ -31,7 +31,7 @@
     font-size: 20px;
     line-height: 26px;
 
-    color: $primary-light;
+    color: var(--primary);
   }
 
   &__count {
@@ -41,7 +41,7 @@
     font-size: 14px;
     line-height: 21px;
 
-    color: $secondary-light;
+    color: var(--secondary);
   }
 
   &__link {

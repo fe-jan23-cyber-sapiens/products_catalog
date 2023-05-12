@@ -46,8 +46,8 @@
   font-weight: 700;
   color: white;
 
-  background: $primary-light;
-  border: 1px solid $primary-light;
+  background: var(--hover);
+  border: 1px solid var(--hover);
 
   overflow: hidden;
 

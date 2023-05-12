@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import classnames from 'classnames';
 import './AddToCartButton.scss';
 
@@ -7,7 +7,7 @@ interface Props {
   isAddedToCart: boolean,
 }
 
-export const AddToCart: React.FC<Props> = ({ height, isAddedToCart }) => {
+export const AddToCart: FC<Props> = ({ height, isAddedToCart }) => {
   return (
     <button
       className={classnames(

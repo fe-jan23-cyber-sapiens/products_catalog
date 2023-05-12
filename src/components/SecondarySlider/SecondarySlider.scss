@@ -48,7 +48,7 @@
     font-size: 22px;
     line-height: 140%;
     letter-spacing: -0.01em;
-    color: $primary-light;
+    color: var(--primary);
 
     width: 136px;
 
@@ -68,7 +68,7 @@
     width: 32px;
     height: 32px;
 
-    border: 1px solid $icons-light;
+    border: 1px solid var(--border-2);
 
     background-color: white;
     background-position: center;
@@ -81,26 +81,28 @@
 
       &--disabled {
         background-image: url('../../assets/arrows/arrow_right_light.svg');
-        border-color: $elements-light;
+        border-color: var(--elements);
         cursor: auto;
       }
 
       &--hover:hover {
-        border-color: $primary-light;
+        border-color: var(--hover-lighter);
+        background-color: var(--favorites-hover);
       }
     }
-    
+
     &--left {
       background-image: url('../../assets/arrows/arrow_left.svg');
 
       &--disabled {
         background-image: url('../../assets/arrows/arrow_left_light.svg');
-        border-color: $elements-light;
+        border-color: var(--elements);
         cursor: auto;
       }
 
       &--hover:hover {
-        border-color: $primary-light;
+        border-color: var(--hover-lighter);
+        background-color: var(--favorites-hover);
       }
     }
 
