@@ -9,22 +9,50 @@ import {
   ProductInfo,
 } from '../../components/ProductDetails';
 import { SecondarySlider } from '../../components/SecondarySlider';
+import client from '../../api/fetching';
 
 export const ProductPage = () => {
+  const id = 'apple-iphone-11-64gb-black';
   const [product, setProduct] = useState<ProductDetails | null>(null);
+  const [sameModels, setSameModels] = useState<ProductDetails[]>([]);
 
   const getProduct = async () => {
-    // eslint-disable-next-line max-len
-    const response = await fetch('https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold');
+    const productDetails = await client.getProductDetails(id);
 
-    const details = await response.json();
+    setProduct(productDetails);
+  };
 
-    setProduct(details);
+  const getSameModels = async () => {
+    if (product) {
+      const models = await client.getSameModels(product.namespaceId);
+
+      setSameModels(models);
+    }
+  };
+
+  const getNewColor = (color: string) => {
+    const gadget = sameModels.find(model => model.color === color);
+
+    if (gadget) {
+      setProduct(gadget);
+    }
+  };
+
+  const getCapacity = (capacity: string) => {
+    const gadget = sameModels.find(model => model.capacity === capacity);
+
+    if (gadget) {
+      setProduct(gadget);
+    }
   };
 
   useEffect(() => {
     getProduct();
   }, []);
+
+  useEffect(() => {
+    getSameModels();
+  }, [product]);
 
   return (
     <main className="productPage">
@@ -42,7 +70,12 @@ export const ProductPage = () => {
                 <CardImages images={product.images} />
               </div>
 
-              <ProductActions product={product} key={product.id} />
+              <ProductActions
+                product={product}
+                key={product.id}
+                onColorSelect={getNewColor}
+                onCapacitySelect={getCapacity}
+              />
             </div>
 
             <ProductInfo product={product} key={product.id} />
