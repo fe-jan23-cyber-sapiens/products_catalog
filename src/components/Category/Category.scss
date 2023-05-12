@@ -1,4 +1,5 @@
 @import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/colors';
 
 .category {
   min-height: 100%;
@@ -8,6 +9,15 @@
   &__image {
     width: 100%;
     height: 100%;
+
+    transition: transform 0.3s;
+
+    @include onTablet {
+      &:hover {
+        transform: scale(1.05);
+        border-radius: 5px;
+      }
+    }
   }
 
   &__box {
@@ -21,7 +31,7 @@
     font-size: 20px;
     line-height: 26px;
 
-    color: #313237;
+    color: $primary-light;
   }
 
   &__count {
@@ -31,7 +41,7 @@
     font-size: 14px;
     line-height: 21px;
 
-    color: #89939a;
+    color: $secondary-light;
   }
 
   &__link {
