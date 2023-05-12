@@ -4,14 +4,13 @@
   height: 30px;
   width: 30px;
 
-  border: 2px solid var(--elements);
+  border: 2px solid var(--bg);
   border-radius: 36px;
   outline: 1px solid var(--elements);
 
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.1);
     outline-color: var(--color-btn);
   }
 

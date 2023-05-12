@@ -13,6 +13,7 @@
   --bg-dark: #0F1121;
   --white-dark: #F1F2F9;
   --accent-dark: #905BFF;
+  --accent-hover: #A378FF;
 
   --green: #27AE60;
   --red: #EB5757;
@@ -40,6 +41,8 @@
   --favorites-hover: var(--bg-light);
   --hover-lighter: var(--primary-light);
   --color-btn: var(--icons-light);
+  --hover-accent: var(--primary-light);
+  --border-icons: var(--icons-light);
 }
 
 .dark {
@@ -62,5 +65,7 @@
   --favorites-hover: var(--icons-dark);
   --hover-lighter: var(--icons-dark);
   --color-btn: var(--secondary-dark);
+  --hover-accent: var(--accent-hover);
+  --border-icons: var(--icons-dark);
 }
 

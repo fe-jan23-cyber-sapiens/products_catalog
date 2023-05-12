@@ -31,7 +31,7 @@
     height: 50px;
     width: 50px;
 
-    border: 1px solid  var(--secondary-light);
+    border: 1px solid  var(--elements);
     background-color: transparent;
     cursor: pointer;
 
@@ -70,5 +70,5 @@
 }
 
 .is-active {
-  border: 2px solid #C4C4C4;
+  border: 1px solid var(--primary);
 }

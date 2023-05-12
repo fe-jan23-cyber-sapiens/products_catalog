@@ -13,13 +13,13 @@
   height: 185px;
   margin: 0 auto;
 
-  border: 1px black solid;
+  border: 1px solid var(--elements);
 }
 
 .total {
   font-size: 32px;
   line-height: 41px;
-  color: #313237;
+  color: var(--primary);
 }
 
 .totalItems {
@@ -29,8 +29,8 @@
   line-height: 21px;
   padding-bottom: 15px;
 
-  color: #89939a;
-  border-bottom: 1px solid #e2e6e9;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--elements);
 }
 
 .buy {
@@ -54,8 +54,9 @@
   text-transform: uppercase;
 
   &:hover {
-    color: rgb(85, 130, 115);
-    background: white;
+    color: var(--white);
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    background: var(--hover-accent);
   }
 }
 

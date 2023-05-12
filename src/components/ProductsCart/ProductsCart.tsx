@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
+import classNames from 'classnames';
+import cardCover from '../../assets/card.jpg';
+import cross from '../../assets/logos/Cross.svg';
 
 import './ProductsCart.scss';
 
@@ -6,7 +9,7 @@ type CounterProps = {
   initialCount?: number;
 };
 
-export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
+export const Product: FC = ({ initialCount = 1 }: CounterProps) => {
   const [count, setCount] = useState(initialCount);
   const [quantity, setQuantity] = useState(1);
 
@@ -20,7 +23,7 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
     setQuantity(prev => prev - 1);
   };
 
-  const isDisabled = count === 1;
+  const isDisabled = count < 2;
   const price = 999;
 
   const getTotalPrice = () => {
@@ -32,16 +35,19 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
       <div className="wrapper">
         <img
           className="delete"
-          src="./card.jpg"
+          src={cross}
           alt="del"
         />
 
         <img
-          src="../assets/categories/phones.png"
+          src={cardCover}
           alt="Iphone 11 PRO"
           className="phone-card__image"
         />
-        <p className="phone-card__description">Iphone 11 with 8GB of RAM</p>
+
+        <p className="phone-card__descriptio">
+          Iphone 11 with 8GB of RAM
+        </p>
       </div>
 
       <div className="wrapper">
@@ -49,7 +55,8 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
           <div className="counter">
             <button
               type="button"
-              className="count"
+              className={classNames('count-left',
+                { 'count-left--disabled': isDisabled })}
               onClick={decrement}
               disabled={isDisabled}
             >
@@ -58,7 +65,8 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
             <span>{count}</span>
             <button
               type="button"
-              className="count"
+              className={classNames('count-right',
+                { 'count-right--disabled': isDisabled })}
               onClick={increment}
             >
               +

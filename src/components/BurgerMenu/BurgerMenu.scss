@@ -13,12 +13,12 @@
     height: 48px;
     width: 48px;
 
-    background-color: #fff;
+    background-color: var(--bg);
     background-image: url('../../assets/logos/cross.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    border-left: 1px solid #e2e6e9;
+    border-left: 1px solid var(--elements);
 
     &:hover {
       cursor: pointer;
@@ -47,11 +47,11 @@
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.04em;
-    color: #89939a;
+    color: var(--secondary);
   }
 
   &__footer {
-    border-top: 1px solid #e2e6e9;
+    border-top: 1px solid var(--elements);
 
     width: 100%;
     display: flex;
@@ -64,13 +64,13 @@
       width: 50%;
 
       border: none;
-      background-color: #fff;
+      background-color: var(--bg);
 
       &--heart {
         background-image: url('../../assets/logos/heart_icon.svg');
         background-position: center;
         background-repeat: no-repeat;
-        border-right: 1px solid #e2e6e9;
+        border-right: 1px solid var(--elements);
       }
 
       &--card {
@@ -83,6 +83,6 @@
 }
 
 .isActive {
-  color: #313237;
-  border-bottom: 2px solid #313237;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
