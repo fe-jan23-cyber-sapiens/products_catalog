@@ -7,4 +7,6 @@ export enum PATH {
   Favourites = 'favourites',
   Cart = 'cart',
   Error = 'error',
+  Contacts = 'contacts',
+  Rights = 'rights',
 }

@@ -1,22 +1,33 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '../../assets/logos/Logo.svg';
+import * as images from '../../assets';
 import './BurgerMenu.scss';
 import { PATH } from '../../routes/types/Path';
 
-export const BurgerMenu: FC = () => {
+type Props = {
+  isOpen: boolean,
+  onCloseMenu: () => void,
+};
+
+export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
   return (
-    <nav className="menu">
+    <nav
+      className={classNames('menu', {
+        'menu-open': isOpen,
+      })}
+      id="menu"
+    >
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
-            <NavLink to={PATH.Main}>
-              <img src={logo} alt="logo" />
+            <NavLink to="/">
+              <img src={images.main_logo} alt="logo" />
             </NavLink>
           </div>
 
           <button
+            onClick={onCloseMenu}
             className="top-actions__cross"
             type="button"
             aria-label="cross"
@@ -26,7 +37,8 @@ export const BurgerMenu: FC = () => {
         <ul className="menu__list">
           <li className="menu__item">
             <NavLink
-              to={PATH.Home}
+              to="/"
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -38,6 +50,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={PATH.Phones}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -49,6 +62,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={PATH.Tablets}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -59,7 +73,8 @@ export const BurgerMenu: FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Home}
+              to={PATH.Accessories}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}

@@ -1,57 +1,77 @@
-import './CardItem.scss';
+import { FC } from 'react';
 import { AddToCart } from '../AddToCartButton/AddToCartButton';
 import { AddToFavourites } from '../FavouritesButton/FavouritesButton';
-import card from '../../assets/card.jpg';
+import './CardItem.scss';
+import { Product } from '../../utils/typedefs';
+import { BASE_URL } from '../../utils/constants';
 
-export const CardItem = () => {
+type Props = {
+  product: Product,
+  isAddedToCart: boolean,
+  isAddedToFavourites: boolean,
+};
+
+export const CardItem: FC<Props> = ({
+  product,
+  isAddedToCart,
+  isAddedToFavourites,
+}) => {
+  const {
+    name,
+    image,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+    year,
+  } = product;
+
   return (
     <>
-      <article className="product">
+      <article
+        className="product"
+      >
         <img
-          src={card}
+          src={`${BASE_URL}/${image}`}
           alt="Product"
           className="product__img"
         />
         <div className="product__info">
           <h3 className="product__title">
-            Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
+            {`${name} ${year} ${screen}`}
           </h3>
 
           <div className="product__price">
             <p className="product__price-item">
-              799
+              {price}
             </p>
 
-            <p className="product__price-item--crossed">
-              $899
+            <p className="product__price-item product__price-item--crossed">
+              {fullPrice}
             </p>
           </div>
 
           <div className="product__specs">
             <div className="product__specs-item">
               <p className="product__specs-title">Screen</p>
-              <p className="product__specs-value">5.8 OLED</p>
+              <p className="product__specs-value">{screen}</p>
             </div>
-
             <div className="product__specs-item">
               <p className="product__specs-title">Capacity</p>
-              <p className="product__specs-value">64GB</p>
+              <p className="product__specs-value">{capacity}</p>
             </div>
-
             <div className="product__specs-item">
               <p className="product__specs-title">RAM</p>
-              <p className="product__specs-value">4GB</p>
+              <p className="product__specs-value">{ram}</p>
             </div>
           </div>
-
           <div className="product-item__buttons">
             <AddToCart
               height="40px"
+              isAddedToCart={isAddedToCart}
             />
-
-            <AddToFavourites
-              size="40px"
-            />
+            <AddToFavourites isAddedToFavourites={isAddedToFavourites} />
           </div>
         </div>
       </article>

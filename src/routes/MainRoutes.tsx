@@ -12,6 +12,8 @@ import { CartPage } from '../pages/CartPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RoutePath } from './RoutePath';
 import { PATH } from './types/Path';
+import { Contacts } from '../pages/Contacts';
+import { Rights } from '../pages/Rights';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
@@ -52,6 +54,16 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Error]: {
     path: RoutePath.error,
     element: <NotFoundPage />,
+  },
+
+  [PATH.Contacts]: {
+    path: RoutePath.contacts,
+    element: <Contacts />,
+  },
+
+  [PATH.Rights]: {
+    path: RoutePath.rights,
+    element: <Rights />,
   },
 };
 

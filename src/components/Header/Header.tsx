@@ -1,4 +1,5 @@
 import { FC } from 'react';
+// import { Link } from 'react-router-dom';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
@@ -7,14 +8,16 @@ import './Header.scss';
 
 import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
+// import { PATH } from '../../routes/types/Path';
 
 interface HeaderProps {
   onThemeChange: () => void;
+  onMenuOpen: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
+export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__left-side">
         <HeaderLinkWithIcon
           path="/"
@@ -49,10 +52,10 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
           <ThemeSwitcher onThemeChange={onThemeChange} />
         </div>
 
-        <div className="header__logo-box">
+        <button type="button" onClick={onMenuOpen} className="header__logo-box">
           <img src={images.burger_menu_icon} alt="Burger menu icon" />
-        </div>
+        </button>
       </div>
-    </div>
+    </header>
   );
 };

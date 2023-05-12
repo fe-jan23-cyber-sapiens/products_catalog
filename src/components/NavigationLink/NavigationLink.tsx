@@ -15,10 +15,10 @@ export const NavigationLink: React.FC<Props> = ({ to, title }) => (
     to={to}
     className={({ isActive }) => classNames(
       //
-      'navbar__item',
-      { 'navbar__item--is-active': isActive },
+      'navigation-bar__item',
+      { 'navigation-bar__item--is-active': isActive },
     )}
   >
-    <span className="navbar__item-title">{title}</span>
+    <span className="navigation-bar__item-title">{title}</span>
   </NavLink>
 );
