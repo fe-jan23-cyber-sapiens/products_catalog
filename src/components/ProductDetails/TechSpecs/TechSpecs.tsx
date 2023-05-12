@@ -9,7 +9,14 @@ interface Props {
 export const TechSpecs: FC<Props> = (props) => {
   const { product } = props;
   const {
-    screen, resolution, processor, capacity, camera, zoom, ram, cell,
+    screen,
+    resolution,
+    processor,
+    capacity,
+    camera,
+    zoom,
+    ram,
+    cell,
   } = product;
 
   return (

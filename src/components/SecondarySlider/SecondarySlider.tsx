@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import client from '../../api/fetching';
 import { Product } from '../../utils/typedefs';
+import { CardItem } from '../CardItem';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -142,7 +143,13 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
                 key={product.id}
                 className="secondary-slider__card"
               >
-                {product.name}
+                <div className="secondary-slider__card-wrapper">
+                  <CardItem
+                    product={product}
+                    isAddedToCart={false}
+                    isAddedToFavourites={false}
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

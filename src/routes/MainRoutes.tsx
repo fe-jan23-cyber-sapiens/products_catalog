@@ -5,7 +5,7 @@ import {
   RouteProps,
   Routes,
 } from 'react-router-dom';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from '../pages/HomePage/HomePage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { FavouritesPage } from '../pages/FavouritesPage';
 import { CartPage } from '../pages/CartPage';

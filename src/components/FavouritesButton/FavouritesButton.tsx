@@ -1,22 +1,20 @@
-import React from 'react';
-import { CustomButton } from '../Button/Button';
+import { FC } from 'react';
+import classnames from 'classnames';
 import './FavouritesButton.scss';
-import favouriteIcon from '../../assets/heart_icon.svg';
 
-interface Props {
-  size: string,
-}
-export const AddToFavourites: React.FC<Props> = ({ size }) => {
+type Props = {
+  isAddedToFavourites: boolean,
+};
+
+export const AddToFavourites: FC<Props> = ({ isAddedToFavourites }) => {
   return (
-    <CustomButton
-      btnWidth={size}
-      btnHeight={size}
-      btnType="button"
-    >
-      <img
-        src={favouriteIcon}
-        alt="Favourite"
-      />
-    </CustomButton>
+    <div
+      className={classnames(
+        'favourite-btn',
+        {
+          'favourite-btn--selected': isAddedToFavourites,
+        },
+      )}
+    />
   );
 };
