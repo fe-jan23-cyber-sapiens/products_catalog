@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './ProductPage.scss';
 import { useEffect, useState } from 'react';
 import { Back } from '../../components/Back/Back';
@@ -13,7 +14,6 @@ export const ProductPage = () => {
   const [product, setProduct] = useState<ProductDetails | null>(null);
 
   const getProduct = async () => {
-    // eslint-disable-next-line max-len
     const response = await fetch(
       'https://products-catalog-api.onrender.com/details/apple-iphone-7-32gb-gold',
     );

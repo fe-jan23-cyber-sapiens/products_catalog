@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable operator-linebreak */
 import { FC } from 'react';
 import { ProductDetails } from '../../../utils/typedefs';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
@@ -8,8 +10,8 @@ interface Props {
 
 export const TechSpecs: FC<Props> = (props) => {
   const { product } = props;
-  const { screen, resolution, processor, capacity, camera, zoom, ram, cell } =
-    product;
+  // eslint-disable-next-line object-curly-newline
+  const { screen, resolution, processor, capacity, camera, zoom, ram, cell } = product;
 
   return (
     <>
