@@ -5,7 +5,7 @@ import { PATH } from '../../routes/types/Path';
 
 export const NavBar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navigation-bar">
       <NavigationLink to="/" title="home" />
 
       <NavigationLink to={PATH.Phones} title="phones" />

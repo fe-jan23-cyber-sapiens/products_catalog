@@ -14,7 +14,7 @@
     width: 48px;
 
     background-color: #fff;
-    background-image: url('../../assets/logos/Cross.svg');
+    background-image: url('../../assets/logos/cross.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: none;
@@ -67,14 +67,14 @@
       background-color: #fff;
 
       &--heart {
-        background-image: url('../../assets/logos/Heart.svg');
+        background-image: url('../../assets/logos/heart_icon.svg');
         background-position: center;
         background-repeat: no-repeat;
         border-right: 1px solid #e2e6e9;
       }
 
       &--card {
-        background-image: url('../../assets/logos/ShoppingBag.svg');
+        background-image: url('../../assets/logos/cart_icon.svg');
         background-position: center;
         background-repeat: no-repeat;
       }

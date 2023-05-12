@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logos/Logo.svg';
+import * as images from '../../assets';
 import './Footer.scss';
 
 export const Footer: FC = () => {
@@ -11,7 +11,7 @@ export const Footer: FC = () => {
   return (
     <footer className="footer">
       <Link to="/">
-        <img src={logo} alt="Nice Gadgets logotype" />
+        <img src={images.main_logo} alt="Nice Gadgets logotype" />
       </Link>
 
       <ul className="footer-nav">

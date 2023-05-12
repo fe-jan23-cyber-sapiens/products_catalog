@@ -1,3 +1,5 @@
+@import './vars';
+
 @mixin onTablet {
   @media (min-width: 640px) {
     @content;
@@ -11,19 +13,19 @@
 }
 
 %h3_desktop-tablet {
-  font-family: "Mont-Bold";
+  font-family: "Mont";
   font-size: 22px;
   line-height: 140%;
 }
 
 %smallText_desktop-tablet {
-  font-family: "Mont-SemiBold";
   font-size: 12px;
+  font-weight: 700;
   line-height: 15px;
 }
 
-%buttons_desktop-tablet {
-  font-family: "Mont-SemiBold";
+%card-text {
+  font-weight: 600;
   font-size: 14px;
   line-height: 21px;
 }

@@ -1,5 +1,5 @@
 .capacity__button {
-  padding: 3px;
+  padding: 7px;
 
   font-weight: 500;
   font-size: 14px;
@@ -9,6 +9,7 @@
 
   color: var(--primary-light);
   background-color: transparent;
+  border: 1px solid #B4BDC3;
   cursor: pointer;
 
   &:hover {

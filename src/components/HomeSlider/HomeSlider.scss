@@ -1,8 +1,14 @@
 @import '../../styles/scss_utils/mixins';
 
 .main-carousel {
+  margin-bottom: 88px;
+
   @include onTablet {
-    margin: 0 24px;
+    margin: 0 24px 96px;
+  }
+
+  @include onLaptop {
+    margin-bottom: 112px;
   }
 
   &__image {
@@ -28,7 +34,7 @@
 
     @include onTablet {
       width: 100%;
-      max-width: 1040px;
+      max-width: 1136px;
       height: auto;
       margin: 0 auto;
       aspect-ratio: 2.6 / 1;
@@ -45,6 +51,6 @@
 }
 
 .carousel {
-  max-width: 1040px;
+  max-width: 1136px;
   margin: 0 auto;
 }
