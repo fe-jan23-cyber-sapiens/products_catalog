@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import * as images from '../../assets';
 import './Footer.scss';
+import { PATH } from '../../routes/types/Path';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 export const Footer: FC = () => {
   const handleScrollToTop = () => {
@@ -10,25 +12,32 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <Link to="/">
-        <img src={images.main_logo} alt="Nice Gadgets logotype" />
-      </Link>
+      <HeaderLinkWithIcon
+        path="/"
+        imageSrc={images.main_logo}
+        alt="Main logo of Nice Gadgets"
+        className="header__link header__link--main-logo"
+      />
 
       <ul className="footer-nav">
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link
+            target="_blank"
+            className="footer-nav__link"
+            to="https://github.com/fe-jan23-cyber-sapiens"
+          >
             Github
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link className="footer-nav__link" to={PATH.Contacts}>
             Contacts
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link className="footer-nav__link" to={PATH.Rights}>
             Rights
           </Link>
         </li>

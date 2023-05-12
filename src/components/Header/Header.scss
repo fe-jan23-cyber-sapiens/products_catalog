@@ -53,6 +53,9 @@
 
     box-shadow: -1px 0px 0px var(--elements-light);
 
+    background-color: var(--bg-light);
+    border: none;
+
     @include onLaptop {
       width: $logo-wrapper-width-l;
       height: $header-height-l;
