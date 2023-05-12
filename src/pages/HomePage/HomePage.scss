@@ -1,0 +1,22 @@
+@import '../../styles/scss_utils/vars';
+@import '../../styles/scss_utils/mixins';
+
+.homePage {
+  min-height: calc(100% - ($header-height-s + $footer-height-s));
+
+  @include onTablet {
+    min-height: calc(100% - ($header-height-l + $footer-height-l));
+  }
+
+  &__slider {
+    margin-bottom: 57px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+  }
+}

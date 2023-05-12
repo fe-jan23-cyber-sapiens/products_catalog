@@ -1,8 +1,14 @@
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 
 .main-carousel {
+  margin-bottom: 88px;
+
   @include onTablet {
-    margin: 0 24px;
+    margin: 0 24px 96px;
+  }
+
+  @include onLaptop {
+    margin-bottom: 112px;
   }
 
   &__image {

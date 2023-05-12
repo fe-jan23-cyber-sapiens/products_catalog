@@ -2,7 +2,7 @@ import './ProductPage.scss';
 import { useEffect, useState } from 'react';
 import { Back } from '../../components/Back/Back';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
-import { ProductDetails } from '../../typedefs';
+import { ProductDetails } from '../../utils/typedefs';
 import {
   CardImages,
   ProductActions,
@@ -33,9 +33,7 @@ export const ProductPage = () => {
 
           <Back />
 
-          <div className="details__title">
-            {product.name}
-          </div>
+          <div className="details__title">{product.name}</div>
 
           <div>
             <div className="details__top">

@@ -18,6 +18,13 @@
     }
   }
 
+  &__swiper-container {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__top-actions {
     display: flex;
     justify-content: space-between;
@@ -96,12 +103,6 @@
         border-color: $primary-light;
       }
     }
-  }
-
-  &__card-container {
-    display: flex;
-    gap: 16px;
-    padding-left: 16px;
   }
 
   &__card {

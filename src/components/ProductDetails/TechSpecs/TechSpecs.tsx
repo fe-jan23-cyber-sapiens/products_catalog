@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProductDetails } from '../../../typedefs';
+import { ProductDetails } from '../../../utils/typedefs';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 
 interface Props {

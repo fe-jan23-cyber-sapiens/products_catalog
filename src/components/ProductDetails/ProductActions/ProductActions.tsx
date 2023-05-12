@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProductDetails } from '../../../typedefs';
+import { ProductDetails } from '../../../utils/typedefs';
 import { ColorButton } from '../ColorButton/ColorButton';
 import { CapacityButton } from '../CapacityButton/CapacityButton';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
@@ -25,9 +25,7 @@ export const ProductActions: FC<Props> = (props) => {
   return (
     <div className="actions">
       <div className="actions__select">
-        <p className="actions__small">
-          Available colors
-        </p>
+        <p className="actions__small">Available colors</p>
 
         <div className="actions__buttons">
           {colorsAvailable.map((color) => (
@@ -37,9 +35,7 @@ export const ProductActions: FC<Props> = (props) => {
       </div>
 
       <div className="actions__select">
-        <p className="actions__small">
-          Select capacity
-        </p>
+        <p className="actions__small">Select capacity</p>
 
         <div className="actions__buttons">
           {capacityAvailable.map((capacity) => (
@@ -53,20 +49,13 @@ export const ProductActions: FC<Props> = (props) => {
       </div>
 
       <div className="actions__prices">
-        <span className="actions__discount">
-          {`$${priceDiscount}`}
-        </span>
+        <span className="actions__discount">{`$${priceDiscount}`}</span>
 
-        <span className="actions__full">
-          {`$${priceRegular}`}
-        </span>
+        <span className="actions__full">{`$${priceRegular}`}</span>
       </div>
 
       <div className="actions__button">
-        <button
-          type="button"
-          className="actions__cart-button"
-        >
+        <button type="button" className="actions__cart-button">
           Add to cart
         </button>
       </div>

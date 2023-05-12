@@ -28,10 +28,6 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
 
       <div className="header__right-side">
         <div className="header__logo-box">
-          <ThemeSwitcher onThemeChange={onThemeChange} />
-        </div>
-
-        <div className="header__logo-box">
           <HeaderLinkWithIcon
             path="/favourites"
             imageSrc={images.heart_icon}
@@ -47,6 +43,10 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             alt="Cart icon"
             className="header__link"
           />
+        </div>
+
+        <div className="header__logo-box">
+          <ThemeSwitcher onThemeChange={onThemeChange} />
         </div>
 
         <div className="header__logo-box">
