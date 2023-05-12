@@ -1,0 +1,20 @@
+@import '../..//styles/scss_utils/vars';
+
+.btn__favourites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background: $white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    &:hover {
+      background: $icons-light;
+    }
+    
+    &--selected {
+      border: 1px solid $elements-light;
+    }
+  }
