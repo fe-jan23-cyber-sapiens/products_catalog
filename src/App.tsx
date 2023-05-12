@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
 import { MainRoutes } from './routes/MainRoutes';
+import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 
 export const App = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -18,6 +19,8 @@ export const App = () => {
 
   return (
     <div className={`app ${theme}`}>
+      <BurgerMenu />
+
       <Header onThemeChange={handleThemeChange} />
 
       <MainRoutes />

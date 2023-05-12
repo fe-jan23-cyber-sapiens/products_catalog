@@ -37,7 +37,7 @@ export const BurgerMenu: FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Home}
+              to={PATH.Phones}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -48,7 +48,7 @@ export const BurgerMenu: FC = () => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Home}
+              to={PATH.Tablets}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -80,6 +80,7 @@ export const BurgerMenu: FC = () => {
               },
             )}
           />
+
           <NavLink
             to={PATH.Cart}
             aria-label="shopping_card"

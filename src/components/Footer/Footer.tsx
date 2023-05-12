@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logos/Logo.svg';
 import './Footer.scss';
+import { PATH } from '../../routes/types/Path';
 
 export const Footer: FC = () => {
   const handleScrollToTop = () => {
@@ -10,25 +11,29 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <Link to="/">
+      <NavLink to={PATH.Home}>
         <img src={logo} alt="Nice Gadgets logotype" />
-      </Link>
+      </NavLink>
 
       <ul className="footer-nav">
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link
+            target="_blank"
+            className="footer-nav__link"
+            to="https://github.com/fe-jan23-cyber-sapiens"
+          >
             Github
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link className="footer-nav__link" to="/contacts">
             Contacts
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to="/">
+          <Link className="footer-nav__link" to="/rights">
             Rights
           </Link>
         </li>
