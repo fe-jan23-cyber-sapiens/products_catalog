@@ -87,6 +87,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
         <div className="menu__footer">
           <NavLink
             to={RoutePath.favourites}
+            onClick={onCloseMenu}
             aria-label="favorites"
             type="button"
             className={({ isActive }) => classNames(
@@ -98,6 +99,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
 
           <NavLink
             to={RoutePath.cart}
+            onClick={onCloseMenu}
             aria-label="shopping_card"
             type="button"
             className={({ isActive }) => classNames(
