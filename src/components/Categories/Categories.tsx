@@ -14,7 +14,7 @@ export const Categories = () => {
 
       <div className="categories__items">
         <Category
-          products={72}
+          products={71}
           title="Mobile Phones"
           image={phones}
           link="/phones"

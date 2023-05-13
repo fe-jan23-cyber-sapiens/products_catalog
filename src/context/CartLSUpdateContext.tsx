@@ -28,10 +28,12 @@ export const CartLSUpdateProvider = ({
   ] = useLocalStorage<Product[]>('cart', []);
 
   const handleModifyCartLS = (product: Product) => {
-    const isAlreadyAdded = hasProduct(cartProducts, product.id);
+    const isAlreadyAdded = hasProduct(cartProducts, product.phoneId);
 
     if (isAlreadyAdded) {
-      const newProducts = cartProducts.filter(({ id }) => id !== product.id);
+      const newProducts = cartProducts.filter(
+        ({ phoneId }) => phoneId !== product.phoneId,
+      );
 
       setCartProducts(newProducts);
 

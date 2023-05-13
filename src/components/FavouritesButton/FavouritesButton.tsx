@@ -19,7 +19,7 @@ export const AddToFavourites: FC<Props> = ({ product }) => {
   const [isInFav, setIsInFav] = useState(false);
 
   useEffect(() => {
-    setIsInFav(hasProduct(favProducts, product.id));
+    setIsInFav(hasProduct(favProducts, product.phoneId));
   }, [favProducts]);
 
   return (

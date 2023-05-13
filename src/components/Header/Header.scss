@@ -47,6 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     width: $logo-wrapper-width-s;
     height: $header-height-s;
@@ -78,5 +79,21 @@
         margin-left: 24px;
       }
     }
+  }
+
+  &__count {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    height: 15px;
+    width: 15px;
+
+    text-align: center;
+    font-size: 9px;
+    color: var(--white);
+
+    border-radius: 50%;
+    border: 1px solid var(--white);
+    background-color: var(--red);
   }
 }

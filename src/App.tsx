@@ -34,7 +34,10 @@ export const App = () => {
     <div className={`app ${theme}`}>
       <BurgerMenu isOpen={isOpen} onCloseMenu={handleOpenMenu} />
 
-      <Header onThemeChange={handleThemeChange} onMenuOpen={handleOpenMenu} />
+      <Header
+        onThemeChange={handleThemeChange}
+        onMenuOpen={handleOpenMenu}
+      />
 
       <main className="app__main-section">
         <MainRoutes />

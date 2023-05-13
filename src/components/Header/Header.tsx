@@ -10,14 +10,20 @@ import { ThemeSwitcher } from '../ThemeSwitcher';
 import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
 import { THEME_LIGHT } from '../../utils/constants';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
+import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 
 interface HeaderProps {
   onThemeChange: () => void;
   onMenuOpen: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
+export const Header: FC<HeaderProps> = ({
+  onThemeChange, onMenuOpen,
+}) => {
   const { theme } = useContext(ThemeContext);
+  const { cartProducts } = useContext(CartLSUpdateContext);
+  const { favProducts } = useContext(FavLSUpdateContext);
 
   const currentLogo = theme === THEME_LIGHT
     ? images.main_logo
@@ -44,6 +50,12 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
             alt="Favourites heart icon"
             className="header__link"
           />
+
+          {favProducts.length > 0 && (
+            <div className="header__count">
+              {favProducts.length}
+            </div>
+          )}
         </div>
 
         <div className="header__logo-box">
@@ -53,6 +65,12 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
             alt="Cart icon"
             className="header__link"
           />
+
+          {cartProducts.length > 0 && (
+            <div className="header__count">
+              {cartProducts.length}
+            </div>
+          )}
         </div>
 
         <div className="header__logo-box">

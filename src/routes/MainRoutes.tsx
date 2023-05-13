@@ -6,7 +6,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage/HomePage';
-import { ProductsPage } from '../pages/ProductsPage';
+import { ProductsPage } from '../pages/ProductsPage/ProductsPage';
 import { FavouritesPage } from '../pages/FavouritesPage';
 import { CartPage } from '../pages/CartPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
@@ -29,7 +29,7 @@ export const routeConfig: Record<PATH, RouteProps> = {
 
   [PATH.Phones]: {
     path: RoutePath.phones,
-    element: <ProductsPage />,
+    element: <ProductsPage title="Mobile phones" endpoint="phones" />,
   },
 
   [PATH.Phone]: {
@@ -39,12 +39,12 @@ export const routeConfig: Record<PATH, RouteProps> = {
 
   [PATH.Tablets]: {
     path: RoutePath.tablets,
-    element: <ProductsPage />,
+    element: <ProductsPage title="Tablets" endpoint="tablets" />,
   },
 
   [PATH.Accessories]: {
     path: RoutePath.accessories,
-    element: <ProductsPage />,
+    element: <ProductsPage title="Accessories" endpoint="accessories" />,
   },
 
   [PATH.Favourites]: {

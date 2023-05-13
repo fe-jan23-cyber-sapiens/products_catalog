@@ -13,6 +13,19 @@
 
   border: 1px solid var(--elements) ;
   padding: 16px;
+
+  &__deleteButton {
+    width: max-content;
+    
+    background-color: transparent;
+    border: none;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .wrapper {
@@ -25,7 +38,7 @@
 }
 
 .phone-card__image {
-  width: 66px;
+  height: 60px;
   margin-right: 16px;
 }
 

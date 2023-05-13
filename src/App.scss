@@ -3,24 +3,11 @@
 @import "./styles/normalize";
 
 .app {
-  height: 100%;
+  &__main-section {
+    min-height: calc(100vh - $header-height-s + $footer-height-s);
 
-  min-height: calc(100% - ($header-height-s + $footer-height-s));
-
-  @include onTablet {
-    min-height: calc(100% - ($header-height-l + $footer-height-l));
-  }
-}
-
-.page {
-  height: max-content;
-  padding: 25px 22px;
-
-  @include onTablet {
-    padding: 25px 25px;
-  }
-
-  @include onLaptop {
-    padding: 25px 153px;
+    @include onTablet {
+      min-height: calc(100vh - $header-height-l + $footer-height-l);
+    }
   }
 }

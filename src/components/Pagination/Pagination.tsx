@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { getNumbers } from '../../utils/utils';
 import './Pagination.scss';
-import arrowRight from '../../assets/arrow/arrowRight.svg';
-import arrowLeft from '../../assets/arrow/arrowLeft.svg';
+import arrowRight from '../../assets/arrows/arrowRight.svg';
+import arrowLeft from '../../assets/arrows/arrowLeft.svg';
 
 interface PaginationProps {
   total: number;

@@ -33,6 +33,7 @@ export const CardItem: FC<Props> = ({ product }) => {
       <Link
         to={`/phones/${phoneId}`}
         className="link-to-product"
+        onClick={() => window.scrollTo(0, 0)}
       >
         <img
           src={`${BASE_URL}/${image}`}

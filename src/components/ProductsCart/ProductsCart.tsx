@@ -1,17 +1,20 @@
-import { FC, useState } from 'react';
-import classNames from 'classnames';
-import cardCover from '../../assets/card.jpg';
-import cross from '../../assets/logos/Cross.svg';
-
+import { FC, useContext, useState } from 'react';
 import './ProductsCart.scss';
+import classNames from 'classnames';
+import { Product } from '../../utils/typedefs';
+import { BASE_URL } from '../../utils/constants';
+import cross from '../../assets/logos/Cross.svg';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
-type CounterProps = {
-  initialCount?: number;
-};
+interface Props {
+  initialCount?: number,
+  product: Product,
+}
 
-export const Product: FC = ({ initialCount = 1 }: CounterProps) => {
+export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
   const [count, setCount] = useState(initialCount);
   const [quantity, setQuantity] = useState(1);
+  const { handleModifyCartLS } = useContext(CartLSUpdateContext);
 
   const increment = () => {
     setCount(prev => prev + 1);
@@ -23,30 +26,35 @@ export const Product: FC = ({ initialCount = 1 }: CounterProps) => {
     setQuantity(prev => prev - 1);
   };
 
-  const isDisabled = count < 2;
-  const price = 999;
+  const isDisabled = count === 1;
+  const { price } = product;
 
   const getTotalPrice = () => {
-    return price * quantity;
+    return Number(price) * quantity;
   };
 
   return (
     <div className="cart">
       <div className="wrapper">
-        <img
-          className="delete"
-          src={cross}
-          alt="del"
-        />
+        <button
+          type="button"
+          className="cart__deleteButton"
+          onClick={() => handleModifyCartLS(product)}
+        >
+          <img
+            className="delete"
+            src={cross}
+            alt="del"
+          />
+        </button>
 
         <img
-          src={cardCover}
-          alt="Iphone 11 PRO"
+          src={`${BASE_URL}/${product.image}`}
+          alt="Iphone"
           className="phone-card__image"
         />
-
-        <p className="phone-card__descriptio">
-          Iphone 11 with 8GB of RAM
+        <p className="phone-card__description">
+          {product.name}
         </p>
       </div>
 
