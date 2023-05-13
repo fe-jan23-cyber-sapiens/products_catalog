@@ -1,11 +1,20 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import * as images from '../../assets';
 import './Footer.scss';
 import { PATH } from '../../routes/types/Path';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
+import { THEME_LIGHT } from '../../utils/constants';
+import { ThemeContext } from '../../context/ThemeContext';
+import { RoutePath } from '../../routes/RoutePath';
 
 export const Footer: FC = () => {
+  const { theme } = useContext(ThemeContext);
+
+  const currentLogo = theme === THEME_LIGHT
+    ? images.main_logo
+    : images.main_logo_dark;
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -13,8 +22,8 @@ export const Footer: FC = () => {
   return (
     <footer className="footer">
       <HeaderLinkWithIcon
-        path="/"
-        imageSrc={images.main_logo}
+        path={RoutePath.main}
+        imageSrc={currentLogo}
         alt="Main logo of Nice Gadgets"
         className="header__link header__link--main-logo"
       />
