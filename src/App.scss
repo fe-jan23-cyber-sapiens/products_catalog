@@ -1,15 +1,9 @@
-@import './styles/scss_utils/mixins';
-@import './styles/scss_utils/vars';
 @import "./styles/normalize";
-@import './styles/scss_utils/vars';
-@import './styles/mixins';
 
 .app {
-  &__main-section {
-    min-height: calc(100vh - $header-height-s + $footer-height-s);
-
-    @include onTablet {
-      min-height: calc(100vh - $header-height-l + $footer-height-l);
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  height: 100%;
 }
