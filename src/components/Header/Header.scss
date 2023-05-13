@@ -51,9 +51,9 @@
     width: $logo-wrapper-width-s;
     height: $header-height-s;
 
+    background-color: var(--bg);
     box-shadow: -1px 0px 0px var(--elements);
 
-    background-color: var(--bg-light);
     border: none;
 
     @include onLaptop {

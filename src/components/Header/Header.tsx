@@ -8,6 +8,7 @@ import './Header.scss';
 
 import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
+import { RoutePath } from '../../routes/RoutePath';
 // import { PATH } from '../../routes/types/Path';
 
 interface HeaderProps {
@@ -20,7 +21,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
     <header className="header">
       <div className="header__left-side">
         <HeaderLinkWithIcon
-          path="/"
+          path={RoutePath.main}
           imageSrc={images.main_logo}
           alt="Main logo of Nice Gadgets"
           className="header__link header__link--main-logo"
@@ -32,7 +33,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
       <div className="header__right-side">
         <div className="header__logo-box">
           <HeaderLinkWithIcon
-            path="/favourites"
+            path={RoutePath.favourites}
             imageSrc={images.heart_icon}
             alt="Favourites heart icon"
             className="header__link"
@@ -41,7 +42,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
 
         <div className="header__logo-box">
           <HeaderLinkWithIcon
-            path="/cart"
+            path={RoutePath.cart}
             imageSrc={images.cart_icon}
             alt="Cart icon"
             className="header__link"
