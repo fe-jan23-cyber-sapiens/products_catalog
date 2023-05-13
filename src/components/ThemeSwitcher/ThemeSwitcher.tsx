@@ -9,6 +9,7 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ onThemeChange }) => {
   const { theme } = useContext(ThemeContext);
+  const isThemeDark = theme === THEME_DARK;
 
   return (
 
@@ -16,7 +17,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ onThemeChange }) => {
       <input
         onClick={onThemeChange}
         type="checkbox"
-        defaultChecked={theme === THEME_DARK}
+        defaultChecked={isThemeDark}
       />
       <span className="slider" />
     </label>

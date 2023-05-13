@@ -9,7 +9,7 @@ import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
-import { THEME_LIGHT } from '../../utils/constants';
+import { getCurrentImage } from '../../utils/utils';
 
 interface HeaderProps {
   onThemeChange: () => void;
@@ -19,9 +19,29 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
   const { theme } = useContext(ThemeContext);
 
-  const currentLogo = theme === THEME_LIGHT
-    ? images.main_logo
-    : images.main_logo_dark;
+  const currentLogo = getCurrentImage(
+    theme,
+    images.main_logo,
+    images.main_logo_dark,
+  );
+
+  const currentLogoHeart = getCurrentImage(
+    theme,
+    images.heart_icon,
+    images.heart_icon_dark,
+  );
+
+  const currentLogoCart = getCurrentImage(
+    theme,
+    images.cart_icon,
+    images.cart_icon_dark,
+  );
+
+  const currentLogoBurger = getCurrentImage(
+    theme,
+    images.burger_menu_icon,
+    images.burger_menu_icon_dark,
+  );
 
   return (
     <header className="header">
@@ -40,7 +60,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path={RoutePath.favourites}
-            imageSrc={images.heart_icon}
+            imageSrc={currentLogoHeart}
             alt="Favourites heart icon"
             className="header__link"
           />
@@ -49,7 +69,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path={RoutePath.cart}
-            imageSrc={images.cart_icon}
+            imageSrc={currentLogoCart}
             alt="Cart icon"
             className="header__link"
           />
@@ -60,7 +80,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
         </div>
 
         <button type="button" onClick={onMenuOpen} className="header__logo-box">
-          <img src={images.burger_menu_icon} alt="Burger menu icon" />
+          <img src={currentLogoBurger} alt="Burger menu icon" />
         </button>
       </div>
     </header>

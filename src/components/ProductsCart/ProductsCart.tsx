@@ -1,9 +1,12 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import classNames from 'classnames';
 import cardCover from '../../assets/card.jpg';
 import cross from '../../assets/logos/Cross.svg';
+import cross_dark from '../../assets/logos/Cross-dark.svg';
 
 import './ProductsCart.scss';
+import { ThemeContext } from '../../context/ThemeContext';
+import { getCurrentImage } from '../../utils/utils';
 
 type CounterProps = {
   initialCount?: number;
@@ -12,6 +15,9 @@ type CounterProps = {
 export const Product: FC = ({ initialCount = 1 }: CounterProps) => {
   const [count, setCount] = useState(initialCount);
   const [quantity, setQuantity] = useState(1);
+  const { theme } = useContext(ThemeContext);
+
+  const correctIcon = getCurrentImage(theme, cross, cross_dark);
 
   const increment = () => {
     setCount(prev => prev + 1);
@@ -35,7 +41,7 @@ export const Product: FC = ({ initialCount = 1 }: CounterProps) => {
       <div className="wrapper">
         <img
           className="delete"
-          src={cross}
+          src={correctIcon}
           alt="del"
         />
 

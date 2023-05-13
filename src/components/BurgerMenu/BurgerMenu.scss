@@ -11,6 +11,20 @@
     margin-left: 16px;
   }
 
+  &__button-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--elements);
+    height: 48px;
+    width: 48px;
+  }
+
   &__cross {
     height: 48px;
     width: 48px;
@@ -24,6 +38,10 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    &--dark {
+      background-image: url('../../assets/logos/Cross-dark.svg');
     }
   }
 }
@@ -45,7 +63,7 @@
       transform: translateX(0%);
       transition: transform 0.3s;
       overflow: hidden;
-      z-index: 2;
+      z-index: 3;
     }
 
   &__list {
@@ -69,6 +87,10 @@
     font-size: 12px;
     letter-spacing: 0.04em;
     color: var(--secondary);
+
+    &:hover {
+      color: var(--primary);
+    }
   }
 
   &__footer {
@@ -92,12 +114,20 @@
         background-position: center;
         background-repeat: no-repeat;
         border-right: 1px solid var(--elements);
+
+        &--dark {
+          background-image: url('../../assets/logos/heart_icon_dark.svg');
+        }
       }
 
       &--card {
         background-image: url('../../assets/logos/cart_icon.svg');
         background-position: center;
         background-repeat: no-repeat;
+
+        &--dark {
+          background-image: url('../../assets/logos/cart_icon_dark.svg');
+        }
       }
     }
   }

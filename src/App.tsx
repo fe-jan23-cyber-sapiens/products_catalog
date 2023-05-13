@@ -32,7 +32,11 @@ export const App = () => {
 
   return (
     <div className={`app ${theme}`}>
-      <BurgerMenu isOpen={isOpen} onCloseMenu={handleOpenMenu} />
+      <BurgerMenu
+        isOpen={isOpen}
+        onCloseMenu={handleOpenMenu}
+        onThemeChange={handleThemeChange}
+      />
 
       <Header onThemeChange={handleThemeChange} onMenuOpen={handleOpenMenu} />
 
