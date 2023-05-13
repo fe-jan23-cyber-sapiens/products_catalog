@@ -1,3 +1,5 @@
+@import '../../styles/scss_utils/mixins';
+
 .top-actions {
   display: flex;
   align-items: center;
@@ -27,6 +29,25 @@
 }
 
 .menu {
+  background-color: $white;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+  z-index: 2;
+
+    &-open {
+      transform: translateX(0%);
+      transition: transform 0.3s;
+      overflow: hidden;
+      z-index: 2;
+    }
+
   &__list {
     margin-top: 24px;
 

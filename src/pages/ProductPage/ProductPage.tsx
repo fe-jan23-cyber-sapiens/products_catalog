@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './ProductPage.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

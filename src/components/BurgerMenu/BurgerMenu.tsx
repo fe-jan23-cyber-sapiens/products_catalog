@@ -5,9 +5,19 @@ import * as images from '../../assets';
 import './BurgerMenu.scss';
 import { RoutePath } from '../../routes/RoutePath';
 
-export const BurgerMenu: FC = () => {
+type Props = {
+  isOpen: boolean,
+  onCloseMenu: () => void,
+};
+
+export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
   return (
-    <nav className="menu">
+    <nav
+      className={classNames('menu', {
+        'menu-open': isOpen,
+      })}
+      id="menu"
+    >
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
@@ -17,6 +27,7 @@ export const BurgerMenu: FC = () => {
           </div>
 
           <button
+            onClick={onCloseMenu}
             className="top-actions__cross"
             type="button"
             aria-label="cross"
@@ -27,6 +38,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={RoutePath.main}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -38,6 +50,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={RoutePath.phones}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -49,6 +62,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={RoutePath.tablets}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -60,6 +74,7 @@ export const BurgerMenu: FC = () => {
           <li className="menu__item">
             <NavLink
               to={RoutePath.accessories}
+              onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
               })}
@@ -80,6 +95,7 @@ export const BurgerMenu: FC = () => {
               },
             )}
           />
+
           <NavLink
             to={RoutePath.cart}
             aria-label="shopping_card"
