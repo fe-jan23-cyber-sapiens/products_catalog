@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AddToCart } from '../AddToCartButton/AddToCartButton';
-import { AddToFavourites } from '../FavouritesButton/FavouritesButton';
+import { AddToCart } from '../AddToCartButton';
+import { AddToFavourites } from '../FavouritesButton';
 
 import './CardItem.scss';
 

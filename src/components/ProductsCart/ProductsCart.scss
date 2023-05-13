@@ -11,12 +11,12 @@
   gap: 16px;
   margin: 0 auto;
 
-  border: 1px solid var(--elements) ;
+  border: 1px solid var(--elements);
   padding: 16px;
 
   &__deleteButton {
     width: max-content;
-    
+
     background-color: transparent;
     border: none;
 
@@ -114,7 +114,12 @@
     display: flex;
     align-items: center;
 
-    gap: 55px;
+    &__title {
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }
 
