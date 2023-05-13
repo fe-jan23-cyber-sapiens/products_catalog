@@ -25,7 +25,7 @@ export const AddToCart: FC<Props> = ({
   const [isInCart, setIsInCart] = useState(false);
 
   useEffect(() => {
-    setIsInCart(hasProduct(cartProducts, product.id));
+    setIsInCart(hasProduct(cartProducts, product.phoneId));
   }, [cartProducts]);
 
   return (

@@ -26,10 +26,12 @@ export const FavLSUpdateProvider = ({
   ] = useLocalStorage<Product[]>('favourites', []);
 
   const handleModifyFavLS = (product: Product) => {
-    const isAlreadyAdded = hasProduct(favProducts, product.id);
+    const isAlreadyAdded = hasProduct(favProducts, product.phoneId);
 
     if (isAlreadyAdded) {
-      const newProducts = favProducts.filter(({ id }) => id !== product.id);
+      const newProducts = favProducts.filter(
+        ({ phoneId }) => phoneId !== product.phoneId,
+      );
 
       setFavProducts(newProducts);
 

@@ -73,7 +73,7 @@ export const ProductPage = () => {
               </div>
 
               <ProductActions
-                product={product}
+                productDetails={product}
                 key={product.id}
                 onColorSelect={getNewColor}
                 onCapacitySelect={getCapacity}

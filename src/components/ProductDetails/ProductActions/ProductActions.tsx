@@ -1,24 +1,28 @@
-import { FC } from 'react';
-import { ProductDetails } from '../../../utils/typedefs';
+import { FC, useEffect, useState } from 'react';
+import { Product, ProductDetails } from '../../../utils/typedefs';
+import client from '../../../api/fetching';
 import { ColorButton } from '../ColorButton/ColorButton';
 import { CapacityButton } from '../CapacityButton/CapacityButton';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 import './ProductActions.scss';
+import { AddToCart } from '../../AddToCartButton';
+import { AddToFavourites } from '../../FavouritesButton';
 
 interface Props {
-  product: ProductDetails,
+  productDetails: ProductDetails,
   onColorSelect: (color: string) => void,
   onCapacitySelect: (capacity: string) => void,
 }
 
 export const ProductActions: FC<Props> = (props) => {
   const {
-    product,
+    productDetails,
     onColorSelect,
     onCapacitySelect,
   } = props;
 
   const {
+    id,
     ram,
     screen,
     resolution,
@@ -27,7 +31,19 @@ export const ProductActions: FC<Props> = (props) => {
     priceDiscount,
     colorsAvailable,
     capacityAvailable,
-  } = product;
+  } = productDetails;
+
+  const [product, setProduct] = useState<Product>();
+
+  const getProduct = async () => {
+    const productFromServer = await client.getOne(id);
+
+    setProduct(productFromServer);
+  };
+
+  useEffect(() => {
+    getProduct();
+  }, [id]);
 
   return (
     <div className="actions">
@@ -39,7 +55,7 @@ export const ProductActions: FC<Props> = (props) => {
         <div className="actions__buttons">
           {colorsAvailable.map((color) => (
             <ColorButton
-              productColor={product.color}
+              productColor={productDetails.color}
               color={color}
               key={color}
               onClick={onColorSelect}
@@ -57,7 +73,7 @@ export const ProductActions: FC<Props> = (props) => {
           {capacityAvailable.map((capacity) => (
             <CapacityButton
               capacity={capacity}
-              product={product}
+              product={productDetails}
               key={capacity}
               onClick={onCapacitySelect}
             />
@@ -75,11 +91,13 @@ export const ProductActions: FC<Props> = (props) => {
         </span>
       </div>
 
-      <div className="actions__button">
-        <button type="button" className="actions__cart-button">
-          Add to cart
-        </button>
-      </div>
+      {product && (
+        <div className="actions__button">
+          <AddToCart product={product} height="45px" />
+
+          <AddToFavourites product={product} />
+        </div>
+      )}
 
       <div className="actions__characteristic">
         <TechSpecsItem title="Screen" option={screen} />
