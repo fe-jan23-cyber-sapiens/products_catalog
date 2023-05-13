@@ -69,7 +69,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   return (
     <header className="header">
       <div className="header__left-side">
-        <BurgerMenu isOpen={isOpen} onCloseMenu={handleToggleMenu} />
+        <BurgerMenu
+          onThemeChange={onThemeChange}
+          isOpen={isOpen}
+          onCloseMenu={handleToggleMenu}
+        />
 
         <HeaderLinkWithIcon
           path={RoutePath.main}

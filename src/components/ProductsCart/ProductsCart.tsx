@@ -87,7 +87,7 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
               +
             </button>
           </div>
-          <h2>{`$${getTotalPrice()}`}</h2>
+          <h2 className="price_container__title">{`$${getTotalPrice()}`}</h2>
         </div>
       </div>
     </div>
