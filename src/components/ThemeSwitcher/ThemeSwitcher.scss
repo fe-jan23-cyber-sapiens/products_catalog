@@ -55,7 +55,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--theme-switch);
+  background-color: var(--border-2);
   cursor: pointer;
   border-radius: 30px;
   transition: .4s;
@@ -68,7 +68,7 @@
     height: 12px;
     width: 12px;
     border-radius: 20px;
-    background-color: var(--theme-switch);
+    background-color: var(--border-2);
     box-shadow: inset 2px -2px 0 1.8px #fff;
     transition: .4s;
     animation: anima1 0.3s linear;

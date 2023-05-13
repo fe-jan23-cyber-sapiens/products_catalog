@@ -56,26 +56,28 @@ export const ProductsPage: FC<Props> = (props) => {
     <>
       {!isError ? (
         <main className="productsPage">
-          <div className="productsPage__top">
-            <BreadCrumbs />
+          <div className="productPage__container">
+            <div className="productsPage__top">
+              <BreadCrumbs />
 
-            <h1 className="productsPage__title">
-              {title}
-            </h1>
+              <h1 className="productsPage__title">
+                {title}
+              </h1>
 
-            <p>{`${products.length} models`}</p>
+              <p>{`${products.length} models`}</p>
+            </div>
+
+            <div className="productsPage__dropdowns">
+              <CustomDropdown
+                size="small"
+                title="Items on page"
+                options={itemsPerPageOptions}
+                handleItemsPerPageChange={handleItemsPerPageChange}
+              />
+            </div>
+
+            <ProductsCatalog products={selectedItems} />
           </div>
-
-          <div className="productsPage__dropdowns">
-            <CustomDropdown
-              size="small"
-              title="Items on page"
-              options={itemsPerPageOptions}
-              handleItemsPerPageChange={handleItemsPerPageChange}
-            />
-          </div>
-
-          <ProductsCatalog products={selectedItems} />
 
           <Pagination
             total={elements.length}

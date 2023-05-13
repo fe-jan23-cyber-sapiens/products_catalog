@@ -1,12 +1,11 @@
 @import '../../styles/scss_utils/mixins';
-@import '../../styles/scss_utils/vars';
 
 .top-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid $elements-light;
+  border-bottom: 1px solid var(--elements);
 
   &__logo {
     margin-left: 16px;
@@ -16,12 +15,12 @@
     height: 48px;
     width: 48px;
 
-    background-color: $white;
+    background-color: var(--bg);
     background-image: url('../../assets/logos/Cross.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    border-left: 1px solid $white;
+    border-left: 1px solid var(--elements);
 
     &:hover {
       cursor: pointer;
@@ -30,7 +29,7 @@
 }
 
 .menu {
-  background-color: $white;
+  background-color: var(--bg);
 
   position: fixed;
   top: 0;
@@ -69,11 +68,11 @@
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.04em;
-    color: $secondary-light;
+    color: var(--secondary);
   }
 
   &__footer {
-    border-top: 1px solid $elements-light;
+    border-top: 1px solid var(--elements);
 
     width: 100%;
     display: flex;
@@ -86,13 +85,13 @@
       width: 50%;
 
       border: none;
-      background-color: $white;
+      background-color: var(--bg);
 
       &--heart {
         background-image: url('../../assets/logos/heart_icon.svg');
         background-position: center;
         background-repeat: no-repeat;
-        border-right: 1px solid $elements-light;
+        border-right: 1px solid var(--elements);
       }
 
       &--card {
@@ -105,6 +104,6 @@
 }
 
 .isActive {
-  color: $primary-light;
-  border-bottom: 2px solid $primary-light;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
 }

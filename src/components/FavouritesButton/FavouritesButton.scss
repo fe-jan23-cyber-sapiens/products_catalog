@@ -1,4 +1,4 @@
-@import '../..//styles/scss_utils/vars';
+@import '../../styles/scss_utils/vars';
 
 .favourite-btn {
   min-width: 40px;
@@ -9,13 +9,14 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  border: 1px solid $elements-light;
+  border: 1px solid var(--border-2);
   cursor: pointer;
 
   transition: border-color 0.3s ease;
 
   &:hover {
-    border-color: $primary-light;
+    border-color: var(--hover-lighter);
+    background-color: var(--favorites-hover);
   }
 
   &--selected {

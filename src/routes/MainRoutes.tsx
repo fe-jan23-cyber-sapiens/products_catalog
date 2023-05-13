@@ -24,7 +24,7 @@ export const routeConfig: Record<PATH, RouteProps> = {
 
   [PATH.Home]: {
     path: RoutePath.home,
-    element: <Navigate to={PATH.Main} replace />,
+    element: <Navigate to={PATH.Home} replace />,
   },
 
   [PATH.Phones]: {

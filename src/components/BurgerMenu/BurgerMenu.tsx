@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import * as images from '../../assets';
 import './BurgerMenu.scss';
-import { PATH } from '../../routes/types/Path';
+import { RoutePath } from '../../routes/RoutePath';
 
 type Props = {
   isOpen: boolean,
@@ -21,7 +21,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
       <div className="menu__content">
         <div className="top-actions">
           <div className="top-actions__logo">
-            <NavLink to="/">
+            <NavLink to={RoutePath.main}>
               <img src={images.main_logo} alt="logo" />
             </NavLink>
           </div>
@@ -37,7 +37,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
         <ul className="menu__list">
           <li className="menu__item">
             <NavLink
-              to="/"
+              to={RoutePath.main}
               onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
@@ -49,7 +49,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Phones}
+              to={RoutePath.phones}
               onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
@@ -61,7 +61,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Tablets}
+              to={RoutePath.tablets}
               onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
@@ -73,7 +73,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
 
           <li className="menu__item">
             <NavLink
-              to={PATH.Accessories}
+              to={RoutePath.accessories}
               onClick={onCloseMenu}
               className={({ isActive }) => classNames('menu__link', {
                 isActive,
@@ -86,7 +86,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
 
         <div className="menu__footer">
           <NavLink
-            to={PATH.Favourites}
+            to={RoutePath.favourites}
             aria-label="favorites"
             type="button"
             className={({ isActive }) => classNames(
@@ -97,7 +97,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onCloseMenu }) => {
           />
 
           <NavLink
-            to={PATH.Cart}
+            to={RoutePath.cart}
             aria-label="shopping_card"
             type="button"
             className={({ isActive }) => classNames(

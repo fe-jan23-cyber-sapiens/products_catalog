@@ -1,15 +1,18 @@
-@import '../../styles/scss_utils/vars';
 @import '../../styles/scss_utils/mixins';
 
 .add-to-cart-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  border: none;
-  background-color: $primary-light;
-  color: $white;
+    border: none;
+    background-color: var(--hover);
+    color: var(--white);
 
+    &:hover {
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
   font-size: 12px;
 
   @include onTablet {
@@ -18,12 +21,12 @@
 
   &:hover {
     transition: box-shadow 0.3s ease;
-    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
   }
 
   &--is-selected {
-    color: $green;
-    background-color: transparent;
-    border: 1px solid $elements-light;
+    color: var(--selected);
+    background-color: var(--item-hover2);
+    border: 1px solid var(--border-3);
   }
 }

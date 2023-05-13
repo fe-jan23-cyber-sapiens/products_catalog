@@ -1,17 +1,17 @@
+import { useContext } from 'react';
 import { ProductCart } from '../ProductsCart/ProductsCart';
 import { Checkout } from '../CartsCheckout/Checkout';
 import './Card.scss';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { Product } from '../../utils/typedefs';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
 export const Card = () => {
-  const [inCart] = useLocalStorage<Product[]>('cart', []);
+  const { cartProducts } = useContext(CartLSUpdateContext);
 
   return (
     <div className="cards-container">
       <div className="cart-container">
         <div className="cards-container">
-          {inCart.map(product => (
+          {cartProducts.map(product => (
             <ProductCart product={product} />
           ))}
         </div>

@@ -1,6 +1,6 @@
-import { useState, FC, useContext } from 'react';
-
+import { FC, useContext, useState } from 'react';
 import './ProductsCart.scss';
+import classNames from 'classnames';
 import { Product } from '../../utils/typedefs';
 import { BASE_URL } from '../../utils/constants';
 import cross from '../../assets/logos/Cross.svg';
@@ -12,9 +12,9 @@ interface Props {
 }
 
 export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
-  const { handleModifyCartLS } = useContext(CartLSUpdateContext);
   const [count, setCount] = useState(initialCount);
   const [quantity, setQuantity] = useState(1);
+  const { handleModifyCartLS } = useContext(CartLSUpdateContext);
 
   const increment = () => {
     setCount(prev => prev + 1);
@@ -50,7 +50,7 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
 
         <img
           src={`${BASE_URL}/${product.image}`}
-          alt="Iphone 11 PRO"
+          alt="Iphone"
           className="phone-card__image"
         />
         <p className="phone-card__description">
@@ -63,7 +63,8 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
           <div className="counter">
             <button
               type="button"
-              className="count"
+              className={classNames('count-left',
+                { 'count-left--disabled': isDisabled })}
               onClick={decrement}
               disabled={isDisabled}
             >
@@ -72,7 +73,8 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
             <span>{count}</span>
             <button
               type="button"
-              className="count"
+              className={classNames('count-right',
+                { 'count-right--disabled': isDisabled })}
               onClick={increment}
             >
               +
