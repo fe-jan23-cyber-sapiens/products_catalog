@@ -1,10 +1,8 @@
 @import '../../styles/scss_utils/mixins';
-@import '../../styles/scss_utils/colors';
 
-.productsPage {
+.cartPage {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 0 auto;
   padding: 16px;
   max-width: 1200px;
@@ -18,11 +16,11 @@
   }
 
   &__top {
-    margin-bottom: 40px;
+    width: 100%;
   }
 
   &__title {
-    margin-bottom: 8px;
+    margin-bottom: 32px;
 
     font-weight: 700;
     font-size: 32px;
@@ -38,21 +36,5 @@
 
       letter-spacing: -0.01em;
     }
-  }
-
-  &__modal {
-    font-weight: 700;
-    font-size: 32px;
-    text-align: center;
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid var(--primary);
-
-    color: var(--primary);
-    text-align: center;
-  }
-
-  &__dropdowns {
-    margin-bottom: 24px;
   }
 }
