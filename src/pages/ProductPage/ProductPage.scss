@@ -36,18 +36,19 @@
   &__title {
     margin-bottom: 40px;
 
+    font-family: 'Mont', sans-serif;
     font-weight: 800;
     font-size: 22px;
     line-height: 140%;
 
-    color: $primary-light;
+    color: var(--primary);
 
     @include onTablet {
       font-size: 32px;
 
       line-height: 41px;
       letter-spacing: -0.01em;
-    }  
+    }
   }
 
   &__top {

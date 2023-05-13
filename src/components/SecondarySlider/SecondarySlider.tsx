@@ -147,11 +147,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
                 {product.name}
 
                 <div className="secondary-slider__card-wrapper">
-                  <CardItem
-                    product={product}
-                    isAddedToCart={false}
-                    isAddedToFavourites={false}
-                  />
+                  <CardItem product={product} />
                 </div>
               </SwiperSlide>
             ))}

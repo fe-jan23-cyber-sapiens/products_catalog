@@ -23,29 +23,29 @@
     letter-spacing: 0.04em;
     text-decoration: none;
     text-transform: uppercase;
-    color: var(--secondary-light);
+    color: var(--secondary);
 
     transition: color 0.3s ease;
-    
+
     &:hover {
-      color: var(--primary-light);
+      color: var(--primary);
     }
 
     &--is-active {
       position: relative;
-      color: var(--primary-light);
-      
+      color: var(--primary);
+
       &::after {
         content: '';
         position: absolute;
         bottom: 0;
         height: 3px;
         width: 100%;
-        background-color: var(--primary-light);
+        background-color: var(--primary);
       }
 
       &:hover {
-        color: var(--primary-light);
+        color: var(--primary);
       }
     }
 

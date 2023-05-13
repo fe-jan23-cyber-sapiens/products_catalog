@@ -16,23 +16,24 @@
   &__subtitle {
     margin-bottom: 32px;
     padding-bottom: 16px;
-  
+
+    font-family: 'Mont', sans-serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
-  
-    color: var(--primary-light);
-    border-bottom: 1px solid;
+
+    color: var(--primary);
+    border-bottom: 1px solid var(--elements);
   }
-  
+
   &__description {
     width: 100%;
-  
+
     @include onLaptop {
       max-width: 50%;
     }
   }
-  
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -47,7 +48,7 @@
 
   &__tech-specs {
     width: 100%;
-    
+
     @include onLaptop {
       width: 50%;
     }

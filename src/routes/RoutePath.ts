@@ -10,4 +10,6 @@ export const RoutePath: Record<PATH, string> = {
   [PATH.Favourites]: '/favourites',
   [PATH.Cart]: '/cart',
   [PATH.Error]: '*',
+  [PATH.Contacts]: '/contacts',
+  [PATH.Rights]: '/rights',
 };

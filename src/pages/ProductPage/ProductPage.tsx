@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './ProductPage.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -72,7 +73,7 @@ export const ProductPage = () => {
               </div>
 
               <ProductActions
-                product={product}
+                productDetails={product}
                 key={product.id}
                 onColorSelect={getNewColor}
                 onCapacitySelect={getCapacity}

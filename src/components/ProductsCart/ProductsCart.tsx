@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-
+import { FC, useContext, useState } from 'react';
 import './ProductsCart.scss';
+import classNames from 'classnames';
+import { Product } from '../../utils/typedefs';
+import { BASE_URL } from '../../utils/constants';
+import cross from '../../assets/logos/Cross.svg';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
-type CounterProps = {
-  initialCount?: number;
-};
+interface Props {
+  initialCount?: number,
+  product: Product,
+}
 
-export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
+export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
   const [count, setCount] = useState(initialCount);
   const [quantity, setQuantity] = useState(1);
+  const { handleModifyCartLS } = useContext(CartLSUpdateContext);
 
   const increment = () => {
     setCount(prev => prev + 1);
@@ -21,27 +27,35 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
   };
 
   const isDisabled = count === 1;
-  const price = 999;
+  const { price } = product;
 
   const getTotalPrice = () => {
-    return price * quantity;
+    return Number(price) * quantity;
   };
 
   return (
     <div className="cart">
       <div className="wrapper">
-        <img
-          className="delete"
-          src="./card.jpg"
-          alt="del"
-        />
+        <button
+          type="button"
+          className="cart__deleteButton"
+          onClick={() => handleModifyCartLS(product)}
+        >
+          <img
+            className="delete"
+            src={cross}
+            alt="del"
+          />
+        </button>
 
         <img
-          src="../assets/categories/phones.png"
-          alt="Iphone 11 PRO"
+          src={`${BASE_URL}/${product.image}`}
+          alt="Iphone"
           className="phone-card__image"
         />
-        <p className="phone-card__description">Iphone 11 with 8GB of RAM</p>
+        <p className="phone-card__description">
+          {product.name}
+        </p>
       </div>
 
       <div className="wrapper">
@@ -49,7 +63,8 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
           <div className="counter">
             <button
               type="button"
-              className="count"
+              className={classNames('count-left',
+                { 'count-left--disabled': isDisabled })}
               onClick={decrement}
               disabled={isDisabled}
             >
@@ -58,7 +73,8 @@ export const Product: React.FC = ({ initialCount = 1 }: CounterProps) => {
             <span>{count}</span>
             <button
               type="button"
-              className="count"
+              className={classNames('count-right',
+                { 'count-right--disabled': isDisabled })}
               onClick={increment}
             >
               +
