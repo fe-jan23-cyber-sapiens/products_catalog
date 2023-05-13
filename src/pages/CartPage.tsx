@@ -1,3 +1,5 @@
+import { Card } from '../components/CartsCard/Card';
+
 export const CartPage = () => {
-  return <div>Cart</div>;
+  return <Card />;
 };
