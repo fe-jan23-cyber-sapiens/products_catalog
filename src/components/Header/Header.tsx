@@ -1,5 +1,4 @@
 import { FC } from 'react';
-// import { Link } from 'react-router-dom';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
@@ -8,14 +7,17 @@ import './Header.scss';
 
 import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-// import { PATH } from '../../routes/types/Path';
 
 interface HeaderProps {
+  favourites: number,
+  inCart: number,
   onThemeChange: () => void;
   onMenuOpen: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
+export const Header: FC<HeaderProps> = ({
+  onThemeChange, onMenuOpen, favourites, inCart,
+}) => {
   return (
     <header className="header">
       <div className="header__left-side">
@@ -37,6 +39,10 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
             alt="Favourites heart icon"
             className="header__link"
           />
+
+          <span className="header__count">
+            {favourites}
+          </span>
         </div>
 
         <div className="header__logo-box">
@@ -46,6 +52,10 @@ export const Header: FC<HeaderProps> = ({ onThemeChange, onMenuOpen }) => {
             alt="Cart icon"
             className="header__link"
           />
+
+          <span className="header__count">
+            {inCart}
+          </span>
         </div>
 
         <div className="header__logo-box">

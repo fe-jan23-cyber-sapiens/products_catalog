@@ -11,12 +11,10 @@ export const ProductsCatalog: FC<Props> = (props) => {
   const { products } = props;
 
   return (
-    <div className="productCatalog">
+    <div className="productsCatalog">
       {products.map(product => (
         <CardItem
           product={product}
-          isAddedToCart={false}
-          isAddedToFavourites={false}
         />
       ))}
     </div>

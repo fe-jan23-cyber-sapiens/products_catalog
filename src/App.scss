@@ -1,8 +1,14 @@
 @import './styles/scss_utils/mixins';
 @import './styles/scss_utils/vars';
+@import './styles/scss_utils/vars';
+@import './styles/mixins';
 
 .app {
   &__main-section {
-    min-height: 70vh;
+    min-height: calc(100vh - $header-height-s + $footer-height-s);
+
+    @include onTablet {
+      min-height: calc(100vh - $header-height-l + $footer-height-l);
+    }
   }
 }

@@ -4,6 +4,14 @@ import { Product } from '../../utils/typedefs';
 import client from '../../api/fetching';
 import './ProductsPage.scss';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
+import { CustomDropdown } from '../../components/CustomDropdown';
+import {
+  itemsByDefault,
+  itemsPerPageOptions,
+  pageByDefault,
+} from '../../utils/constants';
+import { usePagination } from '../../hooks/usePagination';
+import { Pagination } from '../../components/Pagination';
 
 interface Props {
   title: string,
@@ -14,6 +22,19 @@ export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
   const [products, setProducts] = useState<Product[]>([]);
   const [isError, setIsError] = useState(false);
+
+  const {
+    currentPage,
+    itemsPerPage,
+    selectedItems,
+    onPageChange,
+    elements,
+    handleItemsPerPageChange,
+  } = usePagination<Product>({
+    defaultCurrentPage: pageByDefault,
+    defaultItemsPerPage: itemsByDefault,
+    elements: products,
+  });
 
   const getProducts = async () => {
     setIsError(false);
@@ -38,15 +59,35 @@ export const ProductsPage: FC<Props> = (props) => {
           <div className="productsPage__top">
             <BreadCrumbs />
 
-            <h1>{title}</h1>
+            <h1 className="productsPage__title">
+              {title}
+            </h1>
 
             <p>{`${products.length} models`}</p>
           </div>
 
-          <ProductsCatalog products={products} />
+          <div className="productsPage__dropdowns">
+            <CustomDropdown
+              size="small"
+              title="Items on page"
+              options={itemsPerPageOptions}
+              handleItemsPerPageChange={handleItemsPerPageChange}
+            />
+          </div>
+
+          <ProductsCatalog products={selectedItems} />
+
+          <Pagination
+            total={elements.length}
+            perPage={itemsPerPage}
+            currentPage={currentPage}
+            onPageChange={onPageChange}
+          />
         </main>
       ) : (
-        <p>Something went wrong</p>
+        <p className="productsPage__error">
+          Something went wrong
+        </p>
       )}
     </>
   );

@@ -15,6 +15,7 @@ function request<T>(url: string): Promise<T> {
 
 export default {
   getAll: () => request<Product[]>('/products'),
+  getOne: (productId: string) => request<Product>(`/products/${productId}`),
   getByCategory: (category: string) => request<Product[]>(`/products?category=${category}`),
   getProductDetails: (phoneId: string) => request<ProductDetails>(`/details/${phoneId}`),
   getSameModels: (nameId: string) => request<ProductDetails[]>(`/details?namespaceId=${nameId}`),

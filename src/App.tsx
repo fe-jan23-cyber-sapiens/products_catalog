@@ -7,10 +7,14 @@ import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
 import { MainRoutes } from './routes/MainRoutes';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { Product } from './utils/typedefs';
 
 export const App = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [inCart] = useLocalStorage<Product[]>('cart', []);
+  const [favourites] = useLocalStorage<Product[]>('favourites', []);
 
   const handleThemeChange = () => {
     setTheme(theme === THEME_LIGHT
@@ -34,7 +38,12 @@ export const App = () => {
     <div className={`app ${theme}`}>
       <BurgerMenu isOpen={isOpen} onCloseMenu={handleOpenMenu} />
 
-      <Header onThemeChange={handleThemeChange} onMenuOpen={handleOpenMenu} />
+      <Header
+        inCart={inCart.length}
+        favourites={favourites.length}
+        onThemeChange={handleThemeChange}
+        onMenuOpen={handleOpenMenu}
+      />
 
       <main className="app__main-section">
         <MainRoutes />

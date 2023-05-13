@@ -1,6 +1,14 @@
-.productCatalog {
+@import '../../styles/mixins';
+
+.productsCatalog {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  
   gap: 16px;
+  margin-bottom: 24px;
+
+  @include onLaptop {
+    margin-bottom: 40px;
+  }
 }
