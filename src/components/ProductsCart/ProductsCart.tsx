@@ -1,4 +1,7 @@
 import { useState, FC, useContext } from 'react';
+import classNames from 'classnames';
+import cardCover from '../../assets/card.jpg';
+import cross from '../../assets/logos/Cross.svg';
 
 import './ProductsCart.scss';
 import { Product } from '../../utils/typedefs';
@@ -25,7 +28,7 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
     setCount(prev => prev - 1);
     setQuantity(prev => prev - 1);
   };
-
+  
   const isDisabled = count === 1;
   const { price } = product;
 
@@ -50,7 +53,7 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
 
         <img
           src={`${BASE_URL}/${product.image}`}
-          alt="Iphone 11 PRO"
+          alt="Iphone photo"
           className="phone-card__image"
         />
         <p className="phone-card__description">
@@ -63,7 +66,8 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
           <div className="counter">
             <button
               type="button"
-              className="count"
+              className={classNames('count-left',
+                { 'count-left--disabled': isDisabled })}
               onClick={decrement}
               disabled={isDisabled}
             >
@@ -72,7 +76,8 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
             <span>{count}</span>
             <button
               type="button"
-              className="count"
+              className={classNames('count-right',
+                { 'count-right--disabled': isDisabled })}
               onClick={increment}
             >
               +

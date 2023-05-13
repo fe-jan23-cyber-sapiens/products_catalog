@@ -1,7 +1,6 @@
 @import './styles/scss_utils/mixins';
 @import './styles/scss_utils/vars';
-@import './styles/scss_utils/vars';
-@import './styles/mixins';
+@import "./styles/normalize";
 
 .app {
   &__main-section {

@@ -1,4 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import {
+  FC,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
@@ -12,7 +17,7 @@ interface Props {
   product: Product,
 }
 
-export const AddToCart: React.FC<Props> = ({
+export const AddToCart: FC<Props> = ({
   height,
   product,
 }) => {

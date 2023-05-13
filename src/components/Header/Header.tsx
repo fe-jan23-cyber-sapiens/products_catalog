@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
@@ -7,6 +7,9 @@ import './Header.scss';
 
 import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
+import { RoutePath } from '../../routes/RoutePath';
+import { ThemeContext } from '../../context/ThemeContext';
+import { THEME_LIGHT } from '../../utils/constants';
 
 interface HeaderProps {
   favourites: number,
@@ -15,15 +18,20 @@ interface HeaderProps {
   onMenuOpen: () => void;
 }
 
+
 export const Header: FC<HeaderProps> = ({
   onThemeChange, onMenuOpen, favourites, inCart,
 }) => {
+  const currentLogo = theme === THEME_LIGHT
+    ? images.main_logo
+    : images.main_logo_dark;
+
   return (
     <header className="header">
       <div className="header__left-side">
         <HeaderLinkWithIcon
-          path="/"
-          imageSrc={images.main_logo}
+          path={RoutePath.main}
+          imageSrc={currentLogo}
           alt="Main logo of Nice Gadgets"
           className="header__link header__link--main-logo"
         />
@@ -34,7 +42,7 @@ export const Header: FC<HeaderProps> = ({
       <div className="header__right-side">
         <div className="header__logo-box">
           <HeaderLinkWithIcon
-            path="/favourites"
+            path={RoutePath.favourites}
             imageSrc={images.heart_icon}
             alt="Favourites heart icon"
             className="header__link"
@@ -47,7 +55,7 @@ export const Header: FC<HeaderProps> = ({
 
         <div className="header__logo-box">
           <HeaderLinkWithIcon
-            path="/cart"
+            path={RoutePath.cart}
             imageSrc={images.cart_icon}
             alt="Cart icon"
             className="header__link"
