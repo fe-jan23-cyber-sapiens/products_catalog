@@ -1,3 +1,9 @@
-.App {
-  height: 100vh;
+@import "./styles/normalize";
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  height: 100%;
 }

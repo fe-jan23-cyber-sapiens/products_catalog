@@ -5,6 +5,8 @@ import './index.scss';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from './context/ThemeContext';
+import { CartLSUpdateProvider } from './context/CartLSUpdateContext';
+import { FavLSUpdateProvider } from './context/FavLSUpdateContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -13,9 +15,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <FavLSUpdateProvider>
+        <CartLSUpdateProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </CartLSUpdateProvider>
+      </FavLSUpdateProvider>
     </React.StrictMode>
   </BrowserRouter>,
 );

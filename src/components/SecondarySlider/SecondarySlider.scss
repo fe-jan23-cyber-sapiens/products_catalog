@@ -1,0 +1,124 @@
+@import '../../styles/scss_utils/colors';
+@import '../../styles/scss_utils/mixins';
+
+.secondary-slider {
+  padding-left: 16px;
+
+  @include onTablet {
+    padding-left: 24px;
+  }
+
+  @include onLaptop {
+    padding-left: 0;
+
+    &__swiper-container {
+      max-width: 1136px;
+      margin: auto;
+      overflow: hidden;
+    }
+  }
+
+  &__swiper-container {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-right: 16px;
+
+    @include onTablet {
+      padding-right: 24px;
+    }
+
+    @include onLaptop {
+      max-width: 1136px;
+      margin: 0 auto 24px;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    color: $primary-light;
+
+    width: 136px;
+
+    @include onTablet {
+      width: 100%;
+      font-size: 32px;
+      line-height: 41px;
+    }
+  }
+
+  &__arrow-container {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid $icons-light;
+
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+
+    &--right {
+      background-image: url('../../assets/arrows/arrow_right.svg');
+
+      &--disabled {
+        background-image: url('../../assets/arrows/arrow_right_light.svg');
+        border-color: $elements-light;
+        cursor: auto;
+      }
+
+      &--hover:hover {
+        border-color: $primary-light;
+      }
+    }
+    
+    &--left {
+      background-image: url('../../assets/arrows/arrow_left.svg');
+
+      &--disabled {
+        background-image: url('../../assets/arrows/arrow_left_light.svg');
+        border-color: $elements-light;
+        cursor: auto;
+      }
+
+      &--hover:hover {
+        border-color: $primary-light;
+      }
+    }
+
+  }
+
+  &__card-wrapper {
+    padding: 5px;
+    max-width: 272px;
+  }
+  &__card {
+    max-width: 212px;
+
+    @include onTablet {
+      max-width: 237px;
+    }
+
+    @include onLaptop {
+      max-width: 272px;
+    }
+  }
+}

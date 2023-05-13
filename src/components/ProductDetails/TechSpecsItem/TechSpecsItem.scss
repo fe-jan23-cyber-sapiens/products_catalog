@@ -1,0 +1,26 @@
+.techSpecs__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  &-title {
+    font-family: 'Mont', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+
+    line-height: 21px;
+
+    color: var(--secondary);
+  }
+
+  &-text {
+    font-family: 'Mont', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+
+    line-height: 21px;
+    text-align: right;
+
+    color: var(--primary);
+  }
+}

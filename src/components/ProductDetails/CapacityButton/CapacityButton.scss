@@ -1,0 +1,28 @@
+.capacity__button {
+  padding: 7px;
+
+  font-family: 'Mont', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: center;
+
+  color: var(--primary);
+  background-color: var(--bg);
+  border: 1px solid var(--border-icons);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg);
+  }
+
+  &--active {
+    color: var(--bg);
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+}

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 20px;
+  padding-bottom: 20px;
 
   background-color: transparent;
   border: none;
@@ -14,10 +14,10 @@
     font-size: 12px;
     line-height: 15px;
 
-    color: var(--secondary-light);
+    color: var(--link);
 
     &:hover {
-      color: var(--primary-light);
+      color: var(--hover);
     }
   }
 }

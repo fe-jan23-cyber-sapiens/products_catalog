@@ -1,53 +1,32 @@
-@import '../../variablesCardItem';
+@import '../../styles/scss_utils/mixins';
 
-.btn__add-to-cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: $primary-color;
-  font-weight: 700;
-  font-size: 14px;
-  text-align: center;
-  color: $white-color;
-  text-decoration: none;
-
-  border: none;
-  cursor: pointer;
-
-  transition: background 0.3s ease;
-
-  &:hover {
-    background: $hover-color;
-  }
-
-  &--clicked {
-    background: $bg-color;
-  }
-  
-  &.custom-button {
+.add-to-cart-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-weight: 700;
-    font-size: 14px;
-    text-align: center;
-    text-decoration: none;
+    border: none;
+    background-color: var(--hover);
+    color: var(--white);
 
-    transition: background 0.3s ease;
-
-    &.add {
-      background-color: $secondary-color;
-      color: $white-color;
-
-      &:hover {
-        background-color: $bg-color;
-      }
-
-      &--clicked {
-        background-color: $bg-color;
-      }
+    &:hover {
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
     }
+  font-size: 12px;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+
+  &:hover {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+  }
+
+  &--is-selected {
+    color: var(--selected);
+    background-color: var(--item-hover2);
+    border: 1px solid var(--border-3);
   }
 }

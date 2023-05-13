@@ -1,0 +1,56 @@
+@import '../../../styles/scss_utils/mixins';
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include onTablet {
+    gap: 80px;
+  }
+
+  @include onLaptop {
+    flex-direction: row;
+  }
+
+  &__subtitle {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: var(--primary);
+    border-bottom: 1px solid var(--elements);
+  }
+
+  &__description {
+    width: 100%;
+
+    @include onLaptop {
+      max-width: 50%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__characteristic {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__tech-specs {
+    width: 100%;
+
+    @include onLaptop {
+      width: 50%;
+    }
+  }
+}

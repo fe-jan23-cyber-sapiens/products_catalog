@@ -21,6 +21,7 @@ export const Category: FC<Props> = (props) => {
     <Link
       to={link}
       className="category__link"
+      onClick={() => window.scrollTo(0, 0)}
     >
       <div className="category">
         <div className="category__box">
@@ -36,7 +37,7 @@ export const Category: FC<Props> = (props) => {
         </h2>
 
         <p className="category__count">
-          {`${products} items`}
+          {`${products} models`}
         </p>
       </div>
     </Link>

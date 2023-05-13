@@ -1,0 +1,113 @@
+@import '../../../styles/scss_utils/mixins';;
+
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  @include onTablet {
+    max-width: 237px;
+  }
+
+  @include onLaptop {
+    max-width: 320px;
+  }
+
+  &__small {
+    margin-bottom: 8px;
+
+    font-family: 'Mont', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: var(--secondary);
+  }
+
+  &__colors {
+    margin-bottom: 48px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__cart-button {
+    height: 48px;
+    width: 100%;
+    background-color: var(--hover);
+    border: none;
+    color: var(--white);
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+      background-color: var(--hover-accent);
+    }
+
+    @include onTablet {
+      width: 180px;
+    }
+
+    @include onLaptop {
+      width: 263px;
+    }
+  }
+
+  &__select {
+    border-bottom: 1px solid var(--elements);
+    padding-bottom: 20px;
+
+    &:first-child {
+      margin-bottom: 24px;
+    }
+
+    margin-bottom: 32px;
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__full {
+    font-family: 'Mont', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+
+    line-height: 28px;
+    text-decoration-line: line-through;
+
+    color: var(--secondary);
+  }
+
+  &__discount {
+    font-family: 'Mont', sans-serif;
+    margin-right: 8px;
+    font-weight: 800;
+    font-size: 32px;
+
+    line-height: 41px;
+    letter-spacing: -0.01em;
+
+    color: var(--primary);
+  }
+
+  &__button {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__characteristic {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

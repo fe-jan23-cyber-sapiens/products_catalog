@@ -1,0 +1,144 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $card-width-s;
+  padding: 32px;
+
+  background-color: var(--bg);
+  border: 1px solid var(--border-3);
+
+  transition: all 0.3s linear;
+
+  &:hover {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  @include onTablet {
+    width: $card-width-m;
+  }
+
+  @include onLaptop {
+    width: $card-width-l;
+    max-height: 506px;
+  }
+
+  &__title {
+    @extend %card-text;
+    color: var(--primary);
+
+    margin-bottom: 8px;
+
+    &-link {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 129px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      height: 181px;
+    }
+
+    @include onLaptop {
+      height: 196px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 16px;
+
+    @extend %h3_desktop-tablet;
+    color: var(--primary);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      height: 1px;
+      width: 100%;
+      background-color: var(--elements);
+    }
+
+    &-item {
+      margin: 0;
+
+      &:first-child {
+        font-weight: 800;
+        margin-right: 8px;
+      }
+
+      &::before {
+        content: '$';
+        font-family: "Mont", Helvetica, sans-serif;
+        color: var(--secondary);
+      }
+
+      &--crossed {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 28px;
+        text-decoration: line-through;
+
+        color: var(--secondary);
+
+        &::before {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+
+  &__specs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-title {
+      @extend %smallText_desktop-tablet;
+      margin: 0;
+
+      color: var(--secondary);;
+    }
+
+    &-value {
+      @extend %smallText_desktop-tablet;
+      margin: 0;
+
+      color: var(--primary);
+    }
+  }
+}
+
+.product-item__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.link-to-product {
+  text-decoration: none;
+}

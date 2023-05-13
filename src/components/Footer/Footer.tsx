@@ -1,39 +1,60 @@
-import React from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logos/Logo.svg';
+import * as images from '../../assets';
 import './Footer.scss';
+import { PATH } from '../../routes/types/Path';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
+import { THEME_LIGHT } from '../../utils/constants';
+import { ThemeContext } from '../../context/ThemeContext';
+import { RoutePath } from '../../routes/RoutePath';
 
-export const Footer: React.FC = () => {
+export const Footer: FC = () => {
+  const { theme } = useContext(ThemeContext);
+
+  const currentLogo = theme === THEME_LIGHT
+    ? images.main_logo
+    : images.main_logo_dark;
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <footer className="footer">
-      <Link to="/">
-        <img src={logo} alt="a" />
-      </Link>
+      <HeaderLinkWithIcon
+        path={RoutePath.main}
+        imageSrc={currentLogo}
+        alt="Main logo of Nice Gadgets"
+        className="header__link header__link--main-logo"
+      />
 
       <ul className="footer-nav">
         <li className="footer-nav__item">
-          <a className="footer-nav__link" href="/">
+          <Link
+            target="_blank"
+            className="footer-nav__link"
+            to="https://github.com/fe-jan23-cyber-sapiens"
+          >
             Github
-          </a>
+          </Link>
         </li>
+
         <li className="footer-nav__item">
-          <a className="footer-nav__link" href="/">
+          <Link className="footer-nav__link" to={PATH.Contacts}>
             Contacts
-          </a>
+          </Link>
         </li>
+
         <li className="footer-nav__item">
-          <a className="footer-nav__link" href="/">
+          <Link className="footer-nav__link" to={PATH.Rights}>
             Rights
-          </a>
+          </Link>
         </li>
       </ul>
 
       <div className="footer--back">
         <span>Back to top</span>
+
         <button
           className="footer--back__link"
           type="button"

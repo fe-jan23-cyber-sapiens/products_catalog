@@ -1,17 +1,18 @@
 import { NavigationLink } from '../NavigationLink';
 
 import './NavBar.scss';
+import { RoutePath } from '../../routes/RoutePath';
 
 export const NavBar = () => {
   return (
-    <nav className="navbar">
-      <NavigationLink to="/" title="home" />
+    <nav className="navigation-bar">
+      <NavigationLink to={RoutePath.main} title="home" />
 
-      <NavigationLink to="/phones" title="phones" />
+      <NavigationLink to={RoutePath.phones} title="phones" />
 
-      <NavigationLink to="/tablets" title="tablets" />
+      <NavigationLink to={RoutePath.tablets} title="tablets" />
 
-      <NavigationLink to="/accessories" title="accessories" />
+      <NavigationLink to={RoutePath.accessories} title="accessories" />
     </nav>
   );
 };

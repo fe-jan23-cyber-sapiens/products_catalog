@@ -1,0 +1,59 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+
+  max-width: 650px;
+  margin: 0 22px;
+  gap: 16px;
+  padding: 0 32px;
+}
+
+.card {
+  flex-basis: 100%;
+  width: 270px;
+  height: 350px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background-color: #060b35;
+}
+
+@include onLaptop {
+  .cards-container {
+    max-width: 1200px;
+    margin: 0 32px;
+    padding: 0;
+  }
+  .card {
+    flex-basis: 25%;
+  }
+}
+
+@include onBigTablet {
+  .cards-container {
+    max-width: 700px;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .card {
+    width: 220px;
+    padding: 0 24px;
+    flex-basis: 33.3%;
+  }
+}
+
+@include onTablet {
+  .cards-container {
+    max-width: 650px;
+    margin: 0 22px;
+    gap: 16px;
+  }
+  .card {
+    width: 265px;
+    flex-basis: 50%;
+  }
+}

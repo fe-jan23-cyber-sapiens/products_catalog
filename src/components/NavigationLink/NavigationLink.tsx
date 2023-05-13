@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 
 import { NavLink } from 'react-router-dom';
@@ -10,15 +10,14 @@ type Props = {
   title: string;
 };
 
-export const NavigationLink: React.FC<Props> = ({ to, title }) => (
+export const NavigationLink: FC<Props> = ({ to, title }) => (
   <NavLink
     to={to}
     className={({ isActive }) => classNames(
-      //
-      'navbar__item',
-      { 'navbar__item--is-active': isActive },
+      'navigation-bar__item',
+      { 'navigation-bar__item--is-active': isActive },
     )}
   >
-    <span className="navbar__item-title">{title}</span>
+    <span className="navigation-bar__item-title">{title}</span>
   </NavLink>
 );

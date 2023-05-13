@@ -1,0 +1,31 @@
+@import './vars';
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+%h3_desktop-tablet {
+  font-family: "Mont";
+  font-size: 22px;
+  line-height: 140%;
+}
+
+%smallText_desktop-tablet {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+}
+
+%card-text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}

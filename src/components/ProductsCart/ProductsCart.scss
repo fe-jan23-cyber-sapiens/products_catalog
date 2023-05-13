@@ -1,0 +1,149 @@
+@import '../../styles/mixins';
+@import '../../styles/_reset';
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 288px;
+  height: 164px;
+  gap: 16px;
+  margin: 0 auto;
+
+  border: 1px solid var(--elements) ;
+  padding: 16px;
+
+  &__deleteButton {
+    width: max-content;
+    
+    background-color: transparent;
+    border: none;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.delete {
+  margin-right: 20px;
+}
+
+.phone-card__image {
+  height: 60px;
+  margin-right: 16px;
+}
+
+.phone-card__description {
+  width: 128px;
+  height: max-content;
+
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  line-height: 21px;
+}
+
+.price_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  gap: 14px;
+}
+
+.count-left, .count-right {
+  width: 32px;
+  height: 32px;
+
+  background-color: var(--item-hover2);
+  border: 1px solid var(--border-2);
+
+  &--disabled {
+    background-color: var(--bg);
+  }
+}
+
+.count:hover {
+  cursor: pointer;
+}
+
+@include onTablet {
+  .cart {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 590px;
+    height: 120px;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .cart:last-child {
+    margin-bottom: 32px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .phone-card__description {
+    width: 170px;
+  }
+
+  .price_container {
+    display: flex;
+    align-items: center;
+
+    gap: 55px;
+  }
+}
+
+@include onLaptop {
+  .cart {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 750px;
+    height: 80px;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .delete {
+    margin-right: 35px;
+  }
+
+  .phone-card__image {
+    margin-right: 32px;
+  }
+
+  .phone-card__description {
+    width: 250px;
+  }
+}

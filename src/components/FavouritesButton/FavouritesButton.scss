@@ -1,24 +1,25 @@
-@import '../../variablesCardItem';
+@import '../../styles/scss_utils/vars';
 
-.btn__favourites {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.favourite-btn {
+  min-width: 40px;
+  min-height: 40px;
 
-  margin: 0;
-  padding: 0;
+  background-color: transparent;
+  background-image: url('../../assets/logos/heart_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 
-  background: $white-color;
-  border: none;
+  border: 1px solid var(--border-2);
   cursor: pointer;
 
-  transition: background 0.3s ease;
+  transition: border-color 0.3s ease;
 
   &:hover {
-    background: $icons-color;
+    border-color: var(--hover-lighter);
+    background-color: var(--favorites-hover);
   }
-  
+
   &--selected {
-    border: 1px solid $elements-color;
+    background-image: url('../../assets/logos/filled_heart_icon.svg');
   }
 }

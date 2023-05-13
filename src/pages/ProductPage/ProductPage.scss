@@ -1,0 +1,77 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+.productPage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  &__slider {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 81px;
+    }
+  }
+
+}
+
+.details {
+  margin-bottom: 60px;
+  padding: 16px;
+
+  @include onTablet {
+    padding: 24px;
+  }
+
+  @include onLaptop {
+    margin-bottom: 80px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    font-family: 'Mont', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+
+    color: var(--primary);
+
+    @include onTablet {
+      font-size: 32px;
+
+      line-height: 41px;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 75px;
+    }
+
+    @include onLaptop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__images {
+    @include onLaptop {
+      width: 50%;
+    }
+  }
+}
