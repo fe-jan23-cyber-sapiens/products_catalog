@@ -1,5 +1,24 @@
+import { FC } from 'react';
+import { Product } from '../../utils/typedefs';
 import './ProductsCatalog.scss';
+import { CardItem } from '../CardItem';
 
-export const ProductsCatalog = () => {
-  return <div>Here will be phones/accesories/tablets</div>;
+interface Props {
+  products: Product[]
+}
+
+export const ProductsCatalog: FC<Props> = (props) => {
+  const { products } = props;
+
+  return (
+    <div className="productCatalog">
+      {products.map(product => (
+        <CardItem
+          product={product}
+          isAddedToCart={false}
+          isAddedToFavourites={false}
+        />
+      ))}
+    </div>
+  );
 };

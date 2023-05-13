@@ -1,0 +1,21 @@
+@import '../../styles/scss_utils/mixins';
+
+.productsPage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 1200px;
+
+  @include onTablet {
+    padding: 24px;
+  }
+
+  @include onLaptop {
+    padding: 32px;
+  }
+
+  &__top {
+    margin-bottom: 40px;
+  }
+}
