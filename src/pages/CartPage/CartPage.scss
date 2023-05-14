@@ -1,9 +1,14 @@
 @import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
 
+@import '../../styles/scss_utils/mixins';
+
 .cartPage {
-  @extend %page-params;
-  height: $page-height;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 1200px;
 
   @include onTablet {
     padding: 24px;
