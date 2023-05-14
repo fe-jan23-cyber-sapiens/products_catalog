@@ -6,7 +6,7 @@ enum SortType {
   Year = 'year',
 }
 
-const getSortedBy = (phones: Product[],
+export const getSortedBy = (phones: Product[],
   sortBy: SortType): Product[] => {
   switch (sortBy) {
     case SortType.Price:
