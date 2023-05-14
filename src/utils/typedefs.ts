@@ -41,3 +41,12 @@ export interface Product {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Mate {
+  name: string;
+  imgURL: string;
+  liURL: string;
+  ghURL: string;
+  phone: string;
+  email: string;
+}

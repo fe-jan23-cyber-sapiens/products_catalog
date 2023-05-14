@@ -12,7 +12,7 @@ import { CartPage } from '../pages/CartPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RoutePath } from './RoutePath';
 import { PATH } from './types/Path';
-import { Contacts } from '../pages/Contacts';
+import { Contacts } from '../pages/Contacts/Contacts';
 import { Rights } from '../pages/Rights';
 import { ProductPage } from '../pages/ProductPage/ProductPage';
 

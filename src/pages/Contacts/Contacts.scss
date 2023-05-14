@@ -1,0 +1,15 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+.contacts {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+    }
+}
