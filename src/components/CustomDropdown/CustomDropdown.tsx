@@ -12,7 +12,7 @@ interface DropdownProps {
   options: string[];
   defaultValue?: string;
   size?: 'small';
-  handleItemsPerPageChange: (newItemsPerPage: number) => void;
+  handleItemsPerPageChange: (newItemsPerPage: string) => void;
 }
 
 export const CustomDropdown: FC<DropdownProps> = ({
@@ -40,7 +40,7 @@ export const CustomDropdown: FC<DropdownProps> = ({
   };
 
   const handleOptionClick = (option: string) => {
-    handleItemsPerPageChange(+option);
+    handleItemsPerPageChange(option);
     setSelectedOption(option);
     setIsOpen(false);
   };
