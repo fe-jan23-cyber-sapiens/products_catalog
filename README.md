@@ -10,9 +10,9 @@
 </a>
 
 <p>The site is designed to provide a user-friendly and intuitive shopping experience for customers, while also providing detailed information about each product.</p>
-<img width="440" alt="Screenshot 2023-05-14 at 09 41 29" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/be669925-9770-432f-813f-324f60ba4a8a">
+<img width="320" alt="Screenshot 2023-05-14 at 09 41 29" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/be669925-9770-432f-813f-324f60ba4a8a">
   
-<img width="440" alt="Screenshot 2023-05-14 at 09 42 22" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/2eaf5ab7-3894-4b93-932c-de74547084ce">
+<img width="320" alt="Screenshot 2023-05-14 at 09 42 22" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/2eaf5ab7-3894-4b93-932c-de74547084ce">
 
 <h3>Product Catalog</h3>
   
