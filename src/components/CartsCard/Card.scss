@@ -1,13 +1,15 @@
 @import '../../styles/mixins';
+@import '../../styles/scss_utils/vars';
 
 .cart-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 16px;
 
   @include onLaptop {
     flex-direction: row;
+    justify-content: flex-end;
+    max-width: 1136px;
   }
 }
 

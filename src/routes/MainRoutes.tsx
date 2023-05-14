@@ -19,12 +19,12 @@ import { ProductPage } from '../pages/ProductPage/ProductPage';
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
     path: RoutePath.main,
-    element: <HomePage />,
+    element: <Navigate to={PATH.Home} replace />,
   },
 
   [PATH.Home]: {
     path: RoutePath.home,
-    element: <Navigate to={PATH.Home} replace />,
+    element: <HomePage />,
   },
 
   [PATH.Phones]: {

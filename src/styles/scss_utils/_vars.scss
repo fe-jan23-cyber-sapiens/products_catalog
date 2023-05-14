@@ -9,3 +9,8 @@ $logo-wrapper-width-l: 64px;
 $card-width-s: 212px;
 $card-width-m: 237px;
 $card-width-l: 272px;
+
+$page-height: calc(100vh - $header-height-l - $footer-height-l);
+
+$main-color: #F2FBF8;
+$secondary-color: #D6EBE7;

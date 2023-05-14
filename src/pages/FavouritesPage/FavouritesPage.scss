@@ -1,8 +1,9 @@
 @import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
 
-.cartPage {
+.favouritesPage {
   @extend %page-params;
+  overflow-x: hidden;
   height: $page-height;
 
   @include onTablet {

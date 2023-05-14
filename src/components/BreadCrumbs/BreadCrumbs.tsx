@@ -26,7 +26,7 @@ export const BreadCrumbs = () => {
 
   return (
     <div className="path">
-      <Link to={RoutePath.main}>
+      <Link to={RoutePath.home}>
         <img src={currentIcon} alt="home icon" />
       </Link>
 
