@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, useMemo, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
   itemsByDefault,
   itemsPerPageOptions,
   pageByDefault,
+  sortOptions,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -22,8 +23,41 @@ interface Props {
   endpoint: string,
 }
 
+enum SortType {
+  Price = 'Price',
+  Discount = 'Discount',
+  Newest = 'Newest',
+}
+
+const getSortedBy = (phones: Product[],
+  sortBy: SortType): Product[] => {
+  const sortedProducts = [...phones];
+
+  switch (sortBy) {
+    case SortType.Price:
+      return sortedProducts.sort((a, b) => Number(a.price) - Number(b.price));
+
+    case SortType.Discount:
+      return sortedProducts.map(phone => ({
+        ...phone,
+        discountPrice: phone.fullPrice - Number(phone.price),
+      })).sort((a, b) => b.discountPrice - a.discountPrice);
+
+    case SortType.Newest:
+      return sortedProducts.sort((a, b) => b.year - a.year);
+
+    default:
+      return phones;
+  }
+};
+
 export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
+  const [sortBy, setSortBy] = useState<SortType>(SortType.Newest);
+
+  const handleSortBy = (option: SortType) => {
+    setSortBy(option);
+  };
 
   const {
     products,
@@ -32,6 +66,10 @@ export const ProductsPage: FC<Props> = (props) => {
     isVisibleModal,
     isVisibleProducts,
   } = useProducts({ endpoint });
+
+  const sortedProducts: Product[] = useMemo(() => (
+    getSortedBy(products, sortBy)
+  ), [products, sortBy]);
 
   const {
     currentPage,
@@ -43,7 +81,7 @@ export const ProductsPage: FC<Props> = (props) => {
   } = usePagination<Product>({
     defaultCurrentPage: pageByDefault,
     defaultItemsPerPage: itemsByDefault,
-    elements: products,
+    elements: sortedProducts,
   });
 
   return (
@@ -66,6 +104,12 @@ export const ProductsPage: FC<Props> = (props) => {
             </div>
 
             <div className="productsPage__dropdowns">
+              <CustomDropdown
+                title="Sort by"
+                options={sortOptions}
+                handleItemsPerPageChange={handleSortBy}
+              />
+
               <CustomDropdown
                 size="small"
                 title="Items on page"
