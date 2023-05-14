@@ -1,4 +1,10 @@
-import { FC, useContext, useState } from 'react';
+import {
+  FC,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
+import './ProductsCart.scss';
 import classNames from 'classnames';
 import { Product } from '../../utils/typedefs';
 import { BASE_URL } from '../../utils/constants';
@@ -6,17 +12,15 @@ import cross from '../../assets/logos/Cross.svg';
 import cross_dark from '../../assets/logos/Cross-dark.svg';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
-import './ProductsCart.scss';
 import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 
 interface Props {
-  initialCount?: number,
   product: Product,
 }
 
-export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
-  const [count, setCount] = useState(initialCount);
+export const ProductCart: FC<Props> = ({ product }) => {
+  const [count, setCount] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const { handleModifyCartLS } = useContext(CartLSUpdateContext);
   const { theme } = useContext(ThemeContext);
@@ -36,9 +40,9 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
   const isDisabled = count === 1;
   const { price } = product;
 
-  const getTotalPrice = () => {
+  const getTotalPrice = useCallback(() => {
     return Number(price) * quantity;
-  };
+  }, [quantity]);
 
   return (
     <div className="cart">
@@ -70,24 +74,29 @@ export const ProductCart: FC<Props> = ({ initialCount = 1, product }) => {
           <div className="counter">
             <button
               type="button"
-              className={classNames('count-left',
-                { 'count-left--disabled': isDisabled })}
+              className={classNames('count', {
+                'count--disabled': isDisabled,
+              })}
               onClick={decrement}
               disabled={isDisabled}
             >
               -
             </button>
+
             <span>{count}</span>
+
             <button
               type="button"
-              className={classNames('count-right',
-                { 'count-right--disabled': isDisabled })}
+              className="count"
               onClick={increment}
             >
               +
             </button>
           </div>
-          <h2 className="price_container__title">{`$${getTotalPrice()}`}</h2>
+
+          <div className="cart__price">
+            {`$${getTotalPrice()}`}
+          </div>
         </div>
       </div>
     </div>
