@@ -3,9 +3,12 @@
 .cart-container {
   display: flex;
   flex-direction: column;
-
-  padding: 16px;
+  width: 100%;
   gap: 16px;
+
+  @include onLaptop {
+    flex-direction: row;
+  }
 }
 
 .cards-container {
@@ -13,26 +16,4 @@
   flex-direction: column;
 
   gap: 16px;
-}
-
-@include onTablet {
-  .cart-container {
-    display: flex;
-    flex-direction: column;
-
-    padding: 24px;
-    gap: 16px;
-    margin: 0 auto;
-  }
-}
-
-@include onLaptop {
-  .cart-container {
-    display: flex;
-    flex-direction: row;
-  
-    padding: 32px;
-    gap: 16px;
-    margin: 0 auto;
-  }
 }

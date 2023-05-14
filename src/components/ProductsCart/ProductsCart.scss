@@ -1,18 +1,35 @@
 @import '../../styles/mixins';
 @import '../../styles/_reset';
+@import '../../styles/scss_utils/vars';
 
 .cart {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 
-  width: 288px;
+  width: 100%;
   height: 164px;
   gap: 16px;
-  margin: 0 auto;
-
-  border: 1px solid var(--elements);
   padding: 16px;
+  
+  border: 1px solid var(--elements);
+
+  @include onTablet {
+    flex-direction: row;
+    height: 120px;
+
+    padding: 24px;
+    gap: 24px;
+  
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include onLaptop {
+      width: 750px;
+      height: 80px;
+  }
 
   &__deleteButton {
     width: max-content;
@@ -26,6 +43,18 @@
       transform: scale(1.05);
     }
   }
+
+  &__price {
+    display: flex;
+    justify-content: flex-end;
+    width: 100px;
+
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+
+    color: var(--primary);
+  }
 }
 
 .wrapper {
@@ -35,17 +64,22 @@
 
 .delete {
   margin-right: 20px;
+
+  @include onLaptop {
+    margin-right: 35px;
+  }
 }
 
 .phone-card__image {
   height: 60px;
   margin-right: 16px;
+
+  @include onLaptop {
+    margin-right: 32px;
+  }
 }
 
 .phone-card__description {
-  width: 128px;
-  height: max-content;
-
   font-family: 'Mont', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -69,7 +103,7 @@
   gap: 14px;
 }
 
-.count-left, .count-right {
+.count {
   width: 32px;
   height: 32px;
 
@@ -79,77 +113,5 @@
 
   &--disabled {
     background-color: var(--bg);
-  }
-}
-
-.count:hover {
-  cursor: pointer;
-}
-
-@include onTablet {
-  .cart {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-
-    width: 590px;
-    height: 120px;
-    padding: 24px;
-    gap: 24px;
-  }
-
-  .cart:last-child {
-    margin-bottom: 32px;
-  }
-
-  .wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .phone-card__description {
-    width: 170px;
-  }
-
-  .price_container {
-    display: flex;
-    align-items: center;
-
-    &__title {
-      width: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-  }
-}
-
-@include onLaptop {
-  .cart {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-
-    width: 750px;
-    height: 80px;
-    gap: 24px;
-    padding: 24px;
-  }
-
-  .wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .delete {
-    margin-right: 35px;
-  }
-
-  .phone-card__image {
-    margin-right: 32px;
-  }
-
-  .phone-card__description {
-    width: 250px;
   }
 }
