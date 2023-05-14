@@ -1,5 +1,6 @@
-/* eslint-disable max-len */
 import './ProductPage.scss';
+import Spinner from 'react-bootstrap/Spinner';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Back } from '../../components/Back/Back';
@@ -17,11 +18,22 @@ export const ProductPage = () => {
   const { phoneId = '' } = useParams();
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [sameModels, setSameModels] = useState<ProductDetails[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const getProduct = async () => {
-    const productDetails = await client.getProductDetails(phoneId);
+    setIsError(false);
+    setIsLoading(true);
 
-    setProduct(productDetails);
+    try {
+      const productDetails = await client.getProductDetails(phoneId);
+
+      setProduct(productDetails);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getSameModels = async () => {
@@ -58,39 +70,53 @@ export const ProductPage = () => {
 
   return (
     <main className="productPage">
-      {product && (
-        <div className="details">
-          <BreadCrumbs />
-
-          <Back />
-
-          <div className="details__title">{product.name}</div>
-
-          <div>
-            <div className="details__top">
-              <div className="details__images">
-                <CardImages images={product.images} />
-              </div>
-
-              <ProductActions
-                productDetails={product}
-                key={product.id}
-                onColorSelect={getNewColor}
-                onCapacitySelect={getCapacity}
-              />
-            </div>
-
-            <ProductInfo product={product} key={product.id} />
-          </div>
+      {isLoading && (
+        <div className="productPage__spinner">
+          <Spinner variant="dark" />
         </div>
       )}
 
-      <div className="productPage__slider">
-        <SecondarySlider
-          endpoint="recommended"
-          title="You may also like"
-        />
-      </div>
+      {!isError && !isLoading && product && (
+        <>
+          <div className="details">
+            <BreadCrumbs />
+
+            <Back />
+
+            <div className="details__title">{product.name}</div>
+
+            <div>
+              <div className="details__top">
+                <div className="details__images">
+                  <CardImages images={product.images} />
+                </div>
+
+                <ProductActions
+                  productDetails={product}
+                  key={product.id}
+                  onColorSelect={getNewColor}
+                  onCapacitySelect={getCapacity}
+                />
+              </div>
+
+              <ProductInfo product={product} key={product.id} />
+            </div>
+          </div>
+
+          <div className="productPage__slider">
+            <SecondarySlider
+              endpoint="recommended"
+              title="You may also like"
+            />
+          </div>
+        </>
+      )}
+
+      {isError && !isLoading && (
+        <div className="productsPage__modal">
+          Oops... Try again.
+        </div>
+      )}
     </main>
   );
 };

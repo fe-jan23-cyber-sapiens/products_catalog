@@ -44,7 +44,7 @@ export const CardItem: FC<Props> = ({ product }) => {
 
       <div className="product__info">
         <h3 className="product__title">
-          {`${name} ${year} ${screen}`}
+          {`${name} ${year}`}
         </h3>
 
         <div className="product__price">

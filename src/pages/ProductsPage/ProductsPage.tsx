@@ -29,6 +29,7 @@ export const ProductsPage: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const isVisibleProducts = !isError && !isLoading && products.length > 0;
+  const isVisibleModal = products.length <= 0 && !isLoading && !isError;
 
   const {
     currentPage,
@@ -102,7 +103,7 @@ export const ProductsPage: FC<Props> = (props) => {
         </>
       )}
 
-      {(products.length <= 0 && !isLoading) && (
+      {isVisibleModal && (
         <div className="productsPage__modal">
           Oops... Unfortunately, these products are not available yet..
         </div>

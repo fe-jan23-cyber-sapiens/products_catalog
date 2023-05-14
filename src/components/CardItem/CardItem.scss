@@ -32,6 +32,8 @@
     color: var(--primary);
 
     margin-bottom: 8px;
+    overflow: hidden;
+    height: 42px;
 
     &-link {
       color: inherit;
