@@ -10,16 +10,10 @@ import { AddToFavourites } from '../../FavouritesButton';
 
 interface Props {
   productDetails: ProductDetails,
-  onColorSelect: (color: string) => void,
-  onCapacitySelect: (capacity: string) => void,
 }
 
 export const ProductActions: FC<Props> = (props) => {
-  const {
-    productDetails,
-    onColorSelect,
-    onCapacitySelect,
-  } = props;
+  const { productDetails } = props;
 
   const {
     id,
@@ -55,10 +49,9 @@ export const ProductActions: FC<Props> = (props) => {
         <div className="actions__buttons">
           {colorsAvailable.map((color) => (
             <ColorButton
-              productColor={productDetails.color}
+              product={productDetails}
               color={color}
               key={color}
-              onClick={onColorSelect}
             />
           ))}
         </div>
@@ -75,7 +68,6 @@ export const ProductActions: FC<Props> = (props) => {
               capacity={capacity}
               product={productDetails}
               key={capacity}
-              onClick={onCapacitySelect}
             />
           ))}
         </div>

@@ -145,7 +145,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
           >
             {products.map(product => (
               <SwiperSlide
-                key={product.id}
+                key={product.phoneId}
                 className="secondary-slider__card"
               >
                 <div className="secondary-slider__card-wrapper">
