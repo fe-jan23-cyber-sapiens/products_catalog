@@ -9,10 +9,10 @@ export const FavouritesPage = () => {
 
   return (
     <main className="favouritesPage">
-      <div className="favourites__top">
+      <div className="productsPage__top">
         <BreadCrumbs />
 
-        <h1 className="favourites__title">
+        <h1 className="productsPage__title">
           Favourites
         </h1>
 
