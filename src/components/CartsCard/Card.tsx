@@ -7,6 +7,12 @@ import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 export const Card = () => {
   const { cartProducts } = useContext(CartLSUpdateContext);
 
+  // const [quantity, setQuantity] = useState(1);
+  //
+  // const getTotalPrice = useCallback(() => {
+  //   return Number(price) * quantity;
+  // }, [quantity]);
+
   return (
     <div className="cards-container">
       <div className="cart-container">
