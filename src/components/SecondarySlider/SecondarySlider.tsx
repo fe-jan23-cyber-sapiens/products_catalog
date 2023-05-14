@@ -148,9 +148,6 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
                 key={product.phoneId}
                 className="secondary-slider__card"
               >
-
-                {product.name}
-
                 <div className="secondary-slider__card-wrapper">
                   <CardItem product={product} />
                 </div>
