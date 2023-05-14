@@ -1,4 +1,6 @@
-import { FC, useContext, useState } from 'react';
+import {
+  FC, useCallback, useContext, useState,
+} from 'react';
 import './ProductsCart.scss';
 import classNames from 'classnames';
 import { Product } from '../../utils/typedefs';
@@ -16,7 +18,7 @@ interface Props {
 
 export const ProductCart: FC<Props> = ({ product }) => {
   const [count, setCount] = useState(1);
-  // const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const { handleModifyCartLS } = useContext(CartLSUpdateContext);
   const { theme } = useContext(ThemeContext);
 
@@ -24,20 +26,20 @@ export const ProductCart: FC<Props> = ({ product }) => {
 
   const increment = () => {
     setCount(prev => prev + 1);
-    // setQuantity(prev => prev + 1);
+    setQuantity(prev => prev + 1);
   };
 
   const decrement = () => {
     setCount(prev => prev - 1);
-    // setQuantity(prev => prev - 1);
+    setQuantity(prev => prev - 1);
   };
 
   const isDisabled = count === 1;
-  // const { price } = product;
+  const { price } = product;
 
-  // const getTotalPrice = useCallback(() => {
-  //   return Number(price) * quantity;
-  // }, [quantity]);
+  const getTotalPrice = useCallback(() => {
+    return Number(price) * quantity;
+  }, [quantity]);
 
   return (
     <div className="cart">
@@ -90,7 +92,7 @@ export const ProductCart: FC<Props> = ({ product }) => {
           </div>
 
           <div className="cart__price">
-            {/* {`$${getTotalPrice()}`} */}
+            {`$${getTotalPrice()}`}
           </div>
         </div>
       </div>
