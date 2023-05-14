@@ -20,13 +20,11 @@
     &:first-child {
       margin-right: 16px;
       border: 1px solid var(--border-2);
-      //background-color: var(--item-hover2);
     }
 
     &:last-child {
       margin-left: 8px;
       border: 1px solid var(--border-2);
-      //background-color: var(--item-hover2);
     }
 
     &:hover {
@@ -54,7 +52,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: var(--font);
+    color: var(--primary);
     text-align: center;
     transition: all 0.3s ease;
 

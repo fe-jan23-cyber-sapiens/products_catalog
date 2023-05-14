@@ -70,7 +70,7 @@ export const Pagination: FC<PaginationProps> = ({
           })}
         >
           <Link
-            to={`/#${page}`}
+            to={`/${page}`}
             onClick={() => onPageChange(page)}
             className={classNames('pagination__link', {
               'pagination__link--active': page === currentPage,
