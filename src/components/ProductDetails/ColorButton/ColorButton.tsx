@@ -1,18 +1,18 @@
 import { FC, useCallback } from 'react';
 import './ColorButton.scss';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { ProductDetails } from '../../../utils/typedefs';
 
 interface Props {
   color: string,
-  productColor: string,
-  onClick: (color: string) => void
+  product: ProductDetails,
 }
 
 export const ColorButton: FC<Props> = (props) => {
   const {
     color,
-    onClick,
-    productColor,
+    product,
   } = props;
 
   const getColor = useCallback(() => {
@@ -43,16 +43,19 @@ export const ColorButton: FC<Props> = (props) => {
   }, [color]);
 
   return (
-    <button
-      className={classNames('color__button', {
-        'color__button--active': color === productColor,
-      })}
-      type="button"
-      aria-label="color"
-      style={{
-        backgroundColor: getColor(),
-      }}
-      onClick={() => onClick(color)}
-    />
+    <Link
+      to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${color}`}
+    >
+      <button
+        className={classNames('color__button', {
+          'color__button--active': color === product.color,
+        })}
+        type="button"
+        aria-label="color"
+        style={{
+          backgroundColor: getColor(),
+        }}
+      />
+    </Link>
   );
 };
