@@ -1,10 +1,11 @@
 .path {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding-bottom: 20px;
   gap: 8px;
 
   &__link {
+    font-family: 'Mont', sans-serif;
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
@@ -13,7 +14,15 @@
     text-transform: capitalize;
     text-decoration: none;
 
+    &:hover {
+      color: var(--primary);
+    }
+
     &--disabled {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
       color: var(--secondary);
     }
   }

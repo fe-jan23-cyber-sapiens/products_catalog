@@ -18,12 +18,25 @@ export const ColorButton: FC<Props> = (props) => {
   const getColor = useCallback(() => {
     let backGround = color;
 
-    if (color === 'rosegold') {
-      backGround = 'lightpink';
-    }
+    switch (color) {
+      case 'rosegold':
+        backGround = 'lightpink';
+        break;
 
-    if (color === 'gold') {
-      backGround = '#FCDBC1';
+      case 'gold':
+        backGround = '#FCDBC1';
+        break;
+
+      case 'spacegray':
+        backGround = '#4C4C4C';
+        break;
+
+      case 'midnightgreen':
+        backGround = '#5F7170';
+        break;
+
+      default:
+        return color;
     }
 
     return backGround;

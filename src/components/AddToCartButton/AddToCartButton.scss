@@ -12,6 +12,7 @@
     &:hover {
       transition: box-shadow 0.3s ease;
       box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+      background-color: var(--hover-accent);
     }
   font-size: 12px;
 
@@ -28,5 +29,9 @@
     color: var(--selected);
     background-color: var(--item-hover2);
     border: 1px solid var(--border-3);
+
+    &:hover {
+      background-color: var(--bg);
+    }
   }
 }

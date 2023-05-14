@@ -28,7 +28,8 @@
     }
 
     &:hover {
-      border: 1px solid var(--hover);
+      border: 1px solid var(--pagination-border);
+      background-color: var(--pagination-hover);
     }
 
     &--active {
@@ -38,14 +39,7 @@
 
     &--disabled {
       border: 1px solid var(--elements);
-      //filter: brightness(0)
-      //saturate(100%)
-      //invert(82%)
-      //sepia(9%)
-      //saturate(258%)
-      //hue-rotate(164deg)
-      //brightness(92%)
-      //contrast(86%);
+      background-color: var(--bg);
     }
   }
 
@@ -58,9 +52,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: var(--font);
+    color: var(--primary);
     text-align: center;
     transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--primary);
+    }
 
     &--active {
       color: var(--white);

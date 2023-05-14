@@ -12,7 +12,10 @@ export const Card = () => {
       <div className="cart-container">
         <div className="cards-container">
           {cartProducts.map(product => (
-            <ProductCart product={product} />
+            <ProductCart
+              product={product}
+              key={product.phoneId}
+            />
           ))}
         </div>
         <Checkout />
