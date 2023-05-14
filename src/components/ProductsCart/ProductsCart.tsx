@@ -4,6 +4,7 @@ import {
   useContext,
   useState,
 } from 'react';
+import { Link } from 'react-router-dom';
 import './ProductsCart.scss';
 import classNames from 'classnames';
 import { Product } from '../../utils/typedefs';
@@ -59,11 +60,14 @@ export const ProductCart: FC<Props> = ({ product }) => {
           />
         </button>
 
-        <img
-          src={`${BASE_URL}/${product.image}`}
-          alt="Iphone"
-          className="phone-card__image"
-        />
+        <Link to={`/phones/${product.phoneId}`}>
+          <img
+            src={`${BASE_URL}/${product.image}`}
+            alt="Iphone"
+            className="phone-card__image"
+          />
+        </Link>
+
         <p className="phone-card__description">
           {product.name}
         </p>
