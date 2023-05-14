@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { getNumbers } from './utils';
 
 export const itemsTotal = 95;
