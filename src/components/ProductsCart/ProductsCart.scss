@@ -11,8 +11,8 @@
   height: 164px;
   gap: 16px;
   padding: 16px;
-
-  border: 1px solid var(--elements) ;
+  
+  border: 1px solid var(--elements);
 
   @include onTablet {
     flex-direction: row;
@@ -33,7 +33,7 @@
 
   &__deleteButton {
     width: max-content;
-    
+
     background-color: transparent;
     border: none;
 

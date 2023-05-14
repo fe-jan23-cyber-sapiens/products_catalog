@@ -19,6 +19,10 @@
     background-color: var(--favorites-hover);
   }
 
+  &--dark {
+    background-image: url('../../assets/logos/heart_icon_dark.svg');
+  }
+
   &--selected {
     background-image: url('../../assets/logos/filled_heart_icon.svg');
   }

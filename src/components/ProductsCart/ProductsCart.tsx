@@ -9,7 +9,11 @@ import classNames from 'classnames';
 import { Product } from '../../utils/typedefs';
 import { BASE_URL } from '../../utils/constants';
 import cross from '../../assets/logos/Cross.svg';
+import cross_dark from '../../assets/logos/Cross-dark.svg';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
+
+import { ThemeContext } from '../../context/ThemeContext';
+import { getCurrentImage } from '../../utils/utils';
 
 interface Props {
   product: Product,
@@ -19,6 +23,9 @@ export const ProductCart: FC<Props> = ({ product }) => {
   const [count, setCount] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const { handleModifyCartLS } = useContext(CartLSUpdateContext);
+  const { theme } = useContext(ThemeContext);
+
+  const correctIcon = getCurrentImage(theme, cross, cross_dark);
 
   const increment = () => {
     setCount(prev => prev + 1);
@@ -47,7 +54,7 @@ export const ProductCart: FC<Props> = ({ product }) => {
         >
           <img
             className="delete"
-            src={cross}
+            src={correctIcon}
             alt="del"
           />
         </button>

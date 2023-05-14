@@ -43,6 +43,8 @@
   --color-btn: var(--icons-light);
   --hover-accent: var(--primary-light);
   --border-icons: var(--icons-light);
+  --pagination-hover: var(--bg-light);
+  --pagination-border: var(--primary-light);
 }
 
 .dark {
@@ -67,5 +69,7 @@
   --color-btn: var(--secondary-dark);
   --hover-accent: var(--accent-hover);
   --border-icons: var(--icons-dark);
+  --pagination-hover: var(--elements-dark);
+  --pagination-border: var(--elements-dark);
 }
 

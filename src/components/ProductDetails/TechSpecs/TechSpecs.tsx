@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable operator-linebreak */
 import { FC } from 'react';
 import { ProductDetails } from '../../../utils/typedefs';
 import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
