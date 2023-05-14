@@ -13,7 +13,7 @@
 }
 
 %h3_desktop-tablet {
-  font-family: "Mont";
+  font-family: "Mont", sans-serif;
   font-size: 22px;
   line-height: 140%;
 }
@@ -28,4 +28,12 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
+}
+
+%page-params {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 1200px;
 }

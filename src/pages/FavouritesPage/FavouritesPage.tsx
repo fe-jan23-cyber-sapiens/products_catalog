@@ -2,16 +2,17 @@ import { useContext } from 'react';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { ProductsCatalog } from '../../components/ProductsCatalog';
+import './FavouritesPage.scss';
 
 export const FavouritesPage = () => {
   const { favProducts } = useContext(FavLSUpdateContext);
 
   return (
-    <main className="cartPage">
-      <div className="productsPage__top">
+    <main className="favouritesPage">
+      <div className="favourites__top">
         <BreadCrumbs />
 
-        <h1 className="productsPage__title">
+        <h1 className="favourites__title">
           Favourites
         </h1>
 

@@ -1,8 +1,5 @@
 import {
-  FC,
-  useCallback,
-  useContext,
-  useState,
+  FC, useCallback, useContext, useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductsCart.scss';

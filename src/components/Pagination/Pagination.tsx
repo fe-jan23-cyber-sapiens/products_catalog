@@ -11,7 +11,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 interface PaginationProps {
   total: number;
-  perPage: number;
+  perPage: string;
   currentPage: number;
   onPageChange: (currentPage: number) => void;
 }
@@ -22,7 +22,7 @@ export const Pagination: FC<PaginationProps> = ({
   perPage,
   total,
 }) => {
-  const totalPageCount = Math.ceil(total / perPage);
+  const totalPageCount = Math.ceil(total / +perPage);
   const isFirstPageIndex = currentPage === 1;
   const isLastPageIndex = currentPage === totalPageCount;
   const paginationRange = getNumbers(1, totalPageCount);
@@ -70,7 +70,7 @@ export const Pagination: FC<PaginationProps> = ({
           })}
         >
           <Link
-            to={`/#${page}`}
+            to={`/${page}`}
             onClick={() => onPageChange(page)}
             className={classNames('pagination__link', {
               'pagination__link--active': page === currentPage,

@@ -29,10 +29,7 @@
   --border-2: var(--icons-light);
   --border-3: var(--elements-light);
   --hover: var(--primary-light);
-  --font: var(--black);
-  --item-bg: var(--white);
   --item-hover: var(--secondary-light);
-  --extra-bg: var(--white);
   --item-hover2: var(--bg-light);
   --primary-bg: var(--bg-light);
   --elements: var(--elements-light);
@@ -42,6 +39,7 @@
   --hover-lighter: var(--primary-light);
   --color-btn: var(--icons-light);
   --hover-accent: var(--primary-light);
+  --hover-cart: var(--bg-light);
   --border-icons: var(--icons-light);
   --pagination-hover: var(--bg-light);
   --pagination-border: var(--primary-light);
@@ -55,10 +53,7 @@
   --border-2: var(--surface2-dark);
   --border-3: var(--surface2-dark);
   --hover: var(--accent-dark);
-  --font: var(--white);
-  --item-bg: var(--surface2-dark);
   --item-hover: var(--icons-dark);
-  --extra-bg: var(--bg-dark);
   --item-hover2: var(--surface2-dark);
   --primary-bg: var(--surface1-dark);
   --elements: var(--elements-dark);
@@ -67,6 +62,7 @@
   --favorites-hover: var(--icons-dark);
   --hover-lighter: var(--icons-dark);
   --color-btn: var(--secondary-dark);
+  --hover-cart: var(--accent-hover);
   --hover-accent: var(--accent-hover);
   --border-icons: var(--icons-dark);
   --pagination-hover: var(--elements-dark);

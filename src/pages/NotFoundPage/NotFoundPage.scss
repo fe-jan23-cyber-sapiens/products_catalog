@@ -1,13 +1,11 @@
-@import '../styles/scss_utils/mixins';
-
-$main-color: #F2FBF8;
-$secondary-color: #D6EBE7;
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
 
 .notFound-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 160px);
+  height: $page-height;
   background: var(--border);
   overflow: hidden;
 }
@@ -88,11 +86,17 @@ $secondary-color: #D6EBE7;
 }
 
 .unicorn-tail {
-  background: #F23666;
-  background-image: repeating-linear-gradient(13deg, transparent, transparent 35px, #389AC8 35px, #389AC8 70px, #F2D80E 25px, #F2D80E);
+  background: #F23666 repeating-linear-gradient(13deg,
+          transparent,
+          transparent 35px,
+          #389AC8 35px,
+          #389AC8 70px,
+          #F2D80E 25px,
+          #F2D80E
+  );
   height: 115px;
   width: 54px;
-  border-radius: 0% 100% 0% 100% / 0% 90% 10% 100%;
+  border-radius: 0 100% 0 100% / 0% 90% 10% 100%;
   position: absolute;
   top: 55px;
   left: -2px;
@@ -263,7 +267,7 @@ $secondary-color: #D6EBE7;
   border: 3px solid;
   border-color: transparent transparent #B196A2 #B196A2;
   transform: rotate(-125deg);
-  left: 0px;
+  left: 0;
   top: 50px;
 }
 
