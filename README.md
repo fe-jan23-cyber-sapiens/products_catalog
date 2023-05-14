@@ -10,9 +10,9 @@
 </a>
 
 <p>The site is designed to provide a user-friendly and intuitive shopping experience for customers, while also providing detailed information about each product.</p>
-<img width="440" alt="Screenshot 2023-05-14 at 09 41 29" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/be669925-9770-432f-813f-324f60ba4a8a">
+<img width="370" alt="Screenshot 2023-05-14 at 09 41 29" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/be669925-9770-432f-813f-324f60ba4a8a">
   
-<img width="440" alt="Screenshot 2023-05-14 at 09 42 22" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/2eaf5ab7-3894-4b93-932c-de74547084ce">
+<img width="370" alt="Screenshot 2023-05-14 at 09 42 22" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/2eaf5ab7-3894-4b93-932c-de74547084ce">
 
 <h3>Product Catalog</h3>
   
@@ -30,7 +30,11 @@
    
 <img width="219" alt="Screenshot 2023-05-14 at 11 46 01" src="https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/53d790d3-54bb-4ba0-8b69-f9306cc6dccb">
 
+<p></p>
+
 <p>The website has two themes - dark and white - which can be easily toggled by the user to provide a personalized viewing experience. Additionally, the website has an adaptive layout that adjusts to different screen sizes, making it accessible and easy to use on desktops, tablets, and mobile devices.</p>
+
+<p></p>
 
 ![2023-05-14 11 35 10](https://github.com/fe-jan23-cyber-sapiens/products_catalog/assets/91826635/216e7095-7c1d-4a41-bcd4-d6cc2e5bb463)
 
