@@ -16,6 +16,7 @@
 
   &:hover {
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
   }
 
   @include onTablet {
