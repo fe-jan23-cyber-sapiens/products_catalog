@@ -10,12 +10,14 @@ import {
 import './ProductsPage.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Pagination } from '../../components/Pagination';
-import { ProductsCatalog } from '../../components/ProductsCatalog';
-import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
-import { CustomDropdown } from '../../components/CustomDropdown';
 import { usePagination } from '../../hooks/usePagination';
 import { useProducts } from './useProducts';
+import {
+  BreadCrumbs,
+  CustomDropdown,
+  Pagination,
+  ProductsCatalog,
+} from '../../components';
 
 interface Props {
   title: string,

@@ -5,16 +5,18 @@ import {
   RouteProps,
   Routes,
 } from 'react-router-dom';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { ProductsPage } from '../pages/ProductsPage/ProductsPage';
-import { FavouritesPage } from '../pages/FavouritesPage/FavouritesPage';
-import { CartPage } from '../pages/CartPage/CartPage';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { RoutePath } from './RoutePath';
+import {
+  CartPage,
+  Contacts,
+  FavouritesPage,
+  HomePage,
+  NotFoundPage,
+  ProductPage,
+  ProductsPage,
+  Rights,
+} from '../pages';
 import { PATH } from './types/Path';
-import { Contacts } from '../pages/Contacts';
-import { Rights } from '../pages/Rights';
-import { ProductPage } from '../pages/ProductPage/ProductPage';
+import { RoutePath } from './RoutePath';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {

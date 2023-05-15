@@ -1,6 +1,5 @@
-import { Back } from '../../components/Back/Back';
-import { Card } from '../../components/CartsCard/Card';
 import './CartPage.scss';
+import { Back, Card } from '../../components';
 
 export const CartPage = () => {
   return (

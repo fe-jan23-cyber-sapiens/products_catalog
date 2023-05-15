@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { Product, ProductDetails } from '../../../utils/typedefs';
 import client from '../../../api/fetching';
-import { ColorButton } from '../ColorButton/ColorButton';
-import { CapacityButton } from '../CapacityButton/CapacityButton';
-import { TechSpecsItem } from '../TechSpecsItem/TechSpecsItem';
 import './ProductActions.scss';
 import { AddToCart } from '../../AddToCartButton';
 import { AddToFavourites } from '../../FavouritesButton';
+import { ColorButton } from '../ColorButton';
+import { CapacityButton } from '../CapacityButton';
+import { TechSpecsItem } from '../TechSpecsItem';
 
 interface Props {
   productDetails: ProductDetails,

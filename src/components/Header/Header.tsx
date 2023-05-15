@@ -1,23 +1,18 @@
 import {
-  FC,
-  useContext,
-  useEffect,
-  useState,
+  FC, useContext, useEffect, useState,
 } from 'react';
-import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 
 import { NavBar } from '../NavBar';
-
-import './Header.scss';
-
-import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
+import { BurgerMenu } from '../BurgerMenu';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon';
+import * as images from '../../assets';
+import './Header.scss';
 import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 interface HeaderProps {
   onThemeChange: () => void;

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
   className?: string;
 };
 
-export const HeaderLinkWithIcon: React.FC<Props> = ({
+export const HeaderLinkWithIcon: FC<Props> = ({
   path,
   imageSrc,
   alt,
