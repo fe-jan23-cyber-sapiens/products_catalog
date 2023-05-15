@@ -13,12 +13,14 @@ import {
 
 export const ProductPage = () => {
   const { phoneId = '' } = useParams();
+  const { tabletId = '' } = useParams();
+  const id = phoneId || tabletId;
 
   const {
     product,
     isError,
     isLoading,
-  } = useProductPage({ phoneId });
+  } = useProductPage({ id });
 
   return (
     <main className="productPage">

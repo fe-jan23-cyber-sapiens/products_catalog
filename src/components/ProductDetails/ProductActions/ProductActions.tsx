@@ -27,7 +27,7 @@ export const ProductActions: FC<Props> = (props) => {
     capacityAvailable,
   } = productDetails;
 
-  const [product, setProduct] = useState<Product>();
+  const [product, setProduct] = useState<Product | null>(null);
 
   const getProduct = async () => {
     const productFromServer = await client.getOne(id);
@@ -46,15 +46,18 @@ export const ProductActions: FC<Props> = (props) => {
           Available colors
         </p>
 
-        <div className="actions__buttons">
-          {colorsAvailable.map((color) => (
-            <ColorButton
-              product={productDetails}
-              color={color}
-              key={color}
-            />
-          ))}
-        </div>
+        {product && (
+          <div className="actions__buttons">
+            {colorsAvailable.map((color) => (
+              <ColorButton
+                productDetails={productDetails}
+                product={product}
+                color={color}
+                key={color}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="actions__select">
@@ -62,15 +65,18 @@ export const ProductActions: FC<Props> = (props) => {
           Select capacity
         </p>
 
-        <div className="actions__buttons">
-          {capacityAvailable.map((capacity) => (
-            <CapacityButton
-              capacity={capacity}
-              product={productDetails}
-              key={capacity}
-            />
-          ))}
-        </div>
+        {product && (
+          <div className="actions__buttons">
+            {capacityAvailable.map((capacity) => (
+              <CapacityButton
+                capacity={capacity}
+                category={product.category}
+                product={productDetails}
+                key={capacity}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="actions__prices">

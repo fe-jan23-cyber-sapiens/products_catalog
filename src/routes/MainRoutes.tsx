@@ -39,6 +39,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
     element: <ProductPage />,
   },
 
+  [PATH.Tablet]: {
+    path: RoutePath.tabletId,
+    element: <ProductPage />,
+  },
+
   [PATH.Tablets]: {
     path: RoutePath.tablets,
     element: <ProductsPage title="Tablets" endpoint="tablets" />,
