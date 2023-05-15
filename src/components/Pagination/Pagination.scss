@@ -48,13 +48,14 @@
     align-items: center;
     justify-content: center;
     padding: 7px 12px 4px;
-    text-decoration: none;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
     color: var(--primary);
     text-align: center;
     transition: all 0.3s ease;
+    background-color: transparent;
+    border: none;
 
     &:hover {
       color: var(--primary);
