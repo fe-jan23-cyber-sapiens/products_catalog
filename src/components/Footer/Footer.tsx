@@ -44,13 +44,21 @@ export const Footer: FC = () => {
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to={RoutePath.contacts}>
+          <Link
+            className="footer-nav__link"
+            to={RoutePath.contacts}
+            onClick={handleScrollToTop}
+          >
             Contacts
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to={RoutePath.rights}>
+          <Link
+            className="footer-nav__link"
+            to={RoutePath.rights}
+            onClick={handleScrollToTop}
+          >
             Rights
           </Link>
         </li>
