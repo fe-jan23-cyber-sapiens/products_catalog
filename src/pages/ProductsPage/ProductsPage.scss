@@ -40,16 +40,21 @@
     }
   }
 
-  &__error {
-    margin-top: 20px;
+  &__modal {
     font-weight: 700;
     font-size: 32px;
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid var(--primary);
 
     color: var(--primary);
     text-align: center;
   }
 
   &__dropdowns {
+    display: flex;
+    gap: 16px;
     margin-bottom: 24px;
   }
 }

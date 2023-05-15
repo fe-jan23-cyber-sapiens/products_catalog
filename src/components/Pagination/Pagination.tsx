@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { getNumbers } from '../../utils/utils';
+import { getCurrentImage, getNumbers } from '../../utils/utils';
 import './Pagination.scss';
 import arrowRight from '../../assets/arrows/arrowRight.svg';
+import arrowRightDark from '../../assets/arrows/arrowRightDark.svg';
 import arrowLeft from '../../assets/arrows/arrowLeft.svg';
+import arrowLeftDark from '../../assets/arrows/arrowLeftDark.svg';
+import { ThemeContext } from '../../context/ThemeContext';
 
 interface PaginationProps {
   total: number;
-  perPage: number;
+  perPage: string;
   currentPage: number;
   onPageChange: (currentPage: number) => void;
 }
@@ -19,10 +22,14 @@ export const Pagination: FC<PaginationProps> = ({
   perPage,
   total,
 }) => {
-  const totalPageCount = Math.ceil(total / perPage);
+  const totalPageCount = Math.ceil(total / +perPage);
   const isFirstPageIndex = currentPage === 1;
   const isLastPageIndex = currentPage === totalPageCount;
   const paginationRange = getNumbers(1, totalPageCount);
+  const { theme } = useContext(ThemeContext);
+
+  const currentRightIcon = getCurrentImage(theme, arrowRight, arrowRightDark);
+  const currentLeftIcon = getCurrentImage(theme, arrowLeft, arrowLeftDark);
 
   const handlePreviousPageClick = () => {
     if (!isFirstPageIndex) {
@@ -51,7 +58,7 @@ export const Pagination: FC<PaginationProps> = ({
           onClick={handlePreviousPageClick}
           className="pagination__link pagination__link--prev"
         >
-          <img src={arrowLeft} alt="Arrow show left direction" />
+          <img src={currentLeftIcon} alt="Arrow show left direction" />
         </Link>
       </li>
 
@@ -63,7 +70,7 @@ export const Pagination: FC<PaginationProps> = ({
           })}
         >
           <Link
-            to={`/#${page}`}
+            to={`/${page}`}
             onClick={() => onPageChange(page)}
             className={classNames('pagination__link', {
               'pagination__link--active': page === currentPage,
@@ -85,7 +92,7 @@ export const Pagination: FC<PaginationProps> = ({
           onClick={handleNextPageClick}
           className="pagination__link pagination__link--next"
         >
-          <img src={arrowRight} alt="Arrow show right direction" />
+          <img src={currentRightIcon} alt="Arrow show right direction" />
         </Link>
       </li>
     </ul>

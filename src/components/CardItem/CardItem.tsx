@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AddToCart } from '../AddToCartButton/AddToCartButton';
-import { AddToFavourites } from '../FavouritesButton/FavouritesButton';
+import { AddToCart } from '../AddToCartButton';
+import { AddToFavourites } from '../FavouritesButton';
 
 import './CardItem.scss';
 
@@ -44,7 +44,7 @@ export const CardItem: FC<Props> = ({ product }) => {
 
       <div className="product__info">
         <h3 className="product__title">
-          {`${name} ${year} ${screen}`}
+          {`${name} ${year}`}
         </h3>
 
         <div className="product__price">

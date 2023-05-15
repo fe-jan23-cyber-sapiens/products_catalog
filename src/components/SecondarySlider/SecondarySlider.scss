@@ -79,9 +79,15 @@
     &--right {
       background-image: url('../../assets/arrows/arrow_right.svg');
 
+      &--dark {
+        background-image: url('../../assets/arrows/arrow_right_dark.svg');
+        background-color: var(--item-hover2);
+      }
+
       &--disabled {
-        background-image: url('../../assets/arrows/arrow_right_light.svg');
+        background-image: url('../../assets/arrows/arrow_right_disabled.svg');
         border-color: var(--elements);
+        background-color: var(--bg);
         cursor: auto;
       }
 
@@ -94,9 +100,15 @@
     &--left {
       background-image: url('../../assets/arrows/arrow_left.svg');
 
+      &--dark {
+        background-image: url('../../assets/arrows/arrow_left_dark.svg');
+        background-color: var(--item-hover2);
+      }
+
       &--disabled {
-        background-image: url('../../assets/arrows/arrow_left_light.svg');
+        background-image: url('../../assets/arrows/arrow_left_disabled.svg');
         border-color: var(--elements);
+        background-color: var(--bg);
         cursor: auto;
       }
 
@@ -108,14 +120,11 @@
 
   }
 
-<<<<<<< HEAD
-=======
   &__card-wrapper {
     padding: 5px;
     max-width: 272px;
   }
 
->>>>>>> 3c866afe24f11e52969f893cf82014d86c3ecd3b
   &__card {
     max-width: 212px;
 

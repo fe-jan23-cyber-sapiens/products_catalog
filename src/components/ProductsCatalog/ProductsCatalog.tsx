@@ -15,6 +15,7 @@ export const ProductsCatalog: FC<Props> = (props) => {
       {products.map(product => (
         <CardItem
           product={product}
+          key={product.phoneId}
         />
       ))}
     </div>

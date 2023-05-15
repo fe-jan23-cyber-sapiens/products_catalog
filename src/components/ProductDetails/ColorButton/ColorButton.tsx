@@ -1,45 +1,61 @@
 import { FC, useCallback } from 'react';
 import './ColorButton.scss';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { ProductDetails } from '../../../utils/typedefs';
 
 interface Props {
   color: string,
-  productColor: string,
-  onClick: (color: string) => void
+  product: ProductDetails,
 }
 
 export const ColorButton: FC<Props> = (props) => {
   const {
     color,
-    onClick,
-    productColor,
+    product,
   } = props;
 
   const getColor = useCallback(() => {
     let backGround = color;
 
-    if (color === 'rosegold') {
-      backGround = 'lightpink';
-    }
+    switch (color) {
+      case 'rosegold':
+        backGround = 'lightpink';
+        break;
 
-    if (color === 'gold') {
-      backGround = '#FCDBC1';
+      case 'gold':
+        backGround = '#FCDBC1';
+        break;
+
+      case 'spacegray':
+        backGround = '#4C4C4C';
+        break;
+
+      case 'midnightgreen':
+        backGround = '#5F7170';
+        break;
+
+      default:
+        return color;
     }
 
     return backGround;
   }, [color]);
 
   return (
-    <button
-      className={classNames('color__button', {
-        'color__button--active': color === productColor,
-      })}
-      type="button"
-      aria-label="color"
-      style={{
-        backgroundColor: getColor(),
-      }}
-      onClick={() => onClick(color)}
-    />
+    <Link
+      to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${color}`}
+    >
+      <button
+        className={classNames('color__button', {
+          'color__button--active': color === product.color,
+        })}
+        type="button"
+        aria-label="color"
+        style={{
+          backgroundColor: getColor(),
+        }}
+      />
+    </Link>
   );
 };

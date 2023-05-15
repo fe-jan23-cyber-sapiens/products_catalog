@@ -32,6 +32,8 @@
     color: var(--primary);
 
     margin-bottom: 8px;
+    overflow: hidden;
+    height: 42px;
 
     &-link {
       color: inherit;
@@ -88,7 +90,7 @@
       &::before {
         content: '$';
         font-family: "Mont", Helvetica, sans-serif;
-        color: var(--secondary);
+        color: var(--primary);
       }
 
       &--crossed {

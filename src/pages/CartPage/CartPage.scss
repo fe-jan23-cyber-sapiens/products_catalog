@@ -1,0 +1,43 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+@import '../../styles/scss_utils/mixins';
+
+.cartPage {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 1200px;
+
+  @include onTablet {
+    padding: 24px;
+  }
+
+  @include onLaptop {
+    padding: 32px;
+  }
+
+  &__top {
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-weight: 700;
+    font-size: 32px;
+
+    line-height: 41px;
+    letter-spacing: -0.01em;
+
+    color: var(--primary);
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 56px;
+
+      letter-spacing: -0.01em;
+    }
+  }
+}

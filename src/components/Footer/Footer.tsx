@@ -1,19 +1,23 @@
 import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import * as images from '../../assets';
 import './Footer.scss';
-import { PATH } from '../../routes/types/Path';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
-import { THEME_LIGHT } from '../../utils/constants';
+import { THEME_DARK } from '../../utils/constants';
 import { ThemeContext } from '../../context/ThemeContext';
 import { RoutePath } from '../../routes/RoutePath';
+import { getCurrentImage } from '../../utils/utils';
 
 export const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);
 
-  const currentLogo = theme === THEME_LIGHT
-    ? images.main_logo
-    : images.main_logo_dark;
+  const darkThemeIcon = theme === THEME_DARK;
+  const currentLogo = getCurrentImage(
+    theme,
+    images.main_logo,
+    images.main_logo_dark,
+  );
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -40,13 +44,13 @@ export const Footer: FC = () => {
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to={PATH.Contacts}>
+          <Link className="footer-nav__link" to={RoutePath.contacts}>
             Contacts
           </Link>
         </li>
 
         <li className="footer-nav__item">
-          <Link className="footer-nav__link" to={PATH.Rights}>
+          <Link className="footer-nav__link" to={RoutePath.rights}>
             Rights
           </Link>
         </li>
@@ -56,7 +60,9 @@ export const Footer: FC = () => {
         <span>Back to top</span>
 
         <button
-          className="footer--back__link"
+          className={classNames('footer--back__link', {
+            'footer--back__link--dark': darkThemeIcon,
+          })}
           type="button"
           aria-label="back"
           onClick={handleScrollToTop}

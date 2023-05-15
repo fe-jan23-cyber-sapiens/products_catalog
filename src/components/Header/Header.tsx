@@ -14,7 +14,7 @@ import * as images from '../../assets';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
-import { THEME_LIGHT } from '../../utils/constants';
+import { getCurrentImage } from '../../utils/utils';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
@@ -30,9 +30,29 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const currentLogo = theme === THEME_LIGHT
-    ? images.main_logo
-    : images.main_logo_dark;
+  const currentLogo = getCurrentImage(
+    theme,
+    images.main_logo,
+    images.main_logo_dark,
+  );
+
+  const currentLogoHeart = getCurrentImage(
+    theme,
+    images.heart_icon,
+    images.heart_icon_dark,
+  );
+
+  const currentLogoCart = getCurrentImage(
+    theme,
+    images.cart_icon,
+    images.cart_icon_dark,
+  );
+
+  const currentLogoBurger = getCurrentImage(
+    theme,
+    images.burger_menu_icon,
+    images.burger_menu_icon_dark,
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -49,7 +69,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   return (
     <header className="header">
       <div className="header__left-side">
-        <BurgerMenu isOpen={isOpen} onCloseMenu={handleToggleMenu} />
+        <BurgerMenu
+          onThemeChange={onThemeChange}
+          isOpen={isOpen}
+          onCloseMenu={handleToggleMenu}
+        />
 
         <HeaderLinkWithIcon
           path={RoutePath.main}
@@ -65,7 +89,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path={RoutePath.favourites}
-            imageSrc={images.heart_icon}
+            imageSrc={currentLogoHeart}
             alt="Favourites heart icon"
             className="header__link"
           />
@@ -78,7 +102,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path={RoutePath.cart}
-            imageSrc={images.cart_icon}
+            imageSrc={currentLogoCart}
             alt="Cart icon"
             className="header__link"
           />
@@ -97,7 +121,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
           onClick={handleToggleMenu}
           className="header__logo-box"
         >
-          <img src={images.burger_menu_icon} alt="Burger menu icon" />
+          <img src={currentLogoBurger} alt="Burger menu icon" />
         </button>
       </div>
     </header>

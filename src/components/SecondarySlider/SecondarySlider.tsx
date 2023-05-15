@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { FC, useEffect, useState } from 'react';
+import {
+  FC, useContext, useEffect, useState,
+} from 'react';
 import classnames from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,6 +16,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './SecondarySlider.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThemeContext } from '../../context/ThemeContext';
+import { THEME_DARK } from '../../utils/constants';
 
 SwiperCore.use([Navigation]);
 
@@ -28,6 +32,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -80,6 +85,8 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
     }
   };
 
+  const isCorrectIcon = theme === THEME_DARK;
+
   return (
     <section className="secondary-slider" key={endpoint}>
       <div className="secondary-slider__top-actions">
@@ -91,9 +98,8 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
               'secondary-slider__arrow',
               'secondary-slider__arrow--left',
               {
+                'secondary-slider__arrow--left--dark': isCorrectIcon,
                 'secondary-slider__arrow--left--disabled': isStart,
-              },
-              {
                 'secondary-slider__arrow--left--hover': !isStart,
               },
             )}
@@ -105,9 +111,8 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
               'secondary-slider__arrow',
               'secondary-slider__arrow--right',
               {
+                'secondary-slider__arrow--right--dark': isCorrectIcon,
                 'secondary-slider__arrow--right--disabled': isEnd || hasError,
-              },
-              {
                 'secondary-slider__arrow--right--hover': !isEnd && !hasError,
               },
             )}
@@ -140,12 +145,9 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
           >
             {products.map(product => (
               <SwiperSlide
-                key={product.id}
+                key={product.phoneId}
                 className="secondary-slider__card"
               >
-
-                {product.name}
-
                 <div className="secondary-slider__card-wrapper">
                   <CardItem product={product} />
                 </div>

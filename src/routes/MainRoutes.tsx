@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { ProductsPage } from '../pages/ProductsPage/ProductsPage';
-import { FavouritesPage } from '../pages/FavouritesPage';
-import { CartPage } from '../pages/CartPage';
+import { FavouritesPage } from '../pages/FavouritesPage/FavouritesPage';
+import { CartPage } from '../pages/CartPage/CartPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RoutePath } from './RoutePath';
 import { PATH } from './types/Path';

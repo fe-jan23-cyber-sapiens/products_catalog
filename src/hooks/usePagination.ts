@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 interface UsePaginationProps<T> {
   defaultCurrentPage: number;
-  defaultItemsPerPage: number;
+  defaultItemsPerPage: string;
   elements: T[];
 }
 
@@ -14,14 +14,14 @@ export const usePagination = <T>({
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
   const [currentPage, setCurrentPage] = useState(defaultCurrentPage);
 
-  const firstItemIndex = (currentPage - 1) * itemsPerPage;
-  const lastItemOnPageIndex = currentPage * itemsPerPage;
+  const firstItemIndex = (currentPage - 1) * +itemsPerPage;
+  const lastItemOnPageIndex = currentPage * +itemsPerPage;
   const lastItemIndex = lastItemOnPageIndex < elements.length
     ? lastItemOnPageIndex
     : elements.length;
   const selectedItems = elements.slice(firstItemIndex, lastItemIndex);
 
-  const handleItemsPerPageChange = (newItemsPerPage: number) => {
+  const handleItemsPerPageChange = (newItemsPerPage: string) => {
     setItemsPerPage(newItemsPerPage);
     setCurrentPage(defaultCurrentPage);
   };
