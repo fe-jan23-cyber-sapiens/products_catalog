@@ -1,9 +1,11 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import './Contacts.scss';
 import { Link } from 'react-router-dom';
 import { Mate } from '../../utils/typedefs';
+import { getCurrentImage } from '../../utils/utils';
+import * as images from '../../assets';
+import { ThemeContext } from '../../context/ThemeContext';
 
 type Props = {
   mate: Mate,
@@ -12,6 +14,7 @@ type Props = {
 export const ContactInfo: FC<Props> = ({ mate }) => {
   const {
     name,
+    text,
     ghURL,
     imgURL,
     phone,
@@ -19,33 +22,78 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
     liURL,
   } = mate;
 
-  return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={imgURL} />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>Full Stack Developer</Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>
-          <Link to={ghURL}>GitHub</Link>
-        </ListGroup.Item>
+  const { theme } = useContext(ThemeContext);
 
-        <ListGroup.Item>
-          <Link to={liURL}>LinkedIn</Link>
-        </ListGroup.Item>
-      </ListGroup>
-      <Card.Body className="card__contacts">
-        {phone ? (
-          <Card.Link href={`tel:${phone}`}>
-            {phone}
-          </Card.Link>
-        ) : 'No phone'}
-        {email ? (
-          <Card.Link href={`mailto:${email}`}>
-            Email
-          </Card.Link>
-        ) : 'No email'}
+  const currentLogoPhone = getCurrentImage(
+    theme,
+    images.phone_logo,
+    images.phone_logo_dark,
+  );
+  const currentLogoGitHub = getCurrentImage(
+    theme,
+    images.github_logo,
+    images.github_logo_dark,
+  );
+  const currentLogoEmail = getCurrentImage(
+    theme,
+    images.email_logo,
+    images.email_logo_dark,
+  );
+  const currentLogoLinkedin = getCurrentImage(
+    theme,
+    images.linkedin_logo,
+    images.linkedin_logo_dark,
+  );
+
+  return (
+    <Card style={{ width: '15rem' }}>
+      <Card.Img
+        variant="top"
+        src={imgURL}
+      />
+
+      <Card.Body>
+        <Card.Title>
+          {name}
+        </Card.Title>
+
+        <Card.Text>
+          {text}
+        </Card.Text>
+      </Card.Body>
+
+      <Card.Body className="card__socials">
+        <Link to={`tel:${phone}`}>
+          <img
+            src={currentLogoPhone}
+            alt="phone"
+            className="card__item-img"
+          />
+        </Link>
+
+        <Link to={ghURL} className="card__item">
+          <img
+            src={currentLogoGitHub}
+            alt="github"
+            className="card__item-img"
+          />
+        </Link>
+
+        <Link to={liURL}>
+          <img
+            src={currentLogoLinkedin}
+            alt="linkedin"
+            className="card__item-img"
+          />
+        </Link>
+
+        <Link to={`mailto:${email}`}>
+          <img
+            src={currentLogoEmail}
+            alt="email"
+            className="card__item-img"
+          />
+        </Link>
       </Card.Body>
     </Card>
   );

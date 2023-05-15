@@ -44,6 +44,7 @@ export interface Product {
 
 export interface Mate {
   name: string;
+  text: string;
   imgURL: string;
   liURL: string;
   ghURL: string;
