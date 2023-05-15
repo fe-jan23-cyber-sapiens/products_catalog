@@ -8,7 +8,8 @@ import {
   BreadCrumbs,
   CardImages,
   ProductActions,
-  ProductInfo, SecondarySlider,
+  ProductInfo,
+  SecondarySlider,
 } from '../../components';
 
 export const ProductPage = () => {

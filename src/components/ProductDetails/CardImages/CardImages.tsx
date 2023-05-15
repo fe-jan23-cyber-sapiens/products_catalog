@@ -1,18 +1,26 @@
 import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import './CardImages.scss';
+import { Modal } from '../../Modal';
+import { useModal } from '../../../hooks/useModal';
+import { ProductPageImage } from '../../../pages/ProductPageImage';
 
 type Props = {
   images: string[];
 };
 
 export const CardImages: FC<Props> = ({ images }) => {
+  const { modal, toggleModal } = useModal();
   const [bigImage, setBigImage] = useState<string>('');
   const IMG_URL = 'https://products-catalog-api.onrender.com/';
 
   useEffect(() => {
     setBigImage(images[0]);
   }, [images]);
+
+  const openModal = () => {
+    toggleModal();
+  };
 
   return (
     <div className="card__images">
@@ -34,11 +42,18 @@ export const CardImages: FC<Props> = ({ images }) => {
           </button>
         ))}
       </div>
+      <Modal modalMode={modal} closeModal={toggleModal}>
+        <ProductPageImage
+          path={`${IMG_URL}${bigImage}`}
+          alt="product"
+          openModal={openModal}
+        />
+      </Modal>
 
-      <img
-        className="card__images-big"
-        src={`${IMG_URL}${bigImage}`}
+      <ProductPageImage
+        path={`${IMG_URL}${bigImage}`}
         alt="product"
+        openModal={openModal}
       />
     </div>
   );
