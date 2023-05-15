@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useRef } from 'react';
 import classNames from 'classnames';
 import { getCurrentImage, getNumbers } from '../../utils/utils';
 import './Pagination.scss';
@@ -26,17 +26,26 @@ export const Pagination: FC<PaginationProps> = ({
   const isLastPageIndex = currentPage === totalPageCount;
   const paginationRange = getNumbers(1, totalPageCount);
   const { theme } = useContext(ThemeContext);
+  const windowRef = useRef(window);
 
   const currentRightIcon = getCurrentImage(theme, arrowRight, arrowRightDark);
   const currentLeftIcon = getCurrentImage(theme, arrowLeft, arrowLeftDark);
 
   const handlePreviousPageClick = () => {
+    windowRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     if (!isFirstPageIndex) {
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextPageClick = () => {
+    windowRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     if (!isLastPageIndex) {
       onPageChange(currentPage + 1);
     }
@@ -71,7 +80,13 @@ export const Pagination: FC<PaginationProps> = ({
           >
             <button
               type="button"
-              onClick={() => onPageChange(page)}
+              onClick={() => {
+                onPageChange(page);
+                windowRef.current?.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
+              }}
               className={classNames('pagination__link', {
                 'pagination__link--active': page === currentPage,
               })}
