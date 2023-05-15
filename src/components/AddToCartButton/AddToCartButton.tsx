@@ -38,7 +38,7 @@ export const AddToCart: FC<Props> = ({
       )}
       style={{ height, width: '100%' }}
       type="button"
-      onClick={() => handleModifyCartLS(product)}
+      onClick={() => handleModifyCartLS(product, 'toggle')}
     >
       {!isInCart
         ? (

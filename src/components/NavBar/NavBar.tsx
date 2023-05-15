@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { NavigationLink } from '../NavigationLink';
 
 import './NavBar.scss';
 import { RoutePath } from '../../routes/RoutePath';
 
-export const NavBar = () => {
+export const NavBar: FC = () => {
   return (
     <nav className="navigation-bar">
       <NavigationLink to="/" title="home" />

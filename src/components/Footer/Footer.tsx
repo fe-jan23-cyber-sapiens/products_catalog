@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import * as images from '../../assets';
 import './Footer.scss';
-import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon/HeaderLinkWithIcon';
 import { THEME_DARK } from '../../utils/constants';
 import { ThemeContext } from '../../context/ThemeContext';
 import { RoutePath } from '../../routes/RoutePath';
 import { getCurrentImage } from '../../utils/utils';
+import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon';
 
 export const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);

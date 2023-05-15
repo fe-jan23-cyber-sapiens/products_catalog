@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 176px;
+    width: 170px;
     margin-bottom: 4px;
     padding: 10px 12px 9px;
     font-family: 'Mont', sans-serif;
@@ -30,6 +30,7 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
+      margin-bottom: 0;
       color: var(--primary);
     }
 
@@ -42,7 +43,7 @@
     }
 
     &--small {
-      width: 128px;
+      width: 120px;
     }
 
   }

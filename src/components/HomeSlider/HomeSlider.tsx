@@ -1,8 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HomeSlider.scss';
+import { FC } from 'react';
 
-export const HomeSlider = () => {
+export const HomeSlider: FC = () => {
   return (
     <div className="main-carousel">
       <Carousel interval={5000}>

@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import { ProductCart } from '../ProductsCart/ProductsCart';
-import { Checkout } from '../CartsCheckout/Checkout';
+import { FC, useContext } from 'react';
+import { ProductCart } from '../ProductsCart';
+import { Checkout } from '../CartsCheckout';
 import './Card.scss';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
-export const Card = () => {
+export const Card: FC = () => {
   const { cartProducts } = useContext(CartLSUpdateContext);
 
   return (

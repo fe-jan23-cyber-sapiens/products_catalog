@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { FC, Fragment, useContext } from 'react';
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import './BreadCrumbs.scss';
@@ -7,11 +7,11 @@ import home from '../../assets/arrows/home.svg';
 import home_dark from '../../assets/arrows/home_dark.svg';
 import arrowRight from '../../assets/arrows/arrowRight_.svg';
 import arrowRight_dark from '../../assets/arrows/arrowRight_dark.svg';
-import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
+import { RoutePath } from '../../routes/RoutePath';
 
-export const BreadCrumbs = () => {
+export const BreadCrumbs: FC = () => {
   const { pathname } = useLocation();
   const crumbs = pathname.split('/')
     .filter((el) => el !== '');
@@ -26,7 +26,7 @@ export const BreadCrumbs = () => {
 
   return (
     <div className="path">
-      <Link to={RoutePath.home}>
+      <Link to={RoutePath.main}>
         <img src={currentIcon} alt="home icon" />
       </Link>
 
