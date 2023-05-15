@@ -1,7 +1,5 @@
-import { Categories } from '../../components/Categories/Categories';
-import { HomeSlider } from '../../components/HomeSlider/HomeSlider';
-import { SecondarySlider } from '../../components/SecondarySlider';
 import './HomePage.scss';
+import { Categories, HomeSlider, SecondarySlider } from '../../components';
 
 export const HomePage = () => {
   return (

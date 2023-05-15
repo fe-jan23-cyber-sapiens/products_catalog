@@ -1,11 +1,11 @@
+import { FC } from 'react';
 import './Categories.scss';
-import { Category } from '../Category/Category';
-
 import phones from '../../assets/categories/phones.png';
 import tablets from '../../assets/categories/tablets.png';
 import accessories from '../../assets/categories/accessories.png';
+import { Category } from '../Category';
 
-export const Categories = () => {
+export const Categories: FC = () => {
   return (
     <section className="categories">
       <h1 className="categories__title">

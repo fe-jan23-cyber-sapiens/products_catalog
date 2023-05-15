@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
 import './App.scss';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+
 import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
+import { Footer, Header } from './components';
 import { MainRoutes } from './routes/MainRoutes';
 
 export const App = () => {
