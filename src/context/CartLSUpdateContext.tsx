@@ -3,9 +3,13 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Product } from '../utils/typedefs';
 import { hasProduct } from '../utils/hasProduct';
 
+export interface ProductWithCount extends Product {
+  count: number,
+}
+
 type CartLSUpdateContextType = {
-  handleModifyCartLS: (product: Product) => void;
-  cartProducts: Product[],
+  handleModifyCartLS: (product: Product, action: string) => void;
+  cartProducts: ProductWithCount[],
 };
 
 export const CartLSUpdateContext = createContext<
@@ -25,24 +29,60 @@ export const CartLSUpdateProvider = ({
   const [
     cartProducts,
     setCartProducts,
-  ] = useLocalStorage<Product[]>('cart', []);
+  ] = useLocalStorage<ProductWithCount[]>('cart', []);
 
-  const handleModifyCartLS = (product: Product) => {
-    const isAlreadyAdded = hasProduct(cartProducts, product.phoneId);
+  const handleModifyCartLS = (product: Product, action: string) => {
+    let tempCartProducts = [...cartProducts];
 
-    if (isAlreadyAdded) {
-      const newProducts = cartProducts.filter(
-        ({ phoneId }) => phoneId !== product.phoneId,
-      );
+    switch (action) {
+      case 'toggle':
+        if (hasProduct(cartProducts, product.phoneId)) {
+          tempCartProducts = cartProducts.filter(
+            ({ phoneId }) => phoneId !== product.phoneId,
+          );
 
-      setCartProducts(newProducts);
+          setCartProducts(tempCartProducts);
 
-      return;
+          return;
+        }
+
+        tempCartProducts = [...cartProducts, { ...product, count: 1 }];
+
+        setCartProducts(tempCartProducts);
+
+        break;
+
+      case 'increment':
+        tempCartProducts = cartProducts.map(cartProduct => {
+          const tempCartProduct = { ...cartProduct };
+
+          if (cartProduct.phoneId === product.phoneId) {
+            tempCartProduct.count += 1;
+          }
+
+          return tempCartProduct;
+        });
+
+        setCartProducts(tempCartProducts);
+        break;
+
+      case 'decrement':
+        tempCartProducts = cartProducts.map(cartProduct => {
+          const tempCartProduct = { ...cartProduct };
+
+          if (cartProduct.phoneId === product.phoneId) {
+            tempCartProduct.count -= 1;
+          }
+
+          return tempCartProduct;
+        });
+
+        setCartProducts(tempCartProducts);
+        break;
+
+      default:
+        break;
     }
-
-    const newProducts = [...cartProducts, product];
-
-    setCartProducts(newProducts);
   };
 
   return (
