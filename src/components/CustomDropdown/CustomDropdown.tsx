@@ -12,7 +12,7 @@ interface DropdownProps {
   options: string[];
   defaultValue?: string;
   size?: 'small';
-  handleItemsPerPageChange: (newItemsPerPage: string) => void;
+  handleItemsPerPageChange: (newItemsPerPage: any) => void;
 }
 
 export const CustomDropdown: FC<DropdownProps> = ({
