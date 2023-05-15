@@ -31,7 +31,7 @@ export const CardItem: FC<Props> = ({ product }) => {
       className="product"
     >
       <Link
-        to={`/phones/${phoneId}`}
+        to={`/${product.category}/${phoneId}`}
         className="link-to-product"
         onClick={() => window.scrollTo(0, 0)}
       >

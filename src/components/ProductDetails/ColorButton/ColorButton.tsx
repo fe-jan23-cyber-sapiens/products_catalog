@@ -2,18 +2,26 @@ import { FC, useCallback } from 'react';
 import './ColorButton.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { ProductDetails } from '../../../utils/typedefs';
+import { Product, ProductDetails } from '../../../utils/typedefs';
 
 interface Props {
   color: string,
-  product: ProductDetails,
+  productDetails: ProductDetails,
+  product: Product,
 }
 
 export const ColorButton: FC<Props> = (props) => {
   const {
     color,
     product,
+    productDetails,
   } = props;
+
+  const {
+    namespaceId,
+    capacity,
+
+  } = productDetails;
 
   const getColor = useCallback(() => {
     let backGround = color;
@@ -44,11 +52,11 @@ export const ColorButton: FC<Props> = (props) => {
 
   return (
     <Link
-      to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${color}`}
+      to={`/${product.category}/${namespaceId}-${capacity.toLowerCase()}-${color}`}
     >
       <button
         className={classNames('color__button', {
-          'color__button--active': color === product.color,
+          'color__button--active': color === productDetails.color,
         })}
         type="button"
         aria-label="color"
