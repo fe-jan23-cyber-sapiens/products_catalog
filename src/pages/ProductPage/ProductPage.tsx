@@ -2,24 +2,25 @@ import './ProductPage.scss';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
-import { Back } from '../../components/Back/Back';
-import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
+import { useProductPage } from './useProductPage';
 import {
+  Back,
+  BreadCrumbs,
   CardImages,
   ProductActions,
-  ProductInfo,
-} from '../../components/ProductDetails';
-import { SecondarySlider } from '../../components/SecondarySlider';
-import { useProductPage } from './useProductPage';
+  ProductInfo, SecondarySlider,
+} from '../../components';
 
 export const ProductPage = () => {
   const { phoneId = '' } = useParams();
+  const { tabletId = '' } = useParams();
+  const id = phoneId || tabletId;
 
   const {
     product,
     isError,
     isLoading,
-  } = useProductPage({ phoneId });
+  } = useProductPage({ id });
 
   return (
     <main className="productPage">

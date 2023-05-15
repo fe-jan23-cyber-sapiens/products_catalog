@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import './ProductInfo.scss';
 import { ProductDetails } from '../../../utils/typedefs';
-import { AboutProduct } from '../AboutProduct/AboutProduct';
-import { TechSpecs } from '../TechSpecs/TechSpecs';
+import { AboutProduct } from '../AboutProduct';
+import { TechSpecs } from '../TechSpecs';
 
 interface Props {
   product: ProductDetails;

@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
-import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
-import { ProductsCatalog } from '../../components/ProductsCatalog';
 import './FavouritesPage.scss';
+import { BreadCrumbs, ProductsCatalog } from '../../components';
 
 export const FavouritesPage = () => {
   const { favProducts } = useContext(FavLSUpdateContext);
