@@ -31,15 +31,9 @@
     transform: scale(1.2);
   }
 
-  @include onTablet {
-    &--active {
-      transform: scale(1.5);
-    }
-  }
-
   @include onLaptop {
     &--active {
-      transform: scale(1.5);
+      transform: scale(1.3);
     }
   }
 }
