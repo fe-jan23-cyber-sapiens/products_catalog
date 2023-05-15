@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { getCurrentImage } from '../../utils/utils';
 import { BASE_URL } from '../../utils/constants';
-import cross from '../../assets/logos/cross.svg';
+import cross from '../../assets/logos/Cross.svg';
 import cross_dark from '../../assets/logos/Cross-dark.svg';
 import {
   CartLSUpdateContext,
