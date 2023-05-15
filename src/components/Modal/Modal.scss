@@ -14,6 +14,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.3s;
+    border: none;
 
     &--active {
         opacity: 1;
@@ -26,6 +27,8 @@
     align-items: center;
     transform: scale(0.5);
     transition: 0.3s all;
+    background: transparent;
+    border: none;
 
     &--active {
         transform: scale(1.5);

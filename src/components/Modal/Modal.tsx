@@ -14,18 +14,16 @@ export const Modal: FC<ModalProps> = ({
   closeModal,
 }) => {
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-    <div
-      // className={modalMode ? `${s.modal} ${s.active}` : s.modal}
+    <button
+      type="button"
       className={classNames(
         'modal',
         { 'modal, modal--active': modalMode },
       )}
       onClick={closeModal}
     >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div
-        // className={modalMode ? `${s.modalContent} ${s.active}` : s.modalContent}
+      <button
+        type="button"
         className={classNames(
           'modalContent',
           { 'modalContent, modalContent--active': modalMode },
@@ -33,7 +31,7 @@ export const Modal: FC<ModalProps> = ({
         onClick={event => event.stopPropagation()}
       >
         {children}
-      </div>
-    </div>
+      </button>
+    </button>
   );
 };
