@@ -5,19 +5,21 @@ import { Link } from 'react-router-dom';
 import { ProductDetails } from '../../../utils/typedefs';
 
 interface Props {
-  capacity: string;
-  product: ProductDetails;
+  capacity: string,
+  category: string,
+  product: ProductDetails,
 }
 
 export const CapacityButton: FC<Props> = (props) => {
   const {
     capacity,
+    category,
     product,
   } = props;
 
   return (
     <Link
-      to={`/phones/${product.namespaceId}-${capacity.toLowerCase()}-${product.color}`}
+      to={`/${category}/${product.namespaceId}-${capacity.toLowerCase()}-${product.color}`}
     >
       <button
         key={capacity}

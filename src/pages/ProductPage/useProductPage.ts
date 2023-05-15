@@ -3,11 +3,11 @@ import { ProductDetails } from '../../utils/typedefs';
 import client from '../../api/fetching';
 
 interface Options {
-  phoneId: string
+  id: string
 }
 
 export const useProductPage = (options: Options) => {
-  const { phoneId } = options;
+  const { id } = options;
 
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +18,7 @@ export const useProductPage = (options: Options) => {
     setIsLoading(true);
 
     try {
-      const productDetails = await client.getProductDetails(phoneId);
+      const productDetails = await client.getProductDetails(id);
 
       setProduct(productDetails);
     } catch {
@@ -30,7 +30,7 @@ export const useProductPage = (options: Options) => {
 
   useEffect(() => {
     getProduct();
-  }, [phoneId]);
+  }, [id]);
 
   return {
     product,

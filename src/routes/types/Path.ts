@@ -3,6 +3,7 @@ export enum PATH {
   Home = 'home',
   Phones = 'phones',
   Phone = 'phoneId',
+  Tablet = 'tabletId',
   Tablets = 'tablets',
   Accessories = 'accessories',
   Favourites = 'favourites',

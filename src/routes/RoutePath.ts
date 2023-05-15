@@ -5,6 +5,7 @@ export const RoutePath: Record<PATH, string> = {
   [PATH.Home]: '/home',
   [PATH.Phones]: '/phones',
   [PATH.Phone]: '/phones/:phoneId',
+  [PATH.Tablet]: '/tablets/:tabletId',
   [PATH.Tablets]: '/tablets',
   [PATH.Accessories]: '/accessories',
   [PATH.Favourites]: '/favourites',
