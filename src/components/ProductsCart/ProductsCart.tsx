@@ -1,46 +1,58 @@
 import {
-  FC, useCallback, useContext, useState,
+  FC, useContext, useEffect, useState,
 } from 'react';
 import { Link } from 'react-router-dom';
-import './ProductsCart.scss';
 import classNames from 'classnames';
-import { Product } from '../../utils/typedefs';
-import { BASE_URL } from '../../utils/constants';
-import cross from '../../assets/logos/Cross.svg';
-import cross_dark from '../../assets/logos/Cross-dark.svg';
-import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
-import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
+import { BASE_URL } from '../../utils/constants';
+import cross from '../../assets/logos/cross.svg';
+import cross_dark from '../../assets/logos/Cross-dark.svg';
+import {
+  CartLSUpdateContext,
+  ProductWithCount,
+} from '../../context/CartLSUpdateContext';
+import { ThemeContext } from '../../context/ThemeContext';
+import './ProductsCart.scss';
 
 interface Props {
-  product: Product,
+  product: ProductWithCount,
 }
 
 export const ProductCart: FC<Props> = ({ product }) => {
-  const [count, setCount] = useState(1);
-  const [quantity, setQuantity] = useState(1);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [total, setTotal] = useState(0);
   const { handleModifyCartLS } = useContext(CartLSUpdateContext);
   const { theme } = useContext(ThemeContext);
+  const {
+    count,
+    price,
+    name,
+    phoneId,
+    image,
+  } = product;
+
+  useEffect(() => {
+    if (count === 1) {
+      setIsDisabled(true);
+      setTotal(Number(price));
+
+      return;
+    }
+
+    setIsDisabled(false);
+    setTotal(Number(price) * count);
+  }, [count]);
 
   const correctIcon = getCurrentImage(theme, cross, cross_dark);
 
   const increment = () => {
-    setCount(prev => prev + 1);
-    setQuantity(prev => prev + 1);
+    handleModifyCartLS(product, 'increment');
   };
 
   const decrement = () => {
-    setCount(prev => prev - 1);
-    setQuantity(prev => prev - 1);
+    handleModifyCartLS(product, 'decrement');
   };
-
-  const isDisabled = count === 1;
-  const { price } = product;
-
-  const getTotalPrice = useCallback(() => {
-    return Number(price) * quantity;
-  }, [quantity]);
 
   return (
     <div className="cart">
@@ -48,7 +60,7 @@ export const ProductCart: FC<Props> = ({ product }) => {
         <button
           type="button"
           className="cart__deleteButton"
-          onClick={() => handleModifyCartLS(product)}
+          onClick={() => handleModifyCartLS(product, 'toggle')}
         >
           <img
             className="delete"
@@ -57,16 +69,16 @@ export const ProductCart: FC<Props> = ({ product }) => {
           />
         </button>
 
-        <Link to={`/phones/${product.phoneId}`}>
+        <Link to={`/phones/${phoneId}`}>
           <img
-            src={`${BASE_URL}/${product.image}`}
+            src={`${BASE_URL}/${image}`}
             alt="Iphone"
             className="phone-card__image"
           />
         </Link>
 
         <p className="phone-card__description">
-          {product.name}
+          {name}
         </p>
       </div>
 
@@ -78,7 +90,7 @@ export const ProductCart: FC<Props> = ({ product }) => {
               className={classNames('count', {
                 'count--disabled': isDisabled,
               })}
-              onClick={decrement}
+              onClick={() => decrement()}
               disabled={isDisabled}
             >
               -
@@ -89,14 +101,14 @@ export const ProductCart: FC<Props> = ({ product }) => {
             <button
               type="button"
               className="count"
-              onClick={increment}
+              onClick={() => increment()}
             >
               +
             </button>
           </div>
 
           <div className="cart__price">
-            {`$${getTotalPrice()}`}
+            {`$${total}`}
           </div>
         </div>
       </div>
