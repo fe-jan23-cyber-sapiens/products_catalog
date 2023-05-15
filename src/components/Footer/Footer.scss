@@ -1,5 +1,6 @@
 @import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/colors';
+@import '../../styles/scss_utils/vars';
 
 .footer {
   display: flex;
@@ -7,9 +8,9 @@
   align-items: center;
 
   width: 100%;
-  height: 96px;
+  height: $footer-height-l;
 
-  border-top: 1px solid var(--elements-light);
+  border-top: 1px solid var(--elements);
   background-color: var(--bg);
 
   @media (min-width: 320px) and (max-width: 639px) {

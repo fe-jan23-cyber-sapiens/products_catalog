@@ -6,7 +6,7 @@ import { RoutePath } from '../../routes/RoutePath';
 export const NavBar = () => {
   return (
     <nav className="navigation-bar">
-      <NavigationLink to={RoutePath.main} title="home" />
+      <NavigationLink to="/" title="home" />
 
       <NavigationLink to={RoutePath.phones} title="phones" />
 

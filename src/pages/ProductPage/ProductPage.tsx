@@ -1,72 +1,25 @@
 import './ProductPage.scss';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Back } from '../../components/Back/Back';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
-import { ProductDetails } from '../../utils/typedefs';
 import {
   CardImages,
   ProductActions,
   ProductInfo,
 } from '../../components/ProductDetails';
 import { SecondarySlider } from '../../components/SecondarySlider';
-import client from '../../api/fetching';
+import { useProductPage } from './useProductPage';
 
 export const ProductPage = () => {
   const { phoneId = '' } = useParams();
-  const [product, setProduct] = useState<ProductDetails | null>(null);
-  const [sameModels, setSameModels] = useState<ProductDetails[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
 
-  const getProduct = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const productDetails = await client.getProductDetails(phoneId);
-
-      setProduct(productDetails);
-    } catch {
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const getSameModels = async () => {
-    if (product) {
-      const models = await client.getSameModels(product.namespaceId);
-
-      setSameModels(models);
-    }
-  };
-
-  const getNewColor = (color: string) => {
-    const gadget = sameModels.find(model => model.color === color);
-
-    if (gadget) {
-      setProduct(gadget);
-    }
-  };
-
-  const getCapacity = (capacity: string) => {
-    const gadget = sameModels.find(model => model.capacity === capacity);
-
-    if (gadget) {
-      setProduct(gadget);
-    }
-  };
-
-  useEffect(() => {
-    getProduct();
-  }, [phoneId]);
-
-  useEffect(() => {
-    getSameModels();
-  }, [product]);
+  const {
+    product,
+    isError,
+    isLoading,
+  } = useProductPage({ phoneId });
 
   return (
     <main className="productPage">
@@ -83,7 +36,9 @@ export const ProductPage = () => {
 
             <Back />
 
-            <div className="details__title">{product.name}</div>
+            <div className="details__title">
+              {product.name}
+            </div>
 
             <div>
               <div className="details__top">
@@ -91,15 +46,10 @@ export const ProductPage = () => {
                   <CardImages images={product.images} />
                 </div>
 
-                <ProductActions
-                  productDetails={product}
-                  key={product.id}
-                  onColorSelect={getNewColor}
-                  onCapacitySelect={getCapacity}
-                />
+                <ProductActions productDetails={product} />
               </div>
 
-              <ProductInfo product={product} key={product.id} />
+              <ProductInfo product={product} />
             </div>
           </div>
 

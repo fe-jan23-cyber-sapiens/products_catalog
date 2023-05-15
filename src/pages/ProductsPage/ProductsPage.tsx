@@ -1,12 +1,11 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-
 import { Product } from '../../utils/typedefs';
-import client from '../../api/fetching';
 import {
   itemsByDefault,
   itemsPerPageOptions,
   pageByDefault,
+  sortOptions,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -17,6 +16,8 @@ import { ProductsCatalog } from '../../components/ProductsCatalog';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { CustomDropdown } from '../../components/CustomDropdown';
 import { usePagination } from '../../hooks/usePagination';
+import { useProducts } from './useProducts';
+import { SortType, getSortedBy } from '../../utils/helper';
 
 interface Props {
   title: string,
@@ -25,11 +26,23 @@ interface Props {
 
 export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const isVisibleProducts = !isError && !isLoading && products.length > 0;
-  const isVisibleModal = products.length <= 0 && !isLoading && !isError;
+  const [sortBy, setSortBy] = useState<SortType>(SortType.Newest);
+
+  const handleSortBy = (option: SortType) => {
+    setSortBy(option);
+  };
+
+  const {
+    products,
+    isError,
+    isLoading,
+    isVisibleModal,
+    isVisibleProducts,
+  } = useProducts({ endpoint });
+
+  const sortedProducts: Product[] = useMemo(() => (
+    getSortedBy(products, sortBy)
+  ), [products, sortBy]);
 
   const {
     currentPage,
@@ -41,27 +54,8 @@ export const ProductsPage: FC<Props> = (props) => {
   } = usePagination<Product>({
     defaultCurrentPage: pageByDefault,
     defaultItemsPerPage: itemsByDefault,
-    elements: products,
+    elements: sortedProducts,
   });
-
-  const getProducts = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const productsFromServer = await client.getByCategory(endpoint);
-
-      setProducts(productsFromServer);
-    } catch {
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, [endpoint]);
 
   return (
     <main className="productsPage">
@@ -83,6 +77,12 @@ export const ProductsPage: FC<Props> = (props) => {
             </div>
 
             <div className="productsPage__dropdowns">
+              <CustomDropdown
+                title="Sort by"
+                options={sortOptions}
+                handleItemsPerPageChange={handleSortBy}
+              />
+
               <CustomDropdown
                 size="small"
                 title="Items on page"

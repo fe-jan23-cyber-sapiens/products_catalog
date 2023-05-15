@@ -8,7 +8,7 @@ export const Checkout: FC = () => {
   return (
     <div className="checkout">
       <div>
-        <h1 className="total">$4567</h1>
+        <h1 className="total">$4000</h1>
         <p className="totalItems">
           {`Total for ${cartProducts.length} items`}
         </p>

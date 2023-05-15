@@ -60,14 +60,14 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 176px;
+    width: 170px;
     padding-top: 8px;
     background: var(--item-hover2);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-3);
 
     &--small {
-      width: 128px;
+      width: 120px;
     }
 
     &--hidden {
