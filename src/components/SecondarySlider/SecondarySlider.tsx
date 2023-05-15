@@ -24,9 +24,16 @@ SwiperCore.use([Navigation]);
 type Props = {
   endpoint: string;
   title: string;
+  rightArrow: string;
+  leftArrow: string;
 };
 
-export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
+export const SecondarySlider: FC<Props> = ({
+  endpoint,
+  title,
+  rightArrow,
+  leftArrow,
+}) => {
   const [products, setProducts] = useState<Product[]>();
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -95,6 +102,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
         <div className="secondary-slider__arrow-container">
           <div
             className={classnames(
+              leftArrow,
               'secondary-slider__arrow',
               'secondary-slider__arrow--left',
               {
@@ -108,6 +116,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
 
           <div
             className={classnames(
+              rightArrow,
               'secondary-slider__arrow',
               'secondary-slider__arrow--right',
               {
@@ -134,8 +143,8 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
           <Swiper
             className="swiper"
             navigation={{
-              nextEl: '.secondary-slider__arrow--right',
-              prevEl: '.secondary-slider__arrow--left',
+              nextEl: `.${rightArrow}`,
+              prevEl: `.${leftArrow}`,
             }}
             slidesPerView="auto"
             spaceBetween={16}
