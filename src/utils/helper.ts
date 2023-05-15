@@ -1,28 +1,22 @@
 import { Product } from './typedefs';
 
-export enum SortType {
-  Price = 'Price',
-  Discount = 'Discount',
-  Newest = 'Newest',
-}
-
 export const getSortedBy = (
   phones: Product[],
-  sortBy: SortType,
+  sortBy: string,
 ): Product[] => {
   const sortedProducts = [...phones];
 
   switch (sortBy) {
-    case SortType.Price:
+    case 'price':
       return sortedProducts.sort((a, b) => Number(a.price) - Number(b.price));
 
-    case SortType.Discount:
+    case 'discount':
       return sortedProducts.map(phone => ({
         ...phone,
         discountPrice: phone.fullPrice - Number(phone.price),
       })).sort((a, b) => b.discountPrice - a.discountPrice);
 
-    case SortType.Newest:
+    case 'newest':
       return sortedProducts.sort((a, b) => b.year - a.year);
 
     default:
