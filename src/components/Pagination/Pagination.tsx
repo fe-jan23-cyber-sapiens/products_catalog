@@ -1,6 +1,5 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useRef } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { getCurrentImage, getNumbers } from '../../utils/utils';
 import './Pagination.scss';
 import arrowRight from '../../assets/arrows/arrowRight.svg';
@@ -27,17 +26,26 @@ export const Pagination: FC<PaginationProps> = ({
   const isLastPageIndex = currentPage === totalPageCount;
   const paginationRange = getNumbers(1, totalPageCount);
   const { theme } = useContext(ThemeContext);
+  const windowRef = useRef(window);
 
   const currentRightIcon = getCurrentImage(theme, arrowRight, arrowRightDark);
   const currentLeftIcon = getCurrentImage(theme, arrowLeft, arrowLeftDark);
 
   const handlePreviousPageClick = () => {
+    windowRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     if (!isFirstPageIndex) {
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextPageClick = () => {
+    windowRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     if (!isLastPageIndex) {
       onPageChange(currentPage + 1);
     }
@@ -52,48 +60,56 @@ export const Pagination: FC<PaginationProps> = ({
           { 'pagination__item--disabled': isFirstPageIndex },
         )}
       >
-        <Link
-          to="/#prev"
+        <button
+          type="button"
           aria-disabled={isFirstPageIndex}
           onClick={handlePreviousPageClick}
           className="pagination__link pagination__link--prev"
         >
           <img src={currentLeftIcon} alt="Arrow show left direction" />
-        </Link>
+        </button>
       </li>
 
-      {paginationRange.map((page) => (
-        <li
-          key={page}
-          className={classNames('pagination__item', {
-            'pagination__item--active': page === currentPage,
-          })}
-        >
-          <Link
-            to={`/${page}`}
-            onClick={() => onPageChange(page)}
-            className={classNames('pagination__link', {
-              'pagination__link--active': page === currentPage,
+      {paginationRange.map((page) => {
+        return (
+          <li
+            key={page}
+            className={classNames('pagination__item', {
+              'pagination__item--active': page === currentPage,
             })}
           >
-            {page}
-          </Link>
-        </li>
-      ))}
+            <button
+              type="button"
+              onClick={() => {
+                onPageChange(page);
+                windowRef.current?.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
+              }}
+              className={classNames('pagination__link', {
+                'pagination__link--active': page === currentPage,
+              })}
+            >
+              {page}
+            </button>
+          </li>
+        );
+      })}
 
       <li
         className={classNames('pagination__item', {
           'pagination__item--disabled': isLastPageIndex,
         })}
       >
-        <Link
-          to="/#next"
+        <button
+          type="button"
           aria-disabled={isLastPageIndex}
           onClick={handleNextPageClick}
           className="pagination__link pagination__link--next"
         >
           <img src={currentRightIcon} alt="Arrow show right direction" />
-        </Link>
+        </button>
       </li>
     </ul>
   );
