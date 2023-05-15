@@ -1,6 +1,6 @@
 import { FC, useContext, useState } from 'react';
 import './CustomDropdown.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 import arrowDown from '../../assets/arrows/arrowDown.svg';
 import arrowDown_dark from '../../assets/arrows/arrowDown_dark.svg';
@@ -12,13 +12,15 @@ interface DropdownProps {
   options: string[];
   defaultValue?: string;
   size?: 'small';
-  handleItemsPerPageChange: (newItemsPerPage: any) => void;
+  type?: string,
+  handleItemsPerPageChange: (newItemsPerPage: string) => void;
 }
 
 export const CustomDropdown: FC<DropdownProps> = ({
   title,
   options,
   defaultValue,
+  type,
   size,
   handleItemsPerPageChange,
 }) => {
@@ -27,7 +29,16 @@ export const CustomDropdown: FC<DropdownProps> = ({
     selectedOption,
     setSelectedOption,
   ] = useState(defaultValue || options[0]);
+  const [searchParams] = useSearchParams();
+
+  const getSearchParamsWith = (key: string, option: string) => {
+    searchParams.set(key, option.toLowerCase());
+
+    return searchParams.toString();
+  };
+
   const { theme } = useContext(ThemeContext);
+  const { pathname } = useLocation();
 
   const currentIcon = getCurrentImage(
     theme,
@@ -80,7 +91,13 @@ export const CustomDropdown: FC<DropdownProps> = ({
         {isOpen && (
           options.map((option) => (
             <Link
-              to={`#${option}`}
+              to={{
+                pathname,
+                search: getSearchParamsWith(
+                  type === 'sort' ? 'sort' : 'items',
+                  option,
+                ),
+              }}
               className="dropdown__list__item"
               key={option}
               onClick={() => handleOptionClick(option)}
