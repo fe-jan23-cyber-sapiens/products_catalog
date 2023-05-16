@@ -12,8 +12,9 @@ export const App = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { modal, toggleModal } = useModal(true);
 
-  setTimeout(() => {
+  const myTimeOut = setTimeout(() => {
     toggleModal();
+    clearTimeout(myTimeOut);
   }, 2000);
 
   const handleThemeChange = () => {
