@@ -72,6 +72,14 @@
       width: $logo-wrapper-width-l;
       height: $header-height-l;
     }
+
+    & > :not(:last-child) {
+      padding: 16px;
+
+      @include onLaptop {
+        padding: 24px;
+      }
+    }
   }
 
   &__link {

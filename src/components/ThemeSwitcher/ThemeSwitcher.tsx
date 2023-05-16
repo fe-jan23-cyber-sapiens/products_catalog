@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import './ThemeSwitcher.scss';
 import { ThemeContext } from '../../context/ThemeContext';
-import { THEME_DARK } from '../../utils/constants';
+import { THEME_LIGHT } from '../../utils/constants';
 
 interface ThemeSwitcherProps {
   onThemeChange: () => void;
@@ -9,7 +9,7 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ onThemeChange }) => {
   const { theme } = useContext(ThemeContext);
-  const isThemeDark = theme === THEME_DARK;
+  const isThemeLight = theme === THEME_LIGHT;
 
   return (
 
@@ -17,7 +17,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ onThemeChange }) => {
       <input
         onClick={onThemeChange}
         type="checkbox"
-        defaultChecked={isThemeDark}
+        defaultChecked={isThemeLight}
       />
       <span className="slider" />
     </label>

@@ -2,9 +2,6 @@
 @import '../../styles/scss_utils/colors';
 
 .productsPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0 auto;
   padding: 16px;
   max-width: 1200px;
@@ -18,7 +15,7 @@
   }
 
   &__top {
-    margin-bottom: 40px;
+    margin: 0 0 20px;
   }
 
   &__title {
@@ -41,9 +38,11 @@
   }
 
   &__modal {
+    margin: 0 auto;
     font-weight: 700;
     font-size: 32px;
     text-align: center;
+    height: 100%;
     max-width: 400px;
     padding: 20px;
     border: 1px solid var(--primary);
@@ -57,4 +56,15 @@
     gap: 16px;
     margin-bottom: 24px;
   }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.spinner {
+  height: 300px;
+  display: flex;
+  justify-content: center;
 }
