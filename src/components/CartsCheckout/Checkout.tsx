@@ -4,6 +4,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { Link } from 'react-router-dom';
 import './Checkout.scss';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { getTotalSum } from '../../utils/getTotalSum';
@@ -30,9 +31,9 @@ export const Checkout: FC = () => {
           {`Total for ${cartProducts.length} items`}
         </p>
       </div>
-      <a href="#buy" className="buy">
+      <Link to="/order" className="buy">
         Checkout
-      </a>
+      </Link>
     </div>
   );
 };

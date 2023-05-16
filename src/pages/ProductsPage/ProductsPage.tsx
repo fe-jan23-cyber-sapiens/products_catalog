@@ -58,53 +58,55 @@ export const ProductsPage: FC<Props> = (props) => {
 
   return (
     <main className="productsPage">
+      <div className="productsPage__top">
+        <BreadCrumbs />
+
+        <h1 className="productsPage__title">
+          {title}
+        </h1>
+
+        <p>{`${products.length} models`}</p>
+      </div>
+
       {isLoading && (
-        <Spinner variant={isThemeLight
-          ? 'dark'
-          : 'light'}
-        />
+        <div className="spinner">
+          <Spinner variant={isThemeLight
+            ? 'dark'
+            : 'light'}
+          />
+        </div>
       )}
 
       {isVisibleProducts && (
         <>
-          <div className="productPage__container">
-            <div className="productsPage__top">
-              <BreadCrumbs />
+          <div className="productsPage__dropdowns">
+            <CustomDropdown
+              title="Sort by"
+              type="sort"
+              options={sortOptions}
+              defaultValue={sort}
+              handleItemsPerPageChange={handleSortBy}
+            />
 
-              <h1 className="productsPage__title">
-                {title}
-              </h1>
-
-              <p>{`${products.length} models`}</p>
-            </div>
-
-            <div className="productsPage__dropdowns">
-              <CustomDropdown
-                title="Sort by"
-                type="sort"
-                options={sortOptions}
-                defaultValue={sort}
-                handleItemsPerPageChange={handleSortBy}
-              />
-
-              <CustomDropdown
-                size="small"
-                title="Items on page"
-                options={itemsPerPageOptions}
-                defaultValue={count}
-                handleItemsPerPageChange={handleItemsPerPageChange}
-              />
-            </div>
-
-            <ProductsCatalog products={selectedItems} />
+            <CustomDropdown
+              size="small"
+              title="Items on page"
+              options={itemsPerPageOptions}
+              defaultValue={count}
+              handleItemsPerPageChange={handleItemsPerPageChange}
+            />
           </div>
 
-          <Pagination
-            total={elements.length}
-            perPage={itemsPerPage}
-            currentPage={currentPage}
-            onPageChange={onPageChange}
-          />
+          <ProductsCatalog products={selectedItems} />
+
+          <div className="productsPage__pagination">
+            <Pagination
+              total={elements.length}
+              perPage={itemsPerPage}
+              currentPage={currentPage}
+              onPageChange={onPageChange}
+            />
+          </div>
         </>
       )}
 
