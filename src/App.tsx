@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import './App.scss';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { AuthProvider } from '@descope/react-sdk';
 import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
 import { Footer, Header, WavyText } from './components';
