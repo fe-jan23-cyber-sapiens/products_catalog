@@ -19,3 +19,6 @@ export { default as phone_logo_dark } from './logos/phone_dark.svg';
 
 export { default as arrow_up } from './arrows/arrow_up.svg';
 export { default as arrow_up_dark } from './arrows/arrow_up_dark.svg';
+
+export { default as user_circle } from './logos/user-circle.svg';
+export { default as user_circle_dark } from './logos/user-circle_dark.svg';

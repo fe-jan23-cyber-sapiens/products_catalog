@@ -3,29 +3,47 @@
 @import '../../styles/scss_utils/vars';
 
 .scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-    display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  display: none;
 
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 
-    background-image: url('../../assets/arrows/arrow_up.svg');
-    background-color: var(--item-hover2);
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid var(--border-2);
-    cursor: pointer;
+  background-image: url('../../assets/arrows/arrow_up.svg');
+  background-color: var(--item-hover2);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid var(--border-2);
+  cursor: pointer;
 
-    &-visible {
-        display: block;
+  &-visible {
+    display: block;
+  }
+
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: none;
     }
+    50% {
+      transform: scale(1.05);
+        box-shadow: 1px 2px 10px 0px var(--elements);
+        -webkit-box-shadow: 1px 2px 10px 0px var(--elements);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: none;
+    }
+  }
 
-    &:hover {
-        border: 1px solid var(--item-hover);
-        background-color: var(--favorites-hover);
-      }
+  &:hover {
+    animation: none;
+    box-shadow: 1px 2px 10px 0px var(--elements);
+    -webkit-box-shadow: 1px 2px 10px 0px var(--elements);
+  }
 }
-

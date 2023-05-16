@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 
 import './App.scss';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { AuthProvider } from '@descope/react-sdk';
 import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
 import { Footer, Header } from './components';
@@ -18,17 +19,17 @@ export const App = () => {
   };
 
   return (
-    <div className={`app ${theme}`}>
-      <Header
-        onThemeChange={handleThemeChange}
-      />
+    <AuthProvider projectId="P2PrllCsf5bR0pmZY0IA8z1CBv2z">
+      <div className={`app ${theme}`}>
+        <Header onThemeChange={handleThemeChange} />
 
-      <main className="app__main-section">
-        <ButtonScrollTop />
-        <MainRoutes />
-      </main>
+        <main className="app__main-section">
+          <ButtonScrollTop />
+          <MainRoutes />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 };
