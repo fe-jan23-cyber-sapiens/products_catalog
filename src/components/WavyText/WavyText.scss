@@ -1,0 +1,37 @@
+@import '../../styles//scss_utils/mixins';
+
+.wave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__text {
+    position: relative;
+    font-size: 26px;
+    font-weight: bold;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+
+    @include onTablet {
+      font-size: 40px;
+    }
+  }
+
+  &__char {
+    position: relative;
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    animation-delay: calc(.1s * var(--i));
+  }
+}
+
+@keyframes wave {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
