@@ -53,4 +53,25 @@
 .carousel {
   max-width: 1136px;
   margin: 0 auto;
+  animation: changerOpacity 0.5s ease-in-out;
+
+  &-control-prev {
+    height: 100px;
+    margin: auto 0;
+  }
+
+  &-control-next {
+    height: 100px;
+    margin: auto 0;
+  }
+}
+
+@keyframes changerOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }

@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from './context/ThemeContext';
 import { CartLSUpdateProvider } from './context/CartLSUpdateContext';
 import { FavLSUpdateProvider } from './context/FavLSUpdateContext';
+import { MainLoaderProvider } from './context/MainLoaderContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -18,7 +19,9 @@ root.render(
       <FavLSUpdateProvider>
         <CartLSUpdateProvider>
           <ThemeProvider>
-            <App />
+            <MainLoaderProvider>
+              <App />
+            </MainLoaderProvider>
           </ThemeProvider>
         </CartLSUpdateProvider>
       </FavLSUpdateProvider>
