@@ -37,7 +37,6 @@ export const ProductsPage: FC<Props> = (props) => {
     isLoading,
     handleSortBy,
     sortedProducts,
-    isVisibleModal,
     isVisibleProducts,
   } = useProducts({ endpoint });
 
@@ -108,12 +107,6 @@ export const ProductsPage: FC<Props> = (props) => {
             />
           </div>
         </>
-      )}
-
-      {isVisibleModal && (
-        <div className="productsPage__modal">
-          Oops... Unfortunately, these products are not available yet..
-        </div>
       )}
 
       {isError && !isLoading && (

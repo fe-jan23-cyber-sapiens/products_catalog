@@ -59,6 +59,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
     element: <ProductsPage title="Accessories" endpoint="accessories" />,
   },
 
+  [PATH.Accessory]: {
+    path: RoutePath.accessoryId,
+    element: <ProductPage />,
+  },
+
   [PATH.Favourites]: {
     path: RoutePath.favourites,
     element: <FavouritesPage />,

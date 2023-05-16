@@ -18,7 +18,8 @@ import { THEME_LIGHT } from '../../utils/constants';
 export const ProductPage = () => {
   const { phoneId = '' } = useParams();
   const { tabletId = '' } = useParams();
-  const id = phoneId || tabletId;
+  const { accessoryId = '' } = useParams();
+  const id = phoneId || tabletId || accessoryId;
   const { theme } = useContext(ThemeContext);
 
   const {

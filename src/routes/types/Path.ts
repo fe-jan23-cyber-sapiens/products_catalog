@@ -6,6 +6,7 @@ export enum PATH {
   Tablet = 'tabletId',
   Tablets = 'tablets',
   Accessories = 'accessories',
+  Accessory = 'accessoryId',
   Favourites = 'favourites',
   Cart = 'cart',
   Order = 'order',
