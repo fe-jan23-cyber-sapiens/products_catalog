@@ -41,7 +41,6 @@
     margin: 0 auto;
     font-weight: 700;
     font-size: 32px;
-    text-align: center;
     height: 100%;
     max-width: 400px;
     padding: 20px;
@@ -67,4 +66,5 @@
   height: 300px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
