@@ -15,7 +15,7 @@
   }
 
   &__top {
-    margin-bottom: 20px;
+    margin: 0 0 20px;
   }
 
   &__title {
@@ -64,7 +64,7 @@
 }
 
 .spinner {
-  height: 200px;
+  height: 300px;
   display: flex;
   justify-content: center;
 }

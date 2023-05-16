@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
   itemsPerPageOptions,
   pageByDefault,
-  sortOptions,
+  sortOptions, THEME_LIGHT,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -18,6 +18,7 @@ import {
   Pagination,
   ProductsCatalog,
 } from '../../components';
+import { ThemeContext } from '../../context/ThemeContext';
 
 interface Props {
   title: string,
@@ -26,6 +27,7 @@ interface Props {
 
 export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
+  const { theme } = useContext(ThemeContext);
 
   const {
     sort,
@@ -52,6 +54,8 @@ export const ProductsPage: FC<Props> = (props) => {
     elements: sortedProducts,
   });
 
+  const isThemeLight = theme === THEME_LIGHT;
+
   return (
     <main className="productsPage">
       <div className="productsPage__top">
@@ -66,7 +70,10 @@ export const ProductsPage: FC<Props> = (props) => {
 
       {isLoading && (
         <div className="spinner">
-          <Spinner variant="dark" />
+          <Spinner variant={isThemeLight
+            ? 'dark'
+            : 'light'}
+          />
         </div>
       )}
 

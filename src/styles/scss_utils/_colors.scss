@@ -43,6 +43,7 @@
   --border-icons: var(--icons-light);
   --pagination-hover: var(--bg-light);
   --pagination-border: var(--primary-light);
+  --contacts-decoration: var(--green);
 }
 
 .dark {
@@ -67,5 +68,6 @@
   --border-icons: var(--icons-dark);
   --pagination-hover: var(--elements-dark);
   --pagination-border: var(--elements-dark);
+  --contacts-decoration: var(--red);
 }
 
