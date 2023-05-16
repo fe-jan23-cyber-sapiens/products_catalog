@@ -68,6 +68,8 @@ export const ProductPage = () => {
             <SecondarySlider
               endpoint="recommended"
               title="You may also like"
+              rightArrow="reccomended-right-arrow"
+              leftArrow="reccomended-left-arrow"
             />
           </div>
         </>
