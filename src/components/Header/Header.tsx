@@ -2,6 +2,7 @@ import {
   FC, useContext, useEffect, useState,
 } from 'react';
 
+import { Link } from 'react-router-dom';
 import { NavBar } from '../NavBar';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { BurgerMenu } from '../BurgerMenu';
@@ -89,9 +90,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__link"
           />
 
-          {favProducts.length > 0 && (
-            <div className="header__count">{favProducts.length}</div>
-          )}
+          <Link to="/favourites">
+            {favProducts.length > 0 && (
+              <div className="header__count">{favProducts.length}</div>
+            )}
+          </Link>
         </div>
 
         <div className="header__logo-box">
@@ -102,9 +105,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__link"
           />
 
-          {cartProducts.length > 0 && (
-            <div className="header__count">{cartProducts.length}</div>
-          )}
+          <Link to="/cart">
+            {cartProducts.length > 0 && (
+              <div className="header__count">{cartProducts.length}</div>
+            )}
+          </Link>
         </div>
 
         <div className="header__logo-box">
