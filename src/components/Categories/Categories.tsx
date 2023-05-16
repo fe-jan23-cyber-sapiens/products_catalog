@@ -28,7 +28,7 @@ export const Categories: FC = () => {
         />
 
         <Category
-          products={0}
+          products={4}
           title="Accessories"
           image={accessories}
           link="/accessories"
