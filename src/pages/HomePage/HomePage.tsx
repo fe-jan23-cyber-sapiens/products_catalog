@@ -14,6 +14,8 @@ export const HomePage = () => {
         <SecondarySlider
           endpoint="new"
           title="Brand new models"
+          rightArrow="new-brands-right-arrow"
+          leftArrow="new-brands-left-arrow"
         />
       </div>
 
@@ -23,6 +25,8 @@ export const HomePage = () => {
         <SecondarySlider
           endpoint="discount"
           title="Hot prices"
+          rightArrow="discounts-right-arrow"
+          leftArrow="discounts-left-arrow"
         />
       </div>
     </div>

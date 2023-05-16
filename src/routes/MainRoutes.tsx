@@ -17,6 +17,7 @@ import {
 } from '../pages';
 import { PATH } from './types/Path';
 import { RoutePath } from './RoutePath';
+import { OrderConfirmation } from '../components/ModulePage';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
@@ -54,6 +55,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
     element: <ProductsPage title="Accessories" endpoint="accessories" />,
   },
 
+  [PATH.Accessory]: {
+    path: RoutePath.accessoryId,
+    element: <ProductPage />,
+  },
+
   [PATH.Favourites]: {
     path: RoutePath.favourites,
     element: <FavouritesPage />,
@@ -62,6 +68,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Cart]: {
     path: RoutePath.cart,
     element: <CartPage />,
+  },
+
+  [PATH.Order]: {
+    path: RoutePath.order,
+    element: <OrderConfirmation />,
   },
 
   [PATH.Error]: {
