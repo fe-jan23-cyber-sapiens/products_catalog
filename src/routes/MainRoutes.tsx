@@ -17,6 +17,7 @@ import {
 } from '../pages';
 import { PATH } from './types/Path';
 import { RoutePath } from './RoutePath';
+import { OrderConfirmation } from '../components/ModulePage';
 // import { PATH } from './types/Path';
 // import { Contacts } from '../pages/Contacts/Contacts';
 // import { Rights } from '../pages/Rights/Rights';
@@ -66,6 +67,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Cart]: {
     path: RoutePath.cart,
     element: <CartPage />,
+  },
+
+  [PATH.Order]: {
+    path: RoutePath.order,
+    element: <OrderConfirmation />,
   },
 
   [PATH.Error]: {

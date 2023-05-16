@@ -8,6 +8,7 @@ export enum PATH {
   Accessories = 'accessories',
   Favourites = 'favourites',
   Cart = 'cart',
+  Order = 'order',
   Error = 'error',
   Contacts = 'contacts',
   Rights = 'rights',
