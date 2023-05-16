@@ -1,4 +1,9 @@
-import { FC, useContext, useState } from 'react';
+import {
+  FC,
+  memo,
+  useContext,
+  useState,
+} from 'react';
 import './CustomDropdown.scss';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
@@ -8,22 +13,24 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 
 interface DropdownProps {
-  title?: string;
-  options: string[];
-  defaultValue?: string;
-  size?: 'small';
+  title?: string,
+  options: string[],
+  defaultValue?: string,
+  size?: 'small',
   type?: string,
-  handleItemsPerPageChange: (newItemsPerPage: string) => void;
+  handleItemsPerPageChange: (newItemsPerPage: string) => void,
 }
 
-export const CustomDropdown: FC<DropdownProps> = ({
-  title,
-  options,
-  defaultValue,
-  type,
-  size,
-  handleItemsPerPageChange,
-}) => {
+export const CustomDropdown: FC<DropdownProps> = memo((props) => {
+  const {
+    title,
+    options,
+    defaultValue,
+    type,
+    size,
+    handleItemsPerPageChange,
+  } = props;
+
   const [isOpen, setIsOpen] = useState(false);
   const [
     selectedOption,
@@ -109,4 +116,4 @@ export const CustomDropdown: FC<DropdownProps> = ({
       </div>
     </div>
   );
-};
+});

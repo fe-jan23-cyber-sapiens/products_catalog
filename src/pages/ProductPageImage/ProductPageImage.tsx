@@ -2,9 +2,9 @@ import { FC } from 'react';
 import './ProductPageImage.scss';
 
 interface Props {
-  openModal: () => void;
-  path: string;
-  alt: string;
+  openModal: () => void,
+  path: string,
+  alt: string,
 }
 
 export const ProductPageImage: FC<Props> = ({ path, alt, openModal }) => {

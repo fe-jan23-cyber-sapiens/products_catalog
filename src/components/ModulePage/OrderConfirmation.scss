@@ -33,9 +33,12 @@
 
   .close-button {
     padding: 0 20px;
-    border: none;
+    
     font-size: 24px;
+    
     background-color: var(--primary-light);
+    border: none;
+
     color: var(--bg-light);
     cursor: pointer;
 
