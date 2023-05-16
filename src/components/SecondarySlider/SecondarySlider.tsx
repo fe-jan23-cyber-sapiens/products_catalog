@@ -21,12 +21,19 @@ import { THEME_DARK } from '../../utils/constants';
 
 SwiperCore.use([Navigation]);
 
-type Props = {
-  endpoint: string;
-  title: string;
-};
+  type Props = {
+    endpoint: string;
+    title: string;
+    rightArrow: string;
+    leftArrow: string;
+  };
 
-export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
+export const SecondarySlider: FC<Props> = ({
+  endpoint,
+  title,
+  rightArrow,
+  leftArrow,
+}) => {
   const [products, setProducts] = useState<Product[]>();
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -85,7 +92,7 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
     }
   };
 
-  const isCorrectIcon = theme === THEME_DARK;
+  const isThemeDark = theme === THEME_DARK;
 
   return (
     <section className="secondary-slider" key={endpoint}>
@@ -95,10 +102,11 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
         <div className="secondary-slider__arrow-container">
           <div
             className={classnames(
+              leftArrow,
               'secondary-slider__arrow',
               'secondary-slider__arrow--left',
               {
-                'secondary-slider__arrow--left--dark': isCorrectIcon,
+                'secondary-slider__arrow--left--dark': isThemeDark,
                 'secondary-slider__arrow--left--disabled': isStart,
                 'secondary-slider__arrow--left--hover': !isStart,
               },
@@ -108,10 +116,11 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
 
           <div
             className={classnames(
+              rightArrow,
               'secondary-slider__arrow',
               'secondary-slider__arrow--right',
               {
-                'secondary-slider__arrow--right--dark': isCorrectIcon,
+                'secondary-slider__arrow--right--dark': isThemeDark,
                 'secondary-slider__arrow--right--disabled': isEnd || hasError,
                 'secondary-slider__arrow--right--hover': !isEnd && !hasError,
               },
@@ -123,7 +132,10 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
 
       <div className="secondary-slider__swiper-container">
         {isLoading && (
-          <Spinner variant="dark" />
+          <Spinner variant={isThemeDark
+            ? 'light'
+            : 'dark'}
+          />
         )}
 
         {hasError && (
@@ -134,8 +146,8 @@ export const SecondarySlider: FC<Props> = ({ endpoint, title }) => {
           <Swiper
             className="swiper"
             navigation={{
-              nextEl: '.secondary-slider__arrow--right',
-              prevEl: '.secondary-slider__arrow--left',
+              nextEl: `.${rightArrow}`,
+              prevEl: `.${leftArrow}`,
             }}
             slidesPerView="auto"
             spaceBetween={16}

@@ -16,7 +16,6 @@ export const TechSpecs: FC<Props> = (props) => {
     camera,
     zoom,
     ram,
-    cell,
   } = product;
 
   return (
@@ -29,7 +28,6 @@ export const TechSpecs: FC<Props> = (props) => {
       <TechSpecsItem title="Built in memory" option={capacity} />
       <TechSpecsItem title="Camera" option={camera} />
       <TechSpecsItem title="Zoom" option={zoom} />
-      <TechSpecsItem title="Cell" option={cell.splice(0, 3).join(',')} />
     </>
   );
 };

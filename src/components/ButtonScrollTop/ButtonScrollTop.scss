@@ -1,0 +1,31 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/colors';
+@import '../../styles/scss_utils/vars';
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    display: none;
+
+    width: 25px;
+    height: 25px;
+
+    background-image: url('../../assets/arrows/arrow_up.svg');
+    background-color: var(--item-hover2);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid var(--border-2);
+    cursor: pointer;
+
+    &-visible {
+        display: block;
+    }
+
+    &:hover {
+        border: 1px solid var(--item-hover);
+        background-color: var(--favorites-hover);
+      }
+}
+

@@ -1,8 +1,7 @@
-import { FC, useMemo, useState } from 'react';
+import { FC } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
-  itemsByDefault,
   itemsPerPageOptions,
   pageByDefault,
   sortOptions,
@@ -19,7 +18,6 @@ import {
   Pagination,
   ProductsCatalog,
 } from '../../components';
-import { SortType, getSortedBy } from '../../utils/helper';
 
 interface Props {
   title: string,
@@ -28,23 +26,18 @@ interface Props {
 
 export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
-  const [sortBy, setSortBy] = useState<SortType>(SortType.Newest);
-
-  const handleSortBy = (option: SortType) => {
-    setSortBy(option);
-  };
 
   const {
+    sort,
+    count,
     products,
     isError,
     isLoading,
+    handleSortBy,
+    sortedProducts,
     isVisibleModal,
     isVisibleProducts,
   } = useProducts({ endpoint });
-
-  const sortedProducts: Product[] = useMemo(() => (
-    getSortedBy(products, sortBy)
-  ), [products, sortBy]);
 
   const {
     currentPage,
@@ -55,7 +48,7 @@ export const ProductsPage: FC<Props> = (props) => {
     handleItemsPerPageChange,
   } = usePagination<Product>({
     defaultCurrentPage: pageByDefault,
-    defaultItemsPerPage: itemsByDefault,
+    defaultItemsPerPage: count,
     elements: sortedProducts,
   });
 
@@ -81,7 +74,9 @@ export const ProductsPage: FC<Props> = (props) => {
             <div className="productsPage__dropdowns">
               <CustomDropdown
                 title="Sort by"
+                type="sort"
                 options={sortOptions}
+                defaultValue={sort}
                 handleItemsPerPageChange={handleSortBy}
               />
 
@@ -89,6 +84,7 @@ export const ProductsPage: FC<Props> = (props) => {
                 size="small"
                 title="Items on page"
                 options={itemsPerPageOptions}
+                defaultValue={count}
                 handleItemsPerPageChange={handleItemsPerPageChange}
               />
             </div>

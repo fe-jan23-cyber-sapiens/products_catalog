@@ -1,0 +1,59 @@
+@import '../../styles/scss_utils/colors';
+
+.empty-cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.empty-cart-content {
+  background-color: #fff;
+  width: 350px;
+  height: 200px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back-to-shop-button {
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 10px 20px;
+  background-color: var(--primary-light);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-price {
+  font-size: 12px;
+}

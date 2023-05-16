@@ -32,7 +32,6 @@ export const BurgerMenu: FC<Props> = ({
       className={classNames('menu', {
         'menu-open': isOpen,
       })}
-      id="menu"
     >
       <div className="menu__content">
         <div className="top-actions">

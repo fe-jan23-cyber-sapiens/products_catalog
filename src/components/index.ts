@@ -22,3 +22,4 @@ export * from './ProductsCatalog';
 export * from './SecondarySlider';
 export * from './SliderItem';
 export * from './ThemeSwitcher';
+export * from './Modal';
