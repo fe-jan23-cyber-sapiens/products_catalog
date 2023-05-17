@@ -1,5 +1,5 @@
 import './HomePage.scss';
-import { Categories, HomeSlider, SecondarySlider } from '../../components';
+import { Categories, HomeSlider } from '../../components';
 
 export const HomePage = () => {
   return (
@@ -10,25 +10,10 @@ export const HomePage = () => {
 
       <HomeSlider />
 
-      <div className="home-page__slider">
-        <SecondarySlider
-          endpoint="new"
-          title="Brand new models"
-          rightArrow="new-brands-right-arrow"
-          leftArrow="new-brands-left-arrow"
-        />
-      </div>
+
 
       <Categories />
 
-      <div className="home-page__slider">
-        <SecondarySlider
-          endpoint="discount"
-          title="Hot prices"
-          rightArrow="discounts-right-arrow"
-          leftArrow="discounts-left-arrow"
-        />
-      </div>
     </div>
   );
 };

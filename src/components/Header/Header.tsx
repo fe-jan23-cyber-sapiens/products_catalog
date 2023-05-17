@@ -14,7 +14,6 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
-import { Auth } from '../AuthComponent/AuthComponent';
 import { Modal } from '../Modal';
 import { useModal } from '../../hooks/useModal';
 

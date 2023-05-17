@@ -10,7 +10,6 @@ import {
   CardImages,
   ProductActions,
   ProductInfo,
-  SecondarySlider,
 } from '../../components';
 import { ThemeContext } from '../../context/ThemeContext';
 import { THEME_LIGHT } from '../../utils/constants';
@@ -65,14 +64,7 @@ export const ProductPage = () => {
             </div>
           </div>
 
-          <div className="productPage__slider">
-            <SecondarySlider
-              endpoint="recommended"
-              title="You may also like"
-              rightArrow="reccomended-right-arrow"
-              leftArrow="reccomended-left-arrow"
-            />
-          </div>
+
         </>
       )}
 
