@@ -28,7 +28,11 @@ export const Checkout: FC = () => {
       <div>
         <h1 className="total">{`$${total}`}</h1>
         <p className="totalItems">
-          {`Total for ${cartProducts.length} items`}
+          {`Total for ${cartProducts.length && (
+            cartProducts
+              .map(product => product.count)
+              .reduce((acc, productCount) => acc + productCount, 0)
+          )} items`}
         </p>
       </div>
       <Link to="/order" className="buy">
