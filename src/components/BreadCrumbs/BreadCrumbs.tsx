@@ -1,4 +1,10 @@
-import { FC, Fragment, useContext } from 'react';
+import {
+  FC,
+  memo,
+  Fragment,
+  useContext,
+  useMemo,
+} from 'react';
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import './BreadCrumbs.scss';
@@ -11,11 +17,12 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 import { RoutePath } from '../../routes/RoutePath';
 
-export const BreadCrumbs: FC = () => {
+export const BreadCrumbs: FC = memo(() => {
   const { pathname } = useLocation();
-  const crumbs = pathname.split('/')
-    .filter((el) => el !== '');
   const { theme } = useContext(ThemeContext);
+  const crumbs = useMemo(() => (
+    pathname.split('/')
+      .filter((el) => el !== '')), [pathname]);
 
   const currentIcon = getCurrentImage(theme, home, home_dark);
   const currentIconArrow = getCurrentImage(theme, arrowRight, arrowRight_dark);
@@ -53,4 +60,4 @@ export const BreadCrumbs: FC = () => {
       })}
     </div>
   );
-};
+});

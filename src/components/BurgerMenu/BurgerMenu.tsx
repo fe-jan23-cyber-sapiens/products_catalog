@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC, memo, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import * as images from '../../assets';
@@ -9,18 +9,19 @@ import { THEME_DARK } from '../../utils/constants';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { getCurrentImage } from '../../utils/utils';
 
-type Props = {
+interface Props {
   isOpen: boolean,
   onCloseMenu: () => void,
   onThemeChange: () => void;
-};
+}
 
-export const BurgerMenu: FC<Props> = ({
-  isOpen,
-  onCloseMenu,
-  onThemeChange,
-}) => {
+export const BurgerMenu: FC<Props> = memo((props) => {
   const { theme } = useContext(ThemeContext);
+  const {
+    isOpen,
+    onCloseMenu,
+    onThemeChange,
+  } = props;
 
   const darkTheme = theme === THEME_DARK;
   const currentIcon = getCurrentImage(theme,
@@ -137,4 +138,4 @@ export const BurgerMenu: FC<Props> = ({
       </div>
     </nav>
   );
-};
+});

@@ -1,5 +1,5 @@
 import {
-  FC, useContext, useEffect, useState,
+  FC, memo, useContext, useEffect, useState,
 } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -22,7 +22,7 @@ interface HeaderProps {
   onThemeChange: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
+export const Header: FC<HeaderProps> = memo(({ onThemeChange }) => {
   const { theme } = useContext(ThemeContext);
   const { cartProducts } = useContext(CartLSUpdateContext);
   const { favProducts } = useContext(FavLSUpdateContext);
@@ -155,4 +155,4 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       </div>
     </header>
   );
-};
+});

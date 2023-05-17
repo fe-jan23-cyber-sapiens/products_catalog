@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 
 import './NavigationLink.scss';
 
-type Props = {
-  to: string;
-  title: string;
-};
+interface Props {
+  to: string,
+  title: string,
+}
 
 export const NavigationLink: FC<Props> = ({ to, title }) => (
   <NavLink
