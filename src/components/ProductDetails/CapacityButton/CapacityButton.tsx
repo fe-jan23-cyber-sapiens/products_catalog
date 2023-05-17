@@ -17,9 +17,11 @@ export const CapacityButton: FC<Props> = (props) => {
     product,
   } = props;
 
+  const link = `/${category}/${product.namespaceId}-${capacity.toLowerCase()}-${product.color}`;
+
   return (
     <Link
-      to={`/${category}/${product.namespaceId}-${capacity.toLowerCase()}-${product.color}`}
+      to={link}
     >
       <button
         key={capacity}

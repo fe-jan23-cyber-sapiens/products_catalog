@@ -12,9 +12,9 @@ import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 import { ThemeContext } from '../../context/ThemeContext';
 import { THEME_DARK } from '../../utils/constants';
 
-type Props = {
+interface Props {
   product: Product,
-};
+}
 
 export const AddToFavourites: FC<Props> = ({ product }) => {
   const { theme } = useContext(ThemeContext);

@@ -1,7 +1,7 @@
 import './OrderConfirmation.scss';
 import { Link } from 'react-router-dom';
 
-export function OrderConfirmation() {
+export const OrderConfirmation = () => {
   return (
     <div className="order-confirmation">
       <div className="order-confirmation__card">
@@ -20,4 +20,4 @@ export function OrderConfirmation() {
       </div>
     </div>
   );
-}
+};

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import {
-  FC, useContext, useEffect, useState,
+  FC, useCallback, useContext, useEffect, useState,
 } from 'react';
 import classnames from 'classnames';
 
@@ -74,15 +74,15 @@ export const SecondarySlider: FC<Props> = ({
     getProducts();
   }, []);
 
-  const handleReachEnd = () => {
+  const handleReachEnd = useCallback(() => {
     setIsEnd(true);
-  };
+  }, []);
 
-  const handleReachStart = () => {
+  const handleReachStart = useCallback(() => {
     setIsStart(true);
-  };
+  }, []);
 
-  const handleSlidesChange = () => {
+  const handleSlidesChange = useCallback(() => {
     if (isStart) {
       setIsStart(false);
     }
@@ -90,7 +90,7 @@ export const SecondarySlider: FC<Props> = ({
     if (isEnd) {
       setIsEnd(false);
     }
-  };
+  }, []);
 
   const isThemeDark = theme === THEME_DARK;
 
@@ -139,7 +139,9 @@ export const SecondarySlider: FC<Props> = ({
         )}
 
         {hasError && (
-          <h5 style={{ color: 'red' }}>Error occured when loading data</h5>
+          <h5 style={{ color: 'red' }}>
+            Error occured when loading data
+          </h5>
         )}
 
         {!hasError && !isLoading && products?.length && (

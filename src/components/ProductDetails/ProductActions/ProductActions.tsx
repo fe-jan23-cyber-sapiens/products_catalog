@@ -1,4 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import {
+  FC,
+  memo,
+  useEffect,
+  useState,
+} from 'react';
 import { Product, ProductDetails } from '../../../utils/typedefs';
 import client from '../../../api/fetching';
 import './ProductActions.scss';
@@ -12,7 +17,7 @@ interface Props {
   productDetails: ProductDetails,
 }
 
-export const ProductActions: FC<Props> = (props) => {
+export const ProductActions: FC<Props> = memo((props) => {
   const { productDetails } = props;
 
   const {
@@ -106,4 +111,4 @@ export const ProductActions: FC<Props> = (props) => {
       )}
     </div>
   );
-};
+});

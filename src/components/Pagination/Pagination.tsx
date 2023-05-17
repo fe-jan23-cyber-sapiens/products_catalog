@@ -9,18 +9,20 @@ import arrowLeftDark from '../../assets/arrows/arrowLeftDark.svg';
 import { ThemeContext } from '../../context/ThemeContext';
 
 interface PaginationProps {
-  total: number;
-  perPage: string;
-  currentPage: number;
-  onPageChange: (currentPage: number) => void;
+  total: number,
+  perPage: string,
+  currentPage: number,
+  onPageChange: (currentPage: number) => void,
 }
 
-export const Pagination: FC<PaginationProps> = ({
-  onPageChange,
-  currentPage,
-  perPage,
-  total,
-}) => {
+export const Pagination: FC<PaginationProps> = (props) => {
+  const {
+    onPageChange,
+    currentPage,
+    perPage,
+    total,
+  } = props;
+
   const totalPageCount = Math.ceil(total / +perPage);
   const isFirstPageIndex = currentPage === 1;
   const isLastPageIndex = currentPage === totalPageCount;
