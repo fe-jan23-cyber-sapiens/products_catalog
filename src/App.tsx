@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import './App.scss';
-
 import { ThemeContext } from './context/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './utils/constants';
 import { Footer, Header, WavyText } from './components';

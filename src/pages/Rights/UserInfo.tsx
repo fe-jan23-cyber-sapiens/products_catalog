@@ -17,8 +17,7 @@ export const UserInfo: FC<Props> = ({ mate }) => {
           <strong>{text}</strong>
         </pre>
       </em>
-
-      <a href={ghURL} rel="nofollow">
+      <a href={ghURL} rel="nofollow noreferrer" target="_blank">
         <img
           src="https://img.shields.io/badge/Profile_link-4e93e6?style=for-the-badge&logo=Profile&logoColor=black"
           alt="profile"
