@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from 'react';
+import { createContext, ReactNode, useEffect } from 'react';
 import { useModal } from '../hooks/useModal';
 
 type MainLoaderContextType = {
@@ -18,9 +18,9 @@ export const MainLoaderProvider = ({
 }: MainLoaderProviderProps) => {
   const { modal, toggleModal } = useModal(true);
 
-  setTimeout(() => {
+  useEffect(() => {
     toggleModal();
-  }, 2000);
+  }, []);
 
   return (
     <MainLoaderContext.Provider value={{ modal }}>
