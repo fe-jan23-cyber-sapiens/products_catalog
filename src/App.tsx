@@ -26,7 +26,7 @@ export const App = () => {
   };
 
   return (
-    <AuthProvider projectId="abc">
+    <AuthProvider projectId="P2PrllCsf5bR0pmZY0IA8z1CBv2z">
       <div className={`app ${theme}`}>
         {isShown ? (
           <div className="app__wave wave">
