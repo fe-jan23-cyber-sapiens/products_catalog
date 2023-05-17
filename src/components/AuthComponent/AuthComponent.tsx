@@ -6,30 +6,21 @@ import {
   useSession,
   useUser,
 } from '@descope/react-sdk';
-import {
-  FC, useContext, useEffect,
-} from 'react';
+import { FC, useEffect } from 'react';
 import './AuthComponent.scss';
 
-import { ThemeContext } from '../../context/ThemeContext';
-
-type Props = {
+interface AuthProps {
   setUserPhoto: (userPhoto: string | null) => void;
-};
+}
 
-export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
+export const AuthComponent: FC<AuthProps> = ({ setUserPhoto }) => {
   const { isAuthenticated, isSessionLoading } = useSession();
   const { user, isUserLoading } = useUser();
   const { logout } = useDescope();
 
-  const { theme } = useContext(ThemeContext);
-
   useEffect(() => {
     setUserPhoto(user?.picture || null);
   }, [user?.picture]);
-
-  // eslint-disable-next-line no-console
-  console.log(theme);
 
   return (
     <>
