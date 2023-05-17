@@ -20,8 +20,9 @@ export const ColorButton: FC<Props> = (props) => {
   const {
     namespaceId,
     capacity,
-
   } = productDetails;
+
+  const link = `/${product.category}/${namespaceId}-${capacity.toLowerCase()}-${color}`;
 
   const getColor = useCallback(() => {
     let backGround = color;
@@ -52,7 +53,7 @@ export const ColorButton: FC<Props> = (props) => {
 
   return (
     <Link
-      to={`/${product.category}/${namespaceId}-${capacity.toLowerCase()}-${color}`}
+      to={link}
     >
       <button
         className={classNames('color__button', {

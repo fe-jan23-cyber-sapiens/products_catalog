@@ -35,6 +35,7 @@ export const Checkout: FC = () => {
           )} items`}
         </p>
       </div>
+
       <Link to="/order" className="buy">
         Checkout
       </Link>

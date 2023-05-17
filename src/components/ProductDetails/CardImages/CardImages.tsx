@@ -5,9 +5,9 @@ import { Modal } from '../../Modal';
 import { useModal } from '../../../hooks/useModal';
 import { ProductPageImage } from '../../../pages/ProductPageImage';
 
-type Props = {
-  images: string[];
-};
+interface Props {
+  images: string[],
+}
 
 export const CardImages: FC<Props> = ({ images }) => {
   const { modal, toggleModal } = useModal();
@@ -42,6 +42,7 @@ export const CardImages: FC<Props> = ({ images }) => {
           </button>
         ))}
       </div>
+
       <Modal modalMode={modal} closeModal={toggleModal}>
         <ProductPageImage
           path={`${IMG_URL}${bigImage}`}
