@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AddToCart } from '../AddToCartButton';
@@ -9,11 +9,11 @@ import './CardItem.scss';
 import { Product } from '../../utils/typedefs';
 import { BASE_URL } from '../../utils/constants';
 
-type Props = {
+interface Props {
   product: Product,
-};
+}
 
-export const CardItem: FC<Props> = ({ product }) => {
+export const CardItem: FC<Props> = memo(({ product }) => {
   const {
     name,
     image,
@@ -87,4 +87,4 @@ export const CardItem: FC<Props> = ({ product }) => {
       </div>
     </article>
   );
-};
+});

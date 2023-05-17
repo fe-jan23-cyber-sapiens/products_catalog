@@ -37,13 +37,15 @@
   &__cart-button {
     height: 48px;
     width: 100%;
-    background-color: var(--hover);
-    border: none;
-    color: var(--white);
+
     font-family: 'Mont', sans-serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
+
+    background-color: var(--hover);
+    border: none;
+    color: var(--white);
 
     &:hover {
       box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
@@ -88,8 +90,9 @@
   }
 
   &__discount {
-    font-family: 'Mont', sans-serif;
     margin-right: 8px;
+    
+    font-family: 'Mont', sans-serif;
     font-weight: 800;
     font-size: 32px;
 

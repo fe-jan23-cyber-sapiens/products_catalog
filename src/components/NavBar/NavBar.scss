@@ -19,8 +19,10 @@
 
     font-size: 12px;
     font-weight: bold;
+
     line-height: 11px;
     letter-spacing: 0.04em;
+
     text-decoration: none;
     text-transform: uppercase;
     color: var(--secondary);
@@ -41,6 +43,7 @@
         bottom: 0;
         height: 3px;
         width: 100%;
+        
         background-color: var(--primary);
       }
 

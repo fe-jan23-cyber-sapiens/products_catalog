@@ -1,5 +1,5 @@
 import {
-  FC, useContext, useEffect, useState,
+  FC, memo, useContext, useEffect, useState,
 } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
-import { Auth } from '../AuthComponent/AuthComponent';
+import { AuthComponent } from '../AuthComponent/AuthComponent';
 import { Modal } from '../Modal';
 import { useModal } from '../../hooks/useModal';
 
@@ -22,7 +22,7 @@ interface HeaderProps {
   onThemeChange: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
+export const Header: FC<HeaderProps> = memo(({ onThemeChange }) => {
   const { theme } = useContext(ThemeContext);
   const { cartProducts } = useContext(CartLSUpdateContext);
   const { favProducts } = useContext(FavLSUpdateContext);
@@ -70,12 +70,6 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (!userPhoto) {
-      setUserPhoto(currentUserPhoto);
-    }
-  }, [userPhoto, theme]);
-
   const handleToggleMenu = () => {
     setIsOpen((currentPosition) => !currentPosition);
   };
@@ -101,7 +95,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
 
       <div className="header__right-side">
         <Modal modalMode={modal} closeModal={toggleModal}>
-          <Auth setUserPhoto={setUserPhoto} />
+          <AuthComponent setUserPhoto={setUserPhoto} />
         </Modal>
         <div className="header__logo-box">
           <button
@@ -110,7 +104,7 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__logo-box__auth-button"
           >
             <img
-              src={`${userPhoto}`}
+              src={`${userPhoto || currentUserPhoto}`}
               alt="userPhoto"
               className="header__logo-box__user-photo"
             />
@@ -161,4 +155,4 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       </div>
     </header>
   );
-};
+});

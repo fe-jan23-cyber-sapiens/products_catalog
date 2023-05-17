@@ -19,8 +19,10 @@
     top: 0;
     left: 0;
     right: 0;
+
     flex-direction: column;
     align-items: flex-start;
+
     height: 257px;
     padding: 16px;
   }
@@ -38,6 +40,7 @@
 
     font-weight: 700;
     font-size: 12px;
+
     line-height: 15px;
     text-align: right;
     color: var(--secondary);
@@ -50,6 +53,7 @@
       width: 32px;
       height: 32px;
       margin: 16px;
+
       background-image: url('../../assets/arrows/arrow_up.svg');
       background-color: var(--item-hover2);
       background-repeat: no-repeat;
@@ -89,13 +93,16 @@
     }
 
     &__link {
-      color: var(--link);
       font-weight: 800;
       font-size: 12px;
+
       line-height: 11px;
       letter-spacing: 0.04em;
+
       text-transform: uppercase;
       text-decoration: none;
+
+      color: var(--link);
 
       &:hover {
         color: var(--hover);

@@ -31,6 +31,7 @@ export const Checkout: FC = () => {
           {`Total for ${cartProducts.length} items`}
         </p>
       </div>
+
       <Link to="/order" className="buy">
         Checkout
       </Link>
