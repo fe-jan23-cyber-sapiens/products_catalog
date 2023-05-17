@@ -2,6 +2,7 @@ import {
   FC, useContext, useEffect, useState,
 } from 'react';
 
+import { Link } from 'react-router-dom';
 import { NavBar } from '../NavBar';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { BurgerMenu } from '../BurgerMenu';
@@ -13,6 +14,9 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { getCurrentImage } from '../../utils/utils';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
+import { Auth } from '../AuthComponent/AuthComponent';
+import { Modal } from '../Modal';
+import { useModal } from '../../hooks/useModal';
 
 interface HeaderProps {
   onThemeChange: () => void;
@@ -23,7 +27,10 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
   const { cartProducts } = useContext(CartLSUpdateContext);
   const { favProducts } = useContext(FavLSUpdateContext);
 
+  const { modal, toggleModal } = useModal();
+
   const [isOpen, setIsOpen] = useState(false);
+  const [userPhoto, setUserPhoto] = useState<string | null>(null);
 
   const currentLogo = getCurrentImage(
     theme,
@@ -49,6 +56,12 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
     images.burger_menu_icon_dark,
   );
 
+  const currentUserPhoto = getCurrentImage(
+    theme,
+    images.user_circle,
+    images.user_circle_dark,
+  );
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -56,6 +69,12 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!userPhoto) {
+      setUserPhoto(currentUserPhoto);
+    }
+  }, [userPhoto, theme]);
 
   const handleToggleMenu = () => {
     setIsOpen((currentPosition) => !currentPosition);
@@ -81,6 +100,23 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
       </div>
 
       <div className="header__right-side">
+        <Modal modalMode={modal} closeModal={toggleModal}>
+          <Auth setUserPhoto={setUserPhoto} />
+        </Modal>
+        <div className="header__logo-box">
+          <button
+            type="button"
+            onClick={() => toggleModal()}
+            className="header__logo-box__auth-button"
+          >
+            <img
+              src={`${userPhoto}`}
+              alt="userPhoto"
+              className="header__logo-box__user-photo"
+            />
+          </button>
+        </div>
+
         <div className="header__logo-box">
           <HeaderLinkWithIcon
             path={RoutePath.favourites}
@@ -89,9 +125,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__link"
           />
 
-          {favProducts.length > 0 && (
-            <div className="header__count">{favProducts.length}</div>
-          )}
+          <Link to="/favourites">
+            {favProducts.length > 0 && (
+              <div className="header__count">{favProducts.length}</div>
+            )}
+          </Link>
         </div>
 
         <div className="header__logo-box">
@@ -102,9 +140,11 @@ export const Header: FC<HeaderProps> = ({ onThemeChange }) => {
             className="header__link"
           />
 
-          {cartProducts.length > 0 && (
-            <div className="header__count">{cartProducts.length}</div>
-          )}
+          <Link to="/cart">
+            {cartProducts.length > 0 && (
+              <div className="header__count">{cartProducts.length}</div>
+            )}
+          </Link>
         </div>
 
         <div className="header__logo-box">

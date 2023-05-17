@@ -46,7 +46,7 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
   );
 
   return (
-    <Card style={{ width: '15rem' }}>
+    <Card style={{ width: '15rem', cursor: 'default' }}>
       <Card.Img
         variant="top"
         src={imgURL}
@@ -71,7 +71,11 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
           />
         </Link>
 
-        <Link to={ghURL} className="card__item">
+        <Link
+          to={ghURL}
+          className="card__item"
+          target="_blank"
+        >
           <img
             src={currentLogoGitHub}
             alt="github"
@@ -79,7 +83,7 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
           />
         </Link>
 
-        <Link to={liURL}>
+        <Link to={liURL} target="_blank">
           <img
             src={currentLogoLinkedin}
             alt="linkedin"
@@ -87,7 +91,7 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
           />
         </Link>
 
-        <Link to={`mailto:${email}`}>
+        <Link to={`mailto:${email}`} target="_blank">
           <img
             src={currentLogoEmail}
             alt="email"

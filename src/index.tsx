@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from './context/ThemeContext';
 import { CartLSUpdateProvider } from './context/CartLSUpdateContext';
 import { FavLSUpdateProvider } from './context/FavLSUpdateContext';
+import { MainLoaderProvider } from './context/MainLoaderContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -18,7 +19,9 @@ root.render(
       <FavLSUpdateProvider>
         <CartLSUpdateProvider>
           <ThemeProvider>
-            <App />
+            <MainLoaderProvider>
+              <App />
+            </MainLoaderProvider>
           </ThemeProvider>
         </CartLSUpdateProvider>
       </FavLSUpdateProvider>
@@ -26,7 +29,4 @@ root.render(
   </HashRouter>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

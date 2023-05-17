@@ -27,7 +27,6 @@ export const useProducts = (options: Options) => {
   ), [products, sortBy]);
 
   const isVisibleProducts = !isError && !isLoading && products.length > 0;
-  const isVisibleModal = products.length <= 0 && !isLoading && !isError;
 
   const getProducts = async () => {
     setIsError(false);
@@ -52,7 +51,6 @@ export const useProducts = (options: Options) => {
     count,
     sort,
     products,
-    isVisibleModal,
     isVisibleProducts,
     sortedProducts,
     handleSortBy,

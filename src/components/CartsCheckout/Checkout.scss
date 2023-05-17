@@ -17,6 +17,7 @@
 
 .total {
   font-size: 32px;
+  font-weight: 800;
   line-height: 41px;
   color: var(--primary);
 }
@@ -36,6 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   height: 40px;
   padding: 0;
@@ -51,6 +53,7 @@
   overflow: hidden;
 
   text-transform: uppercase;
+  text-decoration: none;
 
   &:hover {
     color: var(--white);

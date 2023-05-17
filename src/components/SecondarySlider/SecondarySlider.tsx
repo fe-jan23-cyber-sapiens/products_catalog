@@ -21,12 +21,10 @@ import { THEME_DARK } from '../../utils/constants';
 
 SwiperCore.use([Navigation]);
 
-  type Props = {
-    endpoint: string;
-    title: string;
-    rightArrow: string;
-    leftArrow: string;
-  };
+type Props = {
+  endpoint: string;
+  title: string;
+};
 
 export const SecondarySlider: FC<Props> = ({
   endpoint,

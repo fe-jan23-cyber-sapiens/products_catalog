@@ -1,0 +1,42 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+.auth {
+  background-color: var(--bg);
+  margin: 10px;
+
+  &-loading {
+    color: #555;
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  &-private {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  &-greeting {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  &-user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  &-logout-button {
+    background-color: #f44336;
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+

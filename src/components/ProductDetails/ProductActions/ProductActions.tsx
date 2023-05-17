@@ -41,71 +41,69 @@ export const ProductActions: FC<Props> = (props) => {
 
   return (
     <div className="actions">
-      <div className="actions__select">
-        <p className="actions__small">
-          Available colors
-        </p>
-
-        {product && (
-          <div className="actions__buttons">
-            {colorsAvailable.map((color) => (
-              <ColorButton
-                productDetails={productDetails}
-                product={product}
-                color={color}
-                key={color}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="actions__select">
-        <p className="actions__small">
-          Select capacity
-        </p>
-
-        {product && (
-          <div className="actions__buttons">
-            {capacityAvailable.map((capacity) => (
-              <CapacityButton
-                capacity={capacity}
-                category={product.category}
-                product={productDetails}
-                key={capacity}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="actions__prices">
-        <span className="actions__discount">
-          {`$${priceDiscount}`}
-        </span>
-
-        <span className="actions__full">
-          {`$${priceRegular}`}
-        </span>
-      </div>
-
       {product && (
-        <div className="actions__button">
-          <AddToCart product={product} height="45px" />
+        <>
+          <div className="actions__select">
+            <p className="actions__small">
+              Available colors
+            </p>
 
-          <AddToFavourites product={product} />
-        </div>
+            <div className="actions__buttons">
+              {colorsAvailable.map((color) => (
+                <ColorButton
+                  productDetails={productDetails}
+                  product={product}
+                  color={color}
+                  key={color}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="actions__select">
+            <p className="actions__small">
+              Select capacity
+            </p>
+
+            <div className="actions__buttons">
+              {capacityAvailable.map((capacity) => (
+                <CapacityButton
+                  capacity={capacity}
+                  category={product.category}
+                  product={productDetails}
+                  key={capacity}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="actions__prices">
+            <span className="actions__discount">
+              {`$${priceDiscount}`}
+            </span>
+
+            <span className="actions__full">
+              {`$${priceRegular}`}
+            </span>
+          </div>
+
+          <div className="actions__button">
+            <AddToCart product={product} height="45px" />
+
+            <AddToFavourites product={product} />
+          </div>
+
+          <div className="actions__characteristic">
+            <TechSpecsItem title="Screen" option={screen} />
+
+            <TechSpecsItem title="Resolution" option={resolution} />
+
+            <TechSpecsItem title="Processor" option={processor} />
+
+            <TechSpecsItem title="RAM" option={ram} />
+          </div>
+        </>
       )}
-
-      <div className="actions__characteristic">
-        <TechSpecsItem title="Screen" option={screen} />
-
-        <TechSpecsItem title="Resolution" option={resolution} />
-
-        <TechSpecsItem title="Processor" option={processor} />
-
-        <TechSpecsItem title="RAM" option={ram} />
-      </div>
     </div>
   );
 };
