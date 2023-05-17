@@ -1,1 +1,1 @@
-export { EmptyFavorites } from './ModulePageFavourites';
+export { EmptyFavoritesPage } from './ModulePageFavourites';

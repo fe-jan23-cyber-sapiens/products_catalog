@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ModulePageFavourites.scss';
 
-export function EmptyFavorites() {
+export function EmptyFavoritesPage() {
   const [showFavourites, setShowFavourites] = useState(true);
 
   const handleClose = () => {
