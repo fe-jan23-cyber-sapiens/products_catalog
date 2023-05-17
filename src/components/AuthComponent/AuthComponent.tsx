@@ -7,9 +7,11 @@ import {
   useUser,
 } from '@descope/react-sdk';
 import {
-  FC, useEffect,
+  FC, useContext, useEffect,
 } from 'react';
 import './AuthComponent.scss';
+
+import { ThemeContext } from '../../context/ThemeContext';
 
 type Props = {
   setUserPhoto: (userPhoto: string | null) => void;
@@ -20,9 +22,14 @@ export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
   const { user, isUserLoading } = useUser();
   const { logout } = useDescope();
 
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     setUserPhoto(user?.picture || null);
   }, [user?.picture]);
+
+  // eslint-disable-next-line no-console
+  console.log(theme);
 
   return (
     <>
@@ -32,32 +39,33 @@ export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
         <>
           {isAuthenticated ? (
             <div className="auth">
+              <img
+                className="auth-user-photo"
+                src={user.picture}
+                alt="user_photo"
+              />
+
               <p className="auth-greeting">
                 {`Hello, ${user.name}`}
-                <img
-                  className="auth-user-photo"
-                  src={user.picture}
-                  alt="user_photo"
-                />
               </p>
-              <div className="auth-private">My Private Component</div>
+
               <button
                 type="button"
-                onClick={
-                  logout as unknown as React.MouseEventHandler<HTMLButtonElement>
-                }
+                onClick={logout as unknown as React.MouseEventHandler<HTMLButtonElement>}
                 className="auth-logout-button"
               >
                 Logout
               </button>
             </div>
           ) : (
-            <Descope
-              flowId="sign-up-or-in"
-              onSuccess={(success) => success.detail.user}
-              onError={(error) => error.toString()}
-              theme="light"
-            />
+            <div className="descope">
+              <Descope
+                flowId="sign-up-or-in"
+                onSuccess={(success) => success.detail.user}
+                onError={(error) => error.toString()}
+                theme="light"
+              />
+            </div>
           )}
         </>
       )}
