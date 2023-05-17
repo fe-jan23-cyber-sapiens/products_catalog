@@ -53,6 +53,10 @@ export const Pagination: FC<PaginationProps> = (props) => {
     }
   };
 
+  if (paginationRange.length === 1) {
+    return null;
+  }
+
   return (
     <ul className="pagination pagination--large">
       <li
