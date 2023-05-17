@@ -1,100 +1,116 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { useUser } from '@descope/react-sdk';
 import './CheckoutForm.scss';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
+import { getTotalSum } from '../../utils/getTotalSum';
+import { Product } from '../../utils/typedefs';
 
 interface FormInput {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
-  city: string;
   phone: number;
 }
 
 export const CheckoutForm = () => {
   const { handleSubmit, register } = useForm<FormInput>();
-  const [data, setData] = useState<FormInput | null>(null);
+  const [, setData] = useState<FormInput | null>(null);
+  const [total, setTotal] = useState(0);
+  const { user } = useUser();
+  const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
 
-  // eslint-disable-next-line no-console
-  console.log(data);
+  useEffect(() => {
+    if (cartProducts?.length) {
+      setTotal(getTotalSum(cartProducts));
+
+      return;
+    }
+
+    setTotal(0);
+  }, [cartProducts]);
+
+  const onSubmit = (userData: FormInput) => {
+    setData(userData);
+    handleModifyCartLS({} as Product, 'delete');
+  };
 
   return (
-    <div
-      onSubmit={handleSubmit((userData) => setData(userData))}
-      className="form"
-    >
-      <h2 className="form__title">Make your order</h2>
-
-      <form
-        method="post"
-        className="form__form-wrapper"
+    <>
+      <div className="modal">
+        Order succes
+      </div>
+      <div
+        onSubmit={handleSubmit(onSubmit)}
+        className="checkout-form"
       >
-        <label>
-          First name:
+        <h2 className="checkout-form__title">Make your order</h2>
 
-          <input
-            placeholder="Enter your name"
-            {...register('firstName', {
-              required: true,
-              maxLength: 20,
-              pattern: /[A-Za-z]/i,
-            })}
-          />
-        </label>
+        <form
+          method="post"
+          className="checkout-form__form-wrapper"
+        >
+          <label className="checkout-form__label">
+            Full name
 
-        <label>
-          Last name:
+            <input
+              autoComplete="off"
+              defaultValue={user?.name}
+              placeholder="Enter your name"
+              {...register('fullName', {
+                required: true,
+                maxLength: 30,
+              })}
+              className="checkout-form__input"
+            />
+          </label>
 
-          <input
-            placeholder="Enter your surname"
-            {...register('lastName', {
-              required: true,
-              maxLength: 20,
-              pattern: /[A-Za-z]/i,
-            })}
-          />
-        </label>
+          <label className="checkout-form__label">
+            Email
 
-        <label>
-          Email:
+            <input
+              autoComplete="off"
+              defaultValue={user?.email}
+              placeholder="example@gmail.com"
+              type="email"
+              {...register('email', {
+                required: true,
+              })}
+              className="checkout-form__input"
+            />
+          </label>
 
-          <input
-            placeholder="example@gmail.com"
-            type="email"
-            {...register('email', {
-              required: true,
-            })}
-          />
-        </label>
+          <label className="checkout-form__label">
+            Phone number
 
-        <label>
-          City:
+            <input
+              autoComplete="off"
+              defaultValue={user?.phone}
+              placeholder="Enter you phone number"
+              type="tel"
+              {...register('phone', {
+                required: true,
+                minLength: 10,
+                maxLength: 16,
+                pattern: /^[+-\d]+$/,
+              })}
+              className="checkout-form__input"
+            />
+          </label>
 
-          <input
-            placeholder="Enter city for delivery"
-            {...register('city', {
-              required: true,
-              pattern: /[A-Za-z]/i,
-            })}
-          />
-        </label>
+          <Link to="/cart" className="checkout-form__total">
+            {`Total order sum is $${total}`}
+          </Link>
 
-        <label>
-          Phone number:
-
-          <input
-            placeholder="Enter you phone number"
-            type="tel"
-            {...register('phone', {
-              required: true,
-              minLength: 10,
-              maxLength: 13,
-            })}
-          />
-        </label>
-
-        <button type="submit">Submit order</button>
-      </form>
-    </div>
+          <button
+            type="submit"
+            className="checkout-form__button"
+          >
+            Submit order
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
