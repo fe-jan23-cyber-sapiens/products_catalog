@@ -3,13 +3,77 @@
 .main-carousel {
   margin-bottom: 88px;
 
+  &__video-wrapper {
+    background-color: black;
+    @include sliderMobileParams;
+  }
+
+  &__video {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+  }
+
+  &__image-wrapper {
+    background-color: white;
+    @include sliderMobileParams;
+    padding-top: 50px;
+
+    &--black {
+      background-color: black;
+      @include sliderMobileParams;
+    }
+  }
+
   @include onTablet {
     margin: 0 24px 96px;
+
+    &__video-wrapper {
+      @include sliderTabParams;
+    }
+
+    &__image-wrapper {
+      padding: 30px;
+      @include sliderTabParams;
+
+      &--black {
+        @include sliderTabParams;
+        padding: 50px;
+      }
+    }
   }
 
   @include onLaptop {
     margin-bottom: 112px;
+
+    &__video-wrapper {
+      width: 1136px;
+      max-height: 400px;
+      display: flex;
+      align-items: end;
+    }
+
+    &__video {
+      width: 1136px;
+      height: 320px;
+    }
+
+    &__video--bigest {
+      height: 400px;
+    }
+
+    &__image-wrapper {
+      background-color: #FFFFFF;
+      @include sliderFullScreenParams;
+
+      &--black {
+        background-color: black;
+        @include sliderFullScreenParams;
+      }
+    }
   }
+
 
   &__image {
     width: 100%;
@@ -25,27 +89,51 @@
     }
 
     &--second {
-      background-image: url('../../assets/sliderImages/second_banner.png');
+      background-image: url('../../assets/watch.jpeg');
+      background-position: top;
     }
 
     &--third {
+      background-image: url('../../assets/performance.jpg');
+    }
+
+    &--fourth {
+      background-image: url('../../assets/ip14.jpg');
+      background-size: contain;
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    &--fifth {
       background-image: url('../../assets/sliderImages/third_banner.png');
     }
 
     @include onTablet {
-      width: 100%;
-      max-width: 1136px;
-      height: auto;
+      @include sliderTabParams;
       margin: 0 auto;
-      aspect-ratio: 2.6 / 1;
 
       &--main {
         background-image: url('../../assets/sliderImages/main_banner_l.png');
+      }
+
+      &--third {
+        width: 70%;
+      }
+
+      &--fourth {
+        width: 70%;
       }
     }
 
     @include onLaptop {
       max-height: 400px;
+
+      &--fourth {
+        background-size: contain;
+        height: 320px;
+      }
     }
   }
 }
@@ -56,13 +144,11 @@
   animation: changerOpacity 0.5s ease-in-out;
 
   &-control-prev {
-    height: 100px;
-    margin: auto 0;
+    @include sliderControllerParams;
   }
 
   &-control-next {
-    height: 100px;
-    margin: auto 0;
+    @include sliderControllerParams;
   }
 }
 
