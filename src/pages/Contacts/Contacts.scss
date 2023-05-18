@@ -2,12 +2,23 @@
 @import '../../styles/scss_utils/vars';
 
 .contacts {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 20px;
+    @include onMobile {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 20px;
+        max-width: 20rem * 1;
+        background-color: var(--bg);
+        flex-wrap: wrap;
+    }
 
-  background-color: var(--bg);
+    @include onTablet {
+        max-width: 20rem * 2;
+    }
+
+    @include onLaptop {
+        max-width: 20rem * 3;
+    }
 }
 
 .card {
