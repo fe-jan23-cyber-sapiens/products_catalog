@@ -18,10 +18,6 @@ import {
 import { PATH } from './types/Path';
 import { RoutePath } from './RoutePath';
 import { CheckoutForm } from '../components';
-// import { PATH } from './types/Path';
-// import { Contacts } from '../pages/Contacts/Contacts';
-// import { Rights } from '../pages/Rights/Rights';
-// import { ProductPage } from '../pages/ProductPage/ProductPage';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {

@@ -3,12 +3,69 @@
 .main-carousel {
   margin-bottom: 88px;
 
+  &__video-wrapper {
+    background-color: black;
+    @include sliderMobileParams;
+  }
+
+  &__video {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+  }
+
+  &__image-wrapper {
+    background-color: white;
+    @include sliderMobileParams;
+    padding-top: 50px;
+
+    &--black {
+      background-color: black;
+      @include sliderMobileParams;
+    }
+  }
+
   @include onTablet {
     margin: 0 24px 96px;
+
+    &__video-wrapper {
+      @include sliderTabParams;
+    }
+
+    &__image-wrapper {
+      padding: 30px;
+      @include sliderTabParams;
+
+      &--black {
+        @include sliderTabParams;
+      }
+    }
   }
 
   @include onLaptop {
     margin-bottom: 112px;
+
+    &__video-wrapper {
+      width: 1136px;
+      max-height: 400px;
+      display: flex;
+      align-items: end;
+    }
+
+    &__video {
+      width: 1136px;
+      height: 320px;
+    }
+
+    &__image-wrapper {
+      @include sliderFullScreenParams;
+
+      &--black {
+        @include sliderFullScreenParams;
+      }
+
+    }
   }
 
   &__image {
@@ -25,19 +82,14 @@
     }
 
     &--second {
-      background-image: url('../../assets/sliderImages/second_banner.png');
-    }
-
-    &--third {
-      background-image: url('../../assets/sliderImages/third_banner.png');
+      background-image: url('../../assets/second_banner.png');
+      background-position: center;
+      background-size: contain;
     }
 
     @include onTablet {
-      width: 100%;
-      max-width: 1136px;
-      height: auto;
+      @include sliderTabParams;
       margin: 0 auto;
-      aspect-ratio: 2.6 / 1;
 
       &--main {
         background-image: url('../../assets/sliderImages/main_banner_l.png');
@@ -56,13 +108,11 @@
   animation: changerOpacity 0.5s ease-in-out;
 
   &-control-prev {
-    height: 100px;
-    margin: auto 0;
+    @include sliderControllerParams;
   }
 
   &-control-next {
-    height: 100px;
-    margin: auto 0;
+    @include sliderControllerParams;
   }
 }
 

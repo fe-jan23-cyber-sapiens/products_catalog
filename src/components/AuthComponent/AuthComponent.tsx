@@ -1,21 +1,15 @@
-/* eslint-disable max-len */
-/* eslint-disable import/no-extraneous-dependencies */
 import {
-  Descope,
-  useDescope,
-  useSession,
-  useUser,
+  Descope, useDescope, useSession, useUser,
 } from '@descope/react-sdk';
-import {
-  FC, useEffect,
-} from 'react';
+
+import { FC, MouseEventHandler, useEffect } from 'react';
 import './AuthComponent.scss';
 
-type Props = {
+interface AuthProps {
   setUserPhoto: (userPhoto: string | null) => void;
-};
+}
 
-export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
+export const AuthComponent: FC<AuthProps> = ({ setUserPhoto }) => {
   const { isAuthenticated, isSessionLoading } = useSession();
   const { user, isUserLoading } = useUser();
   const { logout } = useDescope();
@@ -32,19 +26,20 @@ export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
         <>
           {isAuthenticated ? (
             <div className="auth">
+              <img
+                className="auth-user-photo"
+                src={user.picture}
+                alt="user_photo"
+              />
+
               <p className="auth-greeting">
                 {`Hello, ${user.name}`}
-                <img
-                  className="auth-user-photo"
-                  src={user.picture}
-                  alt="user_photo"
-                />
               </p>
-              <div className="auth-private">My Private Component</div>
+
               <button
                 type="button"
                 onClick={
-                  logout as unknown as React.MouseEventHandler<HTMLButtonElement>
+                  logout as unknown as MouseEventHandler<HTMLButtonElement>
                 }
                 className="auth-logout-button"
               >
@@ -52,12 +47,14 @@ export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
               </button>
             </div>
           ) : (
-            <Descope
-              flowId="sign-up-or-in"
-              onSuccess={(success) => success.detail.user}
-              onError={(error) => error.toString()}
-              theme="light"
-            />
+            <div className="descope">
+              <Descope
+                flowId="sign-up-or-in"
+                onSuccess={(success) => success.detail.user}
+                onError={(error) => error.toString()}
+                theme="light"
+              />
+            </div>
           )}
         </>
       )}
