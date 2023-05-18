@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@descope/react-sdk": "^1.0.3",
     "@mate-academy/students-ts-config": "0.0.4",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
@@ -26,7 +27,6 @@
     "deploy": "gh-pages -d build",
     "lint": "eslint . --ignore-path .gitignore",
     "format": "prettier --write . --ignore-path .gitignore",
-    "fix-style": "npm run format && npm run lint -- --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {
