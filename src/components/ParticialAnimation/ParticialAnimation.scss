@@ -1,0 +1,39 @@
+@import '../../styles/scss_utils/mixins';
+@import '../../styles/scss_utils/vars';
+
+.cursor-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--white);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation-name: bubbleAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
