@@ -22,3 +22,7 @@ export { default as arrow_up_dark } from './arrows/arrow_up_dark.svg';
 
 export { default as user_circle } from './logos/user-circle.svg';
 export { default as user_circle_dark } from './logos/user-circle_dark.svg';
+
+export { default as mainVideo } from './video/mainVideo.mp4';
+export { default as bigMain } from './video/bigMain.mp4';
+export { default as heroIphone } from './hero_iphone14.jpg';

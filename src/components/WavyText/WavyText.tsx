@@ -1,14 +1,15 @@
+import { FC } from 'react';
 import './WavyText.scss';
 
-type Props = {
-  text: string;
-};
+interface Props {
+  text: string,
+}
 
 interface Styles extends React.CSSProperties {
   '--i': number;
 }
 
-export const WavyText: React.FC<Props> = ({ text }) => {
+export const WavyText: FC<Props> = ({ text }) => {
   return (
     <div className="wave">
       <div className="wave__text">

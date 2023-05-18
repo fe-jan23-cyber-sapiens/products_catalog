@@ -27,6 +27,7 @@
   display: inline-block;
   width: 38px;
   height: 20px;
+
   font-size: 17px;
 
   input {
@@ -55,21 +56,27 @@
   left: 0;
   right: 0;
   bottom: 0;
+
   background-color: var(--border-2);
   cursor: pointer;
   border-radius: 30px;
+
   transition: .4s;
 
   &:before {
     position: absolute;
     left: 4px;
     bottom: 4px;
-    content: "";
+
     height: 12px;
     width: 12px;
+
+    content: "";
+
     border-radius: 20px;
     background-color: var(--border-2);
     box-shadow: inset 2px -2px 0 1.8px #fff;
+
     transition: .4s;
     animation: anima1 0.3s linear;
   }

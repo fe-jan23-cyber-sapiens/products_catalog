@@ -3,34 +3,43 @@
 
   &__title {
     margin-bottom: 4px;
+
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
+
     color: var(--secondary);
   }
 
   &__trigger {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 170px;
+
+    position: relative;
+
     margin-bottom: 4px;
     padding: 10px 12px 9px;
+
     font-family: 'Mont', sans-serif;
     font-weight: 700;
     font-size: 14px;
+
     line-height: 21px;
     color: var(--primary);
+
     background: var(--item-hover2);
     border: 1px solid var(--border-2);
     cursor: pointer;
 
     &-text {
+      margin-bottom: 0;
+
       font-size: 14px;
       font-weight: 600;
       line-height: 21px;
-      margin-bottom: 0;
+
       color: var(--primary);
       text-transform: capitalize;
     }
@@ -59,11 +68,15 @@
   }
 
   &__list {
-    position: absolute;
     display: flex;
     flex-direction: column;
     width: 170px;
+
+    position: absolute;
+    z-index: 1;
+    
     padding-top: 8px;
+
     background: var(--item-hover2);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-3);
@@ -79,9 +92,11 @@
 
   &__list__item {
     padding: 6px 12px 5px;
+
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
+    
     color: var(--secondary);
     text-decoration: none;
     cursor: pointer;

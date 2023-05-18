@@ -1,11 +1,18 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import './Categories.scss';
 import phones from '../../assets/categories/phones.png';
 import tablets from '../../assets/categories/tablets.png';
 import accessories from '../../assets/categories/accessories.png';
 import { Category } from '../Category';
+import { useCategories } from './useCategories';
 
-export const Categories: FC = () => {
+export const Categories: FC = memo(() => {
+  const {
+    phonesProducts,
+    tabletsProducts,
+    accessoriesProducts,
+  } = useCategories();
+
   return (
     <section className="categories">
       <h1 className="categories__title">
@@ -14,21 +21,21 @@ export const Categories: FC = () => {
 
       <div className="categories__items">
         <Category
-          products={71}
+          products={phonesProducts.length}
           title="Mobile Phones"
           image={phones}
           link="/phones"
         />
 
         <Category
-          products={18}
+          products={tabletsProducts.length}
           title="Tablets"
           image={tablets}
           link="/tablets"
         />
 
         <Category
-          products={4}
+          products={accessoriesProducts.length}
           title="Accessories"
           image={accessories}
           link="/accessories"
@@ -36,4 +43,4 @@ export const Categories: FC = () => {
       </div>
     </section>
   );
-};
+});

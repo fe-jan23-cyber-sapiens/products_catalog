@@ -20,7 +20,7 @@ export * from './ProductDetails';
 export * from './ProductsCart';
 export * from './ProductsCatalog';
 export * from './SecondarySlider';
-export * from './SliderItem';
 export * from './ThemeSwitcher';
 export * from './Modal';
 export * from './WavyText';
+export * from './CheckoutForm';

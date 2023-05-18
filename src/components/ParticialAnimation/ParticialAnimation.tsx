@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import './ParticialAnimation.scss';
 
-export const CursorAnimation: FC = () => {
+export const ParticialAnimation: FC = () => {
   const [bubbles, setBubbles] = useState<
   { id: number; x: number; y: number }[]
   >([]);
@@ -37,10 +37,23 @@ export const CursorAnimation: FC = () => {
     return undefined;
   }, [bubbles]);
 
+  const getRandomColor = () => {
+    return [
+      '#f13666',
+      '#3899c7',
+      '#f1d70e',
+      '#fff',
+    ][Math.floor(Math.random() * 3)];
+  };
+
   return (
     <div className="cursor-animation">
       {bubbles.map(({ id, x, y }) => (
-        <div key={id} className="bubble" style={{ left: x, top: y }} />
+        <div
+          key={id}
+          className="bubble"
+          style={{ left: x, top: y, backgroundColor: getRandomColor() }}
+        />
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 import {
   FC,
+  memo,
   useContext,
   useEffect,
   useState,
@@ -17,10 +18,12 @@ interface Props {
   product: Product,
 }
 
-export const AddToCart: FC<Props> = ({
-  height,
-  product,
-}) => {
+export const AddToCart: FC<Props> = memo((props) => {
+  const {
+    height,
+    product,
+  } = props;
+
   const { handleModifyCartLS, cartProducts } = useContext(CartLSUpdateContext);
   const [isInCart, setIsInCart] = useState(false);
 
@@ -47,4 +50,4 @@ export const AddToCart: FC<Props> = ({
         : 'Remove from cart'}
     </button>
   );
-};
+});

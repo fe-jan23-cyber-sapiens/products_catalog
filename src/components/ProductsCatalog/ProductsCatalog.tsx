@@ -1,13 +1,13 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Product } from '../../utils/typedefs';
 import './ProductsCatalog.scss';
 import { CardItem } from '../CardItem';
 
 interface Props {
-  products: Product[]
+  products: Product[],
 }
 
-export const ProductsCatalog: FC<Props> = (props) => {
+export const ProductsCatalog: FC<Props> = memo((props) => {
   const { products } = props;
 
   return (
@@ -20,4 +20,4 @@ export const ProductsCatalog: FC<Props> = (props) => {
       ))}
     </div>
   );
-};
+});
