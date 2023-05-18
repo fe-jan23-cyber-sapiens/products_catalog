@@ -5,7 +5,8 @@ import { Product } from '../../utils/typedefs';
 import {
   itemsPerPageOptions,
   pageByDefault,
-  sortOptions, THEME_LIGHT,
+  sortOptions,
+  THEME_LIGHT,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -29,7 +30,10 @@ interface Props {
 }
 
 export const ProductsPage: FC<Props> = (props) => {
-  const { title, endpoint } = props;
+  const {
+    title,
+    endpoint,
+  } = props;
   const { theme } = useContext(ThemeContext);
   const { pathname } = useLocation();
 
@@ -136,4 +140,3 @@ export const ProductsPage: FC<Props> = (props) => {
       )}
     </main>
   );
-};
