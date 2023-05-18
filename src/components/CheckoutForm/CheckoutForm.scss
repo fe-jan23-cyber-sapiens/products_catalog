@@ -107,7 +107,12 @@
     text-decoration: none;
 
     &:hover {
-      color: inherit;
+      color: var(--secondary);
     }
+  }
+
+  &__error {
+    margin: 0 auto;
+    color: red;
   }
 }

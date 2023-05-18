@@ -49,8 +49,6 @@ export const CheckoutForm = () => {
         products: cartProducts,
       };
 
-      window.console.log(newOrder);
-
       await client.create(newOrder);
       handleModifyCartLS({} as Product, 'delete');
 
@@ -65,80 +63,86 @@ export const CheckoutForm = () => {
       {hasSuccess && (
         <SuccessOrder />
       )}
-      <div
-        onSubmit={handleSubmit(onSubmit)}
-        className="checkout-form"
-      >
-        <h2 className="checkout-form__title">Make your order</h2>
 
-        <form
-          method="post"
-          className="checkout-form__form-wrapper"
+      {!hasSuccess && (
+
+        <div
+          onSubmit={handleSubmit(onSubmit)}
+          className="checkout-form"
         >
-          <label className="checkout-form__label">
-            Full name
+          <h2 className="checkout-form__title">Make your order</h2>
 
-            <input
-              autoComplete="off"
-              defaultValue={user?.name}
-              placeholder="Enter your name"
-              {...register('fullName', {
-                required: true,
-                maxLength: 30,
-              })}
-              className="checkout-form__input"
-            />
-          </label>
-
-          <label className="checkout-form__label">
-            Email
-
-            <input
-              autoComplete="off"
-              defaultValue={user?.email}
-              placeholder="example@gmail.com"
-              type="email"
-              {...register('email', {
-                required: true,
-              })}
-              className="checkout-form__input"
-            />
-          </label>
-
-          <label className="checkout-form__label">
-            Phone number
-
-            <input
-              autoComplete="off"
-              defaultValue={user?.phone}
-              placeholder="Enter you phone number"
-              type="tel"
-              {...register('phone', {
-                required: true,
-                minLength: 10,
-                maxLength: 16,
-                pattern: /^[+-\d]+$/,
-              })}
-              className="checkout-form__input"
-            />
-          </label>
-
-          <Link to="/cart" className="checkout-form__total">
-            {`Total order sum is $${total}`}
-          </Link>
-
-          <button
-            type="submit"
-            className="checkout-form__button"
+          <form
+            method="post"
+            className="checkout-form__form-wrapper"
           >
-            Submit order
-          </button>
-        </form>
+            <label className="checkout-form__label">
+              Full name
 
-        {hasError && (
-          <p>Error occured when creating order</p>
-        )}
-      </div>
+              <input
+                autoComplete="off"
+                defaultValue={user?.name}
+                placeholder="Enter your name"
+                {...register('fullName', {
+                  required: true,
+                  maxLength: 30,
+                })}
+                className="checkout-form__input"
+              />
+            </label>
+
+            <label className="checkout-form__label">
+              Email
+
+              <input
+                autoComplete="off"
+                defaultValue={user?.email}
+                placeholder="example@gmail.com"
+                type="email"
+                {...register('email', {
+                  required: true,
+                })}
+                className="checkout-form__input"
+              />
+            </label>
+
+            <label className="checkout-form__label">
+              Phone number
+
+              <input
+                autoComplete="off"
+                defaultValue={user?.phone}
+                placeholder="Enter you phone number"
+                type="tel"
+                {...register('phone', {
+                  required: true,
+                  minLength: 10,
+                  maxLength: 16,
+                  pattern: /^[+-\d]+$/,
+                })}
+                className="checkout-form__input"
+              />
+            </label>
+
+            <Link to="/cart" className="checkout-form__total">
+              {`Total order sum is $${total}`}
+            </Link>
+
+            <button
+              type="submit"
+              className="checkout-form__button"
+            >
+              Submit order
+            </button>
+          </form>
+
+          {hasError && (
+            <p className="checkout-form__error">
+              Error occured when creating order
+            </p>
+          )}
+        </div>
+      )}
     </>
   );
 };
