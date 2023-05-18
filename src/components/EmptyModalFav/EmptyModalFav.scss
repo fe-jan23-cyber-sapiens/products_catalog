@@ -1,0 +1,51 @@
+@import '../../styles/scss_utils/colors';
+
+.empty-favorites {
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: max-content;
+    padding: 20px;
+
+    text-align: center;
+    border: 1px solid var(--primary-light);
+    border-radius: 5px;
+    background-color: var(--bg);
+  }
+}
+
+.image-container img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 16px;
+}
+
+.back-to-shop-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  font-size: 16px;
+  
+  background-color: var(--hover);
+  border: none;
+
+  color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    background-color: var(--hover-accent);
+  }
+}
