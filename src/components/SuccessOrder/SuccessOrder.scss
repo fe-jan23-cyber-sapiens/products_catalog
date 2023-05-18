@@ -1,0 +1,50 @@
+@import '../../styles/scss_utils/colors';
+
+.order-success {
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    height: 200px;
+    width: 100%;
+    padding: 30px;
+    
+    background-image: url('https://images.business.bt.com/is/image/btent/iphone-14-banner-desktop-2880x1260');
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-color: var(--white);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-light);
+  }
+}
+
+.close-button {
+  padding: 0 20px;
+  
+  font-size: 24px;
+  
+  background-color: var(--primary-light);
+  border: none;
+
+  color: var(--bg-light);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--white);
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    background: var(--hover-accent);
+  }
+}

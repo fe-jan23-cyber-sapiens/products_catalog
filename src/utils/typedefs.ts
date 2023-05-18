@@ -42,6 +42,10 @@ export interface Product {
   updatedAt: string;
 }
 
+export interface ProductWithCount extends Product {
+  count: number,
+}
+
 export interface Mate {
   name: string;
   text: string;
@@ -50,4 +54,13 @@ export interface Mate {
   ghURL: string;
   phone: string;
   email: string;
+}
+
+export interface Order {
+  orderId: number,
+  userId: string,
+  fullName: string,
+  email: string,
+  phone: string,
+  products: ProductWithCount[],
 }

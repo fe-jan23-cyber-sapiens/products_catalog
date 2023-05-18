@@ -7,17 +7,20 @@ import './CheckoutForm.scss';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { getTotalSum } from '../../utils/getTotalSum';
 import { Product } from '../../utils/typedefs';
+import client from '../../api/fetchingOrders';
+import { SuccessOrder } from '../SuccessOrder';
 
 interface FormInput {
   fullName: string;
   email: string;
-  phone: number;
+  phone: string;
 }
 
 export const CheckoutForm = () => {
   const { handleSubmit, register } = useForm<FormInput>();
-  const [, setData] = useState<FormInput | null>(null);
   const [total, setTotal] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const [hasSuccess, setHasSuccess] = useState(false);
   const { user } = useUser();
   const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
 
@@ -31,16 +34,37 @@ export const CheckoutForm = () => {
     setTotal(0);
   }, [cartProducts]);
 
-  const onSubmit = (userData: FormInput) => {
-    setData(userData);
-    handleModifyCartLS({} as Product, 'delete');
+  const onSubmit = async (userData: FormInput) => {
+    try {
+      if (!cartProducts.length) {
+        return;
+      }
+
+      const orders = await client.getAll();
+      const maxId = Math.max(...orders.map(ord => ord.orderId));
+      const newOrder = {
+        ...userData,
+        userId: user.userId,
+        orderId: maxId + 1,
+        products: cartProducts,
+      };
+
+      window.console.log(newOrder);
+
+      await client.create(newOrder);
+      handleModifyCartLS({} as Product, 'delete');
+
+      setHasSuccess(true);
+    } catch (error) {
+      setHasError(true);
+    }
   };
 
   return (
     <>
-      <div className="modal">
-        Order succes
-      </div>
+      {hasSuccess && (
+        <SuccessOrder />
+      )}
       <div
         onSubmit={handleSubmit(onSubmit)}
         className="checkout-form"
@@ -110,6 +134,10 @@ export const CheckoutForm = () => {
             Submit order
           </button>
         </form>
+
+        {hasError && (
+          <p>Error occured when creating order</p>
+        )}
       </div>
     </>
   );
