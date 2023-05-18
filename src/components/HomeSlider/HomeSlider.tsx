@@ -16,7 +16,6 @@ export const HomeSlider: FC = () => {
               controls={false}
               autoPlay
               muted
-              loop
             >
               <source src={videos.bigMain} type="video/mp4" />
             </video>
@@ -33,7 +32,6 @@ export const HomeSlider: FC = () => {
               controls={false}
               autoPlay
               muted
-              loop
             >
               <source src={videos.mainVideo} type="video/mp4" />
             </video>

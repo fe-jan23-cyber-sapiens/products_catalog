@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 import './FavouritesPage.scss';
+import favicon from '../../assets/favourites-empty.png';
 import { BreadCrumbs, ProductsCatalog } from '../../components';
+import { EmptyModal } from '../../components/EmptyModal';
 
 export const FavouritesPage = () => {
   const { favProducts } = useContext(FavLSUpdateContext);
@@ -18,7 +20,11 @@ export const FavouritesPage = () => {
         <p>{`${favProducts.length} items`}</p>
       </div>
 
-      <ProductsCatalog products={favProducts} />
+      {favProducts.length ? (
+        <ProductsCatalog products={favProducts} />
+      ) : (
+        <EmptyModal type="list" image={favicon} />
+      )}
     </main>
   );
 };

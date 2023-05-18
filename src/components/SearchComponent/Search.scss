@@ -1,0 +1,34 @@
+.search {
+  position: relative;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__input {
+    height: 41px;
+    padding: 10px;
+    width: 170px;
+    margin-bottom: 20px;
+
+    border: 1px solid var(--border-2);
+    background: var(--item-hover2);
+
+    color: var(--primary);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 35%;
+    right: 10%;
+
+    border: none;
+    background-color: transparent;
+
+    color: var(--secondary);
+  }
+}

@@ -12,7 +12,7 @@ export function getNumbers(from: number, to: number): number[] {
 }
 
 export const getCurrentImage = (
-  currentTheme: string,
+  currentTheme: string | boolean,
   lightThemeImg: string,
   darkThemeImg: string,
 ) => {

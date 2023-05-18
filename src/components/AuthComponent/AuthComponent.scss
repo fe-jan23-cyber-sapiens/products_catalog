@@ -1,20 +1,28 @@
 @import '../../styles/scss_utils/mixins';
 @import '../../styles/scss_utils/vars';
 
+.descope {
+  width: 50vh;
+}
+
 .auth {
+  width: 25vh;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--bg);
   margin: 10px;
+
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
 
   &-loading {
     color: #555;
     font-size: 16px;
     margin: 10px;
-  }
-
-  &-private {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
   }
 
   &-greeting {
@@ -36,6 +44,12 @@
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    transition: transform 0.3s;
+
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 

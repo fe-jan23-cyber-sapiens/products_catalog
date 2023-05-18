@@ -46,7 +46,7 @@ export const ContactInfo: FC<Props> = ({ mate }) => {
   );
 
   return (
-    <Card style={{ width: '15rem', cursor: 'default' }}>
+    <Card style={{ width: '18rem', cursor: 'default' }} className="card">
       <Card.Img
         variant="top"
         src={imgURL}

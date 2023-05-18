@@ -1,4 +1,5 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
@@ -10,6 +11,7 @@ import {
 
 import './ProductsPage.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import notfound from '../../assets/gifs/output-onlinegiftools.gif';
 
 import { usePagination } from '../../hooks/usePagination';
 import { useProducts } from './useProducts';
@@ -20,6 +22,7 @@ import {
   ProductsCatalog,
 } from '../../components';
 import { ThemeContext } from '../../context/ThemeContext';
+import { Search } from '../../components/SearchComponent/Search';
 
 interface Props {
   title: string,
@@ -32,15 +35,18 @@ export const ProductsPage: FC<Props> = (props) => {
     endpoint,
   } = props;
   const { theme } = useContext(ThemeContext);
+  const { pathname } = useLocation();
 
   const {
     sort,
     count,
     products,
+    query,
+    setQuery,
     isError,
     isLoading,
     handleSortBy,
-    sortedProducts,
+    visibleProducts,
     isVisibleProducts,
   } = useProducts({ endpoint });
 
@@ -54,73 +60,84 @@ export const ProductsPage: FC<Props> = (props) => {
   } = usePagination<Product>({
     defaultCurrentPage: pageByDefault,
     defaultItemsPerPage: count,
-    elements: sortedProducts,
+    elements: visibleProducts,
   });
+
+  useEffect(() => {
+    setQuery('');
+  }, [pathname]);
 
   const isThemeLight = theme === THEME_LIGHT;
 
   return (
-    <>
-      {isLoading ? (
+    <main className="productsPage">
+      <div className="productsPage__top">
+        <BreadCrumbs />
+
+        <h1 className="productsPage__title">
+          {title}
+        </h1>
+
+        <p>{`${products.length} models`}</p>
+      </div>
+
+      {isLoading && (
         <div className="spinner">
           <Spinner variant={isThemeLight
             ? 'dark'
             : 'light'}
           />
         </div>
-      )
-        : (
-          <main className="productsPage">
-            <div className="productsPage__top">
-              <BreadCrumbs />
+      )}
 
-              <h1 className="productsPage__title">
-                {title}
-              </h1>
+      {isVisibleProducts && (
+        <>
+          <div className="productsPage__navigation">
+            <div className="productsPage__dropdowns">
+              <CustomDropdown
+                title="Sort by"
+                type="sort"
+                options={sortOptions}
+                defaultValue={sort}
+                handleItemsPerPageChange={handleSortBy}
+              />
 
-              <p>{`${products.length} models`}</p>
+              <CustomDropdown
+                size="small"
+                title="Items on page"
+                options={itemsPerPageOptions}
+                defaultValue={count}
+                handleItemsPerPageChange={handleItemsPerPageChange}
+              />
             </div>
 
-            {isVisibleProducts && (
-              <>
-                <div className="productsPage__dropdowns">
-                  <CustomDropdown
-                    title="Sort by"
-                    type="sort"
-                    options={sortOptions}
-                    defaultValue={sort}
-                    handleItemsPerPageChange={handleSortBy}
-                  />
+            <Search query={query} onChange={setQuery} />
+          </div>
 
-                  <CustomDropdown
-                    size="small"
-                    title="Items on page"
-                    options={itemsPerPageOptions}
-                    defaultValue={count}
-                    handleItemsPerPageChange={handleItemsPerPageChange}
-                  />
-                </div>
+          <ProductsCatalog products={selectedItems} />
 
-                <ProductsCatalog products={selectedItems} />
+          <div className="productsPage__pagination">
+            <Pagination
+              total={elements.length}
+              perPage={itemsPerPage}
+              currentPage={currentPage}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </>
+      )}
 
-                <div className="productsPage__pagination">
-                  <Pagination
-                    total={elements.length}
-                    perPage={itemsPerPage}
-                    currentPage={currentPage}
-                    onPageChange={onPageChange}
-                  />
-                </div>
-              </>
-            )}
+      {!visibleProducts.length && !isLoading && (
+        <div className="notfound">
+          <img src={notfound} alt="" className="notfound__image" />
+        </div>
+      )}
 
-            {isError && !isLoading && (
-              <div className="productsPage__modal">
-                Oops... Try again.
-              </div>
-            )}
-          </main>
-        )}
-    </>
+      {isError && !isLoading && (
+        <div className="productsPage__modal">
+          Oops... Try again.
+        </div>
+      )}
+    </main>
   );
 };

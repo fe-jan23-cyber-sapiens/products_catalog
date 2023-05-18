@@ -1,5 +1,11 @@
 import { Product } from './typedefs';
 
+export const findProducts = (products: Product[], text: string) => {
+  return products.filter(
+    item => item.name.toLowerCase().includes(text.toLowerCase()),
+  );
+};
+
 export const getSortedBy = (
   phones: Product[],
   sortBy: string,

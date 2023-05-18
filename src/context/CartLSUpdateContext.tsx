@@ -80,6 +80,10 @@ export const CartLSUpdateProvider = ({
         setCartProducts(tempCartProducts);
         break;
 
+      case 'delete':
+        setCartProducts([]);
+        break;
+
       default:
         break;
     }
