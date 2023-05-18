@@ -58,14 +58,24 @@
     border: none;
 
       &__user-photo {
-        width: 35px;
-        height: 35px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
+
+        @include onLaptop {
+          width: 30px;
+          height: 30px;
+        }
       }
 
       &__auth-button {
+        padding: 13px;
         border: none;
         background-color: var(--bg);
+
+        @include onLaptop {
+          padding: 17px;
+        }
       }
 
     @include onLaptop {
