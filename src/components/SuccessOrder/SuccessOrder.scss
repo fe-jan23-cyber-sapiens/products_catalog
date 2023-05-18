@@ -1,6 +1,6 @@
 @import '../../styles/scss_utils/colors';
 
-.order-confirmation {
+.order-success {
   display: flex;
   position: relative;
   justify-content: center;
@@ -31,21 +31,20 @@
   }
 }
 
-  .close-button {
-    padding: 0 20px;
-    
-    font-size: 24px;
-    
-    background-color: var(--primary-light);
-    border: none;
-
-    color: var(--bg-light);
-    cursor: pointer;
-
-    &:hover {
-      color: var(--white);
-      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-      background: var(--hover-accent);
-    }
-  }
+.close-button {
+  padding: 0 20px;
   
+  font-size: 24px;
+  
+  background-color: var(--primary-light);
+  border: none;
+
+  color: var(--bg-light);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--white);
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    background: var(--hover-accent);
+  }
+}

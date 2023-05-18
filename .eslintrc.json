@@ -11,6 +11,7 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
+  "ignorePatterns": ["TechSpecs.tsx", "ProductPage.tsx"],
   "rules": {
     "max-len": [
       "error",

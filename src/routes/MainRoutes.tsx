@@ -17,7 +17,7 @@ import {
 } from '../pages';
 import { PATH } from './types/Path';
 import { RoutePath } from './RoutePath';
-import { OrderConfirmation } from '../components/ModulePage';
+import { CheckoutForm } from '../components';
 
 export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Main]: {
@@ -72,7 +72,7 @@ export const routeConfig: Record<PATH, RouteProps> = {
 
   [PATH.Order]: {
     path: RoutePath.order,
-    element: <OrderConfirmation />,
+    element: <CheckoutForm />,
   },
 
   [PATH.Error]: {
