@@ -1,20 +1,30 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import './EmptyModalFav.scss';
-import favicon from '../../assets/favourites-empty.png';
+import './EmptyModal.scss';
 
-export const EmptyModalFav = () => {
+interface Props {
+  type: string,
+  image: string,
+}
+
+export const EmptyModal: FC<Props> = (props) => {
+  const {
+    type,
+    image,
+  } = props;
+
   return (
-    <div className="empty-favorites">
-      <div className="empty-favorites__content">
+    <div className="empty-modal">
+      <div className="empty-modal__content">
         <div className="image-container">
           <img
-            src={favicon}
+            src={image}
             alt="Empty Favorites"
           />
         </div>
 
         <div className="message">
-          Oops! Your favorites are empty.
+          {`Oops! Your ${type} is empty.`}
           <span role="img" aria-label="Sad Emoji">😢</span>
         </div>
 

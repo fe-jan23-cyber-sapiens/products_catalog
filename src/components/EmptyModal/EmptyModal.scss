@@ -1,6 +1,6 @@
 @import '../../styles/scss_utils/colors';
 
-.empty-favorites {
+.empty-modal {
   display: flex;
   justify-content: center;
 
@@ -13,15 +13,13 @@
     padding: 20px;
 
     text-align: center;
-    border: 1px solid var(--primary-light);
-    border-radius: 5px;
     background-color: var(--bg);
   }
 }
 
 .image-container img {
   max-width: 200px;
-  height: auto;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -34,6 +32,7 @@
 .back-to-shop-button {
   margin-top: 20px;
   padding: 10px 20px;
+  width: 100%;
 
   font-size: 16px;
   
