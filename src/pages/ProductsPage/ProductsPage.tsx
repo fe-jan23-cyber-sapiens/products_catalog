@@ -140,3 +140,4 @@ export const ProductsPage: FC<Props> = (props) => {
       )}
     </main>
   );
+};
