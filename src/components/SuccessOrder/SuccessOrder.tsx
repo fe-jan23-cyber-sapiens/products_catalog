@@ -1,11 +1,11 @@
-import './OrderConfirmation.scss';
 import { Link } from 'react-router-dom';
+import './SuccessOrder.scss';
 
-export const OrderConfirmation = () => {
+export const SuccessOrder = () => {
   return (
-    <div className="order-confirmation">
-      <div className="order-confirmation__card">
-        <h2 className="order-confirmation__title">
+    <div className="order-success">
+      <div className="order-success__card">
+        <h2 className="order-success__title">
           Thank you for your order!
         </h2>
 
