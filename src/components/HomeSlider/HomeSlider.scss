@@ -39,7 +39,6 @@
 
       &--black {
         @include sliderTabParams;
-        padding: 50px;
       }
     }
   }
@@ -59,21 +58,15 @@
       height: 320px;
     }
 
-    &__video--bigest {
-      height: 400px;
-    }
-
     &__image-wrapper {
-      background-color: #FFFFFF;
       @include sliderFullScreenParams;
 
       &--black {
-        background-color: black;
         @include sliderFullScreenParams;
       }
+
     }
   }
-
 
   &__image {
     width: 100%;
@@ -89,25 +82,9 @@
     }
 
     &--second {
-      background-image: url('../../assets/watch.jpeg');
-      background-position: top;
-    }
-
-    &--third {
-      background-image: url('../../assets/performance.jpg');
-    }
-
-    &--fourth {
-      background-image: url('../../assets/ip14.jpg');
+      background-image: url('../../assets/second_banner.png');
+      background-position: center;
       background-size: contain;
-      width: 70%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-    }
-
-    &--fifth {
-      background-image: url('../../assets/sliderImages/third_banner.png');
     }
 
     @include onTablet {
@@ -117,23 +94,10 @@
       &--main {
         background-image: url('../../assets/sliderImages/main_banner_l.png');
       }
-
-      &--third {
-        width: 70%;
-      }
-
-      &--fourth {
-        width: 70%;
-      }
     }
 
     @include onLaptop {
       max-height: 400px;
-
-      &--fourth {
-        background-size: contain;
-        height: 320px;
-      }
     }
   }
 }

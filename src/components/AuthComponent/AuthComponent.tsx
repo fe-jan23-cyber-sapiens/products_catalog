@@ -1,14 +1,7 @@
-/* eslint-disable max-len */
-/* eslint-disable import/no-extraneous-dependencies */
 import {
-  Descope,
-  useDescope,
-  useSession,
-  useUser,
+  Descope, useDescope, useSession, useUser,
 } from '@descope/react-sdk';
-import {
-  FC, useEffect,
-} from 'react';
+import { FC, MouseEventHandler, useEffect } from 'react';
 import './AuthComponent.scss';
 
 type Props = {
@@ -44,7 +37,7 @@ export const AuthComponent: FC<Props> = ({ setUserPhoto }) => {
               <button
                 type="button"
                 onClick={
-                  logout as unknown as React.MouseEventHandler<HTMLButtonElement>
+                  logout as unknown as MouseEventHandler<HTMLButtonElement>
                 }
                 className="auth-logout-button"
               >

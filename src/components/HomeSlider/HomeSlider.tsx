@@ -12,6 +12,20 @@ export const HomeSlider: FC = () => {
         <Carousel.Item>
           <div className="main-carousel__video-wrapper">
             <video
+              className="main-carousel__video"
+              controls={false}
+              autoPlay
+              muted
+              loop
+            >
+              <source src={videos.bigMain} type="video/mp4" />
+            </video>
+          </div>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <div className="main-carousel__video-wrapper">
+            <video
               className="
               main-carousel__video
               main-carousel__video--bigest
@@ -27,58 +41,16 @@ export const HomeSlider: FC = () => {
         </Carousel.Item>
 
         <Carousel.Item>
-          <div className="main-carousel__image-wrapper">
-            <div
-              className="
-              main-carousel__image
-              main-carousel__image--fourth
-            "
-            />
-          </div>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <div className="main-carousel__video-wrapper">
-            <video
-              className="main-carousel__video"
-              controls={false}
-              autoPlay
-              muted
-              loop
-            >
-              <source src={videos.bigMain} type="video/mp4" />
-            </video>
-          </div>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <div
-            className="
-              main-carousel__image
-              main-carousel__image--fifth
-            "
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <div
-            className="
-              main-carousel__image
-              main-carousel__image--second
-            "
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
           <div className="main-carousel__image-wrapper--black">
             <div
               className="
               main-carousel__image
-              main-carousel__image--third
+              main-carousel__image--second
             "
             />
           </div>
         </Carousel.Item>
+
       </Carousel>
     </div>
   );
