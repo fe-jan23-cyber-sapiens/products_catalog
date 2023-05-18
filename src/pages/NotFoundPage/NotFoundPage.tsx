@@ -1,3 +1,5 @@
+// eslint-disable-next-line max-len
+import { CursorAnimation } from '../../components/ParticialAnimation/ParticialAnimation';
 import './NotFoundPage.scss';
 
 export const NotFoundPage = () => {
@@ -6,7 +8,6 @@ export const NotFoundPage = () => {
       <h2 className="title">
         Page not found
       </h2>
-
       <div className="unicorn-wrap">
         <div className="unicorn">
           <div className="unicorn-body" />
