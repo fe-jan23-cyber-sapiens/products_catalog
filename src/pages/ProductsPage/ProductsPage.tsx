@@ -9,6 +9,7 @@ import {
 
 import './ProductsPage.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import notfound from '../../assets/gifs/output-onlinegiftools.gif';
 
 import { usePagination } from '../../hooks/usePagination';
 import { useProducts } from './useProducts';
@@ -19,6 +20,7 @@ import {
   ProductsCatalog,
 } from '../../components';
 import { ThemeContext } from '../../context/ThemeContext';
+import { Search } from '../../components/SearchComponent/Search';
 
 interface Props {
   title: string,
@@ -33,10 +35,12 @@ export const ProductsPage: FC<Props> = (props) => {
     sort,
     count,
     products,
+    query,
+    setQuery,
     isError,
     isLoading,
     handleSortBy,
-    sortedProducts,
+    visibleProducts,
     isVisibleProducts,
   } = useProducts({ endpoint });
 
@@ -50,7 +54,7 @@ export const ProductsPage: FC<Props> = (props) => {
   } = usePagination<Product>({
     defaultCurrentPage: pageByDefault,
     defaultItemsPerPage: count,
-    elements: sortedProducts,
+    elements: visibleProducts,
   });
 
   const isThemeLight = theme === THEME_LIGHT;
@@ -78,22 +82,26 @@ export const ProductsPage: FC<Props> = (props) => {
 
       {isVisibleProducts && (
         <>
-          <div className="productsPage__dropdowns">
-            <CustomDropdown
-              title="Sort by"
-              type="sort"
-              options={sortOptions}
-              defaultValue={sort}
-              handleItemsPerPageChange={handleSortBy}
-            />
+          <div className="productsPage__navigation">
+            <div className="productsPage__dropdowns">
+              <CustomDropdown
+                title="Sort by"
+                type="sort"
+                options={sortOptions}
+                defaultValue={sort}
+                handleItemsPerPageChange={handleSortBy}
+              />
 
-            <CustomDropdown
-              size="small"
-              title="Items on page"
-              options={itemsPerPageOptions}
-              defaultValue={count}
-              handleItemsPerPageChange={handleItemsPerPageChange}
-            />
+              <CustomDropdown
+                size="small"
+                title="Items on page"
+                options={itemsPerPageOptions}
+                defaultValue={count}
+                handleItemsPerPageChange={handleItemsPerPageChange}
+              />
+            </div>
+
+            <Search query={query} onChange={setQuery} />
           </div>
 
           <ProductsCatalog products={selectedItems} />
@@ -107,6 +115,12 @@ export const ProductsPage: FC<Props> = (props) => {
             />
           </div>
         </>
+      )}
+
+      {!visibleProducts.length && !isLoading && (
+        <div className="notfound">
+          <img src={notfound} alt="" className="notfound__image" />
+        </div>
       )}
 
       {isError && !isLoading && (

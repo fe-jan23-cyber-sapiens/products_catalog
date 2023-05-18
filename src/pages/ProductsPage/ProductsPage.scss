@@ -61,10 +61,31 @@
     display: flex;
     justify-content: center;
   }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
 }
 
 .spinner {
   height: 300px;
   display: flex;
   justify-content: center;
+}
+
+.notfound {
+  width: max-content;
+  margin: 0 auto;
+
+  &__image {
+    width: 300px;
+    height: 200px;
+  }
 }

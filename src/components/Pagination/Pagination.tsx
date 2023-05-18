@@ -53,7 +53,7 @@ export const Pagination: FC<PaginationProps> = (props) => {
     }
   };
 
-  if (paginationRange.length === 1) {
+  if (paginationRange.length === 1 || !total) {
     return null;
   }
 
