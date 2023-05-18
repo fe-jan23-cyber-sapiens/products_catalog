@@ -4,7 +4,8 @@ import { Product } from '../../utils/typedefs';
 import {
   itemsPerPageOptions,
   pageByDefault,
-  sortOptions, THEME_LIGHT,
+  sortOptions,
+  THEME_LIGHT,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -26,7 +27,10 @@ interface Props {
 }
 
 export const ProductsPage: FC<Props> = (props) => {
-  const { title, endpoint } = props;
+  const {
+    title,
+    endpoint,
+  } = props;
   const { theme } = useContext(ThemeContext);
 
   const {
@@ -56,64 +60,67 @@ export const ProductsPage: FC<Props> = (props) => {
   const isThemeLight = theme === THEME_LIGHT;
 
   return (
-    <main className="productsPage">
-      <div className="productsPage__top">
-        <BreadCrumbs />
-
-        <h1 className="productsPage__title">
-          {title}
-        </h1>
-
-        <p>{`${products.length} models`}</p>
-      </div>
-
-      {isLoading && (
+    <>
+      {isLoading ? (
         <div className="spinner">
           <Spinner variant={isThemeLight
             ? 'dark'
             : 'light'}
           />
         </div>
-      )}
+      )
+        : (
+          <main className="productsPage">
+            <div className="productsPage__top">
+              <BreadCrumbs />
 
-      {isVisibleProducts && (
-        <>
-          <div className="productsPage__dropdowns">
-            <CustomDropdown
-              title="Sort by"
-              type="sort"
-              options={sortOptions}
-              defaultValue={sort}
-              handleItemsPerPageChange={handleSortBy}
-            />
+              <h1 className="productsPage__title">
+                {title}
+              </h1>
 
-            <CustomDropdown
-              size="small"
-              title="Items on page"
-              options={itemsPerPageOptions}
-              defaultValue={count}
-              handleItemsPerPageChange={handleItemsPerPageChange}
-            />
-          </div>
+              <p>{`${products.length} models`}</p>
+            </div>
 
-          <ProductsCatalog products={selectedItems} />
+            {isVisibleProducts && (
+              <>
+                <div className="productsPage__dropdowns">
+                  <CustomDropdown
+                    title="Sort by"
+                    type="sort"
+                    options={sortOptions}
+                    defaultValue={sort}
+                    handleItemsPerPageChange={handleSortBy}
+                  />
 
-          <div className="productsPage__pagination">
-            <Pagination
-              total={elements.length}
-              perPage={itemsPerPage}
-              currentPage={currentPage}
-              onPageChange={onPageChange}
-            />
-          </div>
-        </>
-      )}
+                  <CustomDropdown
+                    size="small"
+                    title="Items on page"
+                    options={itemsPerPageOptions}
+                    defaultValue={count}
+                    handleItemsPerPageChange={handleItemsPerPageChange}
+                  />
+                </div>
 
-      {isError && !isLoading && (
-        <div className="productsPage__modal">
-          Oops... Try again.
-        </div>
-      )}
-    </main>
+                <ProductsCatalog products={selectedItems} />
+
+                <div className="productsPage__pagination">
+                  <Pagination
+                    total={elements.length}
+                    perPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={onPageChange}
+                  />
+                </div>
+              </>
+            )}
+
+            {isError && !isLoading && (
+              <div className="productsPage__modal">
+                Oops... Try again.
+              </div>
+            )}
+          </main>
+        )}
+    </>
   );
 };
