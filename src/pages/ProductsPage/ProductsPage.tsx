@@ -1,4 +1,5 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
@@ -30,6 +31,7 @@ interface Props {
 export const ProductsPage: FC<Props> = (props) => {
   const { title, endpoint } = props;
   const { theme } = useContext(ThemeContext);
+  const { pathname } = useLocation();
 
   const {
     sort,
@@ -56,6 +58,10 @@ export const ProductsPage: FC<Props> = (props) => {
     defaultItemsPerPage: count,
     elements: visibleProducts,
   });
+
+  useEffect(() => {
+    setQuery('');
+  }, [pathname]);
 
   const isThemeLight = theme === THEME_LIGHT;
 
