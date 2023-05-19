@@ -10,13 +10,19 @@
   &__title {
     position: relative;
     width: max-content;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     color: var(--primary);
     font-weight: bold;
 
     @include onTablet {
       font-size: 28px;
     }
+  }
+
+  &__login {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    color: crimson;
   }
 
   &__form-wrapper {
@@ -68,6 +74,10 @@
 
     &:hover, &:focus {
       border-color: var(--hover-accent);
+    }
+
+    &--disabled:hover {
+      border-color: var(--secondary);
     }
     
     @include onTablet {

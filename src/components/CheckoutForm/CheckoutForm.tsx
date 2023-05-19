@@ -1,15 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { useUser } from '@descope/react-sdk';
-import './CheckoutForm.scss';
+import { useSession, useUser } from '@descope/react-sdk';
+import classnames from 'classnames';
+
 import Spinner from 'react-bootstrap/Spinner';
+import { SuccessOrder } from '../SuccessOrder';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
+import './CheckoutForm.scss';
+
 import { getTotalSum } from '../../utils/getTotalSum';
 import { Product } from '../../utils/typedefs';
 import client from '../../api/fetchingOrders';
-import { SuccessOrder } from '../SuccessOrder';
 
 interface FormInput {
   fullName: string;
@@ -24,6 +27,7 @@ export const CheckoutForm = () => {
   const [hasSuccess, setHasSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
+  const { isAuthenticated } = useSession();
   const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
 
   useEffect(() => {
@@ -77,6 +81,12 @@ export const CheckoutForm = () => {
         >
           <h2 className="checkout-form__title">Make your order</h2>
 
+          {!isAuthenticated && (
+            <h5 className="checkout-form__login">
+              Please Log In or Sign Up for make an order!
+            </h5>
+          )}
+
           <form
             method="post"
             className="checkout-form__form-wrapper"
@@ -92,7 +102,13 @@ export const CheckoutForm = () => {
                   required: true,
                   maxLength: 30,
                 })}
-                className="checkout-form__input"
+                className={classnames(
+                  'checkout-form__input',
+                  {
+                    'checkout-form__input--disabled': !isAuthenticated,
+                  },
+                )}
+                disabled={!isAuthenticated}
               />
             </label>
 
@@ -107,7 +123,13 @@ export const CheckoutForm = () => {
                 {...register('email', {
                   required: true,
                 })}
-                className="checkout-form__input"
+                className={classnames(
+                  'checkout-form__input',
+                  {
+                    'checkout-form__input--disabled': !isAuthenticated,
+                  },
+                )}
+                disabled={!isAuthenticated}
               />
             </label>
 
@@ -125,7 +147,13 @@ export const CheckoutForm = () => {
                   maxLength: 16,
                   pattern: /^[+-\d]+$/,
                 })}
-                className="checkout-form__input"
+                className={classnames(
+                  'checkout-form__input',
+                  {
+                    'checkout-form__input--disabled': !isAuthenticated,
+                  },
+                )}
+                disabled={!isAuthenticated}
               />
             </label>
 
