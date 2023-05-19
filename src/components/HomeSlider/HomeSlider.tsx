@@ -1,8 +1,7 @@
+import { FC } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HomeSlider.scss';
-import { FC } from 'react';
-import * as videos from '../../assets';
 
 export const HomeSlider: FC = () => {
   return (
@@ -13,12 +12,12 @@ export const HomeSlider: FC = () => {
           <div className="main-carousel__video-wrapper">
             <video
               className="main-carousel__video"
+              src={'https://res.cloudinary.com'
+                + '/dhg5wnekh/video/upload/v1684492669/bigMain_gfkjqf.mp4'}
               controls={false}
               autoPlay
               muted
-            >
-              <source src={videos.bigMain} type="video/mp4" />
-            </video>
+            />
           </div>
         </Carousel.Item>
 
@@ -29,12 +28,12 @@ export const HomeSlider: FC = () => {
               main-carousel__video
               main-carousel__video--bigest
               "
+              src={'https://res.cloudinary.com'
+                + '/dhg5wnekh/video/upload/v1684492684/mainVideo_gakam6.mp4'}
               controls={false}
               autoPlay
               muted
-            >
-              <source src={videos.mainVideo} type="video/mp4" />
-            </video>
+            />
           </div>
         </Carousel.Item>
 
