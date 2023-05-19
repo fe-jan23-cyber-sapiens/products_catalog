@@ -8,7 +8,7 @@
 .auth {
   width: max-content;
   padding: 15px;
-  height: 25vh;
+  height: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,6 +52,14 @@
       transform: scale(1.1);
     }
   }
+
+  &__orders {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 800;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
 }
-
-

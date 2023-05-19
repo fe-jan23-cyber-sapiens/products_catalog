@@ -4,12 +4,14 @@ import {
 
 import { FC, MouseEventHandler, useEffect } from 'react';
 import './AuthComponent.scss';
+import { Link } from 'react-router-dom';
 
 interface AuthProps {
   setUserPhoto: (userPhoto: string | null) => void;
+  closeModal: () => void,
 }
 
-export const AuthComponent: FC<AuthProps> = ({ setUserPhoto }) => {
+export const AuthComponent: FC<AuthProps> = ({ setUserPhoto, closeModal }) => {
   const { isAuthenticated, isSessionLoading } = useSession();
   const { user, isUserLoading } = useUser();
   const { logout } = useDescope();
@@ -35,6 +37,14 @@ export const AuthComponent: FC<AuthProps> = ({ setUserPhoto }) => {
               <p className="auth-greeting">
                 {`Hello, ${user.name}`}
               </p>
+
+              <Link
+                to="/orders"
+                className="auth__orders"
+                onClick={closeModal}
+              >
+                <p>My orders</p>
+              </Link>
 
               <button
                 type="button"

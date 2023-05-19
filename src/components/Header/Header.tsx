@@ -95,7 +95,7 @@ export const Header: FC<HeaderProps> = memo(({ onThemeChange }) => {
 
       <div className="header__right-side">
         <Modal modalMode={modal} closeModal={toggleModal}>
-          <AuthComponent setUserPhoto={setUserPhoto} />
+          <AuthComponent setUserPhoto={setUserPhoto} closeModal={toggleModal} />
         </Modal>
         <div className="header__logo-box">
           <button
