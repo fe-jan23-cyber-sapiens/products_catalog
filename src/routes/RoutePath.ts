@@ -15,5 +15,6 @@ export const RoutePath: Record<PATH, string> = {
   [PATH.Error]: '*',
   [PATH.Contacts]: '/contacts',
   [PATH.Rights]: '/rights',
+  [PATH.Success]: '/orderSuccess',
   [PATH.Orders]: '/orders',
 };

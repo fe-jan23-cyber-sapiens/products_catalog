@@ -10,13 +10,19 @@
   &__title {
     position: relative;
     width: max-content;
-    margin: 0 auto 30px;
-    color: var(--primary);
+    margin: 0 auto 20px;
+
+    color: var(--white);
     font-weight: bold;
 
     @include onTablet {
       font-size: 28px;
     }
+  }
+
+  &__login {
+    margin: 0 auto 15px;
+    color: crimson;
   }
 
   &__form-wrapper {
@@ -31,12 +37,12 @@
     align-items: flex-start;
     width: 100%; 
     min-width: 256px;
+    max-width: 300px;
+    margin: 0 auto 20px;
+
     font-size: 16px;
     font-weight: 600;
-    max-width: 300px;
-    margin: 0 auto;
-    
-    margin-bottom: 20px;
+    color: var(--white);
     
     &:nth-child(3) {
       margin-bottom: 20px;
@@ -50,13 +56,15 @@
   &__input {
     width: 100%;
     max-width: 300px;
-    padding-left: 10px;
-    font-size: 12px;
     height: 36px;
-    border: 1px solid var(--secondary);
     margin-top: 3px;
+    padding-left: 10px;
+
+    color: var(--white);
+    font-size: 12px;
+
+    border: 1px solid var(--secondary-light);
     background-color: transparent;
-    color: var(--primary);
 
     outline: none;
 
@@ -67,7 +75,11 @@
     }
 
     &:hover, &:focus {
-      border-color: var(--hover-accent);
+      border-color: var(--white);
+    }
+
+    &--disabled:hover {
+      border-color: var(--secondary-light);
     }
     
     @include onTablet {
@@ -77,27 +89,31 @@
 
   &__button {
     width: 160px;
-    color: var(--white);
-    background-color: var(--hover);
-    padding: 8px 0;
     margin: 0 auto;
+    padding: 8px 0;
+
+    color: var(--white);
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 0.5px;
+
+    background-color: var(--accent-dark);
     border: 1px solid transparent;
+
     transition: all 0.3s ease;
 
     &:hover {
       box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-      background-color: var(--hover-accent);
+      background-color: var(--accent-hover);
     }
   }
 
   &__total {
+    margin: 0 auto 20px;
+
+    color: var(--white);
     font-size: 18px;
     font-weight: 600;
-    margin: 0 auto 20px;
-    color: var(--primary);
     text-decoration: none;
 
     &:hover {
