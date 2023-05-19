@@ -3,7 +3,7 @@ import './App.scss';
 
 import { AuthProvider } from '@descope/react-sdk';
 import { ThemeContext } from './context/ThemeContext';
-import { THEME_DARK, THEME_LIGHT } from './utils/constants';
+import { PROJECT_ID, THEME_DARK, THEME_LIGHT } from './utils/constants';
 import {
   ButtonScrollTop,
   Footer,
@@ -31,7 +31,7 @@ export const App = () => {
   };
 
   return (
-    <AuthProvider projectId="P2PrllCsf5bR0pmZY0IA8z1CBv2z">
+    <AuthProvider projectId={PROJECT_ID}>
       <div className={`app ${theme}`}>
         {isShown ? (
           <div className="app__wave wave">

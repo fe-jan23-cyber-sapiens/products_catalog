@@ -13,5 +13,6 @@ export const items = getNumbers(1, itemsTotal)
 
 export const THEME_LIGHT = 'light';
 export const THEME_DARK = 'dark';
+export const PROJECT_ID = 'P2PrllCsf5bR0pmZY0IA8z1CBv2z';
 
 export const BASE_URL = 'https://products-catalog-api.onrender.com';
