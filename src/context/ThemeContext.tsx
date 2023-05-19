@@ -7,12 +7,12 @@ interface ThemeContextType {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: 'light',
+  theme: 'dark',
   setTheme: () => {},
 });
 
 export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   const contextValue: ThemeContextType = {
     theme,

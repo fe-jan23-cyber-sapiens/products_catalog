@@ -3,10 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { Product } from '../../utils/typedefs';
 import {
-  itemsPerPageOptions,
-  pageByDefault,
-  sortOptions,
-  THEME_LIGHT,
+  itemsPerPageOptions, pageByDefault, sortOptions, THEME_LIGHT,
 } from '../../utils/constants';
 
 import './ProductsPage.scss';
@@ -16,10 +13,7 @@ import notfound from '../../assets/gifs/output-onlinegiftools.gif';
 import { usePagination } from '../../hooks/usePagination';
 import { useProducts } from './useProducts';
 import {
-  BreadCrumbs,
-  CustomDropdown,
-  Pagination,
-  ProductsCatalog,
+  BreadCrumbs, CustomDropdown, Pagination, ProductsCatalog,
 } from '../../components';
 import { ThemeContext } from '../../context/ThemeContext';
 import { Search } from '../../components/SearchComponent/Search';
@@ -70,74 +64,78 @@ export const ProductsPage: FC<Props> = (props) => {
   const isThemeLight = theme === THEME_LIGHT;
 
   return (
-    <main className="productsPage">
-      <div className="productsPage__top">
-        <BreadCrumbs />
+    <>
 
-        <h1 className="productsPage__title">
-          {title}
-        </h1>
-
-        <p>{`${products.length} models`}</p>
-      </div>
-
-      {isLoading && (
+      {isLoading ? (
         <div className="spinner">
           <Spinner variant={isThemeLight
             ? 'dark'
             : 'light'}
           />
         </div>
-      )}
+      )
+        : (
+          <main className="productsPage">
+            <div className="productsPage__top">
+              <BreadCrumbs />
 
-      {isVisibleProducts && (
-        <>
-          <div className="productsPage__navigation">
-            <div className="productsPage__dropdowns">
-              <CustomDropdown
-                title="Sort by"
-                type="sort"
-                options={sortOptions}
-                defaultValue={sort}
-                handleItemsPerPageChange={handleSortBy}
-              />
+              <h1 className="productsPage__title">
+                {title}
+              </h1>
 
-              <CustomDropdown
-                size="small"
-                title="Items on page"
-                options={itemsPerPageOptions}
-                defaultValue={count}
-                handleItemsPerPageChange={handleItemsPerPageChange}
-              />
+              <p>{`${products.length} models`}</p>
             </div>
 
-            <Search query={query} onChange={setQuery} />
-          </div>
+            {isVisibleProducts && (
+              <>
+                <div className="productsPage__navigation">
+                  <div className="productsPage__dropdowns">
+                    <CustomDropdown
+                      title="Sort by"
+                      type="sort"
+                      options={sortOptions}
+                      defaultValue={sort}
+                      handleItemsPerPageChange={handleSortBy}
+                    />
 
-          <ProductsCatalog products={selectedItems} />
+                    <CustomDropdown
+                      size="small"
+                      title="Items on page"
+                      options={itemsPerPageOptions}
+                      defaultValue={count}
+                      handleItemsPerPageChange={handleItemsPerPageChange}
+                    />
+                  </div>
 
-          <div className="productsPage__pagination">
-            <Pagination
-              total={elements.length}
-              perPage={itemsPerPage}
-              currentPage={currentPage}
-              onPageChange={onPageChange}
-            />
-          </div>
-        </>
-      )}
+                  <Search query={query} onChange={setQuery} />
+                </div>
 
-      {!visibleProducts.length && !isLoading && (
-        <div className="notfound">
-          <img src={notfound} alt="" className="notfound__image" />
-        </div>
-      )}
+                <ProductsCatalog products={selectedItems} />
 
-      {isError && !isLoading && (
-        <div className="productsPage__modal">
-          Oops... Try again.
-        </div>
-      )}
-    </main>
+                <div className="productsPage__pagination">
+                  <Pagination
+                    total={elements.length}
+                    perPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={onPageChange}
+                  />
+                </div>
+              </>
+            )}
+
+            {!visibleProducts.length && !isLoading && (
+              <div className="notfound">
+                <img src={notfound} alt="" className="notfound__image" />
+              </div>
+            )}
+
+            {isError && !isLoading && (
+              <div className="productsPage__modal">
+                Oops... Try again.
+              </div>
+            )}
+          </main>
+        )}
+    </>
   );
 };
