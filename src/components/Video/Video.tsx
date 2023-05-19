@@ -1,13 +1,32 @@
-import { FC, useState } from 'react';
+import {
+  FC,
+  useState,
+  ReactNode,
+  useEffect,
+  useRef,
+} from 'react';
 import './Video.scss';
-import volumeHigh from '../../assets/volumeHigh.svg';
+import volumeHigh from '../../assets/volumeHeigh.svg';
 import volumeXmark from '../../assets/volumeXmark.svg';
 import { VIDEO_PATH } from '../../utils/constants';
 
-export const Video: FC = () => {
-  const [toggle, setToggle] = useState(false);
+interface Props {
+  children: ReactNode,
+}
 
-  const correctIcon = toggle
+export const Video: FC<Props> = ({ children }) => {
+  const [toggle, setToggle] = useState(false);
+  const video = useRef<HTMLVideoElement>();
+
+  useEffect(() => {
+    window.console.log(1);
+
+    if (video.current) {
+      video.current.volume = 0.05;
+    }
+  }, []);
+
+  const correctIcon = !toggle
     ? volumeXmark
     : volumeHigh;
 
@@ -16,25 +35,29 @@ export const Video: FC = () => {
   };
 
   return (
-    <div className="video__wrapper">
+    <>
+      <div className="video__wrapper">
+        <img
+          className="video__wrapper-icon"
+          src={correctIcon}
+          alt="Mute & unmute icons"
+          onClick={handleToggleMute}
+        />
 
-      <img
-        className="video__wrapper-icon"
-        src={correctIcon}
-        alt="Mute & unmute icons"
-        onClick={handleToggleMute}
-      />
+        <div className="video__wrapper--halfTransparent" />
 
-      <div className="video__wrapper--halfTransparent" />
-      <video
-        src={VIDEO_PATH}
-        className="video__content"
-        autoPlay
-        muted={!toggle}
-        loop
-      >
-        <track src="" />
-      </video>
-    </div>
+        <div className="children-wrapper">
+          {children}
+        </div>
+
+        <video
+          src={VIDEO_PATH}
+          className="video__content"
+          autoPlay
+          muted={!toggle}
+          loop
+        />
+      </div>
+    </>
   );
 };

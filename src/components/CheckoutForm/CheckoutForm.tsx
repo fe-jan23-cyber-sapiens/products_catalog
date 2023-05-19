@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
 import { useSession, useUser } from '@descope/react-sdk';
 import classnames from 'classnames';
 
 import Spinner from 'react-bootstrap/Spinner';
-import { SuccessOrder } from '../SuccessOrder';
+import { Video } from '../Video';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import './CheckoutForm.scss';
 
@@ -21,14 +21,15 @@ interface FormInput {
 }
 
 export const CheckoutForm = () => {
-  const { handleSubmit, register } = useForm<FormInput>();
   const [total, setTotal] = useState(0);
   const [hasError, setHasError] = useState(false);
   const [hasSuccess, setHasSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
+  const { handleSubmit, register } = useForm<FormInput>();
+  const navigate = useNavigate();
   const { user } = useUser();
   const { isAuthenticated } = useSession();
-  const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
 
   useEffect(() => {
     if (cartProducts?.length) {
@@ -61,6 +62,7 @@ export const CheckoutForm = () => {
       handleModifyCartLS({} as Product, 'delete');
 
       setHasSuccess(true);
+      navigate('/orderSuccess');
     } catch (error) {
       setHasError(true);
     } finally {
@@ -69,12 +71,8 @@ export const CheckoutForm = () => {
   };
 
   return (
-    <>
-      {hasSuccess && (
-        <SuccessOrder />
-      )}
-
-      {!hasSuccess && !hasError && (
+    <Video>
+      {!hasSuccess && (
         <div
           onSubmit={handleSubmit(onSubmit)}
           className="checkout-form"
@@ -182,6 +180,6 @@ export const CheckoutForm = () => {
           )}
         </div>
       )}
-    </>
+    </Video>
   );
 };
