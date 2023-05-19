@@ -2,8 +2,11 @@ import { useContext } from 'react';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
 import './FavouritesPage.scss';
 import favicon from '../../assets/favourites-empty.png';
-import { BreadCrumbs, ProductsCatalog } from '../../components';
-import { EmptyModal } from '../../components/EmptyModal';
+import {
+  BreadCrumbs,
+  EmptyModal,
+  ProductsCatalog,
+} from '../../components';
 
 export const FavouritesPage = () => {
   const { favProducts } = useContext(FavLSUpdateContext);

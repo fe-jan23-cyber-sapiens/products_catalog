@@ -18,6 +18,7 @@ import {
 import { PATH } from './types/Path';
 import { RoutePath } from './RoutePath';
 import { CheckoutForm } from '../components';
+import { OrdersPage } from '../pages/OrdersPage/OrdersPage';
 import { SuccessOrderPage } from '../pages/SuccessOrderPage/SuccessOrderPage';
 
 export const routeConfig: Record<PATH, RouteProps> = {
@@ -89,6 +90,11 @@ export const routeConfig: Record<PATH, RouteProps> = {
   [PATH.Rights]: {
     path: RoutePath.rights,
     element: <Rights />,
+  },
+
+  [PATH.Orders]: {
+    path: RoutePath.orders,
+    element: <OrdersPage />,
   },
 
   [PATH.Success]: {

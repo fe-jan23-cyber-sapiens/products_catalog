@@ -1,5 +1,4 @@
-// eslint-disable-next-line max-len
-import { ParticialAnimation } from '../../components/ParticialAnimation/ParticialAnimation';
+import { ParticialAnimation } from '../../components';
 import './NotFoundPage.scss';
 
 export const NotFoundPage = () => {

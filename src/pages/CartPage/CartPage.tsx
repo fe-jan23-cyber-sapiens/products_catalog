@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import './CartPage.scss';
 import favicon from '../../assets/empty-cart.webp';
-import { Back, Card } from '../../components';
+import { Back, Card, EmptyModal } from '../../components';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
-import { EmptyModal } from '../../components/EmptyModal';
 
 export const CartPage = () => {
   const { cartProducts } = useContext(CartLSUpdateContext);

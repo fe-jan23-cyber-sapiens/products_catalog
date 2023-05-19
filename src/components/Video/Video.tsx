@@ -6,7 +6,7 @@ import {
   useRef,
 } from 'react';
 import './Video.scss';
-import volumeHigh from '../../assets/volumeHeigh.svg';
+import volumeHeigh from '../../assets/volumeHeigh.svg';
 import volumeXmark from '../../assets/volumeXmark.svg';
 import { VIDEO_PATH } from '../../utils/constants';
 
@@ -28,7 +28,7 @@ export const Video: FC<Props> = ({ children }) => {
 
   const correctIcon = !toggle
     ? volumeXmark
-    : volumeHigh;
+    : volumeHeigh;
 
   const handleToggleMute = () => {
     setToggle(prevState => !prevState);

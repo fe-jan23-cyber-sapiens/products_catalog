@@ -14,4 +14,5 @@ export enum PATH {
   Contacts = 'contacts',
   Rights = 'rights',
   Success = 'successOrder',
+  Orders = 'orders',
 }
