@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import './CardImages.scss';
 import { Modal } from '../../Modal';
 import { useModal } from '../../../hooks/useModal';
-import { ProductPageImage } from '../../../pages/ProductPageImage';
+import { ProductPageImage } from '../../../pages';
 
 interface Props {
   images: string[],

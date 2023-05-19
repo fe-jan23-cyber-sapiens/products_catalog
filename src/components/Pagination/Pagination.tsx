@@ -1,12 +1,12 @@
 import { FC, useContext, useRef } from 'react';
 import classNames from 'classnames';
-import { getCurrentImage, getNumbers } from '../../utils/utils';
 import './Pagination.scss';
 import arrowRight from '../../assets/arrows/arrowRight.svg';
 import arrowRightDark from '../../assets/arrows/arrowRightDark.svg';
 import arrowLeft from '../../assets/arrows/arrowLeft.svg';
 import arrowLeftDark from '../../assets/arrows/arrowLeftDark.svg';
 import { ThemeContext } from '../../context/ThemeContext';
+import { getCurrentImage, getNumbers } from '../../utils/helper';
 
 interface PaginationProps {
   total: number,

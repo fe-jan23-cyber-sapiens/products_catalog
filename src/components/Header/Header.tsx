@@ -11,12 +11,12 @@ import * as images from '../../assets';
 import './Header.scss';
 import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { FavLSUpdateContext } from '../../context/FavLSUpdateContext';
-import { AuthComponent } from '../AuthComponent/AuthComponent';
 import { Modal } from '../Modal';
 import { useModal } from '../../hooks/useModal';
+import { AuthComponent } from '../AuthComponent';
 
 interface HeaderProps {
   onThemeChange: () => void;

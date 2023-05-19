@@ -7,7 +7,7 @@ import { RoutePath } from '../../routes/RoutePath';
 import { ThemeContext } from '../../context/ThemeContext';
 import { THEME_DARK } from '../../utils/constants';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 
 interface Props {
   isOpen: boolean,

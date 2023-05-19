@@ -7,7 +7,7 @@ import {
 import './ButtonScrollTop.scss';
 import classNames from 'classnames';
 import * as images from '../../assets';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export const ButtonScrollTop: FC = () => {

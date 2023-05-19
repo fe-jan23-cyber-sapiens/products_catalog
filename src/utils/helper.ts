@@ -1,4 +1,5 @@
 import { Product } from './typedefs';
+import { THEME_LIGHT } from './constants';
 
 export const findProducts = (products: Product[], text: string) => {
   return products.filter(
@@ -28,4 +29,24 @@ export const getSortedBy = (
     default:
       return phones;
   }
+};
+
+export function getNumbers(from: number, to: number): number[] {
+  const numbers = [];
+
+  for (let n = from; n <= to; n += 1) {
+    numbers.push(n);
+  }
+
+  return numbers;
+}
+
+export const getCurrentImage = (
+  currentTheme: string,
+  lightThemeImg: string,
+  darkThemeImg: string,
+) => {
+  return currentTheme === THEME_LIGHT
+    ? lightThemeImg
+    : darkThemeImg;
 };
