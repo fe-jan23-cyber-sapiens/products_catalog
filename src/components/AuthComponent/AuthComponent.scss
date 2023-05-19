@@ -6,7 +6,8 @@
 }
 
 .auth {
-  width: 25vh;
+  width: max-content;
+  padding: 15px;
   height: 25vh;
   display: flex;
   flex-direction: column;
