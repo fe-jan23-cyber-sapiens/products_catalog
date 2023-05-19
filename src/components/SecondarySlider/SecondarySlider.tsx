@@ -1,5 +1,5 @@
 import {
-  FC, useCallback, useContext, useEffect, useState,
+  FC, useContext, useEffect, useState,
 } from 'react';
 import classnames from 'classnames';
 
@@ -73,15 +73,15 @@ export const SecondarySlider: FC<Props> = ({
     getProducts();
   }, []);
 
-  const handleReachEnd = useCallback(() => {
+  const handleReachEnd = () => {
     setIsEnd(true);
-  }, []);
+  };
 
-  const handleReachStart = useCallback(() => {
+  const handleReachStart = () => {
     setIsStart(true);
-  }, []);
+  };
 
-  const handleSlidesChange = useCallback(() => {
+  const handleSlidesChange = () => {
     if (isStart) {
       setIsStart(false);
     }
@@ -89,7 +89,7 @@ export const SecondarySlider: FC<Props> = ({
     if (isEnd) {
       setIsEnd(false);
     }
-  }, []);
+  };
 
   const isThemeDark = theme === THEME_DARK;
 
