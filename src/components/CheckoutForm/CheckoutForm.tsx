@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useUser } from '@descope/react-sdk';

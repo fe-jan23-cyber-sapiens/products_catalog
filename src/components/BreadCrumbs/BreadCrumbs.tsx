@@ -14,7 +14,7 @@ import home_dark from '../../assets/arrows/home_dark.svg';
 import arrowRight from '../../assets/arrows/arrowRight_.svg';
 import arrowRight_dark from '../../assets/arrows/arrowRight_dark.svg';
 import { ThemeContext } from '../../context/ThemeContext';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import { RoutePath } from '../../routes/RoutePath';
 
 export const BreadCrumbs: FC = memo(() => {

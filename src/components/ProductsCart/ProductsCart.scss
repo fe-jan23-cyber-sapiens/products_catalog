@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 @import '../../styles/_reset';
 @import '../../styles/scss_utils/vars';
 
@@ -11,7 +11,7 @@
   height: 164px;
   gap: 16px;
   padding: 16px;
-  
+
   border: 1px solid var(--elements);
 
   @include onTablet {
@@ -20,7 +20,7 @@
 
     padding: 24px;
     gap: 24px;
-  
+
     &:last-child {
       margin-bottom: 20px;
     }

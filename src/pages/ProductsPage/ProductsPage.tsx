@@ -1,22 +1,25 @@
 import { FC, useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import {
+  BreadCrumbs,
+  CustomDropdown,
+  Pagination,
+  ProductsCatalog,
+  Search,
+} from '../../components';
 import { Product } from '../../utils/typedefs';
+
 import {
   itemsPerPageOptions, pageByDefault, sortOptions, THEME_LIGHT,
 } from '../../utils/constants';
-
 import './ProductsPage.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import notfound from '../../assets/gifs/output-onlinegiftools.gif';
 
+import notfound from '../../assets/gifs/output-onlinegiftools.gif';
 import { usePagination } from '../../hooks/usePagination';
 import { useProducts } from './useProducts';
-import {
-  BreadCrumbs, CustomDropdown, Pagination, ProductsCatalog,
-} from '../../components';
 import { ThemeContext } from '../../context/ThemeContext';
-import { Search } from '../../components/SearchComponent/Search';
 
 interface Props {
   title: string,

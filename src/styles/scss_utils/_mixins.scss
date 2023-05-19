@@ -18,32 +18,6 @@
   }
 }
 
-%h3_desktop-tablet {
-  font-family: "Mont", sans-serif;
-  font-size: 22px;
-  line-height: 140%;
-}
-
-%smallText_desktop-tablet {
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 15px;
-}
-
-%card-text {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-}
-
-%page-params {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 16px;
-  max-width: 1200px;
-}
-
 @mixin sliderFullScreenParams {
   width: 1136px;
   max-height: 400px;

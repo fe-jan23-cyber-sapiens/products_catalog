@@ -7,8 +7,9 @@ export const Rights: FC = () => (
   <div className="rights">
     <a href="https://git.io/typing-svg">
       <img
-        // eslint-disable-next-line max-len
-        src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=75&pause=1000&repeat=false&width=700&height=130&lines=Cyber+Sapiens+%F0%9F%94%A5"
+        src={'https://readme-typing-svg.demolab.com'
+          + '?font=Fira+Code&weight=700&size=75&pause=1000&repeat=false&'
+          + 'width=700&height=130&lines=Cyber+Sapiens+%F0%9F%94%A5'}
         alt="Typing SVG"
         className="rights__logo"
       />
@@ -64,8 +65,8 @@ export const Rights: FC = () => (
     <h3 className="rights__title">Glory to Ukraine!</h3>
 
     <img
-      // eslint-disable-next-line max-len
-      src="https://user-images.githubusercontent.com/91826635/180657972-20a1444b-d558-4823-8b13-99419fdef67b.png"
+      src={'https://user-images.githubusercontent.com'
+        + '/91826635/180657972-20a1444b-d558-4823-8b13-99419fdef67b.png'}
       alt="glory to Ukraine"
     />
   </div>

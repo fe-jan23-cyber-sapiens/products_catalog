@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import arrowDown from '../../assets/arrows/arrowDown.svg';
 import arrowDown_dark from '../../assets/arrows/arrowDown_dark.svg';
 import { ThemeContext } from '../../context/ThemeContext';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 
 interface DropdownProps {
   title?: string,

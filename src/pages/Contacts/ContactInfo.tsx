@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import './Contacts.scss';
 import { Link } from 'react-router-dom';
 import { Mate } from '../../utils/typedefs';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import * as images from '../../assets';
 import { ThemeContext } from '../../context/ThemeContext';
 
