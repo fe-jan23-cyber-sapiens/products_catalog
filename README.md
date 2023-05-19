@@ -54,8 +54,10 @@
   <li>React Router Dom</li>
   <li>SASS</li>
   <li>Classnames</li>
-  <li>Butstrap</li>
+  <li>Bootstrap</li>
   <li>Swiper</li>
+  <li>React-Hook-Form</li>
+  <li>Descope</li>
 </ul>
 
 <h2>Installation</h2>
