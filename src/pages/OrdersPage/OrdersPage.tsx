@@ -48,7 +48,7 @@ export const OrdersPage = () => {
 
   useEffect(() => {
     getOrders();
-  }, []);
+  }, [user]);
 
   return (
     <div className="ordersPage">
