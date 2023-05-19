@@ -6,7 +6,7 @@ import './Footer.scss';
 import { THEME_DARK } from '../../utils/constants';
 import { ThemeContext } from '../../context/ThemeContext';
 import { RoutePath } from '../../routes/RoutePath';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon';
 
 export const Footer: FC = () => {

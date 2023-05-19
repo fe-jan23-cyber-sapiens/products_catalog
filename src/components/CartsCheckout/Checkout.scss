@@ -1,6 +1,6 @@
 @import '../../styles/scss_utils/vars';
 @import '../../styles/_reset';
-@import '../../styles/mixins';
+@import '../../styles/scss_utils/mixins';
 
 .checkout {
   display: flex;
@@ -53,7 +53,6 @@
   overflow: hidden;
 
   text-transform: uppercase;
-  text-decoration: none;
 
   &:hover {
     color: var(--white);

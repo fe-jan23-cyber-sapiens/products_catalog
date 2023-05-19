@@ -6,7 +6,7 @@ import {
 import arrowLeft from '../../assets/arrows/arrowLeft.svg';
 import arrowLeft_dark from '../../assets/arrows/arrowLeft_dark.svg';
 import './Back.scss';
-import { getCurrentImage } from '../../utils/utils';
+import { getCurrentImage } from '../../utils/helper';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export const Back: FC = memo(() => {

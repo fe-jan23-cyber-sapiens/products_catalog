@@ -63,4 +63,5 @@ export interface Order {
   email: string,
   phone: string,
   products: ProductWithCount[],
+  createdAt?: string,
 }

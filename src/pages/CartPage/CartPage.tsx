@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import './CartPage.scss';
-import { Back, Card } from '../../components';
+import favicon from '../../assets/empty-cart.webp';
+import { Back, Card, EmptyModal } from '../../components';
+import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 
 export const CartPage = () => {
+  const { cartProducts } = useContext(CartLSUpdateContext);
+
   return (
     <main className="cartPage">
       <div className="cartPage__top">
@@ -12,7 +17,11 @@ export const CartPage = () => {
         </h1>
       </div>
 
-      <Card />
+      {cartProducts.length ? (
+        <Card />
+      ) : (
+        <EmptyModal type="cart" image={favicon} />
+      )}
     </main>
   );
 };

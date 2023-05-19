@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useUser } from '@descope/react-sdk';
 import './CheckoutForm.scss';
+import Spinner from 'react-bootstrap/Spinner';
 import { CartLSUpdateContext } from '../../context/CartLSUpdateContext';
 import { getTotalSum } from '../../utils/getTotalSum';
 import { Product } from '../../utils/typedefs';
@@ -21,6 +21,7 @@ export const CheckoutForm = () => {
   const [total, setTotal] = useState(0);
   const [hasError, setHasError] = useState(false);
   const [hasSuccess, setHasSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
   const { cartProducts, handleModifyCartLS } = useContext(CartLSUpdateContext);
 
@@ -35,6 +36,8 @@ export const CheckoutForm = () => {
   }, [cartProducts]);
 
   const onSubmit = async (userData: FormInput) => {
+    setIsLoading(true);
+
     try {
       if (!cartProducts.length) {
         return;
@@ -55,6 +58,8 @@ export const CheckoutForm = () => {
       setHasSuccess(true);
     } catch (error) {
       setHasError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -64,8 +69,7 @@ export const CheckoutForm = () => {
         <SuccessOrder />
       )}
 
-      {!hasSuccess && (
-
+      {!hasSuccess && !hasError && (
         <div
           onSubmit={handleSubmit(onSubmit)}
           className="checkout-form"
@@ -132,7 +136,13 @@ export const CheckoutForm = () => {
               type="submit"
               className="checkout-form__button"
             >
-              Submit order
+              {isLoading
+                ? (
+                  <Spinner style={{ maxHeight: '14px', maxWidth: '14px' }} />
+                )
+                : (
+                  'Submit order'
+                )}
             </button>
           </form>
 

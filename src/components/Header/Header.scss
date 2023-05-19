@@ -61,11 +61,21 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
+
+        @include onLaptop {
+          width: 30px;
+          height: 30px;
+        }
       }
 
       &__auth-button {
+        padding: 11.5px;
         border: none;
         background-color: var(--bg);
+
+        @include onLaptop {
+          padding: 17px;
+        }
       }
 
     @include onLaptop {
