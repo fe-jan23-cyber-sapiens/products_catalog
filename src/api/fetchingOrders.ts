@@ -24,6 +24,7 @@ function request<T>(url: string, method: string, body?: any): Promise<T> {
 export default {
   getAll: () => request<Order[]>('/orders', 'GET'),
   getById: (orderId: number) => request<Order>(`/orders/${orderId}`, 'GET'),
+  getUserOrders: (userId: string) => request<Order[]>(`/orders?userId=${userId}`, 'GET'),
   create: (order: Order) => request<Order>('/orders', 'POST', order),
   remove: (orderId: number) => request<Order>(`/orders/${orderId}`, 'DELETE'),
 };
