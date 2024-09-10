@@ -24,8 +24,8 @@
 .card {
     border: 1px solid var(--elements);
     background-color: var(--bg);
-    gap: 20px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 10px;
     transition: transform 0.3s;
 
     &:hover {
@@ -53,9 +53,9 @@
     }
 }
 
-
 .our-team {
     text-align: center;
+    padding: 15px 0 0;
 
     &__title {
         position: relative;

@@ -17,11 +17,15 @@ export { default as linkedin_logo_dark } from './logos/linkedin_dark.svg';
 export { default as phone_logo } from './logos/phone.svg';
 export { default as phone_logo_dark } from './logos/phone_dark.svg';
 
+export { default as dev } from './coding.png';
+
 export { default as arrow_up } from './arrows/arrow_up.svg';
 export { default as arrow_up_dark } from './arrows/arrow_up_dark.svg';
 
 export { default as user_circle } from './logos/user-circle.svg';
 export { default as user_circle_dark } from './logos/user-circle_dark.svg';
 
-export { default as mainVideo } from './video/mainVideo.mp4';
-export { default as bigMain } from './video/bigMain.mp4';
+export { default as ipad } from './video/large_2x (1).mp4';
+export { default as watch } from './video/large_2xWatch.mp4';
+export { default as appleLogo } from './video/appleLogo.mp4';
+export { default as promo } from './video/xlarge_2x.mp4';

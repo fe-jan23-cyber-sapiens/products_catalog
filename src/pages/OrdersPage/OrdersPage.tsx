@@ -11,8 +11,7 @@ import hands from '../../assets/sticker.webp';
 import empty from '../../assets/empty-cart.webp';
 
 import { OrderCard } from '../../components/OrderCard/OrderCard';
-import { EmptyModal } from '../../components/EmptyModal';
-import { Back, BreadCrumbs } from '../../components';
+import { Back, BreadCrumbs, EmptyModal } from '../../components';
 import { Order, ProductWithCount } from '../../utils/typedefs';
 
 export const OrdersPage = () => {
