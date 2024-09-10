@@ -9,19 +9,21 @@ export const CartPage = () => {
 
   return (
     <main className="cartPage">
-      <div className="cartPage__top">
-        <Back />
+      <div className="cartPage__content">
+        <div className="cartPage__top">
+          <Back />
 
-        <h1 className="cartPage__title">
-          Cart
-        </h1>
+          <h1 className="cartPage__title">
+            Cart
+          </h1>
+        </div>
+
+        {cartProducts.length ? (
+          <Card />
+        ) : (
+          <EmptyModal type="cart" image={favicon} />
+        )}
       </div>
-
-      {cartProducts.length ? (
-        <Card />
-      ) : (
-        <EmptyModal type="cart" image={favicon} />
-      )}
     </main>
   );
 };

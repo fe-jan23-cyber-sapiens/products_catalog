@@ -7,6 +7,12 @@
   max-width: 1200px;
   height: calc(100vh - $footer-height-l - $header-height-l);
 
+  &__content {
+    height: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+  }
+
   @include onTablet {
     padding: 24px;
   }
