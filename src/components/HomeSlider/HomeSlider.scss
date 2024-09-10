@@ -13,6 +13,10 @@
     margin: 0 auto;
     width: 70%;
     height: 100%;
+
+    &--smaller {
+      height: 80%;
+    }
   }
 
   &__image-wrapper {
@@ -55,7 +59,7 @@
 
     &__video {
       width: 1136px;
-      height: 320px;
+      //height: 320px;
     }
 
     &__image-wrapper {
@@ -79,12 +83,6 @@
 
     &--main {
       background-image: url('../../assets/sliderImages/main_banner_sm.png');
-    }
-
-    &--second {
-      background-image: url('../../assets/second_banner.png');
-      background-position: center;
-      background-size: contain;
     }
 
     @include onTablet {

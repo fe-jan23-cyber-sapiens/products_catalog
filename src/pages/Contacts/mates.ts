@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+import * as images from '../../assets';
+
 export const mates = [
   {
     name: 'Lilia Obushenko',
@@ -21,8 +23,7 @@ export const mates = [
   {
     name: 'Yevhenii Leichenko',
     text: 'Full-stack developer',
-    imgURL:
-      'https://media.licdn.com/dms/image/D4E03AQFtz4xLwvhSzw/profile-displayphoto-shrink_800_800/0/1682412312415?e=1689206400&v=beta&t=fqf7qSStvumPL_Yjrx8a_lbs1kwxMe-zehpPznlPOOc',
+    imgURL: images.dev,
     liURL: 'https://www.linkedin.com/in/yevhenii-leichenko-fullstack/',
     ghURL: 'https://github.com/Yevhenii0536',
     phone: '+380990100072',
@@ -31,8 +32,7 @@ export const mates = [
   {
     name: 'Dmytro Kukharchuk',
     text: 'Full-stack developer',
-    imgURL:
-      'https://media.licdn.com/dms/image/D4D03AQFVwxFiIXIvIg/profile-displayphoto-shrink_800_800/0/1682373283467?e=1689206400&v=beta&t=_USpgmQpDXMGWLhLHUJAv_uIHkN34o8eRXZshb52cgw',
+    imgURL: images.dev,
     liURL: 'https://www.linkedin.com/in/dmytro-kukharchuk-fullstack',
     ghURL: 'https://www.github.com/KuharchukDmytro',
     phone: '+380977019809',
@@ -41,8 +41,7 @@ export const mates = [
   {
     name: 'Denys Dubas',
     text: 'Full-stack developer',
-    imgURL:
-      'https://media.licdn.com/dms/image/D4E03AQEtOjuVK9En6Q/profile-displayphoto-shrink_800_800/0/1682348352095?e=1689206400&v=beta&t=ysNt9h8l4ivg97R2VEede9FrYbmFRufPA51MalaO4LM',
+    imgURL: images.dev,
     liURL: 'https://www.linkedin.com/in/denys-dubas-fullstack-develop/',
     ghURL: 'https://www.github.com/DenysDubas',
     phone: '',
@@ -51,8 +50,7 @@ export const mates = [
   {
     name: 'Kateryna Savelyeva',
     text: 'Full-stack developer',
-    imgURL:
-      'https://media.licdn.com/dms/image/D4E03AQFtd95Hcrn_jg/profile-displayphoto-shrink_800_800/0/1684182881604?e=1689811200&v=beta&t=y_gkBOkxBEtqemBfaauUYOKTs2TwpJ0gd6gPl9LXIZA',
+    imgURL: images.dev,
     liURL: 'https://www.linkedin.com/in/kateryna-savelyeva/',
     ghURL: 'https://github.com/ksavelyeva',
     phone: '',

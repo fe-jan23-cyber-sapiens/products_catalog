@@ -5,11 +5,11 @@
   position: relative;
   width: 100vw;
   height: $page-height;
-  
+
   @include onLaptop {
     height: $page-height-l;
   }
-  
+
   &-icon {
     position: absolute;
     display: none;
@@ -23,7 +23,7 @@
       display: block;
     }
   }
-  
+
   &--halfTransparent {
     position: absolute;
     display: none;
@@ -34,7 +34,7 @@
     @include onTablet {
       display: block;
     }
-    
+
     @include onLaptop {
       height: $page-height-l;
     }
@@ -59,13 +59,13 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(15, 17, 33, 0.9);
+  background-color: rgba(15, 17, 33, 0.2);
   z-index: 10;
-  
+
   @include onTablet {
     width: 400px;
     height: max-content;
-    
+
     top: 50%;
     transform: translate(80px, -50%);
   }

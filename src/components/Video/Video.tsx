@@ -1,21 +1,17 @@
 import {
   FC,
-  useState,
   ReactNode,
   useEffect,
   useRef,
 } from 'react';
 import './Video.scss';
-import volumeHeigh from '../../assets/volumeHeigh.svg';
-import volumeXmark from '../../assets/volumeXmark.svg';
-import { VIDEO_PATH } from '../../utils/constants';
+import * as videos from '../../assets';
 
 interface Props {
   children: ReactNode,
 }
 
 export const Video: FC<Props> = ({ children }) => {
-  const [toggle, setToggle] = useState(false);
   const video = useRef<HTMLVideoElement>();
 
   useEffect(() => {
@@ -26,23 +22,9 @@ export const Video: FC<Props> = ({ children }) => {
     }
   }, []);
 
-  const correctIcon = !toggle
-    ? volumeXmark
-    : volumeHeigh;
-
-  const handleToggleMute = () => {
-    setToggle(prevState => !prevState);
-  };
-
   return (
     <>
       <div className="video__wrapper">
-        <img
-          className="video__wrapper-icon"
-          src={correctIcon}
-          alt="Mute & unmute icons"
-          onClick={handleToggleMute}
-        />
 
         <div className="video__wrapper--halfTransparent" />
 
@@ -51,10 +33,9 @@ export const Video: FC<Props> = ({ children }) => {
         </div>
 
         <video
-          src={VIDEO_PATH}
+          src={videos.promo}
           className="video__content"
           autoPlay
-          muted={!toggle}
           loop
         />
       </div>
