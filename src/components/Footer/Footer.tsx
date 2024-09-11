@@ -8,6 +8,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { RoutePath } from '../../routes/RoutePath';
 import { getCurrentImage } from '../../utils/helper';
 import { HeaderLinkWithIcon } from '../HeaderLinkWithIcon';
+import { companyInfo, LinkType } from './companyInfo';
 
 export const Footer: FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -33,35 +34,30 @@ export const Footer: FC = () => {
       />
 
       <ul className="footer-nav">
-        <li className="footer-nav__item">
-          <Link
-            target="_blank"
-            className="footer-nav__link"
-            to="https://github.com/fe-jan23-cyber-sapiens"
-          >
-            Github
-          </Link>
-        </li>
-
-        <li className="footer-nav__item">
-          <Link
-            className="footer-nav__link"
-            to={RoutePath.contacts}
-            onClick={handleScrollToTop}
-          >
-            Contacts
-          </Link>
-        </li>
-
-        <li className="footer-nav__item">
-          <Link
-            className="footer-nav__link"
-            to={RoutePath.rights}
-            onClick={handleScrollToTop}
-          >
-            Rights
-          </Link>
-        </li>
+        {companyInfo.map(({
+          link,
+          title,
+          type,
+        }) => (
+          <li className="footer-nav__item">
+            <Link
+              target={
+                type === LinkType.LINK
+                  ? '_blank'
+                  : ''
+              }
+              className="footer-nav__link"
+              to={link}
+              onClick={
+                type === LinkType.BUTTON
+                  ? handleScrollToTop
+                  : undefined
+              }
+            >
+              {title}
+            </Link>
+          </li>
+        ))}
       </ul>
 
       <div className="footer--back">
