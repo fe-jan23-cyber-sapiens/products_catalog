@@ -13,7 +13,7 @@
   border-top: 1px solid var(--elements);
   background-color: var(--bg);
 
-  @media (min-width: 320px) and (max-width: 639px) {
+  @media (min-width: 240px) and (max-width: 639px) {
     position: relative;
     bottom: 1px;
     top: 0;
@@ -21,15 +21,20 @@
     right: 0;
 
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
     height: 257px;
     padding: 16px;
+
   }
 
   @media (min-width: 640px) and (max-width: 1200px) {
     justify-content: space-between;
     padding: 32px;
+  }
+
+  &__logo-wrapper {
+    margin-left: -16px;
   }
 
   &--back {
@@ -45,14 +50,14 @@
     text-align: right;
     color: var(--secondary);
 
-    @media (min-width: 320px) and (max-width: 639px) {
+    @media (min-width: 240px) and (max-width: 639px) {
       margin: 0 auto;
     }
 
     &__link {
       width: 32px;
       height: 32px;
-      margin: 16px;
+      margin-left: 16px;
 
       background-image: url('../../assets/arrows/arrow_up.svg');
       background-color: var(--item-hover2);
@@ -82,10 +87,11 @@
 
     list-style: none;
 
-    @media (min-width: 320px) and (max-width: 639px) {
-      margin-left: 16px;
+    @media (min-width: 240px) and (max-width: 639px) {
+      padding: 0;
+      text-align: center;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     @media (min-width: 640px) and (max-width: 1200px) {
@@ -110,7 +116,7 @@
     }
 
     &__item {
-      @media (min-width: 320px) and (max-width: 639px) {
+      @media (min-width: 240px) and (max-width: 639px) {
         margin-top: 16px;
       }
     }

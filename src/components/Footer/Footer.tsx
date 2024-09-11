@@ -26,12 +26,14 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <HeaderLinkWithIcon
-        path={RoutePath.main}
-        imageSrc={currentLogo}
-        alt="Main logo of Nice Gadgets"
-        className="header__link header__link--main-logo"
-      />
+      <div className="footer__logo-wrapper">
+        <HeaderLinkWithIcon
+          path={RoutePath.main}
+          imageSrc={currentLogo}
+          alt="Main logo of Nice Gadgets"
+          className="header__link header__link--main-logo"
+        />
+      </div>
 
       <ul className="footer-nav">
         {companyInfo.map(({
