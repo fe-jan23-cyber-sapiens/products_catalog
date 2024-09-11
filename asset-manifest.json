@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/products_catalog/static/css/main.bb98317c.css",
-    "main.js": "/products_catalog/static/js/main.2e52a4e4.js",
+    "main.css": "/products_catalog/static/css/main.296f3cc3.css",
+    "main.js": "/products_catalog/static/js/main.20e2e26d.js",
     "static/js/669.aba0dbb3.chunk.js": "/products_catalog/static/js/669.aba0dbb3.chunk.js",
     "static/js/787.81037485.chunk.js": "/products_catalog/static/js/787.81037485.chunk.js",
     "static/js/229.3434ddc7.chunk.js": "/products_catalog/static/js/229.3434ddc7.chunk.js",
@@ -64,14 +64,14 @@
     "static/media/arrowRight_dark.svg": "/products_catalog/static/media/arrowRight_dark.c9171b88f2b5c91378fd891a0ea3fe83.svg",
     "static/media/arrowDown.svg": "/products_catalog/static/media/arrowDown.98c9dd6d98b47f2f1977e301cf0fa429.svg",
     "static/media/arrowDown_dark.svg": "/products_catalog/static/media/arrowDown_dark.9a6321b1ecba83d4a9626ae65cab63a8.svg",
-    "main.bb98317c.css.map": "/products_catalog/static/css/main.bb98317c.css.map",
-    "main.2e52a4e4.js.map": "/products_catalog/static/js/main.2e52a4e4.js.map",
+    "main.296f3cc3.css.map": "/products_catalog/static/css/main.296f3cc3.css.map",
+    "main.20e2e26d.js.map": "/products_catalog/static/js/main.20e2e26d.js.map",
     "669.aba0dbb3.chunk.js.map": "/products_catalog/static/js/669.aba0dbb3.chunk.js.map",
     "787.81037485.chunk.js.map": "/products_catalog/static/js/787.81037485.chunk.js.map",
     "229.3434ddc7.chunk.js.map": "/products_catalog/static/js/229.3434ddc7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb98317c.css",
-    "static/js/main.2e52a4e4.js"
+    "static/css/main.296f3cc3.css",
+    "static/js/main.20e2e26d.js"
   ]
 }
