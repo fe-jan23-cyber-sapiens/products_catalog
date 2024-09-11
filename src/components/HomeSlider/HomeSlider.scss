@@ -15,7 +15,17 @@
     height: 100%;
 
     &--smaller {
-      height: 80%;
+      position: relative;
+      bottom: -100px;
+
+      @include onTablet {
+        height: 70%;
+        bottom: -90px;
+      }
+
+      @include onLaptop {
+        bottom: 0
+      }
     }
   }
 
